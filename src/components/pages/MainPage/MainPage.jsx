@@ -1,14 +1,11 @@
 import classNames from 'classnames/bind';
 import React from 'react';
 
-import styles from './Home.module.scss';
-
-type HomeProps = {
-  children?: React.ReactNode};
+import styles from './MainPage.module.scss';
 
 const cn = classNames.bind(styles);
 
-const MainPage = ({children}: HomeProps) => {
+const MainPage = ({children}) => {
     return <div>
         {children}
         <div>

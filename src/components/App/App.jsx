@@ -1,12 +1,11 @@
-import { Header } from '../global/Header';
-// import { Button } from '../ui/Button';
+import React from 'react';
+import { Header } from '../global/Header/index';
+import { Button } from '../ui/Button';
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Loader } from '../global/Loader';
 import NotFound from '../pages/NotFound/NotFound';
 import appRoutes from '../config/routes';
-
-
 
 
 function App() {

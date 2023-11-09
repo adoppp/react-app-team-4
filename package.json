@@ -14,14 +14,6 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@reduxjs/toolkit": "^1.9.7",
-    "@types/axios": "^0.14.0",
-    "@types/classnames": "^2.3.1",
-    "@types/node": "^16.18.58",
-    "@types/react": "^18.2.25",
-    "@types/react-dom": "^18.2.11",
-    "@types/react-redux": "^7.1.27",
-    "@types/react-router-dom": "^5.3.3",
-    "@types/sass": "^1.45.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
     "axios": "^1.6.1",
     "classnames": "^2.3.2",
@@ -35,7 +27,6 @@
     "react-router-dom": "^6.15.0",
     "sass": "^1.69.5",
     "styled-components": "^6.0.7",
-    "typescript": "^4.9.5",
     "vite-plugin-svgr": "^3.2.0"
   },
   "devDependencies": {
@@ -56,7 +47,7 @@
     "vite": "^4.4.5"
   },
   "lint-staged": {
-    "*.{ts,tsx}": "eslint --cache --fix",
+    "*.{js,jsx}": "eslint --cache --fix",
     "*./src": "prettier --write"
   }
 }

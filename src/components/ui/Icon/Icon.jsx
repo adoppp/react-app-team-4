@@ -1,8 +1,8 @@
+import React from 'react';
 import sprite from '../../../assets/sprites.svg';
-import { iconTypes, iconSize } from '../../../types/icon.types';
 
 
-const Icon = <T, B extends iconSize>({ iconId, w, h, customStyles}: iconTypes<T, B>) => {
+const Icon = ({ iconId, w, h, customStyles}) => {
     return (
         <svg
             width={w}

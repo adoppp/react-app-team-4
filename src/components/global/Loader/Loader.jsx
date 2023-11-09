@@ -1,10 +1,7 @@
-import { FC, ReactElement } from 'react';
 import classNames from 'classnames/bind';
 import { Vortex } from 'react-loader-spinner';
 
-
 import styles from './Loader.module.scss';
-import { LoaderProps } from '../../../types/loader.types';
 
 const cn = classNames.bind(styles);
 

@@ -1,12 +1,7 @@
-import { ReactElement, lazy } from 'react';
+import { lazy } from 'react';
 
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
 import { Welcome } from '../Welcome';
-
-type Route = {
-  path: string;
-  element: ReactElement;
-};
 
 const routes = {
   MAIN_ROUTE: '/',
@@ -20,7 +15,7 @@ const routes = {
 };
 
 
-const appRoutes: Route[] = [
+const appRoutes = [
   {
     path: routes.MAIN_ROUTE,
     element: <MainPage />,
