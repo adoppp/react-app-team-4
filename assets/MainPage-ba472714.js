@@ -1,1 +1,0 @@
-import{c as e,j as s}from"./index-f187d32d.js";const n={};e.bind(n);const d=({children:i})=>s.jsxs("div",{children:[i,s.jsx("div",{children:s.jsxs("p",{children:["350+ ",s.jsx("span",{children:"Video tutorial"})]})}),s.jsx("div",{children:s.jsxs("p",{children:["500 ",s.jsx("span",{children:"cal"})]})})]});export{d as default};
