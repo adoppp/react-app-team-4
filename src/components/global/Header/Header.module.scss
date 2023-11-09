@@ -1,4 +1,5 @@
 @import '../../../scss/mixins';
+@import '../../../scss/colors';
 
 .header__container {
     @include container();
@@ -11,5 +12,24 @@
     & span {
         font-size: 16px;
         font-weight: 600;
+    }
+
+    
+    & a span {
+        color: $snow-white;
+        @include transition();
+    }
+    
+    & a use {
+        fill: $christmas-main-orange;
+        @include transition();
+    }
+
+    & a:hover span {
+        color: $snow-alpha-white;
+    }
+
+    & a:hover use {
+        fill: $snow-alpha-white;
     }
 }

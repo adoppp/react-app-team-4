@@ -14,7 +14,13 @@ function App() {
       <Button
         label="test"
         action={() => { console.log('click') }}
-        isGray={true}
+        buttonStyles={'gray'}
+        customContainerStyles={{marginRight: '12px'}}
+      />
+      <Button
+        label="test"
+        action={() => { console.log('click') }}
+        buttonStyles={'orange'}
       />
     </div>
   );

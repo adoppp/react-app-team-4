@@ -9,13 +9,13 @@ const cn = classNames.bind(styles);
 
 const Button: FC<ButtonProps> = ({
     label,
-    isGray,
+    buttonStyles,
     action,
     customContainerStyles
 }): ReactElement  => {
     return (
         <button
-            className={cn('button', { gray: isGray })}
+            className={cn('button', { [`${buttonStyles}`]: buttonStyles })}
             onClick={action}
             style={customContainerStyles ? customContainerStyles : {}}
         >
