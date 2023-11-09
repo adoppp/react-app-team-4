@@ -1,8 +1,10 @@
 import { CSSProperties } from 'react';
 
+type buttonSchema = 'gray' | 'orange';
+
 export type ButtonProps = {
     label: string;
-    isGray?: boolean;
+    buttonStyles?: buttonSchema;
     action: (event: React.MouseEvent<HTMLButtonElement>) => void;
     customContainerStyles?: CSSProperties;
 };
