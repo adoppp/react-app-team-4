@@ -33,3 +33,13 @@
         border-color: $christmas-main-orange;
     }
 }
+
+.orange {
+    border: 1px solid $snow-alpha-white;
+
+    &:active {
+        background-color: $christmas-main-orange;
+        
+        border-color: $snow-white;
+    }
+}

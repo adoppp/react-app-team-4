@@ -22,18 +22,22 @@ function App() {
           </Routes>
         </Suspense>
       </main>
-      
-{/* 
       <Button
-        label='test'
+        label="test"
         action={() => { console.log('click') }}
         customContainerStyles={{marginRight: '12px'}}
       />
       <Button
-        label='test'
+        label="test"
         action={() => { console.log('click') }}
-        isGray={true}
-      /> */}
+        buttonStyles={'gray'}
+        customContainerStyles={{marginRight: '12px'}}
+      />
+      <Button
+        label="test"
+        action={() => { console.log('click') }}
+        buttonStyles={'orange'}
+      />
     </div>
   );
 };
