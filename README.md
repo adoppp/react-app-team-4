@@ -45,7 +45,8 @@ styles/component_name
 ```
 
 ```
-3. В каждом компоненте кроме страниц(pages) делать экпорт как в App, Button и Header. Через index.ts 'import *(all) from '/component_name''
+3. В каждом компоненте кроме страниц(pages) делать экпорт как в App, Button и Header.
+   Через index.ts 'import *(all) from '/component_name''.
    Если же это страница, пишем внизу 'export default component_name' и все(чтобы работал lazy loading);
 ```
 
