@@ -1,8 +1,7 @@
 import React from 'react';
-import { Header } from '../global/Header/index';
-import { Button } from '../ui/Button';
+import { Header } from '../global/Header/index';;
 import { Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Link } from 'react-router-dom';
 import { Loader } from '../global/Loader';
 import NotFound from '../pages/NotFound/NotFound';
 
@@ -14,6 +13,32 @@ function App() {
   return (
     <div>
       <Header />
+      <ul>
+        <li>
+          <Link to='/welcome'>welcome</Link>
+        </li>
+        <li>
+          <Link to='/signup'>signup</Link>
+        </li>
+        <li>
+          <Link to='/signin'>signin</Link>
+        </li>
+        <li>
+          <Link to='/profile'>profile</Link>
+        </li>
+        <li>
+          <Link to='/diary'>diary</Link>
+        </li>
+        <li>
+          <Link to='/products'>products</Link>
+        </li>
+        <li>
+          <Link to='/exercises'>exercises</Link>
+        </li>
+        <li>
+          <Link></Link>
+        </li>
+      </ul>
       <main>
         <Suspense fallback={<Loader />} >
           <Routes>
@@ -22,22 +47,6 @@ function App() {
           </Routes>
         </Suspense>
       </main>
-      <Button
-        label="test"
-        action={() => { console.log('click') }}
-        customContainerStyles={{marginRight: '12px'}}
-      />
-      <Button
-        label="test"
-        action={() => { console.log('click') }}
-        buttonStyles={'gray'}
-        customContainerStyles={{marginRight: '12px'}}
-      />
-      <Button
-        label="test"
-        action={() => { console.log('click') }}
-        buttonStyles={'orange'}
-      />
     </div>
   );
 };
