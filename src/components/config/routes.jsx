@@ -1,7 +1,14 @@
 import { lazy } from 'react';
 
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
+const ProfilePage = lazy(() => import('../pages/ProfilePage/ProfilePage'));
+const DiaryPage = lazy(() => import('../pages/DiaryPage/DiaryPage'));
+const ProductsPage = lazy(() => import('../pages/ProductsPage/ProductsPage'));
+const ExercisesPage = lazy(() => import('../pages/ExercisesPage/ExercisesPage'));
+
 import { Welcome } from '../Welcome';
+import { SignUp } from '../SignUp';
+import { SignIn } from '../SignIn';
 
 const routes = {
   MAIN_ROUTE: '/',
@@ -28,36 +35,38 @@ const appRoutes = [
       </MainPage>
     ),
   },
-  //  {
-  //   path: routes.SIGNUP_ROUTE,
-  //   element: (
-    //   <Home>
-    //     <SignUp />
-    //   </Home>
-    // ),
-  // },
-  //   {
-  //   path: routes.SIGNIN_ROUTE,
-  //   element:    //   <Home>
-    //     <SignIn />
-    //   </Home>
-    // ),
-  // {
-  //   path: routes.PROFILE_ROUTE,
-  //   element: <ProfilePage />,
-  // },
-  //   {
-  //   path: routes.DIARY_ROUTE,
-  //   element: <DiaryPage />,
-  // },
-  //     {
-  //   path: routes.PRODUCTS_ROUTE,
-  //   element: <ProductsPage />,
-  // },
-  //   {
-  //   path: routes.EXERCISES_ROUTE,
-  //   element: <ExercisesPage />,
-  // },
+   {
+    path: routes.SIGNUP_ROUTE,
+    element: (
+      <MainPage>
+        <SignUp />
+      </MainPage>
+    ),
+  },
+    {
+    path: routes.SIGNIN_ROUTE,
+    element: (
+      <MainPage>
+        <SignIn />
+      </MainPage>
+    ),
+  },
+  {
+    path: routes.PROFILE_ROUTE,
+    element: <ProfilePage />,
+  },
+    {
+    path: routes.DIARY_ROUTE,
+    element: <DiaryPage />,
+  },
+      {
+    path: routes.PRODUCTS_ROUTE,
+    element: <ProductsPage />,
+  },
+    {
+    path: routes.EXERCISES_ROUTE,
+    element: <ExercisesPage />,
+  },
 ]
 
 export default appRoutes;
