@@ -76,6 +76,29 @@ styles/component_name
    Также открыт для вас в Slack!
 ```
 
+FRONTEND PART
+Ресурси для роботи на проєкті
+React + Vite
+https://github.com/IvettaGoIT/react_vite
+Робота з формами та їх валідація
+https://formik.org/docs/api/useFormik + https://formik.org/docs/guides/validation
+Календарь
+https://github.com/IvettaGoIT/styled-datepicker
+Таймер
+https://www.npmjs.com/package/react-countdown-circle-timer
+Helpers
+UI-бібліотеки
+https://mui.com/x/react-date-pickers/getting-started/
+https://blueprintjs.com/
+Додаткові фічі
+Mультимовність:
+https://www.i18next.com/
+Google-кнопка авторизації
+https://www.youtube.com/watch?v=oQaoymCOW8o
+https://github.com/NadyaHristuk/lesson-swagger-googleOAUTH2
+Лайфхакі
+Зручне розширення VSCode для роботи з гілками репозиторія Git Graph
+
 ### Додавання змінних в  .env
 Для зберігання конфігураційних даних, таких як API ключі, адреси серверів, порти та інші змінні використовуйте файл `.env`. Для цього необхідно з назви файлу `.env.template` видалити зайві ".template",після чого файл відповідатиме умовам файлу `.ignore` і буде зберігатися лише локально, не публікуючись на віддаленому репозиторії з метою безпеки. Задля використання змінних на GitHub-pages усі змінні, передбачені файлом .env, слід додати до файлу `.github/workflows/deploy.yml`, а також до налаштувань репозиторію. Для цього слід перейти (`Settings` > `Secrets and variables` > `Actions`)
 
