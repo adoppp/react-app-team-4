@@ -1,15 +1,11 @@
+import { Header } from '../global/Header';
 import { Button } from '../ui/Button';
 
 function App() {
 
   return (
-    <div style={
-      {
-        margin: '0 auto',
-        maxWidth: 'fit-content',
-        marginTop: '80px'
-      }
-    }>
+    <div>
+      <Header />
       <Button
         label="test"
         action={() => { console.log('click') }}
