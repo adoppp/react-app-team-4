@@ -1,16 +1,11 @@
-import { FC, ReactElement, CSSProperties } from 'react';
+import { FC, ReactElement } from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './Button.module.scss'
+import { ButtonProps } from '../../../types/button.types';
 
 const cn = classNames.bind(styles);
 
-type ButtonProps  = {
-    label: string;
-    isGray?: boolean;
-    action: (event: React.MouseEvent<HTMLButtonElement>) => void;
-    customContainerStyles?: CSSProperties;
-};
 
 const Button: FC<ButtonProps> = ({
     label,
