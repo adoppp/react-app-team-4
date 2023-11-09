@@ -1,13 +1,14 @@
 import classNames from 'classnames/bind';
-import styles from './Home.module.scss';
 import React from 'react';
+
+import styles from './Home.module.scss';
 
 type HomeProps = {
   children?: React.ReactNode};
 
 const cn = classNames.bind(styles);
 
-const Home = ({children}: HomeProps) => {
+const MainPage = ({children}: HomeProps) => {
     return <div>
         {children}
         <div>
@@ -19,4 +20,4 @@ const Home = ({children}: HomeProps) => {
     </div>;
 };
 
-export default Home;
+export default MainPage;
