@@ -2,7 +2,7 @@
 @import '../../scss/mixins';
 @import '../../scss/variables';
 
-.signup__container {
+.signin_container {
     @include container();
 
     padding-top: 80px;
@@ -25,7 +25,7 @@
     }
 }
 
-.signup__container_link {
+.signin__container_link {
     color: $lonely-gray;
     font-feature-settings: 'clig' off, 'liga' off;
     font-size: 12px;
@@ -44,7 +44,7 @@
     }
 }
 
-.signup_form {
+.signin_form {
     display: flex;
     flex-direction: column;
 }
