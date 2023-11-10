@@ -1,0 +1,103 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.signup__container {
+    @include container();
+
+    padding-top: 80px;
+
+    & h2 {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.1;
+
+        margin-bottom: 14px;
+    }
+
+    & p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.2;
+        color: $snow-alpha-white;
+
+        margin-bottom: 28px;
+    }
+}
+
+.signup__container_link {
+    color: $lonely-gray;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+
+    & a {
+        color: $snow-white;
+        text-decoration-line: underline;
+
+        @include transition();
+    }
+
+    & a:active {
+        color: $lonely-gray;
+    }
+}
+
+.signup_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    outline: none;
+
+    background: transparent;
+
+    color: $snow-white;
+
+    margin-bottom: 18px;
+
+    padding: 14px;
+
+    border-radius: $main-b-radius;
+    border: 1px solid $snow-alpha-white;
+
+    @include transition();
+
+    &:focus {
+        border-color: $christmas-main-orange;
+    }
+
+    &.error {
+        border-color: #D80027;
+        margin-bottom: 4px;
+    }
+
+    &.success {
+        border-color: $christmas-tree-green;
+        margin-bottom: 4px;
+    }
+}
+
+.errorLabel {
+    color: $santas-node-red;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.12px;
+
+    margin-bottom: 14px;
+}
+
+.successLabel {
+    color: $christmas-tree-green;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.12px;
+
+    margin-bottom: 14px;
+}

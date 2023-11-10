@@ -9,13 +9,15 @@ const Button = ({
     label,
     buttonStyles,
     action,
-    customContainerStyles
+    customContainerStyles,
+    type
 }) => {
     return (
         <button
             className={cn('button', { [`${buttonStyles}`]: buttonStyles })}
             onClick={action}
             style={customContainerStyles ? customContainerStyles : {}}
+            type={`${type}`}
         >
             <span>
                 {label}
