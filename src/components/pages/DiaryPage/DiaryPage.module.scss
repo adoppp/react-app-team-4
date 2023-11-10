@@ -1,0 +1,28 @@
+@import '../../../scss/variables';
+@import '../../../scss/colors';
+@import '../../../scss/mixins';
+@import '../../../scss/reset';
+
+.dairy
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.dairy_title
+{
+    color: $snow-white;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.16;
+}
+
+.dairy_colection
+{
+
+}
+
+.colection
+{
+    
+}
