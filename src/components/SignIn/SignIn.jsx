@@ -21,7 +21,10 @@ const SignIn = () => {
     return (
         <section>
             <div className={cn('signin_container')}>
-                <h2>Sign In</h2>
+                <Title
+                    title='Sign In'
+                    customContainerStyles={{ marginBottom: 14 }}
+                />
                 <p>
                     Welcome! Please enter your credentials
                     to login to the platform:
