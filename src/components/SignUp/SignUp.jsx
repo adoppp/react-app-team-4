@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 
 import styles from './SignUp.module.scss';
 import { Button } from '../ui/Button/Button';
+import { Icon } from '../ui/Icon'
 
 const cn = classNames.bind(styles);
 
@@ -47,8 +48,52 @@ const SignUp = () => {
                     { success: !errors.name && touched.name}
                 )}
             />
-            {errors.name && touched.name ? <div className={cn({ errorLabel: errors.name && touched.name, successLabel: !errors.name && touched.name })}>{errors.name}</div> : null}
-            {!errors.name && touched.name ? <div className={cn({ successLabel: !errors.name && touched.name })}>{`Success name`}</div> : null}
+            {errors.name && touched.name ?
+                <div className={
+                    cn(
+                        { errorLabel: errors.name && touched.name }
+                    )}
+                >
+                    <Icon
+                        iconId='icon-checkbox-circle'
+                        w={16}
+                        h={16}
+                        customStyles={
+                            {
+                                marginRight: 4,
+                                fill: '#D80027'
+                            }
+                        }
+                    />
+                    <span>
+                        {errors.name}
+                    </span>
+                </div> :
+                null
+            }
+            {!errors.name && touched.name ?
+                <div className={
+                    cn(
+                        { successLabel: !errors.name && touched.name }
+                    )}
+                >
+                    <Icon
+                        iconId='icon-checkbox-circle'
+                        w={16}
+                        h={16}
+                        customStyles={
+                            {
+                                marginRight: 4,
+                                fill: '#3CBF61'
+                            }
+                        }
+                    />
+                    <span>
+                        {`Success name`}
+                    </span>
+                </div> :
+                null
+            }
             <Field
                 name="email"
                 type="email"
@@ -58,8 +103,51 @@ const SignUp = () => {
                     { success: !errors.email && touched.email}
                 )}
             />
-            {errors.email && touched.email ? <div className={cn({ errorLabel: errors.email && touched.email })}>{errors.email}</div> : null}
-            {!errors.email && touched.email ? <div className={cn({ successLabel: !errors.email && touched.email })}>{`Success email`}</div> : null}
+            {errors.email && touched.email ?
+                <div
+                    className={cn(
+                        { errorLabel: errors.email && touched.email }
+                    )}
+                >
+                    <Icon
+                        iconId='icon-checkbox-circle'
+                        w={16}
+                        h={16}
+                        customStyles={
+                            {
+                                marginRight: 4,
+                                fill: '#D80027'
+                            }
+                        }
+                    />
+                    <span>
+                        {errors.email}
+                    </span>
+                </div> :
+                null
+            }
+            {!errors.email && touched.email ?
+                <div className={cn(
+                    { successLabel: !errors.email && touched.email }
+                )}
+                >
+                    <Icon
+                        iconId='icon-checkbox-circle'
+                        w={16}
+                        h={16}
+                        customStyles={
+                            {
+                                marginRight: 4,
+                                fill: '#3CBF61'
+                            }
+                        }
+                    />
+                    <span>
+                        {`Success email`}
+                    </span>
+                </div> :
+                null
+            }
             <Field
                 name="password"
                 type="password"
@@ -69,8 +157,52 @@ const SignUp = () => {
                     { success: !errors.password && touched.password}
                 )}
             />
-            {errors.password && touched.password ? <div className={cn({ errorLabel: errors.password && touched.password })}>{errors.password}</div> : null}
-            {!errors.password && touched.password ? <div className={cn({ successLabel: !errors.password && touched.password })}>{`Success password`}</div> : null}                
+            {errors.password && touched.password ?
+                <div
+                    className={cn(
+                        { errorLabel: errors.password && touched.password }
+                    )}
+                >
+                    <Icon
+                        iconId='icon-checkbox-circle'
+                        w={16}
+                        h={16}
+                        customStyles={
+                            {
+                                marginRight: 4,
+                                fill: '#D80027'
+                            }
+                        }
+                    />
+                    <span>
+                        {errors.password}
+                    </span>
+                </div> :
+                null
+            }
+            {!errors.password && touched.password ?
+                <div
+                    className={cn(
+                        { successLabel: !errors.password && touched.password }
+                    )}
+                >
+                    <Icon
+                        iconId='icon-checkbox-circle'
+                        w={16}
+                        h={16}
+                        customStyles={
+                            {
+                                marginRight: 4,
+                                fill: '#3CBF61'
+                            }
+                        }
+                    />
+                    <span>
+                        {`Success password`}
+                    </span>
+                </div> :
+                null
+            }                 
             <Button
                 type={'submit'}
                 label={'Sign Up'}
