@@ -1,0 +1,143 @@
+@import '../../../scss/variables';
+@import '../../../scss/colors';
+@import '../../../scss/mixins';
+@import '../../../scss/reset';
+
+.main
+{
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px 80px 20px;
+}
+.colection
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 165px;
+    height: 96px;
+    padding: 14px;
+    align-items: flex-start;
+    gap: 28px;
+    flex-shrink: 0;
+    border-radius: $main-b-radius;
+    background: $christmas-main-orange;
+    border: 1px solid rgba(239, 237, 232, 0.2);
+}
+.dairy
+{
+    display: flex;
+    align-items: center;
+    margin-bottom: 43px;
+    &_box
+    {
+        display: flex;
+    }
+    &_colection
+    {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 13px;
+        margin-bottom: 20px;
+    }
+    &_title
+    {
+        color: $snow-white;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.16;
+        margin-right: 96px;
+    }
+    &__title
+    {
+        color: rgba(239, 237, 232, 0.80);
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.33;
+        width: 109px;
+    }
+    &_text 
+    {
+        color: $snow-white;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.11;
+        margin-right: 8px;
+    }
+    &__text
+    {
+        color: $snow-white;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.11;
+    }
+    &_record
+    {
+        display: flex;
+        margin-bottom: 40px;
+    }
+    &_cytat
+    {
+        color: rgba(239, 237, 232, 0.30);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.28;
+        width: 303px;
+    }
+}
+
+// =================== Producnts ================
+.protucts
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 335px;
+    height: 824px;
+    padding: 16px 22px 16px 14px;
+    gap: 32px;
+    flex-shrink: 0;
+    border-radius: $main-b-radius;
+    border: 1px solid rgba(239, 237, 232, 0.20);
+    background: rgba(239, 237, 232, 0.05);
+    margin-bottom: 40px;
+    &_item 
+    {
+        display: flex;
+    }
+    &_text 
+    {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.29;
+        color: rgba(239, 237, 232, 0.5);
+    }
+   
+    &_link 
+    {
+        color: $christmas-main-orange;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.28;
+        margin-right: 8px;
+    }
+    
+    &__text
+    {
+        color: $christmas-hover-orange;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.5;
+        margin-bottom: 8px;
+    }
+    &_input 
+    {
+        display: flex;
+        padding: 10px 153px 10px 14px;
+        align-items: center;
+        gap: 10px;
+        border-radius: $main-b-radius;
+        border: 1px solid rgba(239, 237, 232, 0.30);
+    }
+}
