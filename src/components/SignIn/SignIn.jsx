@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 
 import { Icon } from '../ui/Icon'
 import { Button } from "../ui/Button/Button";
+import { Title } from "../Title";
 import styles from './SignIn.module.scss';
 
 const cn = classNames.bind(styles);
