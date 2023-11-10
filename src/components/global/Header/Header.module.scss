@@ -33,3 +33,13 @@
         fill: $snow-alpha-white;
     }
 }
+.header__burgerMenu{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+
+    & use {
+    stroke: $christmas-main-orange;
+    }
+};
+

@@ -1,18 +1,57 @@
+@import '../../scss/colors';
+
 .burgerMenu {
     position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: orange;
-        z-index: 20;
-       
-}
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $christmas-main-orange;
+    z-index: 20;
+    padding: 20px;
+};
 
-.burger-button {
-    
-}
+.burgerButton {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    background-color: transparent;
+    border: none;
+    padding: 0;
 
-.menu-items {
-   
+    & use {
+    stroke: $snow-white;
+    }
+};
+
+.menuItems {
+    display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+};
+
+.menuItems a {
+    margin-bottom: 16px;
+};
+
+.menuItems button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 27px;
+    padding-left: 27px;
+    border-radius: 12px;
+    border: 1px solid $snow-white;
+    color: $snow-white;
+    background-color: $christmas-main-orange;
+};
+
+.logoutButton{
+    color: red
 }

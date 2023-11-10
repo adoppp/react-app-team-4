@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
-import {BurgerMenu} from '../../BurgerMenu/BurgerMenu'
+import { BurgerMenu } from '../../BurgerMenu/BurgerMenu';
 import styles from './Header.module.scss';
 import { Icon } from "../../ui/Icon";
 
@@ -13,6 +13,10 @@ const Header = () => {
      const openMenu = () => {
         setIsMenuOpen(true);
     };
+
+     const closeMenu = () => {
+    setIsMenuOpen(false);
+   };
 
     return (
         <header>
@@ -26,16 +30,15 @@ const Header = () => {
                     />
                     <span>PowerPulse</span>
                 </Link>
-                     <button onClick={openMenu}> 
+                     <button className={cn('header__burgerMenu')}  onClick={openMenu}> 
                   <Icon
                         iconId='icon-menu-02'
                         w={24}
                         h={24}
-                        customStyles={{ marginRight: 8 }}
                     />
                 </button>
             </div>
-             {isMenuOpen && <BurgerMenu />}
+             {isMenuOpen && <BurgerMenu onClose={closeMenu} />}
         </header>
     );
 };
