@@ -7,6 +7,7 @@ import * as Yup from 'yup';
 import styles from './SignUp.module.scss';
 import { Button } from '../ui/Button/Button';
 import { Icon } from '../ui/Icon'
+import { Title } from '../Title';
 
 const cn = classNames.bind(styles);
 
@@ -23,7 +24,10 @@ const SignUp = () => {
     return (
     <section>
         <div className={cn('signup__container')}>
-            <h2>Sign Up</h2>
+            <Title
+                title='Sign Up'
+                customContainerStyles={{ marginBottom: 14 }}
+            />
             <p>
                 Thank you for your interest in our platform.
                 To complete the registration process,
