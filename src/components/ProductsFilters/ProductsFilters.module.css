@@ -1,0 +1,27 @@
+.Form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 335px;
+    gap: 16px;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.Input {
+    width: 335px;
+    height: 46px;
+    border-radius: 12px;
+}
+
+.Categories{
+    width: 146px;
+    height: 46px;
+    border-radius: 12px;
+}
+
+.Select {
+    width: 173px;
+    height: 46px;
+    border-radius: 12px;
+}

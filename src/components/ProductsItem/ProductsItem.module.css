@@ -1,0 +1,18 @@
+.Item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 335px;
+    height: 141px;
+    border-radius: 12px;
+    border: 1px solid #EFEDE833 ;
+    padding: 16px;
+    background-color: #EFEDE833;
+}
+.FirstContainer {
+    display: flex;
+}
+.SecondContainer {
+    display: flex;
+    gap: 16px;
+}
