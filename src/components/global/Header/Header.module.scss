@@ -14,12 +14,11 @@
         font-weight: 600;
     }
 
-    
     & a span {
         color: $snow-white;
         @include transition();
     }
-    
+
     & a use {
         fill: $christmas-main-orange;
         @include transition();

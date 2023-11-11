@@ -20,6 +20,10 @@
     &:hover {
         background-color: $christmas-hover-orange;
     }
+
+    @media screen and (min-width: 768px) {
+        font-size: 20px;
+    }
 }
 
 .gray {
@@ -39,7 +43,7 @@
 
     &:active {
         background-color: $christmas-main-orange;
-        
+
         border-color: $snow-white;
     }
 }

@@ -1,0 +1,192 @@
+@import '../../../scss/mixins';
+@import '../../../scss/variables';
+@import '../../../scss/colors';
+
+.main__container {
+    width: 100%;
+    height: 100vh;
+
+    background-image: url('../../../assets/backImg/side-view-people-training-gym\ 1-phone-min.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    position: relative;
+    background-size: contain;
+
+    @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background-image: url('../../../assets/backImg/side-view-people-training-gym\ 1-phone-2-min.jpg');
+    }
+
+    @media screen and (min-width: 768px) {
+        background-image: url('../../../assets/backImg/side-view-people-training-gym-tablet-min.jpg');
+        background-size: contain;
+
+        @media (min-device-pixel-ratio: 2),
+            (min-resolution: 192dpi),
+            (min-resolution: 2dppx) {
+            background-image: url('../../../assets/backImg/side-view-people-training-gym-tablet-2-min.jpg');
+        }
+    }
+
+    @media screen and (min-width: 1440px) {
+        background-image: url('../../../assets/backImg/side-view-people-training-gym\ 1-desk-min.jpg');
+        background-size: contain;
+
+        @media (min-device-pixel-ratio: 2),
+            (min-resolution: 192dpi),
+            (min-resolution: 2dppx) {
+            background-image: url('../../../assets/backImg/side-view-people-training-gym\ 1-desk-2-min.jpg');
+        }
+    }
+}
+
+.video__box {
+    position: absolute;
+    color: $snow-white;
+    border-radius: $main-b-radius;
+    padding: 14px 18px;
+    bottom: 186px;
+    right: 108px;
+    background-color: $silent-gray;
+
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    width: 146px;
+
+    color: $snow-white;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px;
+
+    @media screen and (min-width: 768px) {
+        padding: 20px 23px;
+        bottom: 214px;
+        right: 201px;
+
+        width: 206px;
+        font-size: 24px;
+        line-height: 24px;
+        gap: 12px;
+
+        line-height: 24px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        bottom: 320px;
+        right: 464px;
+    }
+
+    .icon__container {
+        background-color: $christmas-hover-orange;
+        border-radius: 50%;
+        padding: 9px 9px;
+        height: 30px;
+        width: 30px;
+
+        @media screen and (min-width: 768px) {
+            padding: 10px 10px;
+            height: 40px;
+            width: 40px;
+        }
+    }
+}
+
+.descriprion__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+
+    @media screen and (min-width: 768px) {
+        gap: 8px;
+    }
+
+    & span {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+        color: rgba(239, 237, 232, 0.65);
+
+        @media screen and (min-width: 768px) {
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+}
+
+.cal__box {
+    position: absolute;
+    color: $snow-white;
+    border-radius: $main-b-radius;
+    padding: 14px 18px;
+    bottom: 40px;
+    right: 20px;
+    background-color: $christmas-hover-orange;
+    width: 119px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    @media screen and (min-width: 768px) {
+        padding: 14px 28px;
+        bottom: 40px;
+        right: 20px;
+
+        gap: 8px;
+        width: 180px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        bottom: 171px;
+        right: 32px;
+    }
+
+    .descriprion__container {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+
+        color: $snow-white;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: -1px;
+        text-transform: uppercase;
+
+        @media screen and (min-width: 768px) {
+            gap: 11px;
+            font-size: 48px;
+            line-height: 50px;
+        }
+
+        & span {
+            color: rgba(239, 237, 232, 0.65);
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 16px;
+            text-transform: none;
+            letter-spacing: 0;
+
+            @media screen and (min-width: 768px) {
+                font-size: 16px;
+                line-height: 24px;
+            }
+        }
+    }
+
+    .icon__container {
+        background-color: $christmas-beige;
+        border-radius: 50%;
+        padding: 4px 4px;
+        height: 20px;
+        width: 20px;
+
+        @media screen and (min-width: 768px) {
+            padding: 4px 4px;
+            height: 24px;
+            width: 24px;
+        }
+    }
+}
