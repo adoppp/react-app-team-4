@@ -22,7 +22,7 @@
         & p {
             font-size: 16px;
             line-height: 1.5;
-            
+
             margin-bottom: 32px;
         }
     }
@@ -30,7 +30,9 @@
 
 .signin__container_link {
     color: $lonely-gray;
-    font-feature-settings: 'clig' off, 'liga' off;
+    font-feature-settings:
+        'clig' off,
+        'liga' off;
     font-size: 12px;
     font-weight: 400;
     line-height: 1.5;
@@ -94,7 +96,7 @@
     }
 
     &.error {
-        border-color: #D80027;
+        border-color: #d80027;
         margin-bottom: 4px;
     }
 
@@ -107,7 +109,7 @@
         & {
             font-size: 16px;
             line-height: 1.5;
-            
+
             margin-bottom: 20px;
         }
     }
@@ -115,7 +117,9 @@
 
 .errorLabel {
     color: $santas-node-red;
-    font-feature-settings: 'clig' off, 'liga' off;
+    font-feature-settings:
+        'clig' off,
+        'liga' off;
     font-size: 12px;
     font-weight: 400;
     line-height: 1.5;
@@ -129,7 +133,9 @@
 
 .successLabel {
     color: $christmas-tree-green;
-    font-feature-settings: 'clig' off, 'liga' off;
+    font-feature-settings:
+        'clig' off,
+        'liga' off;
     font-size: 12px;
     font-weight: 400;
     line-height: 1.5;
@@ -142,7 +148,6 @@
 }
 
 .signup__eye {
-
     position: absolute;
 
     cursor: pointer;
