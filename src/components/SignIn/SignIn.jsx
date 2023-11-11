@@ -20,6 +20,8 @@ const SignIn = () => {
     const titleStyles = isLargeScreen
         ? { marginBottom: 16 }
         : { marginBottom: 14 };
+    
+    const buttonStyles = isLargeScreen ? 50 : 14;
 
     const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
@@ -179,7 +181,7 @@ const SignIn = () => {
                                 label={'Sign In'}
                                 customContainerStyles={{
                                     width: `fit-content`,
-                                    marginTop: 14,
+                                    marginTop: buttonStyles,
                                     marginBottom: 12,
                                 }}
                             />
