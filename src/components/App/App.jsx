@@ -1,5 +1,4 @@
 import React from 'react';
-import { Header } from '../global/Header/index';;
 import { Suspense } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 import { Loader } from '../global/Loader';
@@ -9,10 +8,8 @@ import appRoutes from '../config/routes';
 
 
 function App() {
-
   return (
     <div>
-      <Header />
       <ul>
         <li>
           <Link to='/welcome'>welcome</Link>
@@ -40,7 +37,8 @@ function App() {
         </li>
       </ul>
       <main>
-        <Suspense fallback={<Loader />} >
+        <Suspense fallback={<Loader  customStyles={{display: 'flex', alignItems: 'center',
+justifyContent: 'center', height: '100vh',margin:  '0 auto',}} />} >
           <Routes>
             {appRoutes.map(({ path, element }) => <Route key={path} path={path} element={element} />)}
             <Route path='*' element={<NotFound />} />
