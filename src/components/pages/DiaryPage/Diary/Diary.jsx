@@ -2,6 +2,8 @@ import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import styles from './Diary.modules.scss';
 import { Icon } from '../../../ui/Icon';
+import NotProducts from '../NotProducts/NotProducts';
+import NotExercises from '../NotExercises/NotExercises';
 
 const cn = classNames.bind(styles);
 
@@ -131,6 +133,8 @@ const Diary = () => {
                     This will help me be aware of my nutrition and make me responsible for my choices.
                 </p>
             </div>
+            <NotProducts/>
+            <NotExercises/>
         </div>
     );
 }
