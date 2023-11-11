@@ -1,0 +1,166 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.signup__container {
+    @include container();
+
+    padding-top: 80px;
+
+    & p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.2;
+        color: $snow-alpha-white;
+
+        max-width: 496px;
+
+        margin-bottom: 28px;
+    }
+
+    @media screen and (min-width: 768px) {
+        & p {
+            font-size: 16px;
+            line-height: 1.5;
+
+            margin-bottom: 32px;
+        }
+    }
+}
+
+.signup__container_link {
+    color: $lonely-gray;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+
+    & a {
+        color: $snow-white;
+        text-decoration-line: underline;
+
+        @include transition();
+    }
+
+    & a:active {
+        color: $lonely-gray;
+    }
+}
+
+.signup_form {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 283px;
+
+    @media screen and (min-width: 768px) {
+        & {
+            max-width: 307px;
+        }
+    }
+
+    @media screen and (min-width: 1440px) {
+        & {
+            max-width: 310px;
+        }
+    }
+}
+
+.input {
+    outline: none;
+
+    background: transparent;
+
+    color: $snow-white;
+
+    font-size: 14px;
+    line-height: 1.2;
+
+    width: 100%;
+
+    max-width: 364px;
+
+    margin-bottom: 18px;
+
+    padding: 14px;
+
+    border-radius: $main-b-radius;
+    border: 1px solid $snow-alpha-white;
+
+    @include transition();
+
+    &:focus {
+        border-color: $christmas-main-orange;
+    }
+
+    &.error {
+        border-color: #D80027;
+        margin-bottom: 4px;
+    }
+
+    &.success {
+        border-color: $christmas-tree-green;
+        margin-bottom: 4px;
+    }
+
+    @media screen and (min-width: 768px) {
+        & {
+            font-size: 16px;
+            line-height: 1.5;
+
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.errorLabel {
+    color: $santas-node-red;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.12px;
+
+    display: flex;
+    align-items: stretch;
+
+    margin-bottom: 14px;
+}
+
+.successLabel {
+    color: $christmas-tree-green;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.12px;
+
+    display: flex;
+    align-items: stretch;
+
+    margin-bottom: 14px;
+}
+
+.signup__eye {
+
+    position: absolute;
+
+    cursor: pointer;
+
+    top: 16px;
+    right: 16px;
+
+    & use {
+        stroke: $snow-white;
+
+        @include transition();
+
+        &:hover {
+            stroke: $silent-gray;
+        }
+
+        &:active {
+            stroke: $snow-white;
+        }
+    }
+}

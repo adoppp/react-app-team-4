@@ -11,7 +11,7 @@ const Header = () => {
     return (
         <header>
             <div className={cn('header__container')}>
-                <Link to='/'>
+                <Link to='/welcome'>
                     <Icon
                         iconId='icon-Vector'
                         w={36}
