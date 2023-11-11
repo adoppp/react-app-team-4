@@ -6,10 +6,10 @@ import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
 
- const ProductsList = () => {
-    return <ul className={cn('List')}>
-            <ProductsItem/>
-    </ul>
-}
+const ProductsList = () => {
+        return <ul className={cn('list_container')}>
+                <ProductsItem />
+        </ul>
+};
 
-export {ProductsList}
+export { ProductsList };

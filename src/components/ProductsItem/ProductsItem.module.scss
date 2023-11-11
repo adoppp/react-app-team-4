@@ -1,4 +1,4 @@
-.Item {
+.item_products {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -8,10 +8,10 @@
     border: 1px solid #EFEDE833 ;
     padding: 16px;
     background-color: #EFEDE833;
-}
-.FirstContainer {
+};
+.item_container {
     display: flex;
-}
+};
 
 .diet {
     width: 41px;
@@ -22,8 +22,8 @@
     font-weight: 700;
     font-size: 12px;
     line-height: 14px;
-}
-.SecondContainer {
+};
+.item_list_container {
     display: flex;
     gap: 16px;
-}
+};
