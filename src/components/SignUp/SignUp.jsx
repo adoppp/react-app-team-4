@@ -13,7 +13,7 @@ import { Title } from '../Title';
 const cn = classNames.bind(styles);
 
 const SignUp = () => {
-    const [iconName, setIconName] = useState('icon-eye-off');
+    const [ iconName, setIconName ] = useState('icon-eye-off');
     const [ showPassword, setShowPassword ] = useState(false);
 
 
