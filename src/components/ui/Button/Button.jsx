@@ -16,7 +16,7 @@ const Button = ({
             className={cn('button', { [`${buttonStyles}`]: buttonStyles })}
             onClick={action}
             style={customContainerStyles ? customContainerStyles : {}}
-            type={`${type}`}
+            type={type ? `${type}`: 'button'}
         >
             <span>{label}</span>
         </button>
