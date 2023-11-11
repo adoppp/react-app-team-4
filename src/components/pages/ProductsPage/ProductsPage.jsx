@@ -1,7 +1,11 @@
+import NotFound from "./NotFound/NotFound";
+
 const ProductsPage = () => {
-    return <div>
-        <h2>ProductsPage</h2>
-    </div>;
-};
+    return (
+        <div>
+            <NotFound/>
+        </div>
+    );
+}
 
 export default ProductsPage;

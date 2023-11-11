@@ -1,0 +1,11 @@
+@import '../../../scss/variables';
+@import '../../../scss/colors';
+@import '../../../scss/mixins';
+@import '../../../scss/reset';
+
+.main
+{
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px 80px 20px;
+}

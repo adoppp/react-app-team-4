@@ -1,0 +1,135 @@
+@import '../../../../scss/variables';
+@import '../../../../scss/colors';
+@import '../../../../scss/mixins';
+@import '../../../../scss/reset';
+
+.found
+{
+    padding: 40px 20px 340px 20px;
+    &_title
+    {
+        color: $snow-white;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.16;
+        margin-bottom: 40px;
+    }
+    &_item 
+    {
+        display: flex;
+        padding: 14px;
+        align-items: center;
+        gap: 10px;
+        background: $darkness-main-black;
+        border-radius: $main-b-radius;
+        border: 1px solid rgba(239, 237, 232, 0.30);
+        margin-bottom: 16px;
+        width: 335px;
+    }
+    &_item::placeholder
+    {
+        color: $snow-white;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.28;
+    }
+    &_form 
+    {
+        display: flex;
+        margin-bottom: 64px;
+        position: relative;
+    }
+    &_icon3
+    {
+        content: '';
+        position: absolute;
+        left: 110px;
+        top: 13px;
+    }
+    &_icon4
+    {
+        content: '';
+        position: absolute;
+        left: 295px;
+        top: 13px;
+    }
+    &_input
+    {
+        display: flex;
+        padding: 14px;
+        align-items: center;
+        gap: 10px;
+        background: $darkness-main-black;
+        border-radius: $main-b-radius;
+        border: 1px solid rgba(239, 237, 232, 0.30);
+        margin-right: 16px;
+        width: 146px;
+    }
+    &_input::placeholder
+    {
+        color: $snow-white;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.28;
+    }
+    &_inputs
+    {
+        display: flex;
+        padding: 14px;
+        align-items: center;
+        gap: 10px;
+        background: $darkness-main-black;
+        border-radius: $main-b-radius;
+        border: 1px solid rgba(239, 237, 232, 0.30);
+        width: 173px;
+    }
+    &_inputs::placeholder
+    {
+        color: $snow-white;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.28;
+    }
+    &_text
+    {
+        color: rgba(239, 237, 232, 0.30);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        width: 335px;
+        margin-bottom: 16px;
+    }
+    &_text span
+    {
+        color: $christmas-main-orange;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.28;
+    }
+    &__text
+    {
+        color: $christmas-main-orange;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.28;
+    }
+    &_items
+    {
+        position: relative;
+    }
+    &_icon1
+    {
+        content: '';
+        position: absolute;
+        left: 270px;
+        top: 14px;
+    }
+
+    &_icon2
+    {
+        content: '';
+        position: absolute;
+        left: 295px;
+        top: 14px;
+    }
+}
