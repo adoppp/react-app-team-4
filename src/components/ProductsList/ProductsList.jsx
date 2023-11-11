@@ -1,9 +1,15 @@
 import { ProductsItem } from "../ProductsItem/ProductsItem";
-import css from './ProductsList.module.css'
+import styles from './ProductsList.module.scss';
+
+import classNames from 'classnames/bind';
+
+const cn = classNames.bind(styles);
 
 
-export const ProductsList = () => {
-    return <ul className={css.List}>
+ const ProductsList = () => {
+    return <ul className={cn('List')}>
             <ProductsItem/>
     </ul>
 }
+
+export {ProductsList}

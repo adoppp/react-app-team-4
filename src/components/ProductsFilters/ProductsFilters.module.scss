@@ -1,4 +1,4 @@
-.Form {
+.form_container {
     display: flex;
     flex-wrap: wrap;
     width: 335px;
@@ -8,19 +8,19 @@
 
 }
 
-.Input {
+.input {
     width: 335px;
     height: 46px;
     border-radius: 12px;
 }
 
-.Categories{
+.categories{
     width: 146px;
     height: 46px;
     border-radius: 12px;
 }
 
-.Select {
+.select {
     width: 173px;
     height: 46px;
     border-radius: 12px;

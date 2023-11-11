@@ -1,17 +1,23 @@
-import css from './ProductsItem.module.css'
+import { Button } from '../ui/Button/Button';
+import styles from './ProductsItem.module.scss';
+import classNames from 'classnames/bind';
 
-export const ProductsItem = () => {
-    return <li className={css.Item}>
-        <div className={css.FirstContainer}>
+const cn = classNames.bind(styles);
+
+ const ProductsItem = () => {
+    return <li className={cn('Item')}>
+        <div className={cn('FirstContainer')}>
             <p>DIET</p>
         <p>Recommended</p>
-        <button>Add</button>
+        <Button/>
         </div >
         <h2>Bread Hercules grain</h2>
-        <div className={css.SecondContainer}>
+        <div className={cn('SecondContainer')}>
             <p>Calories:</p>
         <p>Category:</p>
         <p>Weight:</p>
         </div>
     </li>
 }
+
+export {ProductsItem }
