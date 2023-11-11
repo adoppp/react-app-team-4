@@ -4,9 +4,9 @@ const Loader = ({ customStyles }) => {
     return (
         <Vortex
             visible={true}
-            height='120'
-            width='120'
-            ariaLabel='vortex-loading'
+            height="120"
+            width="120"
+            ariaLabel="vortex-loading"
             wrapperStyle={customStyles ? customStyles : {}}
             colors={[
                 '#E6533C',
@@ -14,7 +14,7 @@ const Loader = ({ customStyles }) => {
                 '#EFA082',
                 '#E6533C',
                 '#EF8964',
-                '#EFA082'
+                '#EFA082',
             ]}
         />
     );
