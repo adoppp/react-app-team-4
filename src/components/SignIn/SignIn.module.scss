@@ -13,7 +13,18 @@
         line-height: 1.2;
         color: $snow-alpha-white;
 
+        max-width: 496px;
+
         margin-bottom: 28px;
+    }
+
+    @media screen and (min-width: 768px) {
+        & p {
+            font-size: 16px;
+            line-height: 1.5;
+            
+            margin-bottom: 32px;
+        }
     }
 }
 
@@ -46,12 +57,14 @@
 
     background: transparent;
 
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 14px;
+    line-height: 1.2;
 
     color: $snow-white;
 
     width: 100%;
+
+    max-width: 364px;
 
     margin-bottom: 18px;
 
@@ -74,6 +87,15 @@
     &.success {
         border-color: $christmas-tree-green;
         margin-bottom: 4px;
+    }
+
+    @media screen and (min-width: 768px) {
+        & {
+            font-size: 16px;
+            line-height: 1.5;
+            
+            margin-bottom: 20px;
+        }
     }
 }
 
