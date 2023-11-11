@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './BurgerMenu.module.scss';
 import { Icon } from "../ui/Icon";
@@ -8,13 +8,7 @@ import {Button} from '../ui/Button'
 const cn = classNames.bind(styles);
 
 export const BurgerMenu = ({ onClose }) => {
-  const [menuVisible, setMenuVisible] = useState(false);
-    
-  const toggleMenu = () => {
-    setMenuVisible(!menuVisible);
-  };
-
- 
+  
 
   return (
     <div className={cn('burgerMenu')}>
@@ -29,26 +23,32 @@ export const BurgerMenu = ({ onClose }) => {
         <Link>
           <Button
             label='Diary'
+            buttonStyles='orange'
           />
         </Link>
         <Link>
           <Button
             label='Products'
+            buttonStyles='orange'
           />
         </Link>
         <Link>
           <Button
             label='Exercises'
+            buttonStyles='orange'
           />
         </Link>
+           
       </div>
       <button className={cn('logoutButton')}>
-    <Icon
-      iconId='icon-logout'
-      w={24}
-      h={24}
-    />
-    Logout
+        Logout
+         <Icon
+          iconId='icon-log-out'
+          w={24}
+          h={24}
+          customStyles={{ marginLeft: 8 }}
+        />
+    
   </button>
     </div>
   );

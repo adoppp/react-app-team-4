@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { BurgerMenu } from '../../BurgerMenu/BurgerMenu';
 import styles from './Header.module.scss';
 import { Icon } from '../../ui/Icon';
+import React, { useState } from 'react';
 
 const cn = classNames.bind(styles);
 

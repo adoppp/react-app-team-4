@@ -5,7 +5,8 @@
     @include container();
 
     width: 100%;
-
+    display: flex;
+    align-items: center;
     padding-top: 24px;
     padding-bottom: 24px;
 
@@ -39,6 +40,10 @@
 
     & use {
     stroke: $christmas-main-orange;
+    }
+
+        @media (min-width: 1440px) {
+        display: none;
     }
 };
 
