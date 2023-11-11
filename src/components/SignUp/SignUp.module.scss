@@ -48,6 +48,8 @@
 
     color: $snow-white;
 
+    width: 100%;
+
     margin-bottom: 18px;
 
     padding: 14px;
@@ -98,4 +100,28 @@
     align-items: stretch;
 
     margin-bottom: 14px;
+}
+
+.signup__eye {
+
+    position: absolute;
+
+    top: 12px;
+    right: 16px;
+
+    & use {
+        stroke: $snow-white;
+
+        cursor: pointer;
+
+        @include transition();
+
+        &:hover {
+            stroke: $silent-gray;
+        }
+
+        &:active {
+            stroke: $snow-white;
+        }
+    }
 }

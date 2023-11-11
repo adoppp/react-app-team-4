@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import classNames from "classnames/bind";
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import { useState } from 'react';
 // import { CustomForm } from '../ui/Form';
 
 import styles from './SignUp.module.scss';
@@ -12,6 +13,9 @@ import { Title } from '../Title';
 const cn = classNames.bind(styles);
 
 const SignUp = () => {
+    const [iconName, setIconName] = useState('icon-eye-off');
+    const [ showPassword, setShowPassword ] = useState(false);
+
 
     const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
  
@@ -19,7 +23,12 @@ const SignUp = () => {
         name: Yup.string().required('The name field is required'),
         email: Yup.string().matches(emailPattern).required('The email field is required'),
         password: Yup.string().min(6, 'The password field must contain at least 6 characters').required('The password field is required')
-    })
+    });
+
+    const handleIconChange = () => {
+        setIconName(showPassword ? 'icon-eye' : 'icon-eye-off');
+        setShowPassword(!showPassword);
+    }
     
     return (
     <section>
@@ -41,7 +50,7 @@ const SignUp = () => {
                 }}
                 validationSchema={validationSchema}    
             >
-            {({ errors, touched }) => (
+            {({ errors, touched, values }) => (
             <Form className={cn('signup_form')}>
             <Field
                 name="name"
@@ -152,21 +161,33 @@ const SignUp = () => {
                 </div> :
                 null
             }
+            <div style={{position: 'relative',}}>
             <Field
                 name="password"
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 placeholder='password'
                 className={cn('input',
                     { error: errors.password && touched.password },
                     { success: !errors.password && touched.password}
                 )}
             />
+            {values.password.length > 0 ? 
+            <Icon 
+                iconId={iconName}
+                w={20}
+                h={20}
+                stylesName={cn('signup__eye')}
+                action={handleIconChange}
+            />
+                :
+            null
+            }                
             {errors.password && touched.password ?
                 <div
-                    className={cn(
-                        { errorLabel: errors.password && touched.password }
+                className={cn(
+                    { errorLabel: errors.password && touched.password }
                     )}
-                >
+                    >
                     <Icon
                         iconId='icon-checkbox-circle'
                         w={16}
@@ -206,7 +227,8 @@ const SignUp = () => {
                     </span>
                 </div> :
                 null
-            }                 
+            }
+            </div>
             <Button
                 type={'submit'}
                 label={'Sign Up'}
