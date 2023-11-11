@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 import { Icon } from '../ui/Icon';
 import { Button } from '../ui/Button/Button';
 import { Title } from '../Title';
 import styles from './SignIn.module.scss';
-import { useMediaQuery } from 'react-responsive';
 
 const cn = classNames.bind(styles);
 
