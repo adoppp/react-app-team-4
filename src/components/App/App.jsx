@@ -4,7 +4,6 @@ import { Route, Routes, Link } from 'react-router-dom';
 
 import { Loader } from '../global/Loader';
 import NotFound from '../pages/NotFound/NotFound';
-import { Input } from '../ui/Input';
 import appRoutes from '../config/routes';
 
 

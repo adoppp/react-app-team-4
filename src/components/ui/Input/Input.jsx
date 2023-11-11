@@ -1,4 +1,5 @@
 import classNames from "classnames/bind";
+import { useId } from "react";
 
 import styles from './Input.module.scss';
 
@@ -7,19 +8,23 @@ const cn = classNames.bind(styles);
 const Input = ({
     label,
     name,
+    idSuffix,
     type,
     action,
     placeHolder,
     customContainerLabelStyles,
     customContainerInputStyles,
-    containerName,
+    cnClassNameContainer,
 }) => {
+    const id = useId()
+
+
     return (
-        <div className={cn(`${containerName}`)}>
+        <div className={cnClassNameContainer}>
             {
                 label &&
                 <label
-                    htmlFor={`${name}`}
+                    htmlFor={`${id}-${idSuffix}`}
                     style={
                         customContainerLabelStyles ?
                         customContainerLabelStyles : 
@@ -30,10 +35,11 @@ const Input = ({
                 </label>
             }
             <input
-                type={`${type}`}
+                type={type ? `${type}`: 'text'}
                 name={`${name}`}
+                id={`${id}-${idSuffix}`}
                 onChange={action}
-                placeholder={`${placeHolder}`}
+                placeholder={placeHolder ? `${placeHolder}` : ''}
                 className={cn('input')}
                 style={
                     customContainerInputStyles ?
