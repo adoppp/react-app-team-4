@@ -22,4 +22,9 @@
 
         max-width: 1440px;
     }
+
+    @media screen and (min-width: 1440px) {
+        padding-left: 96px;
+        padding-right: 96px;
+    }
 };
