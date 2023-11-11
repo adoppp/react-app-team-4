@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 
-import { Loader } from '../global/Loader';
+import { Loader } from '../ui/Loader';
 import NotFound from '../pages/NotFound/NotFound';
 import appRoutes from '../config/routes';
 
