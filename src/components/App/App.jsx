@@ -1,9 +1,10 @@
 import React from 'react';
 import { Suspense } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
+
 import { Loader } from '../global/Loader';
 import NotFound from '../pages/NotFound/NotFound';
-
+import { Input } from '../ui/Input';
 import appRoutes from '../config/routes';
 
 
@@ -37,8 +38,15 @@ function App() {
         </li>
       </ul>
       <main>
-        <Suspense fallback={<Loader  customStyles={{display: 'flex', alignItems: 'center',
-justifyContent: 'center', height: '100vh',margin:  '0 auto',}} />} >
+        <Suspense fallback={<Loader customStyles={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100vh',
+          margin: '0 auto',
+        }}
+        />}
+        >
           <Routes>
             {appRoutes.map(({ path, element }) => <Route key={path} path={path} element={element} />)}
             <Route path='*' element={<NotFound />} />

@@ -1,0 +1,34 @@
+@import '../../../scss/variables';
+@import '../../../scss/colors';
+@import '../../../scss/mixins';
+
+.input {
+    outline: none;
+
+    background: transparent;
+
+    font-size: 14px;
+    line-height: 1.2;
+
+    color: $snow-white;
+
+    padding: 14px;
+
+    border-radius: $main-b-radius;
+    border: 1px solid $snow-alpha-white;
+
+    @include transition();
+
+    &:focus {
+        border-color: $christmas-main-orange;
+    }
+
+    @media screen and (min-width: 768px) {
+        & {
+            font-size: 16px;
+            line-height: 1.5;
+
+            margin-bottom: 20px;
+        }
+    }
+}
