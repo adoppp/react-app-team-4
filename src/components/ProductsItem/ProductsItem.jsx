@@ -7,7 +7,7 @@ const cn = classNames.bind(styles);
  const ProductsItem = () => {
     return <li className={cn('Item')}>
         <div className={cn('FirstContainer')}>
-            <p>DIET</p>
+            <p className={cn('diet')} >DIET</p>
         <p>Recommended</p>
         <Button/>
         </div >

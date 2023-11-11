@@ -12,6 +12,17 @@
 .FirstContainer {
     display: flex;
 }
+
+.diet {
+    width: 41px;
+    height: 24px;
+    border-radius: 4px;
+    background-color: #EFEDE80D;
+    padding: 5px 7.5px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+}
 .SecondContainer {
     display: flex;
     gap: 16px;
