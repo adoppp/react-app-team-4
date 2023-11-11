@@ -1,11 +1,9 @@
 import classNames from 'classnames/bind';
-import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 import styles from './MainPage.module.scss';
 import { Icon } from '../../ui/Icon';
 import { Header } from '../../global/Header';
-
 
 const cn = classNames.bind(styles);
 
@@ -20,11 +18,9 @@ const MainPage = ({ children }) => {
     };
 
     const iconRunStyle = {
-            width: isTabletScreen ? 16 : 12,
-            height: isTabletScreen ? 16 : 12,
+        width: isTabletScreen ? 16 : 12,
+        height: isTabletScreen ? 16 : 12,
     };
-
-
 
     return (
         <div className={cn('main__container')}>
@@ -33,33 +29,30 @@ const MainPage = ({ children }) => {
             <div className={cn('video__box')}>
                 <div className={cn('icon__container')}>
                     <Icon
-                        iconId='icon-Polygon'
+                        iconId="icon-Polygon"
                         w={12}
                         h={12}
                         customStyles={iconVideoStyle}
                     />
                 </div>
                 <p className={cn('descriprion__container')}>
-                350+
-                <span>Video tutorial</span>
+                    350+
+                    <span>Video tutorial</span>
                 </p>
             </div>
-
 
             <div className={cn('cal__box')}>
                 <div className={cn('icon__container')}>
                     <Icon
-                        iconId='icon-running-stick'
+                        iconId="icon-running-stick"
                         w={12}
                         h={12}
-                            customStyles={iconRunStyle}
+                        customStyles={iconRunStyle}
                     />
                 </div>
                 <p className={cn('descriprion__container')}>
-                500
-                <span>
-                    cal
-                </span>
+                    500
+                    <span>cal</span>
                 </p>
             </div>
         </div>

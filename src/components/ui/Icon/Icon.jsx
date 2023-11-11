@@ -1,8 +1,6 @@
-import React from 'react';
-
 import sprite from '../../../assets/sprites.svg';
 
-const Icon = ({ iconId, w, h, customStyles, stylesName, action}) => {
+const Icon = ({ iconId, w, h, customStyles, stylesName, action }) => {
     return (
         <svg
             width={w}
@@ -11,8 +9,7 @@ const Icon = ({ iconId, w, h, customStyles, stylesName, action}) => {
             className={stylesName}
             onClick={action}
         >
-            <use href={`${sprite}#${iconId}`}> 
-            </use>
+            <use href={`${sprite}#${iconId}`}></use>
         </svg>
     );
 };
