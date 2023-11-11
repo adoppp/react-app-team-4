@@ -1,7 +1,7 @@
 // mixins(transition, conrainer....)
 
 @mixin transition() {
-    transition-property: background-color, border-color, fill, color;
+    transition-property: background-color, border-color, fill, color, stroke;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 };
@@ -13,5 +13,18 @@
     
     margin: 0 auto;
 
-    padding: 0 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @media screen and (min-width: 786px) {
+        padding-left: 32px;
+        padding-right: 32px;
+
+        max-width: 1440px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        padding-left: 96px;
+        padding-right: 96px;
+    }
 };

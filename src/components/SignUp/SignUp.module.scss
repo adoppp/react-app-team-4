@@ -13,7 +13,18 @@
         line-height: 1.2;
         color: $snow-alpha-white;
 
+        max-width: 496px;
+
         margin-bottom: 28px;
+    }
+
+    @media screen and (min-width: 768px) {
+        & p {
+            font-size: 16px;
+            line-height: 1.5;
+
+            margin-bottom: 32px;
+        }
     }
 }
 
@@ -39,6 +50,20 @@
 .signup_form {
     display: flex;
     flex-direction: column;
+
+    max-width: 283px;
+
+    @media screen and (min-width: 768px) {
+        & {
+            max-width: 307px;
+        }
+    }
+
+    @media screen and (min-width: 1440px) {
+        & {
+            max-width: 310px;
+        }
+    }
 }
 
 .input {
@@ -47,6 +72,13 @@
     background: transparent;
 
     color: $snow-white;
+
+    font-size: 14px;
+    line-height: 1.2;
+
+    width: 100%;
+
+    max-width: 364px;
 
     margin-bottom: 18px;
 
@@ -69,6 +101,15 @@
     &.success {
         border-color: $christmas-tree-green;
         margin-bottom: 4px;
+    }
+
+    @media screen and (min-width: 768px) {
+        & {
+            font-size: 16px;
+            line-height: 1.5;
+
+            margin-bottom: 20px;
+        }
     }
 }
 
@@ -98,4 +139,28 @@
     align-items: stretch;
 
     margin-bottom: 14px;
+}
+
+.signup__eye {
+
+    position: absolute;
+
+    cursor: pointer;
+
+    top: 16px;
+    right: 16px;
+
+    & use {
+        stroke: $snow-white;
+
+        @include transition();
+
+        &:hover {
+            stroke: $silent-gray;
+        }
+
+        &:active {
+            stroke: $snow-white;
+        }
+    }
 }
