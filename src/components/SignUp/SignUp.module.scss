@@ -50,6 +50,20 @@
 .signup_form {
     display: flex;
     flex-direction: column;
+
+    max-width: 283px;
+
+    @media screen and (min-width: 768px) {
+        & {
+            max-width: 307px;
+        }
+    }
+
+    @media screen and (min-width: 1440px) {
+        & {
+            max-width: 310px;
+        }
+    }
 }
 
 .input {
