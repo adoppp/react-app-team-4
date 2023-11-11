@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
 
 import { Icon } from '../ui/Icon';
 import { Button } from '../ui/Button/Button';
@@ -15,13 +14,6 @@ const cn = classNames.bind(styles);
 const SignIn = () => {
     const [iconName, setIconName] = useState('icon-eye-off');
     const [showPassword, setShowPassword] = useState(false);
-    const isLargeScreen = useMediaQuery({ minWidth: 768 });
-    
-    const titleStyles = isLargeScreen
-        ? { marginBottom: 16 }
-        : { marginBottom: 14 };
-    
-    const buttonStyles = isLargeScreen ? 50 : 14;
 
     const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
@@ -44,7 +36,7 @@ const SignIn = () => {
             <div className={cn('signin_container')}>
                 <Title
                     title="Sign In"
-                    customContainerStyles={titleStyles}
+                    customContainerStyles={{ marginBottom: 14 }}
                 />
                 <p>
                     Welcome! Please enter your credentials to login to the
@@ -181,7 +173,7 @@ const SignIn = () => {
                                 label={'Sign In'}
                                 customContainerStyles={{
                                     width: `fit-content`,
-                                    marginTop: buttonStyles,
+                                    marginTop: 14,
                                     marginBottom: 12,
                                 }}
                             />
