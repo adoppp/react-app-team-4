@@ -26,7 +26,7 @@ const SignUp = () => {
     });
 
     const handleIconChange = () => {
-        setIconName(showPassword ? 'icon-eye' : 'icon-eye-off');
+        setIconName(showPassword ? 'icon-eye-off' : 'icon-eye' );
         setShowPassword(!showPassword);
     }
     

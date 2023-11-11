@@ -48,6 +48,9 @@
 
     color: $snow-white;
 
+    font-size: 16px;
+    line-height: 1.5;
+
     width: 100%;
 
     margin-bottom: 18px;
@@ -106,13 +109,13 @@
 
     position: absolute;
 
-    top: 12px;
+    cursor: pointer;
+
+    top: 16px;
     right: 16px;
 
     & use {
         stroke: $snow-white;
-
-        cursor: pointer;
 
         @include transition();
 
