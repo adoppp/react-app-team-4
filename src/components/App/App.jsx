@@ -1,5 +1,4 @@
 import React from 'react';
-import { Header } from '../global/Header/index';
 import { Suspense } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 import { Loader } from '../global/Loader';
@@ -12,8 +11,7 @@ function App() {
 
   return (
     <div>
-      {/* <Header /> */}
-      {/* <ul>
+      <ul>
         <li>
           <Link to='/welcome'>welcome</Link>
         </li>
@@ -38,7 +36,7 @@ function App() {
         <li>
           <Link></Link>
         </li>
-      </ul> */}
+      </ul>
       <main>
         <Suspense fallback={<Loader customContainerStyles={{ margin: '0 auto', maxWidth: 'fit-content', paddingTop: '200px'}} />} >
           <Routes>
