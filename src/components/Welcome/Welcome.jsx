@@ -23,21 +23,22 @@ const Welcome = () => {
   const iconStyles = isLargeScreen ?
     {
       position: 'absolute',
-      top: '0',
-      left: '-5px',
-      width: '185px',
-      height: '67px',
+      top: '1px',
+      left: '-25px',
+      width: '194px',
+      height: '75px',
+      zIndex: '-1',
     } :
-    {
-      position: 'absolute',
-      top: '0',
-      left: '-5px',
+    {position: 'absolute',
+      top: '2',
+      left: '-12px',
+      zIndex: '-1',
     };
 
   return (
     <div className={cn('welcome__container')}>
       <h1>Transforming your <span>body
-        <Icon iconId='icon-Line' w={98} h={35} customStyles={iconStyles} />
+        <Icon iconId='icon-Line' w={102} h={38} customStyles={iconStyles} />
       </span> shape with Power Pulse
       
       </h1>

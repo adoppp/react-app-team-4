@@ -41,7 +41,7 @@
     }
 
     & h1 span {
-        display: inline-block;
         position: relative;
+        z-index: 1;
     }
 }
