@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
-// import { CustomForm } from '../ui/Form';
+import { useMediaQuery } from 'react-responsive';
 
 import styles from './SignUp.module.scss';
 import { Button } from '../ui/Button/Button';
@@ -15,6 +15,11 @@ const cn = classNames.bind(styles);
 const SignUp = () => {
     const [iconName, setIconName] = useState('icon-eye-off');
     const [showPassword, setShowPassword] = useState(false);
+    const isLargeScreen = useMediaQuery({ minWidth: 768 });
+    
+    const titleStyles = isLargeScreen
+        ? { marginBottom: 16 }
+        : { marginBottom: 14 };
 
     const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
@@ -38,7 +43,7 @@ const SignUp = () => {
             <div className={cn('signup__container')}>
                 <Title
                     title="Sign Up"
-                    customContainerStyles={{ marginBottom: 14 }}
+                    customContainerStyles={titleStyles}
                 />
                 <p>
                     Thank you for your interest in our platform. To complete the

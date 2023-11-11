@@ -8,12 +8,18 @@ import { Icon } from '../ui/Icon';
 import { Button } from '../ui/Button/Button';
 import { Title } from '../Title';
 import styles from './SignIn.module.scss';
+import { useMediaQuery } from 'react-responsive';
 
 const cn = classNames.bind(styles);
 
 const SignIn = () => {
     const [iconName, setIconName] = useState('icon-eye-off');
     const [showPassword, setShowPassword] = useState(false);
+    const isLargeScreen = useMediaQuery({ minWidth: 768 });
+    
+    const titleStyles = isLargeScreen
+        ? { marginBottom: 16 }
+        : { marginBottom: 14 };
 
     const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
@@ -36,7 +42,7 @@ const SignIn = () => {
             <div className={cn('signin_container')}>
                 <Title
                     title="Sign In"
-                    customContainerStyles={{ marginBottom: 14 }}
+                    customContainerStyles={titleStyles}
                 />
                 <p>
                     Welcome! Please enter your credentials to login to the
