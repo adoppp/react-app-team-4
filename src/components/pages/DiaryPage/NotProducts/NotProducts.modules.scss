@@ -1,0 +1,48 @@
+@import '../../../../scss/variables';
+@import '../../../../scss/colors';
+@import '../../../../scss/mixins';
+@import '../../../../scss/reset';
+
+.NotProducts
+{
+    width: 335px;
+    height: 335px;
+    padding: 16px 23px 16px 14px;
+    border-radius: $main-b-radius;
+    border: 1px solid rgba(239, 237, 232, 0.20);
+    background: rgba(239, 237, 232, 0.05);
+    margin-bottom: 40px;
+    position: relative;
+    &_text 
+    {
+        color: rgba(239, 237, 232, 0.50);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.28;
+    }
+    &_link 
+    {
+        color: $christmas-main-orange;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.28;
+        margin-right: 8px;
+    }
+    &__text
+    {
+        position: absolute;
+        left: 107px;
+        bottom: 158px;
+        color: rgba(239, 237, 232, 0.50);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.28;
+    }
+    &_item 
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+    }
+}
