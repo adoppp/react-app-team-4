@@ -10,6 +10,8 @@ const ProductsList = () => {
         return <ul className={cn('list')}>
                 <ProductsItem />
         </ul>
+       
+        
 };
 
 export { ProductsList };

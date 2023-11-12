@@ -1,6 +1,6 @@
 import { Field, Form, Formik } from 'formik';
 import { Button } from '../ui/Button';
-import { Icon } from '../ui/Icon';
+// import { Icon } from '../ui/Icon';
 import styles from './ProductsFilters.module.scss';
 import classNames from 'classnames/bind';
 
@@ -11,13 +11,10 @@ const ProductsFilters = () => {
 
   const ButtonStyles = {
     position: 'absolute',
-    right: 0,
+    left: 200,
     backgroundColor:' transparent',
     
   }
-
-
-
   return <>
     
        <Formik
@@ -38,12 +35,7 @@ const ProductsFilters = () => {
             autoFocus
             placeholder="Search" />
           
-           <Button
-         type={'submit'}
-        customContainerStyles={ButtonStyles}
-      >
-        
-          </Button>
+           
           
            <Field className={cn('categories')} as='select' name='categories'>
              <option value='categories'>Categories</option>
@@ -54,7 +46,12 @@ const ProductsFilters = () => {
              <option value='rec'>Recommended</option>
              <option value='notrec'>Not recommended</option>
            </Field>
+        <Button
+         type={'submit'}
+        customContainerStyles={ButtonStyles}
+          >
         
+          </Button>
          </Form>
        )}
 

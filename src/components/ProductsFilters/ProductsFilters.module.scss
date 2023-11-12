@@ -1,32 +1,72 @@
 @import '../../scss/colors';
+@import '../../scss/mixins';
+@import '../../scss/variables';
 
 .form_container {
+    @include container();
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    width: 335px;
+    width: 375px;
     gap: 16px;
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 40px;
+   
+
+    @media screen and (min-width: 768px) {
+        width: 868px;
+        flex-wrap: none;
+        }
+
+    @media screen and (min-width: 1440px) {
+           width: 1440;
+        }
 
 };
 
 .input {
-   
-
+    color:#EFEDE8;
+    padding: 14px;
+    background-color: transparent;
+    outline: none;
     width: 335px;
     height: 46px;
     border-radius: 12px;
+    border: 1px solid#EFEDE84D;
+
+    @media screen and (min-width: 768px) {
+            width: 236px;
+           
+        }
 };
 
 .categories{
+    color: #EFEDE8;
+    background-color: transparent;
+    padding: 14px;
     width: 146px;
     height: 46px;
     border-radius: 12px;
+    border: 1px solid#EFEDE84D;
+
+    @media screen and (min-width: 768px) {
+            width: 192px;
+    
+        }
 };
 
 .select {
+    color: #EFEDE8;
+    background-color: transparent;
+    padding: 14px;
     width: 173px;
     height: 46px;
     border-radius: 12px;
+    border: 1px solid#EFEDE84D;
+
+    @media screen and (min-width: 768px) {
+            width: 204px;
+    
+        }
 };
