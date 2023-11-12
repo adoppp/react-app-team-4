@@ -1,3 +1,4 @@
+import { Button } from '../ui/Button';
 import { Icon } from '../ui/Icon';
 import styles from './ProductsFilters.module.scss';
 import classNames from 'classnames/bind';
@@ -7,8 +8,15 @@ const cn = classNames.bind(styles);
 
 const ProductsFilters = () => {
 
+  const ButtonStyles = {
+    position: 'absolute',
+    right: 0,
+    backgroundColor:' transparent',
+    
+  }
   const IconStyles = {
-    color: '#EFEDE8'
+    backgroundColor: '#EFEDE8',
+
   }
 
   return <>
@@ -20,8 +28,16 @@ const ProductsFilters = () => {
         autoFocus
         placeholder="Search"
       />
-      {/* <button type="submit">
-    </button> */}
+      <Button
+         type={'submit'}
+        customContainerStyles={ButtonStyles}
+      >
+         <Icon
+            iconId='icon-eye-off'
+            w={36}
+            h={13}
+            customStyles={IconStyles}/>
+        </Button>
             
       <select className={cn('categories')} id="size" name="size">
         <option value="xs">Categories</option>

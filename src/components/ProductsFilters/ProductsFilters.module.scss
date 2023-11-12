@@ -1,4 +1,5 @@
 .form_container {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     width: 335px;
@@ -9,6 +10,8 @@
 };
 
 .input {
+   
+
     width: 335px;
     height: 46px;
     border-radius: 12px;
