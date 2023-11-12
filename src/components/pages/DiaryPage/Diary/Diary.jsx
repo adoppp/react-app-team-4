@@ -66,7 +66,7 @@ const Diary = () => {
                     <div className={cn('dairy_box')}>
                         <Link to='/diary'>
                             <Icon
-                                iconId='icon-food-apple'
+                                iconId='icon-apple'
                                 w={20}
                                 h={20}
                                 customStyles={{ marginRight: 8 }}
