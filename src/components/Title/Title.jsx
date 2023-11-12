@@ -4,7 +4,7 @@ import styles from './Title.module.scss';
 
 const cn = classNames.bind(styles);
 
-const Title = ({title, customContainerStyles}) => {
+const Title = ({ title, customContainerStyles }) => {
     return (
         <h2
             className={cn('title')}

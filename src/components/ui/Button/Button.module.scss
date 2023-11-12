@@ -21,6 +21,10 @@
         background-color: $christmas-hover-orange;
     }
 
+    @media screen and (max-width: 375px) {
+        font-size: 14px;
+    }
+
     @media screen and (min-width: 768px) {
         font-size: 20px;
     }
@@ -41,9 +45,15 @@
 .orange {
     border: 1px solid $snow-alpha-white;
 
+    &:hover {
+        background-color: transparent;
+
+        border-color: $snow-white;
+    }
+
     &:active {
         background-color: $christmas-main-orange;
-        
+
         border-color: $snow-white;
     }
 }
