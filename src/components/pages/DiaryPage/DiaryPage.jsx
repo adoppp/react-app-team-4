@@ -12,10 +12,10 @@ const cn = classNames.bind(styles);
 const DiaryPage = () => {
     return (
         <main className={cn('main')}>
+            <DatePickerCalendar />
             <Diary/>
             <Products/>
             <Execrcises/>
-            <DatePickerCalendar />
         </main>
     );
 }

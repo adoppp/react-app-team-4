@@ -62,7 +62,7 @@ const Diary = () => {
                     </div>
                     <p className={cn('dairy__text')}>110 min</p>
                 </div>
-                <div className={cn('colection')}>
+                <div className={cn('colection', 'box')}>
                     <div className={cn('dairy_box')}>
                         <Link to='/diary'>
                             <Icon
@@ -76,7 +76,7 @@ const Diary = () => {
                     </div>
                     <p className={cn('dairy__text')}>707</p>
                 </div>
-                <div className={cn('colection')}>
+                <div className={cn('colection', 'box')}>
                     <div className={cn('dairy_box')}>
                         <Link to='/diary'>
                             <Icon
@@ -90,7 +90,7 @@ const Diary = () => {
                     </div>
                     <p className={cn('dairy__text')}>855</p>
                 </div>
-                <div className={cn('colection')}>
+                <div className={cn('colection', 'box')}>
                     <div className={cn('dairy_box')}>
                         <Link to='/diary'>
                             <Icon
@@ -100,11 +100,11 @@ const Diary = () => {
                                 customStyles={{ marginRight: 8 }}
                             />
                         </Link>
-                        <h3 className={cn('dairy__title')}>The rest of the calories</h3>
+                        <h3 className={cn('dairy__title')}>Calories remaining</h3>
                     </div>
                     <p className={cn('dairy__text')}>1493</p>
                 </div>
-                <div className={cn('colection')}>
+                <div className={cn('colection', 'box')}>
                     <div className={cn('dairy_box')}>
                         <Link to='/diary'>
                             <Icon
@@ -114,7 +114,7 @@ const Diary = () => {
                                 customStyles={{ marginRight: 8 }}
                             />
                         </Link>
-                        <h3 className={cn('dairy__title')}>The rest of sports</h3>
+                        <h3 className={cn('dairy__title')}>Sports remaining</h3>
                     </div>
                     <p className={cn('dairy__text')}>85 min</p>
                 </div>

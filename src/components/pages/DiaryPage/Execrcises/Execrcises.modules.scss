@@ -41,6 +41,9 @@
     }
     &__text
     {
+        overflow: hidden;
+	    text-overflow: ellipsis;
+        white-space: nowrap;
         color: $christmas-hover-orange;
         font-size: 12px;
         font-weight: 400;

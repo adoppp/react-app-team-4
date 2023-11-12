@@ -8,7 +8,7 @@ const cn = classNames.bind(styles);
 const Products = () => {
     return (
         <div>
-            <section className={cn('section')}>
+            <section className={cn('section', 'scroll')}>
                 <div className={cn('products_item')}>
                     <p className={cn('products_text')}>Products</p>
                     <div className={cn('products_list')}>
