@@ -1,26 +1,26 @@
-import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
+import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 
-import { ModalContent } from "../ModalContent";
+import { ModalContent } from '../ModalContent';
 
 const Modal = ({ children }) => {
     const [showModal, setShowModal] = useState(true);
 
-    const handleClose = () => { setShowModal(false) }
-    
+    const handleClose = () => {
+        setShowModal(false);
+    };
+
     useEffect(() => {
-        setShowModal(true)
-    }, [setShowModal])
+        setShowModal(true);
+    }, [setShowModal]);
 
     return (
         <>
-            {
-                showModal && createPortal(
-                <ModalContent
-                    children={children}
-                    onClose={handleClose}
-                />, document.body)
-            }
+            {showModal &&
+                createPortal(
+                    <ModalContent children={children} onClose={handleClose} />,
+                    document.body,
+                )}
         </>
     );
 };
