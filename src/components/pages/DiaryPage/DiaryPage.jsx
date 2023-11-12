@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './DiaryPage.module.scss';
 
+
 import Diary from './Diary/Diary';
 import Products from './Products/Products';
 import Execrcises from './Execrcises/Execrcises';
