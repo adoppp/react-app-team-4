@@ -1,3 +1,4 @@
+import { Field, Form, Formik } from 'formik';
 import { Button } from '../ui/Button';
 import { Icon } from '../ui/Icon';
 import styles from './ProductsFilters.module.scss';
@@ -14,41 +15,51 @@ const ProductsFilters = () => {
     backgroundColor:' transparent',
     
   }
-  const IconStyles = {
-    backgroundColor: '#EFEDE8',
 
-  }
+
 
   return <>
-    <form className={cn('form_container')}>
-      <input className={cn('input')}
-        type="text"
-        name="name"
-        autoComplete="off"
-        autoFocus
-        placeholder="Search"
-      />
-      <Button
+    
+       <Formik
+       initialValues={{
+         search: '',
+       }}
+       onSubmit={values => {
+         console.log(values);
+       }}
+    >
+       {({ errors, touched }) => (
+         <Form className={cn('form_container')}>
+          <Field
+            className={cn('input')}
+            type='text'
+            name='name'
+            autoComplete='off'
+            autoFocus
+            placeholder="Search" />
+          
+           <Button
          type={'submit'}
         customContainerStyles={ButtonStyles}
       >
-         <Icon
-            iconId='icon-eye-off'
-            w={36}
-            h={13}
-            customStyles={IconStyles}/>
-        </Button>
+        
+          </Button>
+          
+           <Field className={cn('categories')} as='select' name='categories'>
+             <option value='categories'>Categories</option>
             
-      <select className={cn('categories')} id="size" name="size">
-        <option value="xs">Categories</option>
-      </select>
-      <select className={cn('select')} id="size" name="size">
-        <option value="all">All</option>
-        <option value="rec">Recommended</option>
-        <option value="notrec">Not recommended</option>
-      </select>
+          </Field>
+           <Field className={cn('select')} as='select' name='color'>
+             <option value='all'>All</option>
+             <option value='rec'>Recommended</option>
+             <option value='notrec'>Not recommended</option>
+           </Field>
+        
+         </Form>
+       )}
 
-    </form>
+     </Formik>
+
   </>
   
 

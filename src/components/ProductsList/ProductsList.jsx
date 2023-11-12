@@ -7,7 +7,7 @@ const cn = classNames.bind(styles);
 
 
 const ProductsList = () => {
-        return <ul className={cn('list_container')}>
+        return <ul className={cn('list')}>
                 <ProductsItem />
         </ul>
 };

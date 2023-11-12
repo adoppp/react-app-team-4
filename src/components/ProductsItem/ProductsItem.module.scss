@@ -1,4 +1,6 @@
-.item_products {
+@import '../../scss/colors';
+
+.item {
     display: flex;
     flex-direction: column;
     gap: 20px;
