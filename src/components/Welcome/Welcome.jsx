@@ -49,7 +49,6 @@ const Welcome = () => {
                 <Link to="/signup">
                     <Button
                         label="Sign Up"
-                        buttonStyles="orange"
                         action={() => {
                             console.log('click');
                         }}
