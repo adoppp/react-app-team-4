@@ -5,9 +5,9 @@ import { Icon } from '../Icon';
 
 const cn = classNames.bind(styles);
 
-const ModalContent = ({ children, onClose, containerClass }) => {
+const ModalContent = ({ children, onClose, containerClass, handleBackdropClick }) => {
     return (
-        <div className={cn('modal')}>
+        <div className={cn('modal')} onClick={handleBackdropClick}>
             <div className={cn('modal__container')}>
                 <button onClick={onClose} className={cn('modal__close')}>
                     <Icon iconId="icon-close-btn" w={26} h={26} />
