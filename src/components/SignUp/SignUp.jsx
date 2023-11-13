@@ -16,11 +16,11 @@ const SignUp = () => {
     const [iconName, setIconName] = useState('icon-eye-off');
     const [showPassword, setShowPassword] = useState(false);
     const isLargeScreen = useMediaQuery({ minWidth: 768 });
-    
+
     const titleStyles = isLargeScreen
         ? { marginBottom: 16 }
         : { marginBottom: 14 };
-    
+
     const buttonStyles = isLargeScreen ? 50 : 14;
 
     const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
@@ -43,10 +43,7 @@ const SignUp = () => {
     return (
         <section>
             <div className={cn('signup__container')}>
-                <Title
-                    title="Sign Up"
-                    customContainerStyles={titleStyles}
-                />
+                <Title title="Sign Up" customContainerStyles={titleStyles} />
                 <p>
                     Thank you for your interest in our platform. To complete the
                     registration process, please provide us with the following
