@@ -32,10 +32,14 @@
     @include transition();
 
     &:hover {
-        stroke: $calendar-white;
+        color: $lonely-gray;
+        
+        stroke: $christmas-main-orange;
     }
 
     &:active {
+        color: $snow-white;
+
         stroke: $christmas-beige;
     }
 
