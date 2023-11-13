@@ -10,24 +10,22 @@ const Modal = ({ children }) => {
         setShowModal(false);
     };
 
-    const handleKeydown = e => {
-        if (e.code === 'Escape') 
-        setShowModal(false);
+    const handleKeydown = (e) => {
+        if (e.code === 'Escape') setShowModal(false);
         setSelectedImage(null);
     };
 
-    const handleBackdropClick = e => {
-        if (e.target === e.currentTarget)
-        setShowModal(false);
+    const handleBackdropClick = (e) => {
+        if (e.target === e.currentTarget) setShowModal(false);
         setSelectedImage(null);
     };
 
     useEffect(() => {
-    window.addEventListener('keydown', handleKeydown);
-    return () => {
-      window.removeEventListener('keydown', handleKeydown);
+        window.addEventListener('keydown', handleKeydown);
+        return () => {
+            window.removeEventListener('keydown', handleKeydown);
         };
-    },);
+    });
 
     useEffect(() => {
         setShowModal(true);
@@ -41,7 +39,8 @@ const Modal = ({ children }) => {
                         children={children}
                         onClose={handleClose}
                         handleBackdropClick={handleBackdropClick}
-                    />, document.body
+                    />,
+                    document.body,
                 )}
         </>
     );

@@ -11,7 +11,7 @@
     background-color: $christmas-main-orange;
     z-index: 20;
     padding: 20px;
-};
+}
 
 .burger__button {
     position: absolute;
@@ -34,20 +34,19 @@
     &:active use {
         stroke: $christmas-beige;
     }
-};
+}
 
 .menuItems__list {
     display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   height: 100vh;
-};
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
 
 .menuItems__list li {
     margin-bottom: 16px;
-};
-
+}
 
 .logout__button {
     position: absolute;
@@ -89,7 +88,7 @@
     }
 
     @media (min-width: 768px) {
-    line-height: 24px;
-    font-size: 16px;
-     }
+        line-height: 24px;
+        font-size: 16px;
+    }
 }

@@ -23,7 +23,7 @@ const Header = () => {
         setIsMenuOpen(true);
     };
 
-     const closeMenu = () => {
+    const closeMenu = () => {
         setIsMenuOpen(false);
     };
 
@@ -39,15 +39,11 @@ const Header = () => {
                     />
                     <span>PowerPulse</span>
                 </Link>
-                     <button className={cn('header__burgerMenu')}  onClick={openMenu}> 
-                  <Icon
-                        iconId='icon-menu-02'
-                        w={24}
-                        h={24}
-                    />
+                <button className={cn('header__burgerMenu')} onClick={openMenu}>
+                    <Icon iconId="icon-menu-02" w={24} h={24} />
                 </button>
             </div>
-             {isMenuOpen && <BurgerMenu onClose={closeMenu} />}
+            {isMenuOpen && <BurgerMenu onClose={closeMenu} />}
         </header>
     );
 };

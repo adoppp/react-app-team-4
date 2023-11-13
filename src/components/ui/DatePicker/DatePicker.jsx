@@ -8,8 +8,8 @@ import { useMediaQuery } from 'react-responsive';
 
 const DatePickerCalendar = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
-    const isTabletScreen = useMediaQuery({ minWidth: 768 })
-    
+    const isTabletScreen = useMediaQuery({ minWidth: 768 });
+
     const iconCalendarHeight = isTabletScreen ? 24 : 20;
 
     const iconCalendarWidth = isTabletScreen ? 24 : 20;
@@ -54,7 +54,7 @@ const DatePickerCalendar = () => {
     };
 
     return (
-        <div className='calendar-container'>
+        <div className="calendar-container">
             <DatePicker
                 renderCustomHeader={({
                     monthDate,

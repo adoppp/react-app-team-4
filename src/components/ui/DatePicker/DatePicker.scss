@@ -1,6 +1,6 @@
 @import '../../../scss/colors';
 @import '../../../scss/mixins';
-@import'./DataPicker._mixins.scss';
+@import './DataPicker._mixins.scss';
 
 .button-wrapper {
     @include positionDisplay;
@@ -38,7 +38,6 @@
     &:active {
         stroke: $christmas-beige;
     }
-
 
     @media screen and (min-width: 768px) {
         & {
@@ -90,7 +89,7 @@
 .react-datepicker__month-container {
     float: inherit;
     box-sizing: border-box;
-  }
+}
 
 .react-datepicker {
     position: absolute;
@@ -182,7 +181,10 @@
     background-color: transparent;
 }
 
-.react-datepicker__day--today, .react-datepicker__month-text--today, .react-datepicker__quarter-text--today, .react-datepicker__year-text--today {
+.react-datepicker__day--today,
+.react-datepicker__month-text--today,
+.react-datepicker__quarter-text--today,
+.react-datepicker__year-text--today {
     font-weight: 400;
 }
 
@@ -216,7 +218,7 @@
 }
 
 .react-datepicker__day:hover {
-    background-color:$modal-black-bg;
+    background-color: $modal-black-bg;
     border-radius: 50%;
     color: $calendar-white;
 }
@@ -231,13 +233,11 @@
     @include blackCircle;
     border-radius: 50%;
     color: $calendar-white;
-
 }
 .react-datepicker__day--selected {
     @include blackCircle;
     border-radius: 50%;
     color: $calendar-white;
-
 }
 
 .react-datepicker__triangle {
@@ -255,7 +255,6 @@
     @include blackCircle;
     border-radius: 50%;
     color: $calendar-white;
-   
 }
 
 .react-datepicker__current-month,
