@@ -9,11 +9,9 @@ import { Icon } from '../ui/Icon';
 const cn = classNames.bind(styles);
 
 const Welcome = () => {
-    const isSmallScreen = useMediaQuery({ maxWidth: 320 });
     const isLargeScreen = useMediaQuery({ minWidth: 768 });
 
     const buttonStyles = {
-        fontSize: isSmallScreen ? '12px' : isLargeScreen ? '20px' : '16px',
         width: isLargeScreen ? '195px' : '139px',
         padding: isLargeScreen ? '16px 60px' : '12px 40px',
     };
@@ -49,7 +47,6 @@ const Welcome = () => {
                 <Link to="/signup">
                     <Button
                         label="Sign Up"
-                        buttonStyles="orange"
                         action={() => {
                             console.log('click');
                         }}

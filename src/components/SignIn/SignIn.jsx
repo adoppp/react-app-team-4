@@ -16,11 +16,11 @@ const SignIn = () => {
     const [iconName, setIconName] = useState('icon-eye-off');
     const [showPassword, setShowPassword] = useState(false);
     const isLargeScreen = useMediaQuery({ minWidth: 768 });
-    
+
     const titleStyles = isLargeScreen
         ? { marginBottom: 16 }
         : { marginBottom: 14 };
-    
+
     const buttonStyles = isLargeScreen ? 50 : 14;
 
     const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
@@ -42,10 +42,7 @@ const SignIn = () => {
     return (
         <section>
             <div className={cn('signin_container')}>
-                <Title
-                    title="Sign In"
-                    customContainerStyles={titleStyles}
-                />
+                <Title title="Sign In" customContainerStyles={titleStyles} />
                 <p>
                     Welcome! Please enter your credentials to login to the
                     platform:
