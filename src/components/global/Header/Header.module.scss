@@ -5,7 +5,8 @@
     @include container();
 
     width: 100%;
-
+    display: flex;
+    align-items: center;
     padding-top: 24px;
     padding-bottom: 24px;
 
@@ -42,4 +43,36 @@
     & a:hover use {
         fill: $snow-alpha-white;
     }
+
+    & a:active span {
+        color: $lonely-gray;
+    }
+
+    & a:active use {
+        fill: $christmas-main-orange;
+    }
 }
+.header__burgerMenu{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+
+    & use {
+        stroke: $christmas-main-orange;
+
+        @include transition();
+    }
+
+    &:hover use {
+        stroke: $christmas-hover-orange;
+    }
+
+    &:active use {
+        stroke: $christmas-beige;
+    }
+
+    @media (min-width: 1440px) {
+        display: none;
+    }
+};
+
