@@ -1,3 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+$calendar-white: rgba(239, 237, 232, 1);
+$calendar-main: rgba(239, 137, 100, 1);
+
+
+
+@mixin react-datepicker() {
+    display: block;
+
+    max-width: 768px;
+
+    margin: 0 auto;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @media screen and (min-width: 768px) {
+        padding-left: 32px;
+        padding-right: 32px;
+
+        max-width: 1440px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        padding-left: 96px;
+        padding-right: 96px;
+    }
+}
+
 @mixin blackCircle {
     background-color: rgba(4, 4, 4, 1);
 }
@@ -14,6 +48,11 @@
     align-items: center;
 }
 
+@mixin positionFlexCenter {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
 @mixin outlineBorder {
     outline: none;
     border: none;
@@ -23,23 +62,59 @@
     @include positionDisplay;
 }
 
+.calendar-container {
+    position: absolute;
+    right: 0;
+    transform: translate(100%, -50%);
+    margin-right: 500px;
+}
+
 .button-calendar {
+    align-items: center;
     background-color: transparent;
-    color: rgba(239, 237, 232, 1);
     border: none;
+    color: $calendar-white;
     cursor: pointer;
     display: flex;
-    align-items: center;
-    font-weight: 700;
     font-size: 18px;
-    line-height: 1.1;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
     gap: 8px;
+    line-height: 1.1;
+    padding: 0;
     margin-right: 20px;
-    font-family: 'Roboto';
-    stroke: rgba(239, 137, 100, 1);
-
+    stroke: $calendar-main;
     &:hover {
-        stroke: rgba(239, 237, 232, 1);
+        stroke: $calendar-white;
+    }
+
+    @media screen and (min-width: 768px) {
+        & {
+            font-size: 24px;
+            line-height: 1.3;
+        }
+    }
+
+    @media screen and (min-width: 1440px) {
+        & {
+            font-size: 24px;
+            line-height: 1.3;
+        }
+    }
+}
+
+.icon-calendar-style {
+    width: 20px;
+    height: 20px;
+
+    @media screen and (min-width: 768px) {
+        width: 24px;
+        height: 24px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 24px;
+        height: 24px;
     }
 }
 
@@ -56,7 +131,7 @@
 
     &:hover,
     &:focus {
-        fill: rgba(239, 237, 232, 1);
+        fill: $calendar-white;
     }
 }
 
@@ -65,35 +140,39 @@
 }
 
 .react-datepicker__month-container {
-    width: 215px;
     height: 100%;
     padding: 14px;
+    width: 215px;
 }
+.react-datepicker__month-container {
+    float: inherit;
+    box-sizing: border-box;
+  }
 
 .react-datepicker {
-    margin-left: 50px;
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-1%, 0%);
+    align-items: center;
+    background-color: $calendar-main;
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    border-radius: 16px;
-    background-color: rgba(239, 137, 100, 1);
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-1%, 0%);
 }
 
 .react-datepicker__navigation {
-    stroke: rgba(239, 237, 232, 0.4);
-    display: flex;
     align-items: center;
+    display: flex;
+    stroke: rgba(239, 237, 232, 0.4);
 }
 
 .react-datepicker__navigation--previous {
     justify-content: flex-start;
 
     &:hover {
-        stroke: rgba(239, 237, 232, 1);
+        stroke: $calendar-white;
     }
 }
 
@@ -101,7 +180,7 @@
     justify-content: end;
 
     &:hover {
-        stroke: rgba(239, 237, 232, 1);
+        stroke: $calendar-white;
     }
 }
 
@@ -110,12 +189,12 @@
     margin-bottom: 14px;
 }
 .react-datepicker__month-container {
-    float: inherit;
     box-sizing: border-box;
+    float: inherit;
 }
 .react-datepicker__header {
+    background-color: $calendar-main;
     position: relative;
-    background-color: rgba(239, 137, 100, 1);
 
     &.react-datepicker__header--custom {
         border-bottom: none;
@@ -124,8 +203,9 @@
 .react-datepicker__day-names {
     @include positionSpaceBetween;
     padding-top: 14px;
+    padding-bottom: 14px;
+
     border-top: 1px solid rgba(239, 237, 232, 0.2);
-    font-family: 'Roboto';
 }
 
 .react-datepicker__day--selected,
@@ -134,76 +214,73 @@
 }
 
 .react-datepicker__current-month {
+    color: $calendar-white;
     font-size: 16px;
-    line-height: 1.17;
     font-weight: 500;
-    text-align: center;
-    color: rgba(239, 237, 232, 1);
     letter-spacing: 2px;
-    font-family: 'Roboto';
+    line-height: 1.17;
+    text-align: center;
 }
 .react-datepicker__day-name {
+    color: rgba(239, 237, 232, 0.5);
     font-size: 14px;
     font-weight: 500;
     line-height: 1.17;
     text-align: center;
-    color: rgba(239, 237, 232, 0.5);
 }
 .react-datepicker__day
     react-datepicker__day--012.react-datepicker__day--selected
     react-datepicker__day--today {
     @include outlineBorder;
-    font-weight: normal;
+}
+
+.react-datepicker__day--today, .react-datepicker__month-text--today, .react-datepicker__quarter-text--today, .react-datepicker__year-text--today {
+    font-weight: 400;
 }
 
 .react-datepicker__week {
     @include positionSpaceBetween;
-    color: rgba(239, 237, 232, 1);
+    color: $calendar-white;
 }
 
 .react-datepicker__day {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    margin: 0;
-    width: 16px;
-    height: 18px;
+    @include positionFlexCenter;
     border-radius: 50%;
-    color: rgba(239, 237, 232, 1);
+    color: $calendar-white;
+    flex-direction: column;
+    flex-shrink: 0;
     font-size: 14px;
     line-height: 1.28;
+    margin: 0;
     text-align: center;
-    font-family: 'Roboto';
+    width: 24px;
+    height: 24px;
 }
 .react-datepicker__month {
     display: flex;
-    gap: 11px;
     flex-direction: column;
+    gap: 11px;
     justify-content: space-between;
+    margin: 0;
 }
 
 .react-datepicker__day:hover {
     @include blackCircle;
-    color: rgba(239, 237, 232, 1);
-    width: 24px;
-    height: 24px;
     border-radius: 50%;
+    color: $calendar-white;
+  
 }
 .react-datepicker__day--keyboard-selected {
     @include blackCircle;
-    color: rgba(239, 237, 232, 1);
-    width: 24px;
-    height: 24px;
     border-radius: 50%;
+    color: $calendar-white;
+
 }
 .react-datepicker__day--selected {
     @include blackCircle;
-    color: rgba(239, 237, 232, 1);
-    width: 24px;
-    height: 24px;
     border-radius: 50%;
+    color: $calendar-white;
+
 }
 
 .react-datepicker__triangle {
@@ -219,8 +296,16 @@
 }
 .react-datepicker__day--today {
     @include blackCircle;
-    color: rgba(239, 237, 232, 1);
-    width: 24px;
-    height: 24px;
     border-radius: 50%;
+    color: $calendar-white;
+   
 }
+
+.react-datepicker__current-month,
+.react-datepicker__day-name,
+.react-datepicker__day {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
