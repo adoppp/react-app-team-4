@@ -6,6 +6,8 @@ import { ModalContent } from '../ModalContent';
 const Modal = ({ children }) => {
     const [showModal, setShowModal] = useState(true);
 
+    const modalRoot = document.getElementById('modal');
+
     const handleClose = () => {
         setShowModal(false);
     };
@@ -40,7 +42,7 @@ const Modal = ({ children }) => {
                         onClose={handleClose}
                         handleBackdropClick={handleBackdropClick}
                     />,
-                    document.body,
+                    modalRoot,
                 )}
         </>
     );
