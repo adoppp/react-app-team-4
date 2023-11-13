@@ -1,4 +1,5 @@
 @import '../../scss/colors';
+@import '../../scss/mixins';
 
 .burgerMenu__container {
     position: fixed;
@@ -22,7 +23,16 @@
     padding: 0;
 
     & use {
-    stroke: $snow-white;
+        stroke: $snow-white;
+        @include transition();
+    }
+
+    &:hover use {
+        stroke: $silent-gray;
+    }
+
+    &:active use {
+        stroke: $christmas-beige;
     }
 };
 
@@ -53,9 +63,29 @@
     font-weight: 400;
     color: $snow-white;
 
+    @include transition();
+
     & use {
         stroke: $snow-white;
         fill: transparent;
+
+        @include transition();
+    }
+
+    &:hover use {
+        stroke: $silent-gray;
+    }
+
+    &:active use {
+        stroke: $christmas-beige;
+    }
+
+    &:hover {
+        color: $silent-gray;
+    }
+
+    &:active {
+        color: $christmas-beige;
     }
 
     @media (min-width: 768px) {

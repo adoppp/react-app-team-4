@@ -43,6 +43,14 @@
     & a:hover use {
         fill: $snow-alpha-white;
     }
+
+    & a:active span {
+        color: $lonely-gray;
+    }
+
+    & a:active use {
+        fill: $christmas-main-orange;
+    }
 }
 .header__burgerMenu{
     background-color: transparent;
@@ -50,10 +58,20 @@
     padding: 0;
 
     & use {
-    stroke: $christmas-main-orange;
+        stroke: $christmas-main-orange;
+
+        @include transition();
     }
 
-        @media (min-width: 1440px) {
+    &:hover use {
+        stroke: $christmas-hover-orange;
+    }
+
+    &:active use {
+        stroke: $christmas-beige;
+    }
+
+    @media (min-width: 1440px) {
         display: none;
     }
 };
