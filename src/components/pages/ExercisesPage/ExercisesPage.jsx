@@ -6,15 +6,11 @@ const cn = classNames.bind(styles);
 
 const ExercisesPage = () => {
   return (
-    <>
-    <section className={cn('section')}>
-    <div>
+    <div className={cn('section')}>
         <h2>ExercisesPage</h2>
-    </div>
       {/* <ExercisesCategories/> */}
-    </section>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default ExercisesPage
+export default ExercisesPage;
