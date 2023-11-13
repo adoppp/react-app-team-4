@@ -1,6 +1,6 @@
 @import '../../scss/colors';
 
-.burgerMenu {
+.burgerMenu__container {
     position: fixed;
     top: 0;
     right: 0;
@@ -12,7 +12,7 @@
     padding: 20px;
 };
 
-.burgerButton {
+.burger__button {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -26,7 +26,7 @@
     }
 };
 
-.menuItems {
+.menuItems__list {
     display: flex;
    flex-direction: column;
    align-items: center;
@@ -34,12 +34,12 @@
    height: 100vh;
 };
 
-.menuItems a {
+.menuItems__list li {
     margin-bottom: 16px;
 };
 
 
-.logoutButton {
+.logout__button {
     position: absolute;
     display: flex;
     align-items: center;

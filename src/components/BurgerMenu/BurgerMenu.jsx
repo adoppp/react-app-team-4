@@ -9,38 +9,42 @@ const cn = classNames.bind(styles);
 
 export const BurgerMenu = ({ onClose }) => {
   
-
   return (
-    <div className={cn('burgerMenu')}>
-      <button onClick={onClose} className={cn('burgerButton')}>
+    <div className={cn('burgerMenu__container')}>
+      <button onClick={onClose} className={cn('burger__button')}>
         <Icon
           iconId='icon-close'
           w={24}
           h={24}
         />
       </button>
-      <div className={cn('menuItems')}>
-        <Link>
-          <Button
-            label='Diary'
-            buttonStyles='orange'
-          />
-        </Link>
-        <Link>
-          <Button
-            label='Products'
-            buttonStyles='orange'
-          />
-        </Link>
-        <Link>
-          <Button
-            label='Exercises'
-            buttonStyles='orange'
-          />
-        </Link>
-           
-      </div>
-      <button className={cn('logoutButton')}>
+      <ul className={cn('menuItems__list')}>
+  <li>
+    <Link>
+      <Button
+        label='Diary'
+        buttonStyles='orange'
+      />
+    </Link>
+  </li>
+  <li>
+    <Link>
+      <Button
+        label='Products'
+        buttonStyles='orange'
+      />
+    </Link>
+  </li>
+  <li>
+    <Link>
+      <Button
+        label='Exercises'
+        buttonStyles='orange'
+      />
+    </Link>
+  </li>
+</ul>
+      <button className={cn('logout__button')}>
         Logout
          <Icon
           iconId='icon-log-out'
@@ -48,7 +52,6 @@ export const BurgerMenu = ({ onClose }) => {
           h={24}
           customStyles={{ marginLeft: 8 }}
         />
-    
   </button>
     </div>
   );
