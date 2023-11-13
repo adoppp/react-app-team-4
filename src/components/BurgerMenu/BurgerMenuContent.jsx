@@ -15,17 +15,17 @@ const BurgerMenuContent = ({ onClose }) => {
             </button>
             <ul className={cn('menuItems__list')}>
                 <li>
-                    <Link>
+                    <Link to='/diary'>
                         <Button label="Diary" buttonStyles="orange" />
                     </Link>
                 </li>
                 <li>
-                    <Link>
+                    <Link to='/products'>
                         <Button label="Products" buttonStyles="orange" />
                     </Link>
                 </li>
                 <li>
-                    <Link>
+                    <Link to='/exercises'>
                         <Button label="Exercises" buttonStyles="orange" />
                     </Link>
                 </li>

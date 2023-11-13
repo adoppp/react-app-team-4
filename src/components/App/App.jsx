@@ -13,12 +13,6 @@ function App() {
                     <Link to="/welcome">welcome</Link>
                 </li>
                 <li>
-                    <Link to="/signup">signup</Link>
-                </li>
-                <li>
-                    <Link to="/signin">signin</Link>
-                </li>
-                <li>
                     <Link to="/profile">profile</Link>
                 </li>
                 <li>
