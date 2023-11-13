@@ -1,13 +1,52 @@
-import { useState } from 'react';
+import { useState, forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import styles from './DatePicker.module.scss';
 
-import { CalendarGlobalStyles } from './StyledDatepicker.styled';
-import { Icon } from '../Icon';
+import { Icon } from '../../ui/Icon';
+import './DatePicker.scss';
 
 const DatePickerCalendar = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
+
+    const BtnInput = forwardRef(({ value, onClick }, ref) => (
+        <div className={'button-wrapper'}>
+            <button
+                className={'button-calendar'}
+                onClick={() => onClick()}
+                ref={ref}
+            >
+                {value}
+                <Icon
+                    iconId="icon-calendar"
+                    w={20}
+                    h={20}
+                    className={'icon-calendar-style'}
+                />
+            </button>
+
+            <button
+                className={'icon-previous-btn-icon'}
+                onClick={handlePrevDay}
+            >
+                <Icon iconId="calendar-arrow-left" w={16} h={16} />
+            </button>
+            <button className={'icon-next-btn-icon'} onClick={handleNextDay}>
+                <Icon iconId="calendar-arrow-right" w={16} h={16} />
+            </button>
+        </div>
+    ));
+
+    const handlePrevDay = () => {
+        const previousDay = new Date(selectedDate);
+        previousDay.setDate(selectedDate.getDate() - 1);
+        setSelectedDate(previousDay);
+    };
+
+    const handleNextDay = () => {
+        const nextDay = new Date(selectedDate);
+        nextDay.setDate(selectedDate.getDate() + 1);
+        setSelectedDate(nextDay);
+    };
 
     return (
         <div>
@@ -18,7 +57,7 @@ const DatePickerCalendar = () => {
                     decreaseMonth,
                     increaseMonth,
                 }) => (
-                    <div>
+                    <div className={'header-calendar'}>
                         <button
                             aria-label="Previous Month"
                             className={
@@ -29,15 +68,19 @@ const DatePickerCalendar = () => {
                                     ? { visibility: 'hidden' }
                                     : null
                             }
-                            onClick={decreaseMonth}
+                            onClick={() => {
+                                decreaseMonth();
+                                handlePrevDay();
+                            }}
                         >
-                            <span
+                            <Icon
+                                iconId="icon-Arrow-next"
+                                w={4}
+                                h={8}
                                 className={
-                                    'react-datepicker__navigation-icon react-datepicker__navigation-icon--previous'
+                                    'react-datepicker__navigation-icon react-datepicker__navigation-icon--next'
                                 }
-                            >
-                                {'<'}
-                            </span>
+                            />
                         </button>
                         <span className="react-datepicker__current-month">
                             {monthDate.toLocaleString('en-US', {
@@ -50,25 +93,19 @@ const DatePickerCalendar = () => {
                             className={
                                 'react-datepicker__navigation react-datepicker__navigation--next'
                             }
-                            // style={
-                            //     customHeaderCount === 0
-                            //         ? { visibility: 'hidden' }
-                            //         : null
-                            // }
-                            onClick={increaseMonth}
+                            onClick={() => {
+                                increaseMonth();
+                                handleNextDay();
+                            }}
                         >
-                            <span
+                            <Icon
+                                iconId="icon-Arrow-previous"
+                                w={4}
+                                h={8}
                                 className={
-                                    'react-datepicker__navigation-icon react-datepicker__navigation-icon--next'
+                                    'react-datepicker__navigation-icon react-datepicker__navigation-icon--previous'
                                 }
-                            >
-                                <Icon
-                                    iconId="icon-Arrow-next"
-                                    w={20}
-                                    h={20}
-                                    className={styles.icon}
-                                />
-                            </span>
+                            />
                         </button>
                     </div>
                 )}
@@ -78,8 +115,8 @@ const DatePickerCalendar = () => {
                 }}
                 dateFormat={'dd/MM/yyyy'}
                 calendarStartDay={1}
+                customInput={<BtnInput />}
             />
-            <CalendarGlobalStyles />
         </div>
     );
 };
