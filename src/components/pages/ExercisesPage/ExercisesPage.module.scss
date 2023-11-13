@@ -1,0 +1,25 @@
+@import '../../../scss/variables';
+@import '../../../scss/colors';
+@import '../../../scss/mixins';
+
+.section {
+    @include container();
+    width: 320px;
+    padding-top: 40px;
+}
+
+@media screen and (min-width: 375px) {
+    .section {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .section {
+        padding-top: 72px;
+        margin-bottom: 64px;
+    }
+    }
