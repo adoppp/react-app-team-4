@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 import { useState } from 'react';
 
 import styles from './Header.module.scss';
-import { BurgerMenu } from '../../BurgerMenu/BurgerMenu';
+import { BurgerMenu } from '../../ui/BurgerMenu';
 import { Icon } from '../../ui/Icon';
 
 const cn = classNames.bind(styles);

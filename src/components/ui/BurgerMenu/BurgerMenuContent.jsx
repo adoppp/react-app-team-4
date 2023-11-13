@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './BurgerMenu.module.scss';
-import { Icon } from '../ui/Icon';
+import { Icon } from '../Icon';
 import classNames from 'classnames/bind';
-import { Button } from '../ui/Button';
+import { Button } from '../Button';
 
 const cn = classNames.bind(styles);
 
