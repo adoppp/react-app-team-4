@@ -1,5 +1,7 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
+
 import { BurgerMenu } from '../../BurgerMenu/BurgerMenu';
 import styles from './Header.module.scss';
 import { Icon } from '../../ui/Icon';
@@ -8,16 +10,6 @@ import React, { useState } from 'react';
 const cn = classNames.bind(styles);
 
 const Header = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    
-     const openMenu = () => {
-        setIsMenuOpen(true);
-    };
-
-     const closeMenu = () => {
-    setIsMenuOpen(false);
-   };
-
     return (
         <header>
             <div className={cn('header__container')}>
@@ -26,7 +18,7 @@ const Header = () => {
                         iconId="icon-Vector"
                         w={36}
                         h={13}
-                        customStyles={{ marginRight: 8 }}
+                        customStyles={iconStyles}
                     />
                     <span>PowerPulse</span>
                 </Link>

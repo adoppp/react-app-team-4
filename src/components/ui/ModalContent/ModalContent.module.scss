@@ -1,0 +1,59 @@
+@import '../../../scss/colors';
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+
+.modal {
+    background-color: $modal-black-bg;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    padding: 0 16px;
+
+    &__container {
+        background-color: $darkness-modal-black;
+
+        max-width: fit-content;
+
+        padding: 16px;
+
+        border: 1px solid $lonely-modal-gray;
+        border-radius: $main-b-radius;
+    }
+
+    &__close {
+        max-width: fit-content;
+        max-height: fit-content;
+
+        background: transparent;
+
+        display: block;
+
+        margin-left: auto;
+
+        border: 0;
+    }
+
+    &__close use {
+        stroke: $snow-white;
+
+        @include transition();
+    }
+
+    &__close:hover use {
+        stroke: $silent-gray;
+    }
+
+    &__close:active use {
+        stroke: $snow-white;
+    }
+}
