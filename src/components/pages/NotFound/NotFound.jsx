@@ -18,6 +18,12 @@ const NotFound = () => {
         padding: isLargeScreen ? '16px 60px' : '12px 40px',
     };
 
+    const iconStyles = {
+        marginRight: 8,
+        width: isLargeScreen ? '44px' : '36px',
+        height: isLargeScreen ? '17px' : '13px',
+    };
+
     return (
         <div className={cn('notfound__container')}>
             <div className={cn('info__container')}>
@@ -26,7 +32,7 @@ const NotFound = () => {
                         iconId="icon-Vector"
                         w={36}
                         h={13}
-                        customStyles={{ marginRight: 8 }}
+                        customStyles={iconStyles}
                     />
                     <span className={cn('info__logo_text')}>PowerPulse</span>
                 </Link>

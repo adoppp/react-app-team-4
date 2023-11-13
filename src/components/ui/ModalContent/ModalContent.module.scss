@@ -8,12 +8,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     width: 100vw;
     height: 100vh;
-    
+
     position: absolute;
-    
+
     top: 0;
     left: 0;
 
@@ -33,7 +33,7 @@
     &__close {
         max-width: fit-content;
         max-height: fit-content;
-        
+
         background: transparent;
 
         display: block;
