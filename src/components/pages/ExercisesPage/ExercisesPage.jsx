@@ -1,4 +1,4 @@
-// import ExercisesCategories from './ExercisesCategories/ExercisesCategories'
+import ExercisesCategories from './ExercisesCategories/ExercisesCategories'
 import classNames from 'classnames/bind';
 import styles from './ExercisesPage.module.scss';
 
@@ -8,7 +8,7 @@ const ExercisesPage = () => {
   return (
     <div className={cn('section')}>
         <h2>ExercisesPage</h2>
-      {/* <ExercisesCategories/> */}
+      <ExercisesCategories/>
     </div>
   );
 };
