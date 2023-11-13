@@ -1,62 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-
-body {
-    font-family: 'Roboto', sans-serif;
-}
-
-$calendar-white: rgba(239, 237, 232, 1);
-$calendar-main: rgba(239, 137, 100, 1);
-
-
-
-@mixin react-datepicker() {
-    display: block;
-
-    max-width: 768px;
-
-    margin: 0 auto;
-
-    padding-left: 20px;
-    padding-right: 20px;
-
-    @media screen and (min-width: 768px) {
-        padding-left: 32px;
-        padding-right: 32px;
-
-        max-width: 1440px;
-    }
-
-    @media screen and (min-width: 1440px) {
-        padding-left: 96px;
-        padding-right: 96px;
-    }
-}
-
-@mixin blackCircle {
-    background-color: rgba(4, 4, 4, 1);
-}
-
-@mixin positionDisplay {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-@mixin positionSpaceBetween {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-@mixin positionFlexCenter {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-}
-@mixin outlineBorder {
-    outline: none;
-    border: none;
-}
+@import '../../../scss/colors';
+@import '../../../scss/mixins';
+@import'./DataPicker._mixins.scss';
 
 .button-wrapper {
     @include positionDisplay;
@@ -84,10 +28,18 @@ $calendar-main: rgba(239, 137, 100, 1);
     padding: 0;
     margin-right: 20px;
     stroke: $calendar-main;
+
+    @include transition();
+
     &:hover {
         stroke: $calendar-white;
     }
 
+    &:active {
+        stroke: $christmas-beige;
+    }
+
+
     @media screen and (min-width: 768px) {
         & {
             font-size: 24px;
@@ -100,21 +52,6 @@ $calendar-main: rgba(239, 137, 100, 1);
             font-size: 24px;
             line-height: 1.3;
         }
-    }
-}
-
-.icon-calendar-style {
-    width: 20px;
-    height: 20px;
-
-    @media screen and (min-width: 768px) {
-        width: 24px;
-        height: 24px;
-    }
-
-    @media screen and (min-width: 1440px) {
-        width: 24px;
-        height: 24px;
     }
 }
 
@@ -129,9 +66,15 @@ $calendar-main: rgba(239, 137, 100, 1);
     fill: rgba(239, 237, 232, 0.2);
     padding: 0;
 
+    @include transition();
+
     &:hover,
     &:focus {
         fill: $calendar-white;
+    }
+
+    &:active {
+        fill: $calendar-main;
     }
 }
 
@@ -171,6 +114,8 @@ $calendar-main: rgba(239, 137, 100, 1);
 .react-datepicker__navigation--previous {
     justify-content: flex-start;
 
+    @include transition();
+
     &:hover {
         stroke: $calendar-white;
     }
@@ -178,6 +123,8 @@ $calendar-main: rgba(239, 137, 100, 1);
 
 .react-datepicker__navigation--next {
     justify-content: end;
+
+    @include transition();
 
     &:hover {
         stroke: $calendar-white;
@@ -228,10 +175,11 @@ $calendar-main: rgba(239, 137, 100, 1);
     line-height: 1.17;
     text-align: center;
 }
+
 .react-datepicker__day
     react-datepicker__day--012.react-datepicker__day--selected
     react-datepicker__day--today {
-    @include outlineBorder;
+    background-color: transparent;
 }
 
 .react-datepicker__day--today, .react-datepicker__month-text--today, .react-datepicker__quarter-text--today, .react-datepicker__year-text--today {
@@ -255,6 +203,9 @@ $calendar-main: rgba(239, 137, 100, 1);
     text-align: center;
     width: 24px;
     height: 24px;
+    border-radius: 50%;
+
+    @include transition();
 }
 .react-datepicker__month {
     display: flex;
@@ -265,11 +216,17 @@ $calendar-main: rgba(239, 137, 100, 1);
 }
 
 .react-datepicker__day:hover {
-    @include blackCircle;
+    background-color:$modal-black-bg;
     border-radius: 50%;
     color: $calendar-white;
-  
 }
+
+.react-datepicker__day:active {
+    background-color: $christmas-main-orange;
+    border-radius: 50%;
+    color: $calendar-white;
+}
+
 .react-datepicker__day--keyboard-selected {
     @include blackCircle;
     border-radius: 50%;
@@ -307,5 +264,6 @@ $calendar-main: rgba(239, 137, 100, 1);
     font-family: 'Roboto', sans-serif;
 }
 
-
-
+.react-datepicker__day--today {
+    background-color: transparent;
+}
