@@ -5,13 +5,11 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { Icon } from '../../ui/Icon';
 import './DatePicker.scss';
 import { useMediaQuery } from 'react-responsive';
-
 const DatePickerCalendar = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
+
     const isTabletScreen = useMediaQuery({ minWidth: 768 });
-
     const iconCalendarHeight = isTabletScreen ? 24 : 20;
-
     const iconCalendarWidth = isTabletScreen ? 24 : 20;
 
     const BtnInput = forwardRef(({ value, onClick }, ref) => (
@@ -43,13 +41,13 @@ const DatePickerCalendar = () => {
 
     const handlePrevDay = () => {
         const previousDay = new Date(selectedDate);
-        previousDay.setDate(selectedDate.getDate() - 1);
+        previousDay.setDate(previousDay.getDate() - 1);
         setSelectedDate(previousDay);
     };
 
     const handleNextDay = () => {
         const nextDay = new Date(selectedDate);
-        nextDay.setDate(selectedDate.getDate() + 1);
+        nextDay.setDate(nextDay.getDate() + 1);
         setSelectedDate(nextDay);
     };
 
@@ -75,7 +73,6 @@ const DatePickerCalendar = () => {
                             }
                             onClick={() => {
                                 decreaseMonth();
-                                handlePrevDay();
                             }}
                         >
                             <Icon
@@ -100,7 +97,6 @@ const DatePickerCalendar = () => {
                             }
                             onClick={() => {
                                 increaseMonth();
-                                handleNextDay();
                             }}
                         >
                             <Icon
@@ -116,6 +112,9 @@ const DatePickerCalendar = () => {
                 )}
                 selected={selectedDate}
                 onChange={(date) => {
+                    setSelectedDate(date);
+                }}
+                onMonthChange={(date) => {
                     setSelectedDate(date);
                 }}
                 dateFormat={'dd/MM/yyyy'}
