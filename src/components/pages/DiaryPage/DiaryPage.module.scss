@@ -1,53 +1,12 @@
 @import '../../../scss/colors';
 @import '../../../scss//mixins';
 
-@mixin headerFontDeskTab {
-    font-size: 32px;
-    line-height: 1.37;
-}
-
 .diaryPage_container {
     @include container();
 
-    display: block;
-
-    max-width: 768px;
-
-    margin: 0 auto;
-
-    padding-left: 20px;
-    padding-right: 20px;
-
-    @media screen and (min-width: 768px) {
-        padding-left: 32px;
-        padding-right: 32px;
-
-        max-width: 1440px;
-    }
-
-    @media screen and (min-width: 1440px) {
-        padding-left: 96px;
-        padding-right: 96px;
-    }
-}
-
-.diaryPage_header {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 1.16;
-    color: $calendar-white;
-
-    @media screen and (min-width: 768px) {
-        & {
-            @include headerFontDeskTab();
-        }
-    }
-
-    @media screen and (min-width: 1440px) {
-        & {
-            @include headerFontDeskTab();
-        }
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 }
 
 .diaryPage_calendarHeader {
