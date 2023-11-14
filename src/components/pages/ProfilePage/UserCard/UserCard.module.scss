@@ -1,0 +1,126 @@
+@import '../../../../scss/colors';
+@import '../../../../scss/mixins';
+
+.usercard__container{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container__svg{
+    position: relative;
+    margin-bottom: 32px;
+}
+
+
+.usercard__VectorProfile{
+   
+
+    & use {
+        background-color: $christmas-main-orange;
+        stroke:$snow-white;
+    }
+}
+
+.usercard__checkMark{
+    position: absolute;
+    top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    & use {
+        background-color: $christmas-main-orange;
+            stroke: $snow-white;
+        }
+};
+
+.user__name{
+    margin-bottom: 4px;
+};
+
+.user__user{
+    margin-bottom: 40px;
+}
+
+.daily__container{
+    display: flex;
+    margin-bottom: 40px;
+}
+
+
+.daily__calorieAndNorm{
+    background-color: $christmas-main-orange;
+    width: 158px;
+    height: 96px;
+    margin-right: 14px;
+    border-radius: 12px;
+}
+
+.daily__calorieAndNorm:last-child {
+    margin-right: 0px;
+}
+
+.daily__calorieContainer{
+    padding: 14px
+};
+
+.daily__icon{
+
+    & use{
+        stroke: $christmas-hover-orange;
+      
+    }
+}
+
+.profile__warning{
+  margin-bottom: 40px;
+    & use {
+        stroke: $snow-white;
+            fill: $christmas-hover-orange;
+    }
+};
+
+.logout__button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    bottom: 20px;
+    left: 20px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    color: $snow-white;
+
+    @include transition();
+
+    & use {
+        stroke: $christmas-main-orange;
+        fill: transparent;
+
+        @include transition();
+    }
+
+    &:hover use {
+        stroke: $silent-gray;
+    }
+
+    &:active use {
+        stroke: $christmas-beige;
+    }
+
+    &:hover {
+        color: $silent-gray;
+    }
+
+    &:active {
+        color: $christmas-beige;
+    }
+
+    @media (min-width: 768px) {
+        line-height: 24px;
+        font-size: 16px;
+    }
+}
