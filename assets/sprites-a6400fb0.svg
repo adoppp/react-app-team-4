@@ -91,6 +91,12 @@
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4615" d="M24 8l-16 16"></path>
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4615" d="M8 8l16 16"></path>
 </symbol>
+
+<symbol id="icon-error" viewBox="0 0 32 32">
+<path d="M15.982 31.788c-8.716 0-15.806-7.091-15.806-15.806s7.091-15.806 15.806-15.806c8.716 0 15.806 7.091 15.806 15.806s-7.091 15.806-15.806 15.806z"></path>
+<path fill="#efede8" style="fill: var(--color2, #fff)" d="M10.328 23.393c-0.45 0-0.899-0.171-1.242-0.515-0.686-0.686-0.686-1.798 0-2.483l11.309-11.309c0.685-0.686 1.798-0.686 2.483 0s0.686 1.798 0 2.484l-11.308 11.309c-0.343 0.343-0.792 0.515-1.242 0.515z"></path>
+<path fill="#efede8" style="fill: var(--color2, #fff)" d="M21.637 23.393c-0.449 0-0.899-0.171-1.242-0.515l-11.309-11.309c-0.686-0.686-0.686-1.798 0-2.484s1.798-0.686 2.484 0l11.308 11.309c0.686 0.686 0.686 1.798 0 2.483-0.343 0.343-0.792 0.515-1.242 0.515z"></path>
+</symbol>
 </defs>
 </svg>
 
