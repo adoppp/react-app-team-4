@@ -1,16 +1,20 @@
 @import '../../../scss/colors';
 @import '../../../scss//mixins';
 
-.diaryPage_container {
+.calendar__container {
     @include container();
 
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+    &-mobile {
+        @include container();
+
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+    }
 }
 
-.diaryPage_calendarHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.calendar__component_wrapper {
+    max-width: fit-content;
+
+    margin-left: auto;
 }
