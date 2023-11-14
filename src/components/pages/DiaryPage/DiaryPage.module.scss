@@ -1,0 +1,20 @@
+@import '../../../scss/colors';
+@import '../../../scss//mixins';
+
+.calendar__container {
+    @include container();
+
+    &-mobile {
+        @include container();
+
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+    }
+}
+
+.calendar__component_wrapper {
+    max-width: fit-content;
+
+    margin-left: auto;
+}

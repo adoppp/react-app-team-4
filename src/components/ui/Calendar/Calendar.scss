@@ -1,16 +1,9 @@
 @import '../../../scss/colors';
 @import '../../../scss/mixins';
-@import './DataPicker._mixins.scss';
+@import './Calendar._mixins.scss';
 
 .button-wrapper {
     @include positionDisplay;
-}
-
-.calendar-container {
-    position: absolute;
-    right: 0;
-    transform: translate(100%, -50%);
-    margin-right: 500px;
 }
 
 .button-calendar {
@@ -33,7 +26,7 @@
 
     &:hover {
         color: $lonely-gray;
-        
+
         stroke: $christmas-main-orange;
     }
 
@@ -105,7 +98,20 @@
     left: 50%;
     position: absolute;
     top: 50%;
-    transform: translate(-1%, 0%);
+    // transform: translate(-1%, 0%);
+    transform: translate(-18%, 0%);
+
+    @media screen and (min-width: 768px) {
+        & {
+            transform: translate(-1%, 0%);
+        }
+    }
+
+    @media screen and (min-width: 1440px) {
+        & {
+            transform: translate(-17%, 0%);
+        }
+    }
 }
 
 .react-datepicker__navigation {
@@ -114,8 +120,12 @@
     stroke: rgba(239, 237, 232, 0.4);
 }
 
-.react-datepicker__navigation--previous {
-    justify-content: flex-start;
+.react-datepicker__navigation--previous {    
+    background-color: transparent;
+    
+    padding: 0;
+
+    border: 0;
 
     @include transition();
 
@@ -125,7 +135,11 @@
 }
 
 .react-datepicker__navigation--next {
-    justify-content: end;
+    background-color: transparent;
+
+    padding: 0;
+
+    border: 0;
 
     @include transition();
 
@@ -179,19 +193,6 @@
     text-align: center;
 }
 
-.react-datepicker__day
-    react-datepicker__day--012.react-datepicker__day--selected
-    react-datepicker__day--today {
-    background-color: transparent;
-}
-
-.react-datepicker__day--today,
-.react-datepicker__month-text--today,
-.react-datepicker__quarter-text--today,
-.react-datepicker__year-text--today {
-    font-weight: 400;
-}
-
 .react-datepicker__week {
     @include positionSpaceBetween;
     color: $calendar-white;
@@ -233,11 +234,6 @@
     color: $calendar-white;
 }
 
-.react-datepicker__day--keyboard-selected {
-    @include blackCircle;
-    border-radius: 50%;
-    color: $calendar-white;
-}
 .react-datepicker__day--selected {
     @include blackCircle;
     border-radius: 50%;
@@ -255,11 +251,6 @@
 .react-datepicker__day--outside-month {
     color: rgba(239, 237, 232, 0.2);
 }
-.react-datepicker__day--today {
-    @include blackCircle;
-    border-radius: 50%;
-    color: $calendar-white;
-}
 
 .react-datepicker__current-month,
 .react-datepicker__day-name,
@@ -267,6 +258,17 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.react-datepicker__day--012,
 .react-datepicker__day--today {
     background-color: transparent;
+}
+
+.react-datepicker__day .react-datepicker__day--selected {
+    @include blackCircle;
+    border-radius: 50%;
+    color: $calendar-white;
+}
+
+.react-datepicker__aria-live {
+    display: none;
 }
