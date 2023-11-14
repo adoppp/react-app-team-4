@@ -1,9 +1,9 @@
-import DatePickerCalendar from '../../ui/DatePicker/DatePicker';
 import classNames from 'classnames/bind';
+import { useMediaQuery } from 'react-responsive';
 
 import styles from './DiaryPage.module.scss';
+import { Calendar } from '../../ui/Calendar';
 import { Title } from '../../Title';
-import { useMediaQuery } from 'react-responsive';
 
 const cn = classNames.bind(styles);
 
@@ -14,14 +14,14 @@ const DiaryPage = () => {
     <div className={cn('calendar__container-mobile')}>
             <Title title='Diary' />
             <div className={cn('calendar__component_wrapper')}>
-                <DatePickerCalendar />
+                <Calendar />
             </div>
         </div>;
     
     const tabletAndDekstopScreen =
         <div className={cn('calendar__container')}>
             <div className={cn('calendar__component_wrapper')}>
-                <DatePickerCalendar />
+                <Calendar />
             </div>
             <Title title='Diary' />
         </div>;

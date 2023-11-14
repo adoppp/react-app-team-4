@@ -1,11 +1,11 @@
 import { useState, forwardRef } from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-
-import { Icon } from '../../ui/Icon';
-import './DatePicker.scss';
 import { useMediaQuery } from 'react-responsive';
-const DatePickerCalendar = () => {
+import DatePicker from 'react-datepicker';
+
+import { Icon } from '../Icon';
+import './Calendar.scss';
+
+const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
 
     const isTabletScreen = useMediaQuery({ minWidth: 768 });
@@ -77,8 +77,8 @@ const DatePickerCalendar = () => {
                         >
                             <Icon
                                 iconId="icon-Arrow-next"
-                                w={4}
-                                h={8}
+                                w={8}
+                                h={12}
                                 className={
                                     'react-datepicker__navigation-icon react-datepicker__navigation-icon--next'
                                 }
@@ -101,8 +101,8 @@ const DatePickerCalendar = () => {
                         >
                             <Icon
                                 iconId="icon-Arrow-previous"
-                                w={4}
-                                h={8}
+                                w={8}
+                                h={12}
                                 className={
                                     'react-datepicker__navigation-icon react-datepicker__navigation-icon--previous'
                                 }
@@ -125,4 +125,4 @@ const DatePickerCalendar = () => {
     );
 };
 
-export default DatePickerCalendar;
+export { Calendar };

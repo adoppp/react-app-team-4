@@ -1,6 +1,6 @@
 @import '../../../scss/colors';
 @import '../../../scss/mixins';
-@import './DataPicker._mixins.scss';
+@import './Calendar._mixins.scss';
 
 .button-wrapper {
     @include positionDisplay;
@@ -120,8 +120,12 @@
     stroke: rgba(239, 237, 232, 0.4);
 }
 
-.react-datepicker__navigation--previous {
-    justify-content: flex-start;
+.react-datepicker__navigation--previous {    
+    background-color: transparent;
+    
+    padding: 0;
+
+    border: 0;
 
     @include transition();
 
@@ -131,7 +135,11 @@
 }
 
 .react-datepicker__navigation--next {
-    justify-content: end;
+    background-color: transparent;
+
+    padding: 0;
+
+    border: 0;
 
     @include transition();
 
@@ -259,4 +267,8 @@
     @include blackCircle;
     border-radius: 50%;
     color: $calendar-white;
+}
+
+.react-datepicker__aria-live {
+    display: none;
 }
