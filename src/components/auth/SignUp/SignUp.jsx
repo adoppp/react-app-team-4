@@ -4,17 +4,26 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './SignUp.module.scss';
+import { registration } from '../../../storage/operations/authThunk';
 import { Button } from '../../ui/Button/Button';
 import { Icon } from '../../ui/Icon';
 import { Title } from '../../global/Title';
+import { errorSelector } from '../../../storage/selectors/authSelectors';
+import { Modal } from '../../ui/Modal';
 
 const cn = classNames.bind(styles);
 
 const SignUp = () => {
     const [iconName, setIconName] = useState('icon-eye-off');
     const [showPassword, setShowPassword] = useState(false);
+
+    const error = useSelector(errorSelector);
+
+    const dispatch = useDispatch();
+
     const isLargeScreen = useMediaQuery({ minWidth: 768 });
 
     const titleStyles = isLargeScreen
@@ -40,6 +49,12 @@ const SignUp = () => {
         setShowPassword(!showPassword);
     };
 
+    const handleSubmit = (e) => {
+        console.log("🚀 ~ file: SignUp.jsx:56 ~ handleSubmit ~ e:", e)
+        
+        dispatch(registration(e))
+    };
+
     return (
         <section>
             <div className={cn('signup__container')}>
@@ -56,6 +71,7 @@ const SignUp = () => {
                         password: '',
                     }}
                     validationSchema={validationSchema}
+                    onSubmit={handleSubmit}
                 >
                     {({ errors, touched, values }) => (
                         <Form className={cn('signup_form')}>
@@ -239,6 +255,7 @@ const SignUp = () => {
                     <span>Already have an account? </span>
                     <Link to="/signin">Sign In</Link>
                 </div>
+                {error && <Modal error='error'>{error}</Modal>}
             </div>
         </section>
     );
