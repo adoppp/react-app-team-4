@@ -24,15 +24,16 @@ cursor: pointer;
 .dropdown_button::after {
     content: '';
     position: absolute;
-    top: 50%;
+    top: 40%;
     right: 15px;
-    transform: translate(-50%);
+    transform: translate(-40%);
 
-    width: 10px;
-    height: 10px;
-    border-right: 35px 36px 0 30px;
-    border-color: #EFEDE8 transparent transparent transparent;
-    border-style: solid;
+    width: 7px;
+    height: 7px;
+    border-bottom: 2px solid #EFEDE8 ;
+    border-right: 2px solid #EFEDE8;
+    
+    transform: rotate(45deg);
 
     pointer-events: none;
 };

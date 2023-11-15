@@ -23,21 +23,16 @@ const Select = () => {
         
     };
 
-    const handleBackdropClick = (e) => {
-        if (e.target !== e.currentTarget){ setIsSelectOpen(!isSelectOpen);};
-        
-    };
+  
       useEffect(() => {
         window.addEventListener('keydown', handleKeydown);
         return () => {
             window.removeEventListener('keydown', handleKeydown);
         };
-    });
-  
-
+      });
 
     return <div className={cn('form_group')}>
-        <div className={cn('dropdown')} onClick={handleBackdropClick}>
+        <div className={cn('dropdown')}>
             <button onClick={toggleClass} className={cn('dropdown_button')}>{buttonText}</button>
         <ul  className={cn(isSelectOpen ? 'dropdown_list' : 'dropdown_list_visible')}>
             <li onClick={handleClick}  className={cn('dropdown_item')} data-value='all' >all</li>
