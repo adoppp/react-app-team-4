@@ -38,7 +38,7 @@ function DayDashboard() {
                             <use href={`${sprite}#icon-apple`}></use>
                         </svg>
                         <p className={styles['user-daily-text']}>
-                            РЎalories consumed
+                            Calories consumed
                         </p>
                     </div>
 
@@ -51,7 +51,7 @@ function DayDashboard() {
                             <use href={`${sprite}#icon-calories`}></use>
                         </svg>
                         <p className={styles['user-daily-text']}>
-                            РЎalories burned
+                            Calories burned
                         </p>
                     </div>
 
