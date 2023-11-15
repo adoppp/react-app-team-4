@@ -3,6 +3,7 @@ import { Button } from '../ui/Button';
 // import { Icon } from '../ui/Icon';
 import styles from './ProductsFilters.module.scss';
 import classNames from 'classnames/bind';
+import { Select } from '../ui/Select/Select';
 
 const cn = classNames.bind(styles);
 
@@ -35,7 +36,7 @@ const ProductsFilters = () => {
             autoFocus
             placeholder="Search" />
           
-           
+           <Select/>
           
            <Field className={cn('categories')} as='select' name='categories'>
              <option value='categories'>Categories</option>
