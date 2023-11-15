@@ -3,6 +3,11 @@ import { Icon } from '../Icon';
 import classNames from 'classnames/bind';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import styles from './UserForm.module.scss';
+import { Input } from '../Input/Input';
+import {Button} from '../Button'
+
+const cn = classNames.bind(styles);
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required(),
@@ -27,7 +32,8 @@ const validationSchema = Yup.object().shape({
 
 const UserForm = () => {
   const initialValues = {
-    name: '',
+    name: 'Anna',
+    email: 'Qwerty@gmail.com',
     height: 0,
     currentWeight: 0,
     desiredWeight: 0,
@@ -42,81 +48,111 @@ const UserForm = () => {
   };
 
   return (
-    <div>
-      <p>Basic info</p>
+    <div className={cn('UserFrom__container')}>
 <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
-    >
-      <Form>
-        <div>
-          <label htmlFor="name">Ім'я:</label>
-          <Field type="text" id="name" name="name" />
+      >
+        <Form>
+          <div>
+            <label className={cn('basic__info')} >Basic info</label>
+            <Field name="name" component={Input} />
+          <ErrorMessage name="name" component="div" />
+          </div>
+          
+          <div>
+         <Field component={Input} type="email" name="email"/>
           <ErrorMessage name="name" component="div" />
         </div>
 
         <div>
-          <label htmlFor="height">Зріст (см):</label>
-          <Field type="number" id="height" name="height" />
+          <label className={cn('basic__info')}>Height</label>
+          <Field type="number" name="height" component={Input}/>
           <ErrorMessage name="height" component="div" />
         </div>
 
         <div>
-          <label htmlFor="currentWeight">Поточна вага (кг):</label>
-          <Field type="number" id="currentWeight" name="currentWeight" />
+          <label>Current Weight</label>
+          <Field type="number" name="currentWeight" component={Input}/>
           <ErrorMessage name="currentWeight" component="div" />
         </div>
 
         <div>
-          <label htmlFor="desiredWeight">Бажана вага (кг):</label>
-          <Field type="number" id="desiredWeight" name="desiredWeight" />
+          <label>Desired Weight</label>
+          <Field type="number" name="desiredWeight" component={Input}/>
           <ErrorMessage name="desiredWeight" component="div" />
         </div>
 
         <div>
-          <label htmlFor="birthday">Дата народження:</label>
-          <Field type="date" id="birthday" name="birthday" />
+          <Field type="date" name="birthday" component={Input} />
           <ErrorMessage name="birthday" component="div" />
         </div>
+          <div>
+  <label>Blood</label>
+  <div className={cn('blood__container')} >
+    <label htmlFor="blood1">
+      <Field type="radio" id="blood1" name="blood" value="1" />
+      <div className="circle">1</div>
+    </label>
+    <label htmlFor="blood2">
+      <Field type="radio" id="blood2" name="blood" value="2" />
+      <div className="circle">2</div>
+    </label>
+    <label htmlFor="blood3">
+      <Field type="radio" id="blood3" name="blood" value="3" />
+      <div className="circle">3</div>
+    </label>
+    <label htmlFor="blood4">
+      <Field type="radio" id="blood4" name="blood" value="4" />
+      <div className="circle">4</div>
+    </label>
+  </div>
+  <ErrorMessage name="blood" component="div" />
+</div>
 
-        <div>
-          <label htmlFor="blood">Група крові:</label>
-          <Field as="select" id="blood" name="blood">
-            <option value=""></option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </Field>
-          <ErrorMessage name="blood" component="div" />
+
+        <div className={cn('sex__container')} >
+         <label className={cn('sex__label')}>
+     <Field type="radio" name="sex" value="Male"/>
+      <div className="circle">Male</div>
+            </label>
+            
+            <label className={cn('sex__label')}>
+     <Field type="radio" name="sex" value="Female"/>
+      <div className="circle">Female</div>
+    </label>
+            <ErrorMessage name="sex" component="div" /> 
+           
         </div>
 
-        <div>
-          <label htmlFor="sex">Стать:</label>
-          <Field as="select" id="sex" name="sex">
-            <option value=""></option>
-            <option value="male">Чоловіча</option>
-            <option value="female">Жіноча</option>
-          </Field>
-          <ErrorMessage name="sex" component="div" />
+          <div className={cn('levelActivity__container')}>
+              
+            <label className={cn('levelActivity__label')}>
+     <Field type="radio" name="levelActivity" value="Female"/>
+      <div className="circle">Sedentary lifestyle (little or no physical activity)</div>
+            </label>
+           <label className={cn('levelActivity__label')}>
+     <Field type="radio" name="levelActivity" value="Female"/>
+      <div className="circle">Light activity (light exercises/sports 1-3 days per week)</div>
+            </label>
+           <label className={cn('levelActivity__label')}>
+     <Field type="radio" name="levelActivity" value="Female"/>
+      <div className="circle">Moderately active (moderate exercises/sports 3-5 days per week)</div>
+            </label>
+           <label className={cn('levelActivity__label')}>
+     <Field type="radio" name="levelActivity" value="Female"/>
+      <div className="circle">Very active (intense exercises/sports 6-7 days per week)</div>
+            </label>
+            <label className={cn('levelActivity__label')}>
+     <Field type="radio" name="levelActivity" value="Female"/>
+      <div className="circle">Extremely active (very strenuous exercises/sports and physical work)</div>
+    </label>
+         
         </div>
 
-        <div>
-          <label htmlFor="levelActivity">Рівень активності:</label>
-          <Field as="select" id="levelActivity" name="levelActivity">
-            <option value=""></option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </Field>
-          <ErrorMessage name="levelActivity" component="div" />
-        </div>
-
-        <div>
-          <button type="submit">Відправити</button>
+          <div>
+            <Button label="Save" buttonStyles="orange"/>
         </div>
       </Form>
     </Formik>

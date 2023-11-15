@@ -1,0 +1,25 @@
+@import '../../../scss/colors';
+@import '../../../scss/mixins';
+
+.UserFrom__container{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+};
+
+.blood__container{
+    display: flex;
+}
+
+.sex__container{
+    display: flex;
+};
+
+.sex__label{
+    display: flex;
+}
+
+.levelActivity__label{
+    display: flex;
+}
