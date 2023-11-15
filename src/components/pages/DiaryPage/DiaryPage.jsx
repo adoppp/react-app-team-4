@@ -1,11 +1,35 @@
-import DatePickerCalendar from '../../ui/DatePicker/DatePicker';
+import classNames from 'classnames/bind';
+import { useMediaQuery } from 'react-responsive';
+
+import styles from './DiaryPage.module.scss';
+import { Calendar } from '../../ui/Calendar';
+import { Title } from '../../Title';
+
+const cn = classNames.bind(styles);
 
 const DiaryPage = () => {
+    const isMobileScreen = useMediaQuery({ maxWidth: 768 });
+
+    const mobileScreen =
+    <div className={cn('calendar__container-mobile')}>
+            <Title title='Diary' />
+            <div className={cn('calendar__component_wrapper')}>
+                <Calendar />
+            </div>
+        </div>;
+    
+    const tabletAndDekstopScreen =
+        <div className={cn('calendar__container')}>
+            <div className={cn('calendar__component_wrapper')}>
+                <Calendar />
+            </div>
+            <Title title='Diary' />
+        </div>;
+
     return (
-        <div>
-            <h2>DiaryPage</h2>
-            <DatePickerCalendar />
-        </div>
+        <section>
+            {isMobileScreen ? mobileScreen : tabletAndDekstopScreen}
+        </section>
     );
 };
 
