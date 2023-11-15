@@ -12,12 +12,10 @@
     width: 100vw;
     height: 100vh;
 
-    position: absolute;
+    position: fixed;
 
     top: 0;
     left: 0;
-
-    padding: 0 16px;
 
     &__container {
         background-color: $darkness-modal-black;
@@ -55,5 +53,19 @@
 
     &__close:active use {
         stroke: $snow-white;
+    }
+}
+
+.error {
+    background-color: rgb(61 8 8 / 50%);;
+}
+
+.modal__svg {
+    max-width: fit-content;
+    
+    margin: 0 auto;
+
+    & use {
+        fill: $santas-node-red;
     }
 }

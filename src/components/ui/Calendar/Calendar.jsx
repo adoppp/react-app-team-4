@@ -1,17 +1,15 @@
 import { useState, forwardRef } from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-
-import { Icon } from '../../ui/Icon';
-import './DatePicker.scss';
 import { useMediaQuery } from 'react-responsive';
+import DatePicker from 'react-datepicker';
 
-const DatePickerCalendar = () => {
+import { Icon } from '../Icon';
+import './Calendar.scss';
+
+const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
+
     const isTabletScreen = useMediaQuery({ minWidth: 768 });
-
     const iconCalendarHeight = isTabletScreen ? 24 : 20;
-
     const iconCalendarWidth = isTabletScreen ? 24 : 20;
 
     const BtnInput = forwardRef(({ value, onClick }, ref) => (
@@ -43,13 +41,13 @@ const DatePickerCalendar = () => {
 
     const handlePrevDay = () => {
         const previousDay = new Date(selectedDate);
-        previousDay.setDate(selectedDate.getDate() - 1);
+        previousDay.setDate(previousDay.getDate() - 1);
         setSelectedDate(previousDay);
     };
 
     const handleNextDay = () => {
         const nextDay = new Date(selectedDate);
-        nextDay.setDate(selectedDate.getDate() + 1);
+        nextDay.setDate(nextDay.getDate() + 1);
         setSelectedDate(nextDay);
     };
 
@@ -75,13 +73,12 @@ const DatePickerCalendar = () => {
                             }
                             onClick={() => {
                                 decreaseMonth();
-                                handlePrevDay();
                             }}
                         >
                             <Icon
                                 iconId="icon-Arrow-next"
-                                w={4}
-                                h={8}
+                                w={8}
+                                h={12}
                                 className={
                                     'react-datepicker__navigation-icon react-datepicker__navigation-icon--next'
                                 }
@@ -100,13 +97,12 @@ const DatePickerCalendar = () => {
                             }
                             onClick={() => {
                                 increaseMonth();
-                                handleNextDay();
                             }}
                         >
                             <Icon
                                 iconId="icon-Arrow-previous"
-                                w={4}
-                                h={8}
+                                w={8}
+                                h={12}
                                 className={
                                     'react-datepicker__navigation-icon react-datepicker__navigation-icon--previous'
                                 }
@@ -118,6 +114,9 @@ const DatePickerCalendar = () => {
                 onChange={(date) => {
                     setSelectedDate(date);
                 }}
+                onMonthChange={(date) => {
+                    setSelectedDate(date);
+                }}
                 dateFormat={'dd/MM/yyyy'}
                 calendarStartDay={1}
                 customInput={<BtnInput />}
@@ -126,4 +125,4 @@ const DatePickerCalendar = () => {
     );
 };
 
-export default DatePickerCalendar;
+export { Calendar };
