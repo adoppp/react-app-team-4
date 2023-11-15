@@ -1,5 +1,5 @@
-@import '../../../../scss/colors';
-@import '../../../../scss/mixins';
+@import '../../scss/colors';
+@import '../../scss/mixins';
 
 .usercard__container{
     padding: 20px;
@@ -81,11 +81,11 @@
 };
 
 .logout__button {
-    position: absolute;
+    // position: absolute;
     display: flex;
     align-items: center;
-    bottom: 20px;
-    left: 20px;
+    // bottom: 20px;
+    // left: 20px;
     background-color: transparent;
     border: none;
     padding: 0;

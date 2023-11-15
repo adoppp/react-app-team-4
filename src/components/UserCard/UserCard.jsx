@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from '../../../ui/Icon';
+import { Icon } from '../ui/Icon';
 import styles from './UserCard.module.scss'
 import classNames from 'classnames/bind';
 
@@ -45,8 +45,8 @@ const UserCard = () => {
                 <div className={cn('profile__warning')}>
                     <Icon iconId="icon-icons" w={24} h={24} />
                     <div>We understand that each individual is unique, so the entire approach to diet is relative and tailored to your unique body and goals.</div>
-                </div>
-                 <button className={cn('logout__button')}>
+                </div> 
+ <button className={cn('logout__button')}>
                 Logout
                 <Icon
                     iconId="icon-log-out"
@@ -55,10 +55,12 @@ const UserCard = () => {
                     customStyles={{ marginLeft: 8 }}
                 />
             </button>
+              
+                
             </div>
         </div>
        
     )
 };
 
-export default UserCard;
+export { UserCard };

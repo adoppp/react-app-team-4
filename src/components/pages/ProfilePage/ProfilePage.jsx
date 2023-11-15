@@ -1,5 +1,5 @@
-import UserCard from "./UserCard/UserCard";
-import UserForm from "./UserForm/UserForm";
+import {UserCard} from '../../UserCard';
+import { UserForm } from '../../ui/UserForm';
 
 const ProfilePage = () => {
     return (
