@@ -1,6 +1,6 @@
-@import '../../scss/mixins';
-@import '../../scss/variables';
-@import '../../scss/colors';
+@import '../../../scss/mixins';
+@import '../../../scss/variables';
+@import '../../../scss/colors';
 
 .welcome__container {
     @include container();
