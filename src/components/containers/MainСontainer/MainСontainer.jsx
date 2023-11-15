@@ -1,13 +1,13 @@
 import classNames from 'classnames/bind';
 import { useMediaQuery } from 'react-responsive';
 
-import styles from './MainPage.module.scss';
+import styles from './MainСontainer.module.scss';
 import { Icon } from '../../ui/Icon';
 import { Header } from '../../global/Header';
 
 const cn = classNames.bind(styles);
 
-const MainPage = ({ children }) => {
+const MainСontainer = ({ children }) => {
     const isTabletScreen = useMediaQuery({ minWidth: 768 });
 
     const iconVideoStyle = {
@@ -59,4 +59,4 @@ const MainPage = ({ children }) => {
     );
 };
 
-export default MainPage;
+export default MainСontainer;

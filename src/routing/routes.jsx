@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 
-const MainPage = lazy(() => import('../components/containers/MainPage/MainPage'));
+const MainСontainer = lazy(() => import('../components/containers/MainСontainer/MainСontainer'));
 const ProfilePage = lazy(() => import('../components/pages/ProfilePage/ProfilePage'));
 const DiaryPage = lazy(() => import('../components/pages/DiaryPage/DiaryPage'));
 const ProductsPage = lazy(() => import('../components/pages/ProductsPage/ProductsPage'));
@@ -24,30 +24,30 @@ const routes = {
 const appRoutes = [
     {
         path: routes.MAIN_ROUTE,
-        element: <MainPage />,
+        element: <MainСontainer />,
     },
     {
         path: routes.WELCOME_ROUTE,
         element: (
-            <MainPage>
+            <MainСontainer>
                 <Welcome />
-            </MainPage>
+            </MainСontainer>
         ),
     },
     {
         path: routes.SIGNUP_ROUTE,
         element: (
-            <MainPage>
+            <MainСontainer>
                 <SignUp />
-            </MainPage>
+            </MainСontainer>
         ),
     },
     {
         path: routes.SIGNIN_ROUTE,
         element: (
-            <MainPage>
+            <MainСontainer>
                 <SignIn />
-            </MainPage>
+            </MainСontainer>
         ),
     },
     {
