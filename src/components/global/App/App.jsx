@@ -1,11 +1,19 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 
 import { Loader } from '../../ui/Loader';
 import NotFound from '../../pages/NotFound/NotFound';
 import appRoutes from '../../../routing/routes';
+import { useDispatch } from 'react-redux';
+import { refreshUser } from '../../../storage/operations/authThunk';
 
 function App() {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(refreshUser());
+    });
+    
     return (
         <div>
             <ul>

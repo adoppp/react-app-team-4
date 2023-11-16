@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { registration, login } from '../operations/authThunk';
+import { registration, login, logout, refreshUser } from '../operations/authThunk';
 
 
 const initialState = {
@@ -28,11 +28,10 @@ const authSlice = createSlice({
         builder
             .addCase(registration.pending, PENDING)
             .addCase(registration.fulfilled, (state, action) => {
-                console.log(action.payload)
                 state.isLoading = false;
                 state.error = null;
                 state.authenticated = true;
-                state.userData = action.payload;
+                state.userData = action.payload.user;
                 state.token = action.payload.token;
             })
             .addCase(registration.rejected, REJECTED)
@@ -45,23 +44,23 @@ const authSlice = createSlice({
                 state.token = action.payload.token;
             })
             .addCase(login.rejected, REJECTED)
-        // .addCase(logoutThunk.pending, PENDING)
-        // .addCase(logoutThunk.fulfilled, (state) => {
-        //     state.isLoading = false;
-        //     state.error = null;
-        //     state.authenticated = false;
-        //     state.userData = null;
-        //     state.token = null;
-        // })
-        // .addCase(logoutThunk.rejected, REJECTED)
-        // .addCase(refreshUserThunk.pending, PENDING)
-        // .addCase(refreshUserThunk.fulfilled, (state, action) => {
-        //     state.isLoading = false;
-        //     state.error = null;
-        //     state.authenticated = true;
-        //     state.userData = action.payload;
-        // })
-        // .addCase(refreshUserThunk.rejected, REJECTED)
+            .addCase(logout.pending, PENDING)
+            .addCase(logout.fulfilled, (state) => {
+                state.isLoading = false;
+                state.error = null;
+                state.authenticated = false;
+                state.userData = null;
+                state.token = null;
+            })
+            .addCase(logout.rejected, REJECTED)
+            .addCase(refreshUser.pending, PENDING)
+            .addCase(refreshUser.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.error = null;
+                state.authenticated = true;
+                state.userData = action.payload;
+            })
+            .addCase(refreshUser.rejected, REJECTED)
     }
 });
 

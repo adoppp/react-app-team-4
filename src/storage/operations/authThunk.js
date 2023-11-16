@@ -7,7 +7,7 @@ export const instance = axios.create({
 
 export const token = {
     set: (token) => {
-        instance.defaults.headers['Authorization'] = token
+        instance.defaults.headers['Authorization'] = `Bearer ${token}`
     },
     clear: () => {
         instance.defaults.headers['Authorization'] = ""
@@ -34,10 +34,48 @@ export const login = createAsyncThunk(
     async (userData, thunkAPI) => {
         try {
             const response = await instance.post('auth/signin', userData);
-            token.set(response.data.token)
+            token.set(response.data.token);
             return response.data;
         } catch (e) {
             return REJECTED(thunkAPI, e);
         }
     }
+);
+
+export const logout = createAsyncThunk(
+    'auth/logout',
+    async (_, thunkAPI) => {
+        try {
+            const response = await instance.post('auth/logout');
+            token.clear();
+            return response.data;
+        } catch (e) {
+            return REJECTED(thunkAPI, e);
+        }
+    }
+);
+
+export const refreshUser = createAsyncThunk(
+    'auth/refresh',
+    async (_, thunkAPI) => {
+        const state = thunkAPI.getState();
+        const userToken = state.user.token;
+
+        try {
+            token.set(userToken)
+
+            const response = await instance.get('auth/current');
+            return response.data;
+        } catch (e) {
+            return REJECTED(thunkAPI, e);
+        }
+    },
+    {
+        condition: (_, { getState }) => {
+            const state = getState();
+            const userToken = state.user.token;
+
+            if (!userToken) return false;
+        }
+    },
 );

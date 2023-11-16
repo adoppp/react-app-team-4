@@ -48,9 +48,7 @@ const SignIn = () => {
         setShowPassword(!showPassword);
     };
 
-    const handleSubmit = (e) => {
-        console.log("🚀 ~ file: SignIn.jsx:49 ~ handleSubmit ~ e:", e)
-        
+    const handleSubmit = (e) => {        
         dispatch(login(e))
     }
 

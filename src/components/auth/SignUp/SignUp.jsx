@@ -49,9 +49,7 @@ const SignUp = () => {
         setShowPassword(!showPassword);
     };
 
-    const handleSubmit = (e) => {
-        console.log("🚀 ~ file: SignUp.jsx:56 ~ handleSubmit ~ e:", e)
-        
+    const handleSubmit = (e) => {        
         dispatch(registration(e))
     };
 
