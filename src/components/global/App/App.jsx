@@ -1,21 +1,28 @@
 import { Suspense, useEffect } from 'react';
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes, Link, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import classNames from 'classnames/bind';
 
+import styles from './App.module.scss';
 import { Loader } from '../../ui/Loader';
 import NotFound from '../../pages/NotFound/NotFound';
 import appRoutes from '../../../routing/routes';
-import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from '../../../storage/operations/authThunk';
-import { tokenSelector } from '../../../storage/selectors/authSelectors';
+import { errorUserSelector, tokenSelector } from '../../../storage/selectors/authSelectors';
+import { Modal } from '../../ui/Modal';
+
+const cn = classNames.bind(styles);
 
 function App() {
+    const location = useLocation();
     const token = useSelector(tokenSelector);
+    const error = useSelector(errorUserSelector);
     const dispatch = useDispatch();
 
     useEffect(() => {
         if (!token) return;
         dispatch(refreshUser());
-    });
+    }, [dispatch, token]);
     
     return (
         <div>
@@ -64,6 +71,14 @@ function App() {
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </Suspense>
+                {
+                    error &&
+                    <Modal error='error'>
+                        <span className={cn('error__text')}>
+                            {error}
+                        </span>
+                    </Modal>
+                }
             </main>
         </div>
     );

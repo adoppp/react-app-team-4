@@ -31,13 +31,17 @@ const Header = () => {
         setIsMenuOpen(false);
     };
 
+    const authHeaderStyles = autheticated ? { borderBottom: `1px solid #efede833` } : {};
+
     const authHeader =
-        <button className={cn('header__burgerMenu')} onClick={openMenu}>
-            <Icon iconId="icon-menu-02" w={24} h={24} />
-        </button>;
+        <div>
+            <button className={cn('header__burgerMenu')} onClick={openMenu}>
+                <Icon iconId="icon-menu-02" w={24} h={24} />
+            </button>
+        </div>;
 
     return (
-        <header>
+        <header style={authHeaderStyles}>
             <div className={cn('header__container')}>
                 <Link to="/welcome">
                     <Icon
