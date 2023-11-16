@@ -9,6 +9,8 @@ const ExercisesPage = lazy(() => import('../components/pages/ExercisesPage/Exerc
 import { Welcome } from '../components/global/Welcome';
 import { SignUp } from '../components/auth/SignUp';
 import { SignIn } from '../components/auth/SignIn';
+import { RestrictedRoute } from './RestrictedRoute';
+import { PrivateRoute } from './PrivateRoute';
 
 const routes = {
     MAIN_ROUTE: '/',
@@ -29,43 +31,67 @@ const appRoutes = [
     {
         path: routes.WELCOME_ROUTE,
         element: (
-            <MainСontainer>
-                <Welcome />
-            </MainСontainer>
+            <RestrictedRoute>
+                <MainСontainer>
+                    <Welcome />
+                </MainСontainer>
+            </RestrictedRoute>
         ),
     },
     {
         path: routes.SIGNUP_ROUTE,
         element: (
-            <MainСontainer>
-                <SignUp />
-            </MainСontainer>
+            <RestrictedRoute>
+                <MainСontainer>
+                    <SignUp />
+                </MainСontainer>
+            </RestrictedRoute>
         ),
     },
     {
         path: routes.SIGNIN_ROUTE,
         element: (
-            <MainСontainer>
-                <SignIn />
-            </MainСontainer>
+            <RestrictedRoute>
+                <MainСontainer>
+                    <SignIn />
+                </MainСontainer>
+            </RestrictedRoute>
         ),
     },
     {
         path: routes.PROFILE_ROUTE,
-        element: <ProfilePage />,
+        element: (
+            <PrivateRoute>
+                <ProfilePage />
+            </PrivateRoute>
+        ),
     },
     {
         path: routes.DIARY_ROUTE,
-        element: <DiaryPage />,
+        element: (
+            <PrivateRoute>
+                <DiaryPage />
+            </PrivateRoute>
+        ),
     },
     {
         path: routes.PRODUCTS_ROUTE,
-        element: <ProductsPage />,
+        element: (
+            <PrivateRoute>
+                <ProductsPage />
+            </PrivateRoute>
+        ),
     },
     {
         path: routes.EXERCISES_ROUTE,
-        element: <ExercisesPage />,
+        element: (
+            <PrivateRoute>
+                <ExercisesPage />
+            </PrivateRoute>
+        ),
     },
 ];
+
+export { routes };
 
 export default appRoutes;

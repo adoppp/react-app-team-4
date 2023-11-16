@@ -51,8 +51,12 @@ function App() {
                     }
                 >
                     <Routes>
-                        {appRoutes.map(({ path, element }) => (
-                            <Route key={path} path={path} element={element} />
+                        {appRoutes.map(({ path, element, children }) => (
+                            <Route key={path} path={path} element={element}>
+                                {children && children.map(({ path, element }) => (
+                                    <Route key={path} path={path} element={element} />
+                                ))}
+                            </Route>
                         ))}
                         <Route path="*" element={<NotFound />} />
                     </Routes>
