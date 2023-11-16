@@ -10,6 +10,9 @@
     padding-top: 24px;
     padding-bottom: 24px;
 
+    display: flex;
+    justify-content: space-between;
+
     & a {
         display: flex;
         align-items: flex-end;
@@ -52,6 +55,7 @@
         fill: $christmas-main-orange;
     }
 }
+
 .header__burgerMenu {
     background-color: transparent;
     border: none;

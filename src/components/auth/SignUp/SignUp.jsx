@@ -11,16 +11,12 @@ import { registration } from '../../../storage/operations/authThunk';
 import { Button } from '../../ui/Button/Button';
 import { Icon } from '../../ui/Icon';
 import { Title } from '../../global/Title';
-import { errorSelector } from '../../../storage/selectors/authSelectors';
-import { Modal } from '../../ui/Modal';
 
 const cn = classNames.bind(styles);
 
 const SignUp = () => {
     const [iconName, setIconName] = useState('icon-eye-off');
     const [showPassword, setShowPassword] = useState(false);
-
-    const error = useSelector(errorSelector);
 
     const dispatch = useDispatch();
 
@@ -253,7 +249,6 @@ const SignUp = () => {
                     <span>Already have an account? </span>
                     <Link to="/signin">Sign In</Link>
                 </div>
-                {error && <Modal error='error'>{error}</Modal>}
             </div>
         </section>
     );
