@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+import { Navigate } from 'react-router-dom';
 
 const MainСontainer = lazy(() => import('../components/containers/MainСontainer/MainСontainer'));
 const PrivateContainer = lazy(() => import('../components/containers/PrivateContainer/PrivateContainer'))
@@ -12,6 +13,7 @@ import { SignUp } from '../components/auth/SignUp';
 import { SignIn } from '../components/auth/SignIn';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
+
 
 const routes = {
     MAIN_ROUTE: '/',
@@ -27,11 +29,9 @@ const routes = {
 const appRoutes = [
     {
         path: routes.MAIN_ROUTE,
-        element: (
-            <RestrictedRoute>
-                <MainСontainer />
-            </RestrictedRoute>
-        ),
+        element:<RestrictedRoute>
+                <Navigate to={routes.WELCOME_ROUTE} replace />
+            </RestrictedRoute>,
     },
     {
         path: routes.WELCOME_ROUTE,
