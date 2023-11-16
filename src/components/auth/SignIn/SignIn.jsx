@@ -4,7 +4,7 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import styles from './SignIn.module.scss';
 import { Icon } from '../../ui/Icon';
@@ -44,9 +44,9 @@ const SignIn = () => {
         setShowPassword(!showPassword);
     };
 
-    const handleSubmit = (e) => {        
-        dispatch(login(e))
-    }
+    const handleSubmit = (e) => {
+        dispatch(login(e));
+    };
 
     return (
         <section>

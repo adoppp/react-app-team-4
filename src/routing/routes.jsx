@@ -1,19 +1,28 @@
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 
-const MainСontainer = lazy(() => import('../components/containers/MainСontainer/MainСontainer'));
-const PrivateContainer = lazy(() => import('../components/containers/PrivateContainer/PrivateContainer'))
-const ProfilePage = lazy(() => import('../components/pages/ProfilePage/ProfilePage'));
+const MainСontainer = lazy(() =>
+    import('../components/containers/MainСontainer/MainСontainer'),
+);
+const PrivateContainer = lazy(() =>
+    import('../components/containers/PrivateContainer/PrivateContainer'),
+);
+const ProfilePage = lazy(() =>
+    import('../components/pages/ProfilePage/ProfilePage'),
+);
 const DiaryPage = lazy(() => import('../components/pages/DiaryPage/DiaryPage'));
-const ProductsPage = lazy(() => import('../components/pages/ProductsPage/ProductsPage'));
-const ExercisesPage = lazy(() => import('../components/pages/ExercisesPage/ExercisesPage'));
+const ProductsPage = lazy(() =>
+    import('../components/pages/ProductsPage/ProductsPage'),
+);
+const ExercisesPage = lazy(() =>
+    import('../components/pages/ExercisesPage/ExercisesPage'),
+);
 
 import { Welcome } from '../components/global/Welcome';
 import { SignUp } from '../components/auth/SignUp';
 import { SignIn } from '../components/auth/SignIn';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
-
 
 const routes = {
     MAIN_ROUTE: '/',
@@ -29,9 +38,11 @@ const routes = {
 const appRoutes = [
     {
         path: routes.MAIN_ROUTE,
-        element:<RestrictedRoute>
+        element: (
+            <RestrictedRoute>
                 <Navigate to={routes.WELCOME_ROUTE} replace />
-            </RestrictedRoute>,
+            </RestrictedRoute>
+        ),
     },
     {
         path: routes.WELCOME_ROUTE,

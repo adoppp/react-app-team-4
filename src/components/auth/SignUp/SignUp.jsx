@@ -4,7 +4,7 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import styles from './SignUp.module.scss';
 import { registration } from '../../../storage/operations/authThunk';
@@ -45,8 +45,8 @@ const SignUp = () => {
         setShowPassword(!showPassword);
     };
 
-    const handleSubmit = (e) => {        
-        dispatch(registration(e))
+    const handleSubmit = (e) => {
+        dispatch(registration(e));
     };
 
     return (

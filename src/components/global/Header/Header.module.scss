@@ -84,7 +84,6 @@
     }
 }
 
-
 .header__links {
     display: flex;
     gap: 16px;
@@ -104,8 +103,9 @@
     align-items: center;
 
     margin-left: 32px;
+    
     & .header__user {
-        background-color: rgba(48, 48, 48, 0.30);
+        background-color: rgba(48, 48, 48, 0.3);
 
         width: 37px;
         height: 37px;
@@ -120,6 +120,10 @@
                 padding: 11px;
             }
         }
+    }
+
+    & .header__settings a {
+        max-height: fit-content;
     }
 
     & .header__settings a use {
@@ -144,8 +148,8 @@
         fill: $silent-gray;
     }
 
-    @media screen and (min-width: 768px){
-        & .header__user  {
+    @media screen and (min-width: 768px) {
+        & .header__user {
             width: 46px;
             height: 46px;
         }

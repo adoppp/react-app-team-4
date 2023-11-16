@@ -36,11 +36,12 @@ const Modal = ({ children, error }) => {
             {showModal &&
                 createPortal(
                     <ModalContent
-                        children={children}
                         onClose={handleClose}
                         handleBackdropClick={handleBackdropClick}
                         error={error}
-                    />,
+                    >
+                        {children}
+                    </ModalContent>,
                     modalRoot,
                 )}
         </>
