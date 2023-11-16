@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 
 const MainСontainer = lazy(() => import('../components/containers/MainСontainer/MainСontainer'));
+const PrivateContainer = lazy(() => import('../components/containers/PrivateContainer/PrivateContainer'))
 const ProfilePage = lazy(() => import('../components/pages/ProfilePage/ProfilePage'));
 const DiaryPage = lazy(() => import('../components/pages/DiaryPage/DiaryPage'));
 const ProductsPage = lazy(() => import('../components/pages/ProductsPage/ProductsPage'));
@@ -66,7 +67,9 @@ const appRoutes = [
         path: routes.PROFILE_ROUTE,
         element: (
             <PrivateRoute>
-                <ProfilePage />
+                <PrivateContainer>
+                    <ProfilePage />
+                </PrivateContainer>
             </PrivateRoute>
         ),
     },
@@ -74,7 +77,9 @@ const appRoutes = [
         path: routes.DIARY_ROUTE,
         element: (
             <PrivateRoute>
-                <DiaryPage />
+                <PrivateContainer>
+                    <DiaryPage />
+                </PrivateContainer>
             </PrivateRoute>
         ),
     },
@@ -82,7 +87,9 @@ const appRoutes = [
         path: routes.PRODUCTS_ROUTE,
         element: (
             <PrivateRoute>
-                <ProductsPage />
+                <PrivateContainer>
+                    <ProductsPage />
+                </PrivateContainer>
             </PrivateRoute>
         ),
     },
@@ -90,7 +97,9 @@ const appRoutes = [
         path: routes.EXERCISES_ROUTE,
         element: (
             <PrivateRoute>
-                <ExercisesPage />
+                <PrivateContainer>
+                    <ExercisesPage />
+                </PrivateContainer>
             </PrivateRoute>
         ),
     },

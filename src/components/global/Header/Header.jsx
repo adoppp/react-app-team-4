@@ -2,15 +2,19 @@ import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import styles from './Header.module.scss';
 import { BurgerMenu } from '../../ui/BurgerMenu';
 import { Icon } from '../../ui/Icon';
+import { autheticatedSelector } from '../../../storage/selectors/authSelectors'
 
 const cn = classNames.bind(styles);
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const autheticated = useSelector(autheticatedSelector);
+
     const isLargeScreen = useMediaQuery({ minWidth: 768 });
 
     const iconStyles = {
@@ -27,6 +31,11 @@ const Header = () => {
         setIsMenuOpen(false);
     };
 
+    const authHeader =
+        <button className={cn('header__burgerMenu')} onClick={openMenu}>
+            <Icon iconId="icon-menu-02" w={24} h={24} />
+        </button>;
+
     return (
         <header>
             <div className={cn('header__container')}>
@@ -39,9 +48,11 @@ const Header = () => {
                     />
                     <span>PowerPulse</span>
                 </Link>
-                <button className={cn('header__burgerMenu')} onClick={openMenu}>
-                    <Icon iconId="icon-menu-02" w={24} h={24} />
-                </button>
+                {
+                    autheticated ?
+                    authHeader :
+                    null
+                }
             </div>
             {isMenuOpen && <BurgerMenu onClose={closeMenu} />}
         </header>
