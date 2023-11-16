@@ -26,7 +26,11 @@ const routes = {
 const appRoutes = [
     {
         path: routes.MAIN_ROUTE,
-        element: <MainСontainer />,
+        element: (
+            <RestrictedRoute>
+                <MainСontainer />
+            </RestrictedRoute>
+        ),
     },
     {
         path: routes.WELCOME_ROUTE,

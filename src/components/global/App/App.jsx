@@ -4,13 +4,16 @@ import { Route, Routes, Link } from 'react-router-dom';
 import { Loader } from '../../ui/Loader';
 import NotFound from '../../pages/NotFound/NotFound';
 import appRoutes from '../../../routing/routes';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from '../../../storage/operations/authThunk';
+import { tokenSelector } from '../../../storage/selectors/authSelectors';
 
 function App() {
+    const token = useSelector(tokenSelector);
     const dispatch = useDispatch();
 
     useEffect(() => {
+        if (!token) return;
         dispatch(refreshUser());
     });
     
