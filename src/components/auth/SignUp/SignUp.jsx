@@ -4,17 +4,22 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './SignUp.module.scss';
-import { Button } from '../ui/Button/Button';
-import { Icon } from '../ui/Icon';
-import { Title } from '../Title';
+import { registration } from '../../../storage/operations/authThunk';
+import { Button } from '../../ui/Button/Button';
+import { Icon } from '../../ui/Icon';
+import { Title } from '../../global/Title';
 
 const cn = classNames.bind(styles);
 
 const SignUp = () => {
     const [iconName, setIconName] = useState('icon-eye-off');
     const [showPassword, setShowPassword] = useState(false);
+
+    const dispatch = useDispatch();
+
     const isLargeScreen = useMediaQuery({ minWidth: 768 });
 
     const titleStyles = isLargeScreen
@@ -40,6 +45,10 @@ const SignUp = () => {
         setShowPassword(!showPassword);
     };
 
+    const handleSubmit = (e) => {        
+        dispatch(registration(e))
+    };
+
     return (
         <section>
             <div className={cn('signup__container')}>
@@ -56,6 +65,7 @@ const SignUp = () => {
                         password: '',
                     }}
                     validationSchema={validationSchema}
+                    onSubmit={handleSubmit}
                 >
                     {({ errors, touched, values }) => (
                         <Form className={cn('signup_form')}>

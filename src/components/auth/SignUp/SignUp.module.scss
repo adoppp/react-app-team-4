@@ -1,8 +1,8 @@
-@import '../../scss/colors';
-@import '../../scss/mixins';
-@import '../../scss/variables';
+@import '../../../scss/colors';
+@import '../../../scss/mixins';
+@import '../../../scss/variables';
 
-.signin_container {
+.signup__container {
     @include container();
 
     padding-top: 80px;
@@ -28,7 +28,7 @@
     }
 }
 
-.signin__container_link {
+.signup__container_link {
     color: $lonely-gray;
     font-feature-settings:
         'clig' off,
@@ -49,7 +49,7 @@
     }
 }
 
-.signin_form {
+.signup_form {
     display: flex;
     flex-direction: column;
 
@@ -73,10 +73,10 @@
 
     background: transparent;
 
+    color: $snow-white;
+
     font-size: 14px;
     line-height: 1.2;
-
-    color: $snow-white;
 
     width: 100%;
 

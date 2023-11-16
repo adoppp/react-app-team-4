@@ -17,6 +17,8 @@
     top: 0;
     left: 0;
 
+    z-index: 50;
+
     &__container {
         background-color: $darkness-modal-black;
 
@@ -68,4 +70,14 @@
     & use {
         fill: $santas-node-red;
     }
+}
+
+.error__title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
+
+    margin-top: 16px;
+    margin-bottom: 8px;
 }

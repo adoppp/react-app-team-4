@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 
 import styles from './DiaryPage.module.scss';
 import { Calendar } from '../../ui/Calendar';
-import { Title } from '../../Title';
+import { Title } from '../../global/Title';
 
 const cn = classNames.bind(styles);
 
