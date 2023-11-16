@@ -19,13 +19,16 @@ const ModalContent = ({
                     <Icon iconId="icon-close-btn" w={26} h={26} />
                 </button>
                 {error ?
-                    <div className={cn('modal__svg')}>
+                    <div>
+                        <div className={cn('modal__svg')}>
                         <Icon
                             iconId='icon-error'
                             w={120}
                             h={120}
                         />
-                    </div> :
+                        </div>
+                        <h2 className={cn('error__title')}>Error</h2>
+                    </div>    :
                     null
                 }
                 <div className={containerClass}>{children}</div>
