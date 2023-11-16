@@ -3,50 +3,65 @@
 
 .usercard__container{
     padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+};
 
 .container__svg{
     position: relative;
-    margin-bottom: 32px;
-}
-
+    margin-bottom: 20px;
+};
 
 .usercard__VectorProfile{
-   
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     & use {
-        background-color: $christmas-main-orange;
-        stroke:$snow-white;
+        stroke: $christmas-main-orange;
     }
-}
+};
 
 .usercard__checkMark{
     position: absolute;
-    top: 80%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     & use {
-        background-color: $christmas-main-orange;
-            stroke: $snow-white;
+        fill: $christmas-main-orange;
+        stroke: $snow-white;
         }
+};
+
+.userName__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 };
 
 .user__name{
     margin-bottom: 4px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.1;
+    color: $snow-white;
 };
 
 .user__user{
     margin-bottom: 40px;
-}
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.3;
+    color: $lonely-gray;
+};
 
 .daily__container{
     display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 40px;
-}
-
+};
 
 .daily__calorieAndNorm{
     background-color: $christmas-main-orange;
@@ -61,31 +76,69 @@
 }
 
 .daily__calorieContainer{
-    padding: 14px
+    padding: 14px;
 };
 
 .daily__icon{
+    display: flex;
+    align-items: center;
 
     & use{
         stroke: $christmas-hover-orange;
-      
     }
-}
 
-.profile__warning{
-  margin-bottom: 40px;
-    & use {
-        stroke: $snow-white;
-            fill: $christmas-hover-orange;
+    & p {
+        margin-left: 8px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.3;
+        color: $snow-alpha-white;
     }
 };
 
+.daily__value{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.1;
+    color: $snow-white;
+    margin-top: 29px;
+};
+
+.daily__valueMin {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.1;
+    color: $snow-white;
+    margin-top: 19px;
+};
+
+.profile__warning{
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+
+    & use {
+        stroke: $snow-white;
+        fill: $christmas-hover-orange;
+    }
+
+    & p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.2;
+        color: $snow-alpha-white;
+        margin-left: 8px;
+    }
+};
+
+.logout__container{
+    display: flex;
+    justify-content: flex-end;
+}
+
 .logout__button {
-    // position: absolute;
     display: flex;
     align-items: center;
-    // bottom: 20px;
-    // left: 20px;
     background-color: transparent;
     border: none;
     padding: 0;
@@ -99,7 +152,6 @@
     & use {
         stroke: $christmas-main-orange;
         fill: transparent;
-
         @include transition();
     }
 
@@ -123,4 +175,4 @@
         line-height: 24px;
         font-size: 16px;
     }
-}
+};

@@ -20,46 +20,47 @@ const UserCard = () => {
                 </div>
                 <div className={cn('userName__container')}>
                     <h3 className={cn('user__name')}>Anna Rybachok</h3>
-                    <div className={cn('user__user')}>User</div>
+                    <p className={cn('user__user')}>User</p>
                 </div>
                 <div className={cn('daily__container')}>
                     <div className={cn('daily__calorieAndNorm')}>
                         <div className={cn('daily__calorieContainer')}>
                             <div className={cn('daily__icon')}>
                                 <Icon iconId="icon-fluent_food" w={20} h={20} />
-                                <div>Daily calorie intake</div>
+                                <p>Daily calorie intake</p>
                             </div>
-                            <div>0 </div>
+                            <div className={cn('daily__value')}>0</div>
                         </div>
                     </div>
                     <div className={cn('daily__calorieAndNorm')}>
                         <div className={cn('daily__calorieContainer')}>
                             <div className={cn('daily__icon')}>
                                 <Icon iconId="icon-dumbbell" w={20} h={20} />
-                                <div>Daily physical activity</div>
+                                <p>Daily physical activity</p>
                             </div>
-                            <div>0 min</div>
+                            <div className={cn('daily__valueMin')}>0 min</div>
                         </div>
                     </div>
                 </div>
                 <div className={cn('profile__warning')}>
-                    <Icon iconId="icon-icons" w={24} h={24} />
-                    <div>We understand that each individual is unique, so the entire approach to diet is relative and tailored to your unique body and goals.</div>
-                </div> 
- <button className={cn('logout__button')}>
-                Logout
-                <Icon
-                    iconId="icon-log-out"
-                    w={24}
-                    h={24}
-                    customStyles={{ marginLeft: 8 }}
-                />
-            </button>
-              
-                
+                    <div>
+                 <Icon iconId="icon-icons" w={24} h={24} />
+                    </div>
+                    <p>We understand that each individual is unique, so the entire approach to diet is relative and tailored to your unique body and goals.</p>
+                </div>
+                <div className={cn('logout__container')}>
+                 <button className={cn('logout__button')}>
+                    Logout
+                    <Icon
+                        iconId="icon-log-out"
+                        w={24}
+                        h={24}
+                        customStyles={{ marginLeft: 8 }}
+                    />
+                </button>
+                </div>
             </div>
         </div>
-       
     )
 };
 
