@@ -30,15 +30,7 @@ function App() {
         <main>
             <Suspense
                 fallback={
-                    <Loader
-                        customStyles={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            height: '100vh',
-                            margin: '0 auto',
-                        }}
-                    />
+                    <Loader />
                 }
             >
                 <Routes>
