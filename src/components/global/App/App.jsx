@@ -1,22 +1,24 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 
-import { Loader } from '../ui/Loader';
-import NotFound from '../pages/NotFound/NotFound';
-import appRoutes from '../config/routes';
+import { Loader } from '../../ui/Loader';
+import NotFound from '../../pages/NotFound/NotFound';
+import appRoutes from '../../../routing/routes';
+import { useDispatch } from 'react-redux';
+import { refreshUser } from '../../../storage/operations/authThunk';
 
 function App() {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(refreshUser());
+    });
+    
     return (
         <div>
             <ul>
                 <li>
                     <Link to="/welcome">welcome</Link>
-                </li>
-                <li>
-                    <Link to="/signup">signup</Link>
-                </li>
-                <li>
-                    <Link to="/signin">signin</Link>
                 </li>
                 <li>
                     <Link to="/profile">profile</Link>

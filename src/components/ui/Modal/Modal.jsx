@@ -3,31 +3,29 @@ import { createPortal } from 'react-dom';
 
 import { ModalContent } from '../ModalContent';
 
-const Modal = ({ children }) => {
+const Modal = ({ children, error }) => {
     const [showModal, setShowModal] = useState(true);
+
+    const modalRoot = document.getElementById('modal');
 
     const handleClose = () => {
         setShowModal(false);
     };
 
-    const handleKeydown = e => {
-        if (e.code === 'Escape') 
-        setShowModal(false);
-        setSelectedImage(null);
+    const handleKeydown = (e) => {
+        if (e.code === 'Escape') setShowModal(false);
     };
 
-    const handleBackdropClick = e => {
-        if (e.target === e.currentTarget)
-        setShowModal(false);
-        setSelectedImage(null);
+    const handleBackdropClick = (e) => {
+        if (e.target === e.currentTarget) setShowModal(false);
     };
 
     useEffect(() => {
-    window.addEventListener('keydown', handleKeydown);
-    return () => {
-      window.removeEventListener('keydown', handleKeydown);
+        window.addEventListener('keydown', handleKeydown);
+        return () => {
+            window.removeEventListener('keydown', handleKeydown);
         };
-    },);
+    });
 
     useEffect(() => {
         setShowModal(true);
@@ -41,7 +39,9 @@ const Modal = ({ children }) => {
                         children={children}
                         onClose={handleClose}
                         handleBackdropClick={handleBackdropClick}
-                    />, document.body
+                        error={error}
+                    />,
+                    modalRoot,
                 )}
         </>
     );

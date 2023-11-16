@@ -1,7 +1,8 @@
 // mixins(transition, conrainer....)
 
 @mixin transition() {
-    transition-property: background-color, border-color, fill, color, stroke;
+    transition-property: background-color, border-color, fill, color, stroke,
+        border-radius, padding;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
