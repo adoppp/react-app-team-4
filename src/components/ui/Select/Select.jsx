@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 const cn = classNames.bind(styles);
 
-const Select = ({customSelectStyle,customListSelectStyle}) => {
+const Select = ({list,customSelectStyle,customListSelectStyle}) => {
     const [isSelectOpen, setIsSelectOpen] = useState(false);
     const [buttonText, setButtonText] = useState('Categories');
 
@@ -31,6 +31,7 @@ const Select = ({customSelectStyle,customListSelectStyle}) => {
             window.removeEventListener('keydown', handleKeydown);
         };
       });
+    
     return <div className={cn('form_group')}>
         <div className={cn('dropdown')}>
             <button
@@ -42,18 +43,6 @@ const Select = ({customSelectStyle,customListSelectStyle}) => {
             </button>
             <ul style={customListSelectStyle ? customListSelectStyle : {}}
                 className={cn(isSelectOpen ? 'dropdown_list' : 'dropdown_list_visible')}>
-           <li onClick={handleClick} className={cn('dropdown_item')} data-value='all' >all</li>
-           <li onClick={handleClick} className={cn('dropdown_item')} data-value='all' >all</li>
-           <li onClick={handleClick} className={cn('dropdown_item')} data-value='all' >all</li>
-           <li onClick={handleClick} className={cn('dropdown_item')} data-value='all' >all</li>
-           <li onClick={handleClick} className={cn('dropdown_item')} data-value='all' >all</li>
-           <li onClick={handleClick} className={cn('dropdown_item')} data-value='all' >all</li>
-           <li onClick={handleClick} className={cn('dropdown_item')} data-value='all' >all</li>
-           <li onClick={handleClick} className={cn('dropdown_item')} data-value='all' >all</li>
-           <li onClick={handleClick} className={cn('dropdown_item')} data-value='all' >all</li>
-           <li onClick={handleClick} className={cn('dropdown_item')} data-value='all' >all</li>
-           <li onClick={handleClick} className={cn('dropdown_item')} data-value='all' >all</li>
-           <li onClick={handleClick} className={cn('dropdown_item')} data-value='all' >all</li>
            <li onClick={handleClick} className={cn('dropdown_item')} data-value='all' >all</li>
            <li onClick={handleClick} className={cn('dropdown_item')} data-value='all' >all</li>
            <li onClick={handleClick} className={cn('dropdown_item')} data-value='all' >all</li>

@@ -39,6 +39,13 @@
     border-radius: 12px;
     border: 1px solid#EFEDE84D;
 
+    &:hover{
+        border-color: #E6533C;
+    };
+    &:focus {
+        border-color: #E6533C;
+    }
+
     @media screen and (min-width: 768px) {
             width: 236px;
            
@@ -48,9 +55,19 @@
 .button_form {
     position: absolute;
     top: 30%;
-    right: 14px;
+    right: 5px;
     transform: translate(-30%);
     background-color: transparent;
     color: #EFEDE8;
     border: none;
+}
+.button_x {
+    position: absolute;
+    top: 30%;
+    right: 30px;
+    transform: translate(-30%);
+    background-color: transparent;
+    color: #EFEDE8;
+    border: none;
+    cursor: pointer;
 }
