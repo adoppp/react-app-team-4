@@ -1,1 +1,0 @@
-import{c as t,j as s}from"./index-4d4584ac.js";import{H as e}from"./Header-f52436a0.js";const a="_container_1ws8g_1",o={container:a},r=t.bind(o),m=({children:n})=>s.jsxs("section",{children:[s.jsx(e,{}),s.jsx("div",{className:r("container"),children:n})]});export{m as default};
