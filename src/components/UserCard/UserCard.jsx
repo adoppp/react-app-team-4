@@ -1,21 +1,24 @@
 import React from 'react';
 import { Icon } from '../ui/Icon';
-import styles from './UserCard.module.scss'
+import styles from './UserCard.module.scss';
+import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames/bind';
 
 const cn = classNames.bind(styles);
 
 const UserCard = () => {
+    const isLargeScreen = useMediaQuery({ minWidth: 768 });
+
 
     return (
         <div className={cn('usercard__container')}>
             <div className={cn('usercard__profile')}>
                 <div className={cn('container__svg')}>
                     <div className={cn('usercard__VectorProfile')}>
-                        <Icon iconId="icon-Vector-profile" w={62} h={62} />
+                        <Icon iconId="icon-Vector-profile" w={isLargeScreen ? 102 : 62} h={isLargeScreen ? 102 : 62} />
                     </div>
                     <div className={cn('usercard__checkMark')}>
-                        <Icon iconId="icon-check-mark" w={24} h={24} />
+                        <Icon iconId="icon-check-mark" w={isLargeScreen ? 32 : 24} h={isLargeScreen ? 32 : 24} />
                     </div>
                 </div>
                 <div className={cn('userName__container')}>

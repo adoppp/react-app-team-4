@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from '../Icon';
+import { Calendar } from '../Calendar/Calendar';
 import classNames from 'classnames/bind';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -96,8 +96,8 @@ const UserForm = () => {
           </div>
           </div>
           <div className={cn('blood__containerParent')}>
-            <div >
-            <label>Blood</label>
+            <div>
+            <label className={cn('label__blood')}>Blood</label>
             <div className={cn('blood__container')} >
               <label>
                 <Field type="radio" id="blood1" name="blood" value="1" />
@@ -122,39 +122,39 @@ const UserForm = () => {
           <div className={cn('sex__container')} >
             <label className={cn('sex__label')}>
               <Field type="radio" name="sex" value="Male" />
-              <div className="circle">Male</div>
+              <p className={cn('circle')}>Male</p>
             </label>
             <label className={cn('sex__label')}>
               <Field type="radio" name="sex" value="Female" />
-              <div className="circle">Female</div>
+              <p className={cn('circle')}>Female</p>
             </label>
             <ErrorMessage name="sex" component="div" />
           </div>
           </div>
           
-
           <div className={cn('levelActivity__container')}>
-            <label className={cn('levelActivity__label')}>
-              <Field type="radio" name="levelActivity" value="Female" />
-              <div className="circle">Sedentary lifestyle (little or no physical activity)</div>
-            </label>
-            <label className={cn('levelActivity__label')}>
-              <Field type="radio" name="levelActivity" value="Female" />
-              <div className="circle">Light activity (light exercises/sports 1-3 days per week)</div>
-            </label>
-            <label className={cn('levelActivity__label')}>
-              <Field type="radio" name="levelActivity" value="Female" />
-              <div className="circle">Moderately active (moderate exercises/sports 3-5 days per week)</div>
-            </label>
-            <label className={cn('levelActivity__label')}>
-              <Field type="radio" name="levelActivity" value="Female" />
-              <div className="circle">Very active (intense exercises/sports 6-7 days per week)</div>
-            </label>
-            <label className={cn('levelActivity__label')}>
-              <Field type="radio" name="levelActivity" value="Female" />
-              <div className="circle">Extremely active (very strenuous exercises/sports and physical work)</div>
-            </label>
-          </div>
+    <label className={cn('levelActivity__label')} htmlFor="levelActivity1">
+        <Field type="radio" id="levelActivity1" name="levelActivity" value="Sedentary" />
+        <p className={cn('circle')}>Sedentary lifestyle (little or no physical activity)</p>
+    </label>
+    <label className={cn('levelActivity__label')} htmlFor="levelActivity2">
+        <Field type="radio" id="levelActivity2" name="levelActivity" value="Light" />
+        <p className={cn('circle')}>Light activity (light exercises/sports 1-3 days per week)</p>
+    </label>
+    <label className={cn('levelActivity__label')} htmlFor="levelActivity3">
+        <Field type="radio" id="levelActivity3" name="levelActivity" value="Moderately" />
+        <p className={cn('circle')}>Moderately active (moderate exercises/sports 3-5 days per week)</p>
+    </label>
+    <label className={cn('levelActivity__label')} htmlFor="levelActivity4">
+        <Field type="radio" id="levelActivity4" name="levelActivity" value="Very" />
+        <p className={cn('circle')}>Very active (intense exercises/sports 6-7 days per week)</p>
+    </label>
+    <label className={cn('levelActivity__label')} htmlFor="levelActivity5">
+        <Field type="radio" id="levelActivity5" name="levelActivity" value="Extremely" />
+        <p className={cn('circle')}>Extremely active (very strenuous exercises/sports and physical work)</p>
+    </label>
+</div>
+
           <div>
             <Button label="Save" buttonStyles="orange" />
           </div>

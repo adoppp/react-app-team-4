@@ -2,7 +2,8 @@
 @import '../../scss/mixins';
 
 .usercard__container{
-    padding: 20px;
+    display: flex;
+    justify-content: center;
 };
 
 .container__svg{
@@ -46,6 +47,11 @@
     font-size: 18px;
     line-height: 1.1;
     color: $snow-white;
+
+    @media (min-width: 768px) {
+        line-height: 1.1;
+        font-size: 24px;
+        }
 };
 
 .user__user{
@@ -69,6 +75,11 @@
     height: 96px;
     margin-right: 14px;
     border-radius: 12px;
+
+    @media (min-width: 768px) {
+        width: 214px;
+        height: 108px;
+        }
 }
 
 .daily__calorieAndNorm:last-child {
@@ -102,6 +113,10 @@
     line-height: 1.1;
     color: $snow-white;
     margin-top: 29px;
+
+    @media (min-width: 768px) {
+        margin-top: 39px;
+        }
 };
 
 .daily__valueMin {
@@ -110,6 +125,10 @@
     line-height: 1.1;
     color: $snow-white;
     margin-top: 19px;
+
+    @media (min-width: 768px) {
+        margin-top: 39px;
+        }
 };
 
 .profile__warning{
@@ -128,8 +147,14 @@
         line-height: 1.2;
         color: $snow-alpha-white;
         margin-left: 8px;
+
+        @media (min-width: 768px) {
+               max-width: 339px;
+            }
     }
 };
+
+
 
 .logout__container{
     display: flex;
