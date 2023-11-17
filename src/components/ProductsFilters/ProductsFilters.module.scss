@@ -25,6 +25,10 @@
 
 };
 
+.form_container_input {
+    position: relative;
+}
+
 .input {
     color:#EFEDE8;
     padding: 14px;
@@ -41,32 +45,12 @@
         }
 };
 
-.categories{
-    color: #EFEDE8;
+.button_form {
+    position: absolute;
+    top: 30%;
+    right: 14px;
+    transform: translate(-30%);
     background-color: transparent;
-    padding: 14px;
-    width: 146px;
-    height: 46px;
-    border-radius: 12px;
-    border: 1px solid#EFEDE84D;
-
-    @media screen and (min-width: 768px) {
-            width: 192px;
-    
-        }
-};
-
-.select {
     color: #EFEDE8;
-    background-color: transparent;
-    padding: 14px;
-    width: 173px;
-    height: 46px;
-    border-radius: 12px;
-    border: 1px solid#EFEDE84D;
-
-    @media screen and (min-width: 768px) {
-            width: 204px;
-    
-        }
-};
+    border: none;
+}

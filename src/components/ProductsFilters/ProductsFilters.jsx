@@ -9,54 +9,47 @@ const cn = classNames.bind(styles);
 
 
 const ProductsFilters = () => {
+  const customSelectStyle = {
+    width: 173,
+  };
 
-  const ButtonStyles = {
-    position: 'absolute',
-    left: 200,
-    backgroundColor:' transparent',
-    
+  const listSelectStyle = {
+    height: 98,
+    overflow: 'hidden',
   }
+
+
   return <>
     
        <Formik
        initialValues={{
-         search: '',
+        search: '',
+        select: '',
        }}
        onSubmit={values => {
          console.log(values);
        }}
     >
-       {({ errors, touched }) => (
+
          <Form className={cn('form_container')}>
-          <Field
+        <div className={cn('form_container_input')}>
+           <Field
             className={cn('input')}
             type='text'
-            name='name'
+            name='search'
             autoComplete='off'
             autoFocus
-            placeholder="Search" />
+          placeholder="Search" />
+        <button className={cn('button_form')}
+          type='submit'>o</button>
+         </div>
           
-           <Select/>
+          <Select />
+          <Select customSelectStyle={customSelectStyle} customListSelectStyle={listSelectStyle} />
           
-           <Field className={cn('categories')} as='select' name='categories'>
-             <option value='categories'>Categories</option>
-            
-          </Field>
-           <Field className={cn('select')} as='select' name='color'>
-             <option value='all'>All</option>
-             <option value='rec'>Recommended</option>
-             <option value='notrec'>Not recommended</option>
-           </Field>
-        <Button
-         type={'submit'}
-        customContainerStyles={ButtonStyles}
-          >
-        
-          </Button>
          </Form>
-       )}
-
-     </Formik>
+    </Formik>
+    
 
   </>
   
