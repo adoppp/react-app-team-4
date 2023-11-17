@@ -10,12 +10,15 @@
     padding-top: 24px;
     padding-bottom: 24px;
 
-    & a {
+    display: flex;
+    justify-content: space-between;
+
+    .header__logo a {
         display: flex;
         align-items: flex-end;
     }
 
-    & span {
+    .header__logo span {
         font-size: 16px;
         font-weight: 600;
         line-height: 12px;
@@ -26,36 +29,41 @@
         }
     }
 
-    & a span {
+    .header__logo a span {
         color: $snow-white;
         @include transition();
     }
 
-    & a use {
+    .header__logo a use {
         fill: $christmas-main-orange;
         @include transition();
     }
 
-    & a:hover span {
+    .header__logo a:hover span {
         color: $snow-alpha-white;
     }
 
-    & a:hover use {
+    .header__logo a:hover use {
         fill: $snow-alpha-white;
     }
 
-    & a:active span {
+    .header__logo a:active span {
         color: $lonely-gray;
     }
 
-    & a:active use {
+    .header__logo a:active use {
         fill: $christmas-main-orange;
     }
 }
+
 .header__burgerMenu {
     background-color: transparent;
     border: none;
     padding: 0;
+
+    @media screen and (min-width: 1439px) {
+        display: none;
+    }
 
     & use {
         stroke: $christmas-main-orange;
@@ -73,5 +81,123 @@
 
     @media (min-width: 1440px) {
         display: none;
+    }
+}
+
+.header__links {
+    display: flex;
+    gap: 16px;
+
+    @media screen and (max-width: 1439px) {
+        display: none;
+    }
+}
+
+.header__routing-container {
+    display: flex;
+}
+
+.header__list {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    margin-left: 32px;
+    
+    & .header__user {
+        background-color: rgba(48, 48, 48, 0.3);
+
+        width: 37px;
+        height: 37px;
+
+        padding: 14px;
+
+        border: 1px solid $christmas-main-orange;
+        border-radius: 50%;
+
+        @media screen and (max-width: 768px) {
+            & {
+                padding: 11px;
+            }
+        }
+    }
+
+    & .header__settings a {
+        max-height: fit-content;
+    }
+
+    & .header__settings a use {
+        stroke: $snow-alpha-white;
+
+        @include transition();
+    }
+
+    & .header__settings:hover a use {
+        stroke: $christmas-main-orange;
+    }
+
+    & .header__settings:active a use {
+        stroke: $christmas-beige;
+    }
+
+    & .header__user div {
+        max-width: fit-content;
+    }
+
+    & .header__user use {
+        fill: $silent-gray;
+    }
+
+    @media screen and (min-width: 768px) {
+        & .header__user {
+            width: 46px;
+            height: 46px;
+        }
+    }
+}
+
+.logout__button {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    color: $snow-white;
+
+    @include transition();
+
+    @media screen and (max-width: 1439px) {
+        display: none;
+    }
+
+    & use {
+        stroke: $christmas-main-orange;
+        fill: transparent;
+
+        @include transition();
+    }
+
+    &:hover use {
+        stroke: $silent-gray;
+    }
+
+    &:active use {
+        stroke: $christmas-main-orange;
+    }
+
+    &:hover {
+        color: $silent-gray;
+    }
+
+    &:active {
+        color: $lonely-gray;
+    }
+
+    @media (min-width: 768px) {
+        line-height: 24px;
+        font-size: 16px;
     }
 }

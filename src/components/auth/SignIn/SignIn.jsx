@@ -1,20 +1,25 @@
-import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { useDispatch } from 'react-redux';
 
-import styles from './SignUp.module.scss';
-import { Button } from '../ui/Button/Button';
-import { Icon } from '../ui/Icon';
-import { Title } from '../Title';
+import styles from './SignIn.module.scss';
+import { Icon } from '../../ui/Icon';
+import { Button } from '../../ui/Button/Button';
+import { Title } from '../../global/Title';
+import { login } from '../../../storage/operations/authThunk';
 
 const cn = classNames.bind(styles);
 
-const SignUp = () => {
+const SignIn = () => {
     const [iconName, setIconName] = useState('icon-eye-off');
     const [showPassword, setShowPassword] = useState(false);
+
+    const dispatch = useDispatch();
+
     const isLargeScreen = useMediaQuery({ minWidth: 768 });
 
     const titleStyles = isLargeScreen
@@ -26,7 +31,6 @@ const SignUp = () => {
     const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
     const validationSchema = Yup.object().shape({
-        name: Yup.string().required('The name field is required'),
         email: Yup.string()
             .matches(emailPattern)
             .required('The email field is required'),
@@ -40,72 +44,28 @@ const SignUp = () => {
         setShowPassword(!showPassword);
     };
 
+    const handleSubmit = (e) => {
+        dispatch(login(e));
+    };
+
     return (
         <section>
-            <div className={cn('signup__container')}>
-                <Title title="Sign Up" customContainerStyles={titleStyles} />
+            <div className={cn('signin_container')}>
+                <Title title="Sign In" customContainerStyles={titleStyles} />
                 <p>
-                    Thank you for your interest in our platform. To complete the
-                    registration process, please provide us with the following
-                    information.
+                    Welcome! Please enter your credentials to login to the
+                    platform:
                 </p>
                 <Formik
                     initialValues={{
-                        name: '',
                         email: '',
                         password: '',
                     }}
                     validationSchema={validationSchema}
+                    onSubmit={handleSubmit}
                 >
                     {({ errors, touched, values }) => (
-                        <Form className={cn('signup_form')}>
-                            <Field
-                                name="name"
-                                type="name"
-                                placeholder="name"
-                                className={cn(
-                                    'input',
-                                    { error: errors.name && touched.name },
-                                    { success: !errors.name && touched.name },
-                                )}
-                            />
-                            {errors.name && touched.name ? (
-                                <div
-                                    className={cn({
-                                        errorLabel: errors.name && touched.name,
-                                    })}
-                                >
-                                    <Icon
-                                        iconId="icon-checkbox-circle"
-                                        w={16}
-                                        h={16}
-                                        customStyles={{
-                                            marginRight: 4,
-                                            fill: '#D80027',
-                                        }}
-                                    />
-                                    <span>{errors.name}</span>
-                                </div>
-                            ) : null}
-                            {!errors.name && touched.name ? (
-                                <div
-                                    className={cn({
-                                        successLabel:
-                                            !errors.name && touched.name,
-                                    })}
-                                >
-                                    <Icon
-                                        iconId="icon-checkbox-circle"
-                                        w={16}
-                                        h={16}
-                                        customStyles={{
-                                            marginRight: 4,
-                                            fill: '#3CBF61',
-                                        }}
-                                    />
-                                    <span>{`Success name`}</span>
-                                </div>
-                            ) : null}
+                        <Form className={cn('signin_form')}>
                             <Field
                                 name="email"
                                 type="email"
@@ -225,7 +185,7 @@ const SignUp = () => {
                             </div>
                             <Button
                                 type={'submit'}
-                                label={'Sign Up'}
+                                label={'Sign In'}
                                 customContainerStyles={{
                                     width: `fit-content`,
                                     marginTop: buttonStyles,
@@ -235,13 +195,13 @@ const SignUp = () => {
                         </Form>
                     )}
                 </Formik>
-                <div className={cn('signup__container_link')}>
-                    <span>Already have an account? </span>
-                    <Link to="/signin">Sign In</Link>
+                <div className={cn('signin__container_link')}>
+                    <span>Don&#39;t have an account? </span>
+                    <Link to="/signup">Sign Up</Link>
                 </div>
             </div>
         </section>
     );
 };
 
-export { SignUp };
+export { SignIn };
