@@ -12,6 +12,7 @@ import {
 } from 'redux-persist';
 
 import { authReducer } from './reducers/authSlice';
+import { errorReducer } from './reducers/errorSlice';
 
 const authPersistConfig = {
     key: 'auth',
@@ -22,6 +23,7 @@ const authPersistConfig = {
 export const store = configureStore({
     reducer: {
         user: persistReducer(authPersistConfig, authReducer),
+        error: errorReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
