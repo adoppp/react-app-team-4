@@ -1,15 +1,24 @@
-import ExercisesCategories from './ExercisesCategories/ExercisesCategories'
+import ExercisesCategories from './ExercisesCategories/ExercisesCategories';
 import classNames from 'classnames/bind';
 import styles from './ExercisesPage.module.scss';
+import { Title } from '../../global/Title';
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
+import { Loader } from '../../ui/Loader/Loader';
 
 const cn = classNames.bind(styles);
 
 const ExercisesPage = () => {
   return (
-    <div className={cn('section')}>
-        <h2>ExercisesPage</h2>
-      <ExercisesCategories/>
-    </div>
+    <section className={cn('exercises')}>
+      <div className={cn('exercises__categories')}>
+        <Title title='Exercises' />
+        <ExercisesCategories/>
+      </div>
+      <Suspense fallback={<Loader/>}>
+        <Outlet />
+     </Suspense>
+    </section>
   );
 };
 

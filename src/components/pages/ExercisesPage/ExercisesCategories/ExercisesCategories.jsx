@@ -7,12 +7,24 @@ const cn = classNames.bind(styles);
 const ExercisesCategories = () => {
 
   return (
-      <div className={cn('exercises_category_container')}>
-        <NavLink className={cn('exercises_category_name')} to="body-parts" >Body parts</NavLink>
-        <NavLink className={cn('exercises_category_name')} to="muscles" >Muscles</NavLink>
-        <NavLink className={cn('exercises_category_name')} to="equipment" >Equipment</NavLink>
-      </div>
+      <ul className={cn('category__list')}>
+        <li>
+          <NavLink to="body-parts" >
+            <span>Body parts</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="muscles" >
+            <span>Muscles</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="equipment" >
+            <span>Equipment</span>
+          </NavLink>
+        </li>
+      </ul>
   );
-};
+  };
 
 export default ExercisesCategories;

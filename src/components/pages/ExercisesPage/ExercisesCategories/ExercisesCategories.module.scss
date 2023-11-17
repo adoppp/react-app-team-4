@@ -1,31 +1,26 @@
-.exercises_category_container{
+.category__list{
     display: flex;
     gap: 28px;
-    };
 
-.exercises_category_name{
-    text-decoration: none;
-
-    color: rgba(239, 237, 232, 0.40);
-
-    font-family: Roboto;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.29; /* 128.571% */
-
-    // &.active{
-    // }
-
+    & li a span{
+        text-decoration: none;
+        color: rgba(239, 237, 232, 0.40);
+    
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.29; /* 128.571% */
+    }
     };
 
 @media screen and (min-width: 768px) {
-.exercises_category_name{
-    font-size: 16px;
-    line-height: 1.5; /* 150% */
-    };
-
-.exercises_category_container{
+.category__list{
     gap: 32px;
+
+    & li a span{
+        font-size: 16px;
+        line-height: 1.5; /* 150% */
+    }
     };
 };
