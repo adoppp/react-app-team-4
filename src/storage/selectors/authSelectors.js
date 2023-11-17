@@ -1,4 +1,4 @@
-export const errorUserSelector = (state) => state.user.error;
+export const errorSelector = (state) => state.error.message;
 
 export const loadingSelector = (state) => state.user.isLoading;
 

@@ -1,0 +1,23 @@
+.exercises__categories {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 320px;
+    padding-top: 40px;
+};
+
+@media screen and (min-width: 375px) {
+    .exercises__categories {
+        width: 100%;
+flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+};
+
+@media screen and (min-width: 768px) {
+    .exercises__categories {
+        padding-top: 72px;
+        margin-bottom: 64px;
+    }
+    };

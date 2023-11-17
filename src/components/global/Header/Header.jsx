@@ -42,27 +42,29 @@ const Header = () => {
         dispatch(logout());
     };
 
-    const authHeaderStyles = autheticated ? { borderBottom: `1px solid #efede833` } : {};
+    const authHeaderStyles = autheticated
+        ? { borderBottom: `1px solid #efede833` }
+        : {};
 
-    const authHeader =
+    const authHeader = (
         <div className={cn('header__routing-container')}>
             <ul className={cn('header__links')}>
                 <li>
-                    <StyledLink to='/diary'>Diary</StyledLink>
+                    <StyledLink to="/diary">Diary</StyledLink>
                 </li>
                 <li>
-                    <StyledLink to='/products'>Products</StyledLink>
+                    <StyledLink to="/products">Products</StyledLink>
                 </li>
                 <li>
-                    <StyledLink to='/exercises'>Exercises</StyledLink>
+                    <StyledLink to="/exercises">Exercises</StyledLink>
                 </li>
             </ul>
             <div className={cn('header__user-links')}>
                 <ul className={cn('header__list')}>
                     <li className={cn('header__settings')}>
-                        <Link to='/profile'>
+                        <Link to="/profile">
                             <Icon
-                                iconId='icon-settings'
+                                iconId="icon-settings"
                                 w={settingsStyles}
                                 h={settingsStyles}
                             />
@@ -70,13 +72,16 @@ const Header = () => {
                     </li>
                     <li className={cn('header__user')}>
                         <Icon
-                            iconId='icon-user'
+                            iconId="icon-user"
                             w={userSvgStyles}
                             h={userSvgStyles}
                         />
                     </li>
                     <li>
-                        <button className={cn('logout__button')} onClick={handleLogout}>
+                        <button
+                            className={cn('logout__button')}
+                            onClick={handleLogout}
+                        >
                             Logout
                             <Icon
                                 iconId="icon-log-out"
@@ -91,7 +96,8 @@ const Header = () => {
             <button className={cn('header__burgerMenu')} onClick={openMenu}>
                 <Icon iconId="icon-menu-02" w={24} h={24} />
             </button>
-        </div>;
+        </div>
+    );
 
     return (
         <header style={authHeaderStyles}>
@@ -107,11 +113,7 @@ const Header = () => {
                         <span>PowerPulse</span>
                     </Link>
                 </div>
-                {
-                    autheticated ?
-                    authHeader :
-                    null
-                }
+                {autheticated ? authHeader : null}
             </div>
             {isMenuOpen && <BurgerMenu onClose={closeMenu} />}
         </header>

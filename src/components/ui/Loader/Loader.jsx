@@ -7,7 +7,13 @@ const Loader = ({ customStyles }) => {
             height="120"
             width="120"
             ariaLabel="vortex-loading"
-            wrapperStyle={customStyles ? customStyles : {}}
+            wrapperStyle={customStyles ? customStyles : {
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            height: '100vh',
+                            margin: '0 auto',
+                        }}
             colors={[
                 '#E6533C',
                 '#EF8964',

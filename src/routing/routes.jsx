@@ -1,11 +1,22 @@
 import { lazy } from 'react';
+import { Navigate } from 'react-router-dom';
 
-const MainСontainer = lazy(() => import('../components/containers/MainСontainer/MainСontainer'));
-const PrivateContainer = lazy(() => import('../components/containers/PrivateContainer/PrivateContainer'))
-const ProfilePage = lazy(() => import('../components/pages/ProfilePage/ProfilePage'));
+const MainСontainer = lazy(() =>
+    import('../components/containers/MainСontainer/MainСontainer'),
+);
+const PrivateContainer = lazy(() =>
+    import('../components/containers/PrivateContainer/PrivateContainer'),
+);
+const ProfilePage = lazy(() =>
+    import('../components/pages/ProfilePage/ProfilePage'),
+);
 const DiaryPage = lazy(() => import('../components/pages/DiaryPage/DiaryPage'));
-const ProductsPage = lazy(() => import('../components/pages/ProductsPage/ProductsPage'));
-const ExercisesPage = lazy(() => import('../components/pages/ExercisesPage/ExercisesPage'));
+const ProductsPage = lazy(() =>
+    import('../components/pages/ProductsPage/ProductsPage'),
+);
+const ExercisesPage = lazy(() =>
+    import('../components/pages/ExercisesPage/ExercisesPage'),
+);
 
 import { Welcome } from '../components/global/Welcome';
 import { SignUp } from '../components/auth/SignUp';
@@ -29,7 +40,7 @@ const appRoutes = [
         path: routes.MAIN_ROUTE,
         element: (
             <RestrictedRoute>
-                <MainСontainer />
+                <Navigate to={routes.WELCOME_ROUTE} replace />
             </RestrictedRoute>
         ),
     },

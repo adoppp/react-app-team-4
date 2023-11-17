@@ -5,15 +5,13 @@ import { Header } from '../../global/Header';
 
 const cn = classNames.bind(styles);
 
-const PrivateContainer = ({children}) => {
+const PrivateContainer = ({ children }) => {
     return (
         <section>
             <Header />
-            <div className={cn('container')}>
-                {children}
-            </div>
+            <div className={cn('container')}>{children}</div>
         </section>
     );
-}
+};
 
 export default PrivateContainer;

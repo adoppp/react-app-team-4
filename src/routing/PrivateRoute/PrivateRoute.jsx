@@ -8,6 +8,6 @@ const PrivateRoute = ({ children, redirectTo = routes.SIGNIN_ROUTE }) => {
     const authentificated = useSelector(autheticatedSelector);
 
     return authentificated ? children : <Navigate to={redirectTo} replace />;
-}
+};
 
 export { PrivateRoute };
