@@ -1,7 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { registration, login, logout, refreshUser } from '../operations/authThunk';
-
+import {
+    registration,
+    login,
+    logout,
+    refreshUser,
+} from '../operations/authThunk';
 
 const initialState = {
     userData: null,
@@ -15,7 +19,7 @@ const PENDING = (state) => {
     state.isLoading = true;
     state.error = null;
 };
-  
+
 const REJECTED = (state, action) => {
     state.isLoading = false;
     state.error = action.payload;
@@ -60,8 +64,8 @@ const authSlice = createSlice({
                 state.authenticated = true;
                 state.userData = action.payload;
             })
-            .addCase(refreshUser.rejected, REJECTED)
-    }
+            .addCase(refreshUser.rejected, REJECTED);
+    },
 });
 
 export const authReducer = authSlice.reducer;

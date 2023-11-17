@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './BurgerMenu.module.scss';
 import classNames from 'classnames/bind';
@@ -24,17 +23,17 @@ const BurgerMenuContent = ({ onClose }) => {
             </button>
             <ul className={cn('menuItems__list')}>
                 <li>
-                    <Link to='/diary'>
+                    <Link to="/diary">
                         <Button label="Diary" buttonStyles="orange" />
                     </Link>
                 </li>
                 <li>
-                    <Link to='/products'>
+                    <Link to="/products">
                         <Button label="Products" buttonStyles="orange" />
                     </Link>
                 </li>
                 <li>
-                    <Link to='/exercises'>
+                    <Link to="/exercises">
                         <Button label="Exercises" buttonStyles="orange" />
                     </Link>
                 </li>

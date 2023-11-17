@@ -4,23 +4,19 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import styles from './SignIn.module.scss';
 import { Icon } from '../../ui/Icon';
 import { Button } from '../../ui/Button/Button';
 import { Title } from '../../global/Title';
 import { login } from '../../../storage/operations/authThunk';
-import { errorSelector } from '../../../storage/selectors/authSelectors';
-import { Modal } from '../../ui/Modal';
 
 const cn = classNames.bind(styles);
 
 const SignIn = () => {
     const [iconName, setIconName] = useState('icon-eye-off');
     const [showPassword, setShowPassword] = useState(false);
-
-    const error = useSelector(errorSelector);
 
     const dispatch = useDispatch();
 
@@ -48,9 +44,9 @@ const SignIn = () => {
         setShowPassword(!showPassword);
     };
 
-    const handleSubmit = (e) => {        
-        dispatch(login(e))
-    }
+    const handleSubmit = (e) => {
+        dispatch(login(e));
+    };
 
     return (
         <section>
@@ -203,14 +199,6 @@ const SignIn = () => {
                     <span>Don&#39;t have an account? </span>
                     <Link to="/signup">Sign Up</Link>
                 </div>
-                {
-                    error &&
-                    <Modal error='error'>
-                            <span className={cn('error__text')}>
-                                {error}
-                            </span>
-                    </Modal>
-                }
             </div>
         </section>
     );
