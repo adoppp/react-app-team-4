@@ -13,6 +13,7 @@ import {
     tokenSelector,
 } from '../../../storage/selectors/authSelectors';
 import { Modal } from '../../ui/Modal';
+import NotFoundContainer from '../../containers/NotFoundContainer/NotFoundContainer';
 
 const cn = classNames.bind(styles);
 
@@ -46,7 +47,11 @@ function App() {
                                 ))}
                         </Route>
                     ))}
-                    <Route path="*" element={<NotFound />} />
+                    <Route path="*" element={
+                        <NotFoundContainer>
+                            <NotFound />
+                        </NotFoundContainer>
+                    } />
                 </Routes>
             </Suspense>
             {error && (

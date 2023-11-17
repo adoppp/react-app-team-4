@@ -9,17 +9,17 @@ const ExercisesCategories = () => {
   return (
       <ul className={cn('category__list')}>
         <li>
-          <NavLink to="body-parts" >
+          <NavLink to='body-parts' >
             <span>Body parts</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="muscles" >
+          <NavLink to='muscles' >
             <span>Muscles</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="equipment" >
+          <NavLink to='equipment' >
             <span>Equipment</span>
           </NavLink>
         </li>
@@ -27,4 +27,4 @@ const ExercisesCategories = () => {
   );
   };
 
-export default ExercisesCategories;
+export { ExercisesCategories };
