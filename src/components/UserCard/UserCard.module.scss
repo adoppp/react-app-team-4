@@ -4,6 +4,11 @@
 .usercard__container{
     display: flex;
     justify-content: center;
+
+    @media(min-width: 1440px){
+     margin-left: 50px;
+    }
+    
 };
 
 .container__svg{

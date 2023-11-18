@@ -5,13 +5,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (min-width:768px) {
+           margin-top: 38px;
+        }
+
+    @media(min-width: 1440px) {
+          margin-right: 50px;
+        }
 };
 
 .basic__infoNameContainer{
     margin-bottom: 14px;
+
+    @media (min-width:768px){
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        justify-content: center;
+    }
 };
 
 .basic__infoName{
+
     & label {
     font-weight: 400;
     line-height: 1.3;
@@ -27,6 +43,10 @@
     font-size: 12px;
     line-height: 1.3;
     color: $snow-white;
+
+    @media (min-width:768px) {
+            min-width: 340px;
+        }
         }
 };
 
@@ -46,6 +66,11 @@
     font-size: 12px;
     line-height: 1.2;
     color: $lonely-gray;
+
+    @media (min-width:768px) {
+            margin-bottom: 0px;
+            min-width: 340px;
+        }
     }
 };
 
@@ -74,9 +99,17 @@
     margin-right: 14px;
     margin-bottom: 36px;
 
-    &:nth-child(2n) {
-        margin-right: 0;
-    }
+    @media(max-width: 767px) {
+        &:nth-child(2n) {
+            margin-right: 0;
+            }
+        }
+
+    @media(min-width: 768px) {
+        &:last-child {
+            margin-right: 0;
+            }
+       } 
 };
 
 .basic__calendary{
@@ -89,6 +122,10 @@
     display: flex;
     align-items: flex-end;
     margin-bottom: 40px;
+
+    @media(min-width:768px){
+        margin-bottom: 32px;
+    }
 
     & label {
             font-weight: 400;
@@ -148,7 +185,7 @@
 }
 
 .levelActivity__container{
-margin-bottom: 40px;
+    margin-bottom: 38px;
 }
 
 .levelActivity__label{
