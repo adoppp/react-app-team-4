@@ -11,6 +11,7 @@ const Loader = ({ customStyles }) => {
             position: `absolute`,
             top: 0,
             left: 0,
+            zIndex: 1000,
             height: '100vh',
             width: `100vw`,
         }}>

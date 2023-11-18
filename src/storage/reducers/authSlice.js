@@ -8,7 +8,11 @@ import {
 } from '../operations/authThunk';
 
 const initialState = {
-    userData: null,
+    userData: {
+        name:'',
+        email:'',
+        avatarURL:'',
+    },
     authenticated: false,
     token: null,
     isLoading: false,
@@ -35,7 +39,11 @@ const authSlice = createSlice({
             .addCase(logout.fulfilled, (state) => {
                 state.isLoading = false;
                 state.authenticated = false;
-                state.userData = null;
+                state.userData = {
+                    name:'',
+                    email:'',
+                    avatarURL:'',
+                };
                 state.token = null;
             })
             .addCase(refreshUser.fulfilled, (state, action) => {

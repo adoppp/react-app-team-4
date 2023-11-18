@@ -74,7 +74,7 @@ const Header = () => {
                     </li>
                     <li className={cn('header__user', {avatarStyle: avatar})}>
                     {avatar ?    
-                        <img src={`${avatar}`} alt='avatar' /> :    
+                        <img src={avatar ? `${avatar}` : ''} alt='avatar' /> :    
                         (<Icon
                             iconId="icon-user"
                             w={userSvgStyles}
