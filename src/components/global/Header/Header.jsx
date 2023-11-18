@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './Header.module.scss';
 import { BurgerMenu } from '../../ui/BurgerMenu';
 import { Icon } from '../../ui/Icon';
-import { autheticatedSelector } from '../../../storage/selectors/authSelectors';
+import { autheticatedSelector, avatarSelector } from '../../../storage/selectors/authSelectors';
 import { StyledLink } from './Header.styled';
 import { logout } from '../../../storage/operations/authThunk';
 
@@ -16,7 +16,9 @@ const cn = classNames.bind(styles);
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const dispatch = useDispatch();
+
     const autheticated = useSelector(autheticatedSelector);
+    const avatar = useSelector(avatarSelector);
 
     const isLargeScreen = useMediaQuery({ minWidth: 768 });
 
@@ -70,12 +72,15 @@ const Header = () => {
                             />
                         </Link>
                     </li>
-                    <li className={cn('header__user')}>
-                        <Icon
+                    <li className={cn('header__user', {avatarStyle: avatar})}>
+                    {avatar ?    
+                        <img src={`${avatar}`} alt='avatar' /> :    
+                        (<Icon
                             iconId="icon-user"
                             w={userSvgStyles}
                             h={userSvgStyles}
-                        />
+                        />)
+                    }
                     </li>
                     <li>
                         <button
