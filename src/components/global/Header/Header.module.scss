@@ -110,16 +110,38 @@
         width: 37px;
         height: 37px;
 
-        padding: 14px;
+        padding: 11px;
+
+        overflow: hidden;
 
         border: 1px solid $christmas-main-orange;
         border-radius: 50%;
 
-        @media screen and (max-width: 768px) {
+        & img {
+            max-width: 36px;
+            max-height: 36px;
+
+            position: relative;
+            z-index: -1;
+
+            
+            border-radius: 50%;
+        }
+
+        @media screen and (min-width: 768px) {
             & {
-                padding: 11px;
+                padding: 14px;
+            }
+
+            & img {
+                max-width: 46px;
+                max-height: 46px;
             }
         }
+    }
+
+    & .avatarStyle {
+        padding: 0;
     }
 
     & .header__settings a {
