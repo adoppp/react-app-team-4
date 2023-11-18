@@ -22,28 +22,24 @@ const authSlice = createSlice({
         builder
             .addCase(registration.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.error = null;
                 state.authenticated = true;
                 state.userData = action.payload.user;
                 state.token = action.payload.token;
             })
             .addCase(login.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.error = null;
                 state.authenticated = true;
                 state.userData = action.payload.user;
                 state.token = action.payload.token;
             })
             .addCase(logout.fulfilled, (state) => {
                 state.isLoading = false;
-                state.error = null;
                 state.authenticated = false;
                 state.userData = null;
                 state.token = null;
             })
             .addCase(refreshUser.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.error = null;
                 state.authenticated = true;
                 state.userData = action.payload;
             })

@@ -8,10 +8,8 @@ import { Loader } from '../../ui/Loader';
 import NotFound from '../../pages/NotFound/NotFound';
 import appRoutes from '../../../routing/routes';
 import { refreshUser } from '../../../storage/operations/authThunk';
-import {
-    errorSelector,
-    tokenSelector,
-} from '../../../storage/selectors/authSelectors';
+import { tokenSelector } from '../../../storage/selectors/authSelectors';
+import { errorSelector, loadingSelector } from '../../../storage/selectors/globalSelectors';
 import { Modal } from '../../ui/Modal';
 import NotFoundContainer from '../../containers/NotFoundContainer/NotFoundContainer';
 
@@ -20,6 +18,7 @@ const cn = classNames.bind(styles);
 function App() {
     const token = useSelector(tokenSelector);
     const error = useSelector(errorSelector);
+    const isLoading = useSelector(loadingSelector);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -59,6 +58,7 @@ function App() {
                     <span className={cn('error__text')}>{error}</span>
                 </Modal>
             )}
+            {isLoading && (<Loader />)}
         </main>
     );
 }
