@@ -5,18 +5,15 @@ import {
     login,
     logout,
     refreshUser,
+    avatarUpdate,
 } from '../operations/authThunk';
 
 const initialState = {
     userData: {
-        name:'',
-        email:'',
         avatarURL:'',
     },
     authenticated: false,
     token: null,
-    isLoading: false,
-    error: null,
 };
 
 const authSlice = createSlice({
@@ -25,19 +22,16 @@ const authSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(registration.fulfilled, (state, action) => {
-                state.isLoading = false;
                 state.authenticated = true;
                 state.userData = action.payload.user;
                 state.token = action.payload.token;
             })
             .addCase(login.fulfilled, (state, action) => {
-                state.isLoading = false;
                 state.authenticated = true;
                 state.userData = action.payload.user;
                 state.token = action.payload.token;
             })
             .addCase(logout.fulfilled, (state) => {
-                state.isLoading = false;
                 state.authenticated = false;
                 state.userData = {
                     name:'',
@@ -47,9 +41,11 @@ const authSlice = createSlice({
                 state.token = null;
             })
             .addCase(refreshUser.fulfilled, (state, action) => {
-                state.isLoading = false;
                 state.authenticated = true;
                 state.userData = action.payload;
+            })
+            .addCase(avatarUpdate.fulfilled, (state, action) => {
+                state.userData.avatarURL = action.payload;
             })
     },
 });
