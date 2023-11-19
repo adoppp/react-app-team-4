@@ -14,7 +14,8 @@ const ProfilePage = () => {
             <Title title={'Profile Settings'}/>
             <div className={cn('container')}>
                 <UserCard />
-                <div className={cn('decorative-line')}></div>
+                    <div className={cn('decorative-line')}></div>
+                    
                 <UserForm />
             </div>
         </div>
