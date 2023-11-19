@@ -1,0 +1,74 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.form_container {
+    @include container();
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 375px;
+    gap: 16px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 40px;
+   
+
+    @media screen and (min-width: 768px) {
+        width: 868px;
+        flex-wrap: none;
+        }
+
+    @media screen and (min-width: 1440px) {
+           width: 1440;
+        }
+
+};
+
+.form_container_input {
+    position: relative;
+
+}
+
+.input {
+    color:#EFEDE8;
+    padding: 14px;
+    background-color: transparent;
+    outline: none;
+    width: 335px;
+    height: 46px;
+    border-radius: 12px;
+    border: 1px solid#EFEDE84D;
+
+    &:hover{
+        border-color: #E6533C;
+    };
+    &:focus {
+        border-color: #E6533C;
+    }
+
+    @media screen and (min-width: 768px) {
+            width: 236px;
+           
+        }
+};
+
+.button_form {
+    position: absolute;
+    top: 30%;
+    right: 5px;
+    transform: translate(-30%);
+    background-color: transparent;
+    color: #EFEDE8;
+    border: none;
+}
+.button_close {
+    position: absolute;
+    top: 30%;
+    right: 30px;
+    transform: translate(-30%);
+    background-color: transparent;
+    color: #EFEDE8;
+    border: none;
+    cursor: pointer;
+}
