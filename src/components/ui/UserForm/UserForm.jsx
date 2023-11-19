@@ -7,6 +7,8 @@ import styles from './UserForm.module.scss';
 import { Input } from '../Input/Input';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
+import { useSelector } from 'react-redux';
+import { userSelector } from '../../../storage/selectors/authSelectors';
 
 const cn = classNames.bind(styles);
 
@@ -32,9 +34,11 @@ const validationSchema = Yup.object().shape({
 });
 
 const UserForm = () => {
+  const user = useSelector(userSelector);
+
   const initialValues = {
-    name: 'Anna',
-    email: 'Qwerty@gmail.com',
+    name: user.name,
+    email: '',
     height: 0,
     currentWeight: 0,
     desiredWeight: 0,
@@ -60,7 +64,12 @@ const UserForm = () => {
             <div className={cn('basic__infoNameContainer')}>
               <div className={cn('basic__infoName')}>
                 <label>Basic info</label>
-                <Field name="name" component={Input} />
+                <Field name="name" className={cn(
+                  'input',
+                  { error: errors.name && touched.name },
+                  { success: !errors.name && touched.name },
+                )}
+                />
                 {errors.name && touched.name ? (
                     <div
                         className={cn({
@@ -103,7 +112,10 @@ const UserForm = () => {
               </div>
           
               <div className={cn('basic__infoMail')}>
-                <Field component={Input} type="email" name="email" input={{ disabled: true }} />
+                <Field type="email" name="email" readOnly placeholder={`${user.email}`} className={cn(
+                  'input', 'disabled'
+                )}
+                  />
               </div>
             </div>
          

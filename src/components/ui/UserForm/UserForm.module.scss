@@ -1,5 +1,6 @@
 @import '../../../scss/colors';
 @import '../../../scss/mixins';
+@import '../../../scss/variables';
 
 .UserFrom__container{
     display: flex;
@@ -237,4 +238,61 @@
     align-items: stretch;
 
     margin-bottom: 14px;
+}
+
+.input {
+    outline: none;
+
+    background: transparent;
+
+    font-size: 14px;
+    line-height: 1.2;
+
+    color: $snow-white;
+
+    width: 100%;
+
+    max-width: 364px;
+
+    margin-bottom: 18px;
+
+    padding: 14px;
+
+    border-radius: $main-b-radius;
+    border: 1px solid $snow-alpha-white;
+
+    @include transition();
+
+    &.disabled {
+        border: 1px solid $snow-white;
+    }
+
+    &.disabled:focus {
+        border: 1px solid $snow-white;
+        padding-left: 14px;
+    }
+
+    &:focus {
+        border-color: $christmas-main-orange;
+        padding-left: 20px;
+    }
+
+    &.error {
+        border-color: #d80027;
+        margin-bottom: 4px;
+    }
+
+    &.success {
+        border-color: $christmas-tree-green;
+        margin-bottom: 4px;
+    }
+
+    @media screen and (min-width: 768px) {
+        & {
+            font-size: 16px;
+            line-height: 1.5;
+
+            margin-bottom: 20px;
+        }
+    }
 }
