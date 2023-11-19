@@ -13,7 +13,7 @@ const DiaryPage = () => {
 
     const mobileScreen = (
         <div className={cn('diary-container')}>
-            <div className={cn('calendar__container')}>
+            <div className={cn('calendar__container-mobile')}>
                 <Title title="Diary" />
                 <div className={cn('calendar__component_wrapper')}>
                     <Calendar />

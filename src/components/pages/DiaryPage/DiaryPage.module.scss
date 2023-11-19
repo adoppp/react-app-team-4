@@ -1,12 +1,13 @@
 @import '../../../scss/colors';
 @import '../../../scss//mixins';
 
-// .calendar__container {
-//     // margin-top: 40px;
-//     display: flex;
-//     justify-content: center;
-//     align-items: baseline;
-// }
+.calendar__container-mobile{
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+}
+
 
 .calendar__component_wrapper {
     max-width: fit-content;
