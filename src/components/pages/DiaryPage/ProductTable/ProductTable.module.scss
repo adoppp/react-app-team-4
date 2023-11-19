@@ -1,0 +1,205 @@
+@import '../../../../scss/mixins';
+@import '../../../../scss/variables';
+@import '../../../../scss/colors';
+
+.product__container{
+    border-radius: $main-b-radius;
+        border: 1px solid rgba(239, 237, 232, 0.20);
+        background: rgba(239, 237, 232, 0.05);
+        padding: 16px;
+
+        width: 335px;
+        max-height: 824px;
+        overflow-y: auto;
+
+            @media screen and (min-width: 768px) {
+                width: 704px;
+                max-height: 234px;
+                padding-top: 19px;
+                }
+
+                @media screen and (min-width: 1140px) {
+                width: 826px;
+                padding-top: 16px;
+                }
+}
+
+.container__header{
+display: flex;
+justify-content: space-between;
+margin-bottom: 22px;
+            @media screen and (min-width: 768px) {
+                    margin-bottom: 16px;
+                }
+
+    & h2 {
+    color: rgba(239, 237, 232, 0.50);
+    font-size: 14px;
+    line-height: 18px;
+    }
+
+    .button {
+display: flex;
+    align-items: center;
+    justify-content: center;
+
+background-color: transparent;
+color: $christmas-main-orange;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    border: 0;
+
+    cursor: pointer;
+
+                @media screen and (min-width: 768px) {
+                            font-size: 16px;
+                            line-height: 24px;
+                    }
+                
+    }
+}
+
+.container__list{
+display: flex;
+flex-direction: column;
+gap: 40px;
+
+@media screen and (min-width: 768px) {
+        gap: 8px;
+    }
+
+& li{
+    display: flex;
+    flex-wrap: wrap;
+
+        @media screen and (min-width: 768px) {
+                flex-direction: raw;
+                flex-wrap: nowrap;
+
+            }
+}
+
+& div {
+display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+}
+
+
+& span {
+margin-bottom: 9px;
+margin-top: auto;
+}
+}
+
+
+.container__label {
+    color: $christmas-hover-orange;
+        font-size: 12px;
+        line-height: 18px;
+
+        @media screen and (min-width: 768px) {
+            display: none;
+            }
+}
+
+.container__input,
+.container__input__small {
+    display: block;
+    color: $snow-white;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 10px 14px;
+    border-radius: $main-b-radius;
+    border: 1px solid rgba(239, 237, 232, 0.30);
+
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+            line-height: 24px;
+            padding: 8px 14px;
+        }
+}
+
+.container__input {
+    width: 230px;
+    margin-bottom: 16px;
+
+    @media screen and (min-width: 375px) {
+            width: 297px;
+        }
+
+                  @media screen and (min-width: 768px) {
+                    margin-bottom: 0;
+                  }
+}
+
+.container__input__small {
+    width: 81px;
+
+    @media screen and (min-width: 768px) {
+            width: 90px;
+        }
+                                @media screen and (min-width: 1140px) {
+                                    width: 105px;
+                                }
+}
+
+.big-gap {
+margin-right: 16px;
+
+    @media screen and (min-width: 768px) {
+            margin-right: 8px;
+        }
+}
+.small-gap {
+    margin-right: 6px;
+
+        @media screen and (min-width: 768px) {
+                margin-right: 12px;
+            }
+}
+
+.green::before {
+    content: "";
+    background-color: #419B09;
+    border-radius: 50%;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+
+.red::before {
+background-color: #E9101D;
+content: "";
+    border-radius: 50%;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.title {
+@media screen and (min-width: 768px) {
+        width: 204px;
+    }
+
+        @media screen and (min-width: 1140px) {
+            width: 212px;
+        }
+}
+
+.category {
+@media screen and (min-width: 768px) {
+        width: 128px;
+    }
+
+            @media screen and (min-width: 1140px) {
+            width: 166px;
+        }
+}
