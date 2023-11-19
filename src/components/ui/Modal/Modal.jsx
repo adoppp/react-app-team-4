@@ -14,12 +14,10 @@ const Modal = ({ children, error }) => {
 
     const handleKeydown = (e) => {
         if (e.code === 'Escape') setShowModal(false);
-        setSelectedImage(null);
     };
 
     const handleBackdropClick = (e) => {
         if (e.target === e.currentTarget) setShowModal(false);
-        setSelectedImage(null);
     };
 
     useEffect(() => {

@@ -3,8 +3,8 @@ import { useMediaQuery } from 'react-responsive';
 
 import styles from './Welcome.module.scss';
 import { Link } from 'react-router-dom';
-import { Button } from '../ui/Button';
-import { Icon } from '../ui/Icon';
+import { Button } from '../../ui/Button';
+import { Icon } from '../../ui/Icon';
 
 const cn = classNames.bind(styles);
 

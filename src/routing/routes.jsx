@@ -1,16 +1,14 @@
 import { lazy } from 'react';
 
-const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
-const ProfilePage = lazy(() => import('../pages/ProfilePage/ProfilePage'));
-const DiaryPage = lazy(() => import('../pages/DiaryPage/DiaryPage'));
-const ProductsPage = lazy(() => import('../pages/ProductsPage/ProductsPage'));
-const ExercisesPage = lazy(() =>
-    import('../pages/ExercisesPage/ExercisesPage'),
-);
+const MainСontainer = lazy(() => import('../components/containers/MainСontainer/MainСontainer'));
+const ProfilePage = lazy(() => import('../components/pages/ProfilePage/ProfilePage'));
+const DiaryPage = lazy(() => import('../components/pages/DiaryPage/DiaryPage'));
+const ProductsPage = lazy(() => import('../components/pages/ProductsPage/ProductsPage'));
+const ExercisesPage = lazy(() => import('../components/pages/ExercisesPage/ExercisesPage'));
 
-import { Welcome } from '../Welcome';
-import { SignUp } from '../SignUp';
-import { SignIn } from '../SignIn';
+import { Welcome } from '../components/global/Welcome';
+import { SignUp } from '../components/auth/SignUp';
+import { SignIn } from '../components/auth/SignIn';
 
 const routes = {
     MAIN_ROUTE: '/',
@@ -26,30 +24,30 @@ const routes = {
 const appRoutes = [
     {
         path: routes.MAIN_ROUTE,
-        element: <MainPage />,
+        element: <MainСontainer />,
     },
     {
         path: routes.WELCOME_ROUTE,
         element: (
-            <MainPage>
+            <MainСontainer>
                 <Welcome />
-            </MainPage>
+            </MainСontainer>
         ),
     },
     {
         path: routes.SIGNUP_ROUTE,
         element: (
-            <MainPage>
+            <MainСontainer>
                 <SignUp />
-            </MainPage>
+            </MainСontainer>
         ),
     },
     {
         path: routes.SIGNIN_ROUTE,
         element: (
-            <MainPage>
+            <MainСontainer>
                 <SignIn />
-            </MainPage>
+            </MainСontainer>
         ),
     },
     {
