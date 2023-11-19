@@ -7,6 +7,7 @@ const cn = classNames.bind(styles);
 const Select = ({list,customSelectStyle,customListSelectStyle}) => {
     const [isSelectOpen, setIsSelectOpen] = useState(false);
     const [buttonText, setButtonText] = useState('Categories');
+    
 
     
     const toggleClass = () => {
@@ -35,7 +36,7 @@ const Select = ({list,customSelectStyle,customListSelectStyle}) => {
     return <div className={cn('form_group')}>
         <div className={cn('dropdown')}>
             <button
-                type='buton'
+                type='button'
                 style={customSelectStyle ? customSelectStyle : {}}
                 onClick={toggleClass}
                 className={cn('dropdown_button')}>

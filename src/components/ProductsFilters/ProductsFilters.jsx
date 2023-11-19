@@ -60,7 +60,7 @@ const ProductsFilters = () => {
             onChange={hendleInputChange}
           
           />
-          {inputValue && (<button type='button' className={cn('button_x')}
+          {inputValue && (<button type='button' className={cn('button_close')}
             onClick={handleClearInput}
           >
              <Icon
