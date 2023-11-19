@@ -5,6 +5,7 @@ import {
     login,
     logout,
     refreshUser,
+    avatarUpdate,
 } from '../operations/authThunk';
 
 const initialState = {
@@ -43,6 +44,10 @@ const loadingSlice = createSlice({
             .addCase(refreshUser.pending, PENDING)
             .addCase(refreshUser.fulfilled, FILFILLED)
             .addCase(refreshUser.rejected, REJECTED)
+        
+            .addCase(avatarUpdate.pending, PENDING)
+            .addCase(avatarUpdate.fulfilled, FILFILLED)
+            .addCase(avatarUpdate.rejected, REJECTED)
     },
 });
 

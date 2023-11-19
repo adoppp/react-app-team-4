@@ -95,6 +95,11 @@
 .basic__infoInputContainer{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+
+    @media screen and (max-width: 767px) {
+        max-width: 335px;
+    }
 };
 
 .basic__info {
@@ -200,4 +205,36 @@
         min-width: 20px;
         min-height: 20px;
     }
+}
+
+.errorLabel {
+    color: $santas-node-red;
+    font-feature-settings:
+        'clig' off,
+        'liga' off;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.12px;
+
+    display: flex;
+    align-items: stretch;
+
+    margin-bottom: 14px;
+}
+
+.successLabel {
+    color: $christmas-tree-green;
+    font-feature-settings:
+        'clig' off,
+        'liga' off;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.12px;
+
+    display: flex;
+    align-items: stretch;
+
+    margin-bottom: 14px;
 }

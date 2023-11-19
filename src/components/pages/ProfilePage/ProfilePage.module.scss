@@ -2,6 +2,7 @@
 
 .Profile__Settings{
     display: flex;
+    justify-content: center;
 };
 
 .Profile__SettingsContainer{
@@ -11,12 +12,21 @@
 };
 
 .container{
+    margin-top: 40px;
+    padding-bottom: 66px;
+
+    @media screen and (min-width: 768px) {
+        margin-top: 64px;
+    }
+
     @media(min-width: 1440px){
         display: flex;
         flex-direction: row-reverse;
         justify-content: center;
         align-items: center;
         position: relative;
+        margin-top: 72px;
+        padding-bottom: 36px;
     }
 };
 

@@ -1,41 +1,89 @@
-@import '../../scss/colors';
-@import '../../scss/mixins';
+@import '../../../../scss/colors';
+@import '../../../../scss/mixins';
 
 .usercard__container{
     display: flex;
     justify-content: center;
 
+    margin-bottom: 18px;
+    max-width: 440px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 38px;
+    }
+
     @media(min-width: 1440px){
-     margin-left: 50px;
+        margin-left: 50px;
+        margin-bottom: 0;
     }
     
 };
 
 .container__svg{
-    position: relative;
     margin-bottom: 20px;
-};
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .usercard__VectorProfile{
     display: flex;
     justify-content: center;
     align-items: center;
 
+    
+    width: 90px;
+    height: 90px;
+
+    padding: 11px;
+
+    overflow: hidden;
+    position: relative;
+
+    border: 1px solid $christmas-main-orange;
+    border-radius: 50%;
+
     & use {
         stroke: $christmas-main-orange;
     }
+
+    & img {
+        max-width: 90px;
+        max-height: 90px;
+
+        position: relative;
+        z-index: -1;
+
+        
+        border-radius: 50%;
+    }
 };
 
-.usercard__checkMark{
-    position: absolute;
+.usercard__checkMark {
+    background-color: transparent;
+    border: 0;
+    position: relative;
     top: 100%;
     left: 50%;
     transform: translate(-50%, -50%);
+    max-width: fit-content;
+    cursor: pointer;
 
     & use {
         fill: $christmas-main-orange;
         stroke: $snow-white;
-        }
+    }
+
+    & input {
+        opacity: 0;
+        max-width: 20px;
+        position: absolute;
+        left: 8px;
+        cursor: pointer;
+    }
 };
 
 .userName__container{
@@ -70,6 +118,7 @@
 .daily__container{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     justify-content: center;
     margin-bottom: 40px;
 };
@@ -117,7 +166,7 @@
     font-size: 18px;
     line-height: 1.1;
     color: $snow-white;
-    margin-top: 29px;
+    margin-top: 28px;
 
     @media (min-width: 768px) {
         margin-top: 39px;
@@ -205,4 +254,4 @@
         line-height: 24px;
         font-size: 16px;
     }
-};
+}
