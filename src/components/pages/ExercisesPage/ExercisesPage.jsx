@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 
 import styles from './ExercisesPage.module.scss';
 import { Title } from '../../global/Title';
-import { ExercisesCategories } from '../../ExercisesCategories/ExercisesCategories';
+import { ExercisesCategories } from './ExercisesCategories';
 
 const cn = classNames.bind(styles);
 
