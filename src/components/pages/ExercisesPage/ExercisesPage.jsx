@@ -10,17 +10,17 @@ import { ExercisesCategories } from './ExercisesCategories';
 const cn = classNames.bind(styles);
 
 const ExercisesPage = () => {
-  return (
-    <section className={cn('exercises')}>
-      <div className={cn('exercises__categories')}>
-        <Title title='Exercises' />
-        <ExercisesCategories/>
-      </div>
-      <Suspense fallback={<Loader/>}>
-        <Outlet />
-     </Suspense>
-    </section>
-  );
+    return (
+        <section className={cn('exercises')}>
+            <div className={cn('exercises__categories')}>
+                <Title title="Exercises" />
+                <ExercisesCategories />
+            </div>
+            <Suspense fallback={<Loader />}>
+                <Outlet />
+            </Suspense>
+        </section>
+    );
 };
 
 export default ExercisesPage;

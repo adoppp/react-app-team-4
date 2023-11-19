@@ -57,7 +57,7 @@ export const refreshUser = createAsyncThunk(
     async (_, thunkAPI) => {
         const state = thunkAPI.getState();
         const userToken = state.user.token;
-        
+
         try {
             token.set(userToken);
 

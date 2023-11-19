@@ -1,1 +1,1 @@
-export * from './ProductsItem.jsx'
+export * from './ProductsItem.jsx';

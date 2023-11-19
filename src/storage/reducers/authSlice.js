@@ -9,9 +9,9 @@ import {
 
 const initialState = {
     userData: {
-        name:'',
-        email:'',
-        avatarURL:'',
+        name: '',
+        email: '',
+        avatarURL: '',
     },
     authenticated: false,
     token: null,
@@ -40,9 +40,9 @@ const authSlice = createSlice({
                 state.isLoading = false;
                 state.authenticated = false;
                 state.userData = {
-                    name:'',
-                    email:'',
-                    avatarURL:'',
+                    name: '',
+                    email: '',
+                    avatarURL: '',
                 };
                 state.token = null;
             })
@@ -50,7 +50,7 @@ const authSlice = createSlice({
                 state.isLoading = false;
                 state.authenticated = true;
                 state.userData = action.payload;
-            })
+            });
     },
 });
 

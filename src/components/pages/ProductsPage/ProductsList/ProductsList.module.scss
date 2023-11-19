@@ -2,16 +2,15 @@
 @import '../../../../scss/mixins';
 @import '../../../../scss/variables';
 
-
- .list{
+.list {
     @include container();
     width: 375px;
 
     @media screen and (min-width: 768px) {
-            width: 868px;
-        };
+        width: 868px;
+    }
 
     @media screen and (min-width: 1440px) {
-            width: 1440;
-        };
-};
+        width: 1440;
+    }
+}

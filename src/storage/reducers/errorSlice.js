@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 import {
     registration,
@@ -34,7 +34,7 @@ const errorSlice = createSlice({
             .addCase(logout.rejected, REJECTED)
 
             .addCase(refreshUser.pending, PENDING)
-            .addCase(refreshUser.rejected, REJECTED)
+            .addCase(refreshUser.rejected, REJECTED);
     },
 });
 

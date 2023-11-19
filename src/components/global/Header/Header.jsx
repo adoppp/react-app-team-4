@@ -7,7 +7,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './Header.module.scss';
 import { BurgerMenu } from '../../ui/BurgerMenu';
 import { Icon } from '../../ui/Icon';
-import { autheticatedSelector, avatarSelector } from '../../../storage/selectors/authSelectors';
+import {
+    autheticatedSelector,
+    avatarSelector,
+} from '../../../storage/selectors/authSelectors';
 import { StyledLink } from './Header.styled';
 import { logout } from '../../../storage/operations/authThunk';
 
@@ -72,15 +75,16 @@ const Header = () => {
                             />
                         </Link>
                     </li>
-                    <li className={cn('header__user', {avatarStyle: avatar})}>
-                    {avatar ?    
-                        <img src={avatar ? `${avatar}` : ''} alt='avatar' /> :    
-                        (<Icon
-                            iconId="icon-user"
-                            w={userSvgStyles}
-                            h={userSvgStyles}
-                        />)
-                    }
+                    <li className={cn('header__user', { avatarStyle: avatar })}>
+                        {avatar ? (
+                            <img src={avatar ? `${avatar}` : ''} alt="avatar" />
+                        ) : (
+                            <Icon
+                                iconId="icon-user"
+                                w={userSvgStyles}
+                                h={userSvgStyles}
+                            />
+                        )}
                     </li>
                     <li>
                         <button

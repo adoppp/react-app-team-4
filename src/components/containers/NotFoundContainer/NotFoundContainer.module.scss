@@ -13,8 +13,8 @@
     background-size: contain;
 
     @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
         background-image: url('../../../assets/images/side-view-people-training-gym\ 1-phone-2-min.jpg');
     }
 
@@ -23,8 +23,8 @@
         background-size: contain;
 
         @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
+            (min-resolution: 192dpi),
+            (min-resolution: 2dppx) {
             background-image: url('../../../assets/images/side-view-people-training-gym-tablet-2-min.jpg');
         }
     }
@@ -34,8 +34,8 @@
         background-size: contain;
 
         @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
+            (min-resolution: 192dpi),
+            (min-resolution: 2dppx) {
             background-image: url('../../../assets/images/side-view-people-training-gym\ 1-desk-2-min.jpg');
         }
     }

@@ -9,82 +9,80 @@ import { Icon } from '../../../ui/Icon';
 
 const cn = classNames.bind(styles);
 
-
 const ProductsFilters = () => {
-  const [inputValue, setInputValue] = useState('');
+    const [inputValue, setInputValue] = useState('');
 
-  const hendleInputChange = (e) => {
-    setInputValue(e.target.value);
-  }
-  const handleClearInput = () => {
-    setInputValue('')
-  };
-  const IconStyles = {
-     
-   }
+    const hendleInputChange = (e) => {
+        setInputValue(e.target.value);
+    };
+    const handleClearInput = () => {
+        setInputValue('');
+    };
+    const IconStyles = {};
 
+    const customSelectStyle = {
+        width: 173,
+    };
 
-  const customSelectStyle = {
-    width: 173,
-  };
+    const listSelectStyle = {
+        height: 98,
+        overflow: 'hidden',
+    };
 
-  const listSelectStyle = {
-    height: 98,
-    overflow: 'hidden',
-  };
+    const selectList = ['All', 'Recommended', 'Not recommended'];
 
-  const selectList = ['All','Recommended','Not recommended']
+    return (
+        <>
+            <Formik
+                initialValues={{
+                    search: '',
+                }}
+                onSubmit={(values) => {
+                    console.log(values);
+                }}
+            >
+                <Form className={cn('form_container')}>
+                    <div className={cn('form_container_input')}>
+                        <Field
+                            className={cn('input')}
+                            type="text"
+                            name="search"
+                            value={inputValue}
+                            autoComplete="off"
+                            autoFocus
+                            placeholder="Search"
+                            onChange={hendleInputChange}
+                        />
+                        {inputValue && (
+                            <button
+                                type="button"
+                                className={cn('button_close')}
+                                onClick={handleClearInput}
+                            >
+                                <Icon
+                                    iconId="icon-error"
+                                    w={18}
+                                    h={18}
+                                    customStyles={IconStyles}
+                                />
+                            </button>
+                        )}
 
+                        <button className={cn('button_form')} type="submit">
+                            o
+                        </button>
+                    </div>
 
-  return <>
-    
-       <Formik
-       initialValues={{
-        search: '',
-       }}
-       onSubmit={values => {
-         console.log(values);
-       }}
-    >
-
-         <Form className={cn('form_container')}>
-        <div className={cn('form_container_input')}>
-           <Field
-            className={cn( 'input')}
-            type='text'
-            name='search'
-            value={inputValue}
-            autoComplete='off'
-            autoFocus
-            placeholder="Search"
-            onChange={hendleInputChange}
-          
-          />
-          {inputValue && (<button type='button' className={cn('button_close')}
-            onClick={handleClearInput}
-          >
-             <Icon
-            iconId='icon-error'
-            w={18}
-              h={18}
-              customStyles={IconStyles}
-            />
-          </button>)}
-          
-        <button className={cn('button_form')}
-          type='submit'>o</button>
-         </div>
-          
-          <Select />
-          <Select list={selectList} customSelectStyle={customSelectStyle} customListSelectStyle={listSelectStyle} />
-          
-         </Form>
-    </Formik>
-    
-
-  </>
-  
-
+                    <Select />
+                    <Select
+                        list={selectList}
+                        customSelectStyle={customSelectStyle}
+                        customListSelectStyle={listSelectStyle}
+                    />
+                </Form>
+            </Formik>
+        </>
+    );
 };
 
 export { ProductsFilters };

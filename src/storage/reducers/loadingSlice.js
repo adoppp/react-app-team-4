@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 import {
     registration,
@@ -17,7 +17,7 @@ const PENDING = (state) => {
 
 const FILFILLED = (state) => {
     state.isLoading = false;
-}
+};
 
 const REJECTED = (state) => {
     state.isLoading = false;
@@ -42,7 +42,7 @@ const loadingSlice = createSlice({
 
             .addCase(refreshUser.pending, PENDING)
             .addCase(refreshUser.fulfilled, FILFILLED)
-            .addCase(refreshUser.rejected, REJECTED)
+            .addCase(refreshUser.rejected, REJECTED);
     },
 });
 
