@@ -1,4 +1,4 @@
-import { ProductsItem } from "../ProductsItem/ProductsItem";
+import { ProductsItem } from '../ProductsItem';
 import styles from './ProductsList.module.scss';
 
 import classNames from 'classnames/bind';

@@ -1,11 +1,11 @@
 import { Field, Form, Formik } from 'formik';
-import { Button } from '../ui/Button';
+import { Button } from '../../../ui/Button';
 // import { Icon } from '../ui/Icon';
 import styles from './ProductsFilters.module.scss';
 import classNames from 'classnames/bind';
-import { Select } from '../ui/Select/Select';
+import { Select } from '../../../ui/Select/Select';
 import { useState } from 'react';
-import { Icon } from '../ui/Icon';
+import { Icon } from '../../../ui/Icon';
 
 const cn = classNames.bind(styles);
 

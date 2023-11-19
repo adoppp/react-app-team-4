@@ -1,5 +1,5 @@
-import { Button } from '../ui/Button';
-import { Icon } from '../ui/Icon';
+import { Button } from '../../../ui/Button';
+import { Icon } from '../../../ui/Icon';
 import styles from './ProductsItem.module.scss';
 import classNames from 'classnames/bind';
 

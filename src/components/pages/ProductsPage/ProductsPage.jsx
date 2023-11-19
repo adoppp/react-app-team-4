@@ -1,6 +1,6 @@
-import { ProductsFilters } from "../../ProductsFilters/ProductsFilters";
-import { ProductsList } from "../../ProductsList/ProductsList";
-import { Title } from "../../global/Title/Title";
+import { ProductsFilters } from './ProductsFilters';
+import { ProductsList } from './ProductsList';
+import { Title } from '../../global/Title/Title';
 
 const ProductsPage = () => {
     return <div>
