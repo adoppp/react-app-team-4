@@ -1,0 +1,257 @@
+@import '../../../../scss/colors';
+@import '../../../../scss/mixins';
+
+.usercard__container{
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 18px;
+    max-width: 440px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 38px;
+    }
+
+    @media(min-width: 1440px){
+        margin-left: 50px;
+        margin-bottom: 0;
+    }
+    
+};
+
+.container__svg{
+    margin-bottom: 20px;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.usercard__VectorProfile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+    width: 90px;
+    height: 90px;
+
+    padding: 11px;
+
+    overflow: hidden;
+    position: relative;
+
+    border: 1px solid $christmas-main-orange;
+    border-radius: 50%;
+
+    & use {
+        stroke: $christmas-main-orange;
+    }
+
+    & img {
+        max-width: 90px;
+        max-height: 90px;
+
+        position: relative;
+        z-index: -1;
+
+        
+        border-radius: 50%;
+    }
+};
+
+.usercard__checkMark {
+    background-color: transparent;
+    border: 0;
+    position: relative;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: fit-content;
+    cursor: pointer;
+
+    & use {
+        fill: $christmas-main-orange;
+        stroke: $snow-white;
+    }
+
+    & input {
+        opacity: 0;
+        max-width: 20px;
+        position: absolute;
+        left: 8px;
+        cursor: pointer;
+    }
+};
+
+.userName__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+};
+
+.user__name{
+    margin-bottom: 4px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.1;
+    color: $snow-white;
+
+    @media (min-width: 768px) {
+        line-height: 1.1;
+        font-size: 24px;
+        }
+};
+
+.user__user{
+    margin-bottom: 40px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.3;
+    color: $lonely-gray;
+};
+
+.daily__container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-content: center;
+    margin-bottom: 40px;
+};
+
+.daily__calorieAndNorm{
+    background-color: $christmas-main-orange;
+    width: 158px;
+    height: 96px;
+    margin-right: 14px;
+    border-radius: 12px;
+
+    @media (min-width: 768px) {
+        width: 214px;
+        height: 108px;
+        }
+}
+
+.daily__calorieAndNorm:last-child {
+    margin-right: 0px;
+}
+
+.daily__calorieContainer{
+    padding: 14px;
+};
+
+.daily__icon{
+    display: flex;
+    align-items: center;
+
+    & use{
+        stroke: $christmas-hover-orange;
+    }
+
+    & p {
+        margin-left: 8px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.3;
+        color: $snow-alpha-white;
+    }
+};
+
+.daily__value{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.1;
+    color: $snow-white;
+    margin-top: 28px;
+
+    @media (min-width: 768px) {
+        margin-top: 39px;
+        }
+};
+
+.daily__valueMin {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.1;
+    color: $snow-white;
+    margin-top: 19px;
+
+    @media (min-width: 768px) {
+        margin-top: 39px;
+        }
+};
+
+.profile__warning{
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+
+    & use {
+        stroke: $snow-white;
+        fill: $christmas-hover-orange;
+    }
+
+    & p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.2;
+        color: $snow-alpha-white;
+        margin-left: 8px;
+
+        @media (min-width: 768px) {
+               max-width: 339px;
+            }
+    }
+};
+
+
+
+.logout__container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.logout__button {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    color: $snow-white;
+
+    @include transition();
+
+    & use {
+        stroke: $christmas-main-orange;
+        fill: transparent;
+        @include transition();
+    }
+
+    &:hover use {
+        stroke: $silent-gray;
+    }
+
+    &:active use {
+        stroke: $christmas-beige;
+    }
+
+    &:hover {
+        color: $silent-gray;
+    }
+
+    &:active {
+        color: $christmas-beige;
+    }
+
+    @media (min-width: 768px) {
+        line-height: 24px;
+        font-size: 16px;
+    }
+}
