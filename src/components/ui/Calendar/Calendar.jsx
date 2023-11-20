@@ -1,4 +1,6 @@
 import { useState, forwardRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateSelectedDate } from '../../../storage/reducers/diarySlice';
 import { useMediaQuery } from 'react-responsive';
 import DatePicker from 'react-datepicker';
 
@@ -7,6 +9,7 @@ import './Calendar.scss';
 
 const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
+    const dispatch = useDispatch();
 
     const isTabletScreen = useMediaQuery({ minWidth: 768 });
     const iconCalendarHeight = isTabletScreen ? 24 : 20;
@@ -39,16 +42,28 @@ const Calendar = () => {
         </div>
     ));
 
-    const handlePrevDay = () => {
+
+   const updateDate = (newDate) => {
+  setSelectedDate(newDate);
+  dispatch(updateSelectedDate(newDate.toISOString())); 
+};
+
+        const handlePrevDay = () => {
         const previousDay = new Date(selectedDate);
         previousDay.setDate(previousDay.getDate() - 1);
-        setSelectedDate(previousDay);
+        updateDate(previousDay);
     };
 
     const handleNextDay = () => {
         const nextDay = new Date(selectedDate);
         nextDay.setDate(nextDay.getDate() + 1);
-        setSelectedDate(nextDay);
+        updateDate(nextDay);
+    };
+
+
+const handleDateChange = (date) => {
+        setSelectedDate(date);
+        dispatch(updateSelectedDate(formatDateToDDMMYYYY(date))); 
     };
 
     return (

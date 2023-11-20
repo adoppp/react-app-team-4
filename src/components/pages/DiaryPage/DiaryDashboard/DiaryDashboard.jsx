@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
-import { useMediaQuery } from 'react-responsive';
+import { useSelector } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 import styles from './DiaryDashboard.module.scss';
 import { Icon } from '../../../ui/Icon';
@@ -7,6 +8,7 @@ import { Icon } from '../../../ui/Icon';
 const cn = classNames.bind(styles);
 
 const DiaryDashboard = () => {
+
     const iconStyles = {
         fill: '#EF8964',
         marginRight: '6px',

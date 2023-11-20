@@ -1,6 +1,10 @@
 import classNames from 'classnames/bind';
 import { useMediaQuery } from 'react-responsive';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+
+import { getDiaryInfo } from '../../../storage/operations/diaryThunk';
 import styles from './DiaryPage.module.scss';
 import { Calendar } from '../../ui/Calendar';
 import { Title } from '../../global/Title';
@@ -11,6 +15,17 @@ import { ExercisesTable } from './ExercisesPage';
 const cn = classNames.bind(styles);
 
 const DiaryPage = () => {
+
+    const dispatch = useDispatch();
+    const selectedDate = useSelector((state) => state.diary.selectedDate);
+
+    useEffect(() => {
+        if (selectedDate) {
+            dispatch(getDiaryInfo(selectedDate));
+        }
+    }, [selectedDate, dispatch]);
+
+
     const isMobileScreen = useMediaQuery({ maxWidth: 767 });
 
     const mobileScreen = (

@@ -2,6 +2,10 @@
 @import '../../../../scss/variables';
 @import '../../../../scss/colors';
 
+a {
+    color: $christmas-main-orange;
+}
+
 .product__container {
     border-radius: $main-b-radius;
     border: 1px solid rgba(239, 237, 232, 0.20);
