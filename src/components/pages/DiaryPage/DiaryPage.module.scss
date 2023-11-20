@@ -23,6 +23,7 @@
 
 .diary-container {
     display: flex;
+    // justify-content: center;
     flex-direction: column;
     gap: 40px;
     margin-bottom: 64px;
@@ -30,6 +31,13 @@
             @media screen and (min-width: 1140px) {
 margin-bottom: 0px;
                 }
+}
+
+.mobile__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center
 }
 
 .tables-container{
@@ -45,6 +53,7 @@ margin-bottom: 0px;
     display: flex;
     flex-direction: column;
         gap: 64px;
+
     }
 
         @media screen and (min-width: 1140px) {
