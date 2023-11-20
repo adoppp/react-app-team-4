@@ -52,8 +52,6 @@ const Header = () => {
 
     const avatarPath = isGravatar ? `${avatar}` : `https://powerpulse-171j.onrender.com/${avatar}`;
 
-    const routeLogoPath = autheticated ? '/diary' : '/welcome'
-
     const authHeader = (
         <div className={cn('header__routing-container')}>
             <ul className={cn('header__links')}>
@@ -114,7 +112,7 @@ const Header = () => {
         <header style={authHeaderStyles}>
             <div className={cn('header__container')}>
                 <div className={cn('header__logo')}>
-                    <Link to={routeLogoPath}>
+                    <Link to="/welcome">
                         <Icon
                             iconId="icon-Vector"
                             w={36}
