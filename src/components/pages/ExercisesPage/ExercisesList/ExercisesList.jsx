@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 import classNames from 'classnames/bind';
 import styles from './ExercisesList.module.scss';
+import './ExercisesList.scss';
 import { useParams } from 'react-router-dom';
 import { Icon } from '../../../ui/Icon';
 import { useDispatch, useSelector } from 'react-redux';
@@ -29,6 +30,10 @@ const ExercisesList = () => {
         fetchData();
     }, [dispatch]);
 
+    function upperCaseName(el) {
+        setCurrentExercisesList(el.map((item) => ({ ...item, name: item.name[0].toUpperCase() + item.name.slice(1) })));
+    };
+
             useEffect(() => {
                 if (allExercises) {
     const filtered = allExercises.filter((element) =>
@@ -36,7 +41,7 @@ const ExercisesList = () => {
         element.equipment === workout ||
         element.target === workout)
 
-    setCurrentExercisesList(filtered)
+        upperCaseName(filtered)
                 }
         }, [allExercises, workout])
 
@@ -44,10 +49,10 @@ return (
 <div className={cn('exercises__container')}>
     <ul className={cn('exercises_ul_collections')}>
         {currentExercisesList.map((exercise)=>
-            <li className={cn('exercises_container')} key={exercise._id}>
-                <p>WORKOUT</p>
-                <button type='button'>Start<Icon iconId="icon-next" w={16} h={16} /></button>
-                <h3>{exercise.name}</h3>
+            <li className={cn('exercises__item')} key={exercise._id}>
+                <p className={cn('exercises__item_head')}>WORKOUT</p>
+                <button type='button'>Start<Icon iconId="icon-arrow-big" w={16} h={16} /></button>
+                <h3><Icon iconId="icon-run" w={24} h={24} />{exercise.name}</h3>
                 <div className={cn('exercises_info')}>
                     <p>Burned calories:&nbsp;<span>{exercise.burnedCalories}</span></p>
                     <p>Body part:&nbsp; <span>{exercise.bodyPart}</span></p>
