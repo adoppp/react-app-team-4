@@ -6,12 +6,37 @@
  .list{
     @include container();
     width: 375px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px ;
 
     @media screen and (min-width: 768px) {
-            width: 868px;
+            width: 776px;
+            height: 660px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            gap: 0;
+
+            
         };
 
     @media screen and (min-width: 1440px) {
-            width: 1440;
+            width: 850px;
+            padding: 0;
         };
+};
+
+.list::-webkit-scrollbar {
+    width: 8px;
+    height: 153px;
+    border-radius: 12px;
+    background-color: #EFEDE81A;
+};
+
+.list::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+    background-color: #EF8964;
 };

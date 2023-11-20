@@ -9,6 +9,16 @@
     border: 1px solid #EFEDE833 ;
     padding: 16px;
     background-color: #EFEDE833;
+
+
+    @media screen and (min-width: 768px) {
+            margin-right: 16px ;
+            margin-bottom: 32px;
+        }
+    
+        @media screen and (min-width: 1440px) {
+            width: 405px;
+        }
 };
 .item_container {
     display: flex;

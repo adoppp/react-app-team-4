@@ -1,29 +1,44 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getProducts } from '../operations/productsThunk.js';
+import { getProducts, getProductsCategories } from '../operations/productsThunk.js';
 
  const initialState = {
- products: {
+   products: {
     items: [],
     isLoading: false,
     error: null
-  }
+     },
+   categories: {
+    list: [],
+    isLoading: false,
+    error: null
+   },
+     filter: {
+    category: 'All',
+  },
 };
 
 const productsSlice = createSlice({
     name: 'products',
-    initialState,
+  initialState,
+     reducers: {
+    setCategoryFilter: (state, action) => {
+      state.filter.category = action.payload;
+    },
+  },
     extraReducers: (builder) => {
         builder
-            .addCase(getProducts.pending, state => {
-                state.products.isLoading = true;
-                state.products.error = null;
-            }).addCase(getProducts.fulfilled, (state, action) => {
-                state.products.isLoading = false;
+           .addCase(getProducts.fulfilled, (state, action) => {
                 state.products.items = action.payload;
-            }).addCase(getProducts.rejected, (state, action) => {
-                state.products.isLoading = false;
-                state.products.error = action.payload;
-
+            })
+            
+            .addCase(getProductsCategories.fulfilled, (state, action) => { 
+                 state.categories.list = action.payload;
             })
     }
-})
+});
+export const { setCategoryFilter } = productsSlice.actions;
+export const selectorProducts = state => state.products.products;
+export const selectorCategories = state => state.products.categories;
+export const selectorFilter = (state) => state.products.filter;
+
+export const productsReducer = productsSlice.reducer;

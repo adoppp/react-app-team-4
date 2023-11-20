@@ -1,11 +1,21 @@
-import axios from "axios";
+import { instance } from './authThunk.js';
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = 'https://powerpulse-171j.onrender.com/api/';
-export const getProducts = createAsyncThunk('products',
+
+export const getProducts = createAsyncThunk('products/getAll',
+    async (query, thunkAPI) => {
+    try {
+        const response = await instance.get(`/products?keyWord=${query}`);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  });
+
+  export const getProductsCategories = createAsyncThunk('products/categories',
     async (_, thunkAPI) => {
     try {
-      const response = await axios.get('/products');
+        const response = await instance.get('/products/categories');
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

@@ -6,6 +6,7 @@ import {
     logout,
     refreshUser,
 } from '../operations/authThunk';
+import { getProducts, getProductsCategories } from "../operations/productsThunk";
 
 const initialState = {
     isLoading: false,
@@ -43,6 +44,14 @@ const loadingSlice = createSlice({
             .addCase(refreshUser.pending, PENDING)
             .addCase(refreshUser.fulfilled, FILFILLED)
             .addCase(refreshUser.rejected, REJECTED)
+        
+            .addCase(getProducts.pending, PENDING)
+            .addCase(getProducts.fulfilled, FILFILLED)
+            .addCase(getProducts.rejected, REJECTED)
+            
+            .addCase(getProductsCategories.pending, PENDING)
+            .addCase(getProductsCategories.fulfilled, FILFILLED)
+            .addCase(getProductsCategories.rejected, REJECTED)
     },
 });
 
