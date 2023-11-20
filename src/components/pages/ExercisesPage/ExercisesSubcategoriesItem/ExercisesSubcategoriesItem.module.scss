@@ -3,13 +3,14 @@
 @import '../../../../scss/variables';
 
 .subcategoriesItem{
+    overflow: hidden;
     padding-top: 40px;
     padding-bottom: 80px;
-}
+};
 
 .subcategoriesItem__info{
     position: absolute;
-}
+};
 
 .subcategoriesItem__name {
     color: $snow-white;
@@ -18,11 +19,9 @@
     font-feature-settings: 'clig' off, 'liga' off;
     font-family: Roboto;
     font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 1.2; /* 120% */
     text-align: center;
-}
+};
 
 .subcategoriesItem__filter {
     color: rgba(239, 237, 232, 0.40);
@@ -30,18 +29,16 @@
     font-feature-settings: 'clig' off, 'liga' off;
     font-family: Roboto;
     font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 1.5; /* 150% */
     text-align: center;
     margin-bottom: 2px;
-}
+};
 
 @media screen and (min-width: 375px) {
 .subcategoriesItem{
     align-items: center;
-}
-}
+};
+};
 
 @media screen and (min-width: 768px) {
     .subcategoriesItem{
@@ -50,10 +47,10 @@
         row-gap: 32px;
         column-gap: 16px;
         padding-top: 0;
-    }
+    };
 
         .subcategoriesItem__name {
             font-size: 24px;
             line-height: 1.33; /* 133.333% */
-        }
+        };
 };

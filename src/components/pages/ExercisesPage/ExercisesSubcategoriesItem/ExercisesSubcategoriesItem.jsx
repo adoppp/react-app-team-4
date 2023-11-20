@@ -11,7 +11,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 
-import { Loader } from '../../../ui/Loader/Loader';
 import { exercisesCategory } from '../../../../storage/operations/exercisesThunk';
 
 const cn = classNames.bind(styles);
@@ -98,9 +97,7 @@ if(data){
 
   return (
   <ul className={cn('subcategoriesItem')}>
-  {isLoading 
-  ? (<Loader/>) 
-  : <Slider {...settings}  >
+  {!isLoading && <Slider {...settings}  >
       {exercisesData.map((item)=>
         <Link  to={`/exercises/${categories}/${item.name.toLowerCase()}`}  key={item._id}>
           <LiItem src={item.imgURL}> 
