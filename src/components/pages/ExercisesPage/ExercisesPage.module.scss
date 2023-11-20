@@ -1,3 +1,6 @@
+@import '../../../scss/colors';
+@import '../../../scss/mixins';
+
 .exercises{
     position: relative;
 };
@@ -16,16 +19,35 @@
     top:10px;
     gap: 8px;
 
-    & svg use{
+    & svg use {
         stroke: #EFEDE866;
+
+        @include transition();
     };
 
-    & p{
+    &:hover svg use {
+        stroke: $christmas-hover-orange;
+    };
+
+    &:active svg use {
+        stroke: $christmas-main-orange;
+    };
+
+    & p {
         color: rgba(239, 237, 232, 0.40);
 
-        font-family: Roboto;
         font-size: 14px;
         line-height: 1.29; /* 128.571% */
+
+        @include transition();
+    };
+
+    &:hover p {
+        color: $christmas-hover-orange;
+    };
+
+    &:active p {
+        color: $christmas-main-orange;
     };
 };
 
