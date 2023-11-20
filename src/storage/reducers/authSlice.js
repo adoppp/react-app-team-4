@@ -5,18 +5,23 @@ import {
     login,
     logout,
     refreshUser,
+    avatarUpdate,
+    infoUpdate,
 } from '../operations/authThunk';
 
 const initialState = {
     userData: {
-        name:'',
-        email:'',
-        avatarURL:'',
+        avatarURL: '',
+        height: 0,
+        currentWeight: 0,
+        desiredWeight: 0,
+        birthday: '',
+        blood: '',
+        sex: '',
+        levelActivity: 0,
     },
     authenticated: false,
     token: null,
-    isLoading: false,
-    error: null,
 };
 
 const authSlice = createSlice({
@@ -25,30 +30,37 @@ const authSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(registration.fulfilled, (state, action) => {
-                state.isLoading = false;
                 state.authenticated = true;
                 state.userData = action.payload.user;
                 state.token = action.payload.token;
             })
             .addCase(login.fulfilled, (state, action) => {
-                state.isLoading = false;
                 state.authenticated = true;
                 state.userData = action.payload.user;
                 state.token = action.payload.token;
             })
             .addCase(logout.fulfilled, (state) => {
-                state.isLoading = false;
                 state.authenticated = false;
                 state.userData = {
-                    name:'',
-                    email:'',
-                    avatarURL:'',
+                    avatarURL: '',
+                    height: 0,
+                    currentWeight: 0,
+                    desiredWeight: 0,
+                    birthday: '',
+                    blood: '',
+                    sex: '',
+                    levelActivity: 0,
                 };
                 state.token = null;
             })
             .addCase(refreshUser.fulfilled, (state, action) => {
-                state.isLoading = false;
                 state.authenticated = true;
+                state.userData = action.payload;
+            })
+            .addCase(avatarUpdate.fulfilled, (state, action) => {
+                state.userData.avatarURL = action.payload;
+            })
+            .addCase(infoUpdate.fulfilled, (state, action) => {
                 state.userData = action.payload;
             })
     },

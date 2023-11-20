@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styles from './BurgerMenu.module.scss';
 import classNames from 'classnames/bind';
 import { useDispatch } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 
 import { Icon } from '../Icon';
 import { Button } from '../Button';
@@ -11,6 +12,7 @@ const cn = classNames.bind(styles);
 
 const BurgerMenuContent = ({ onClose }) => {
     const dispatch = useDispatch();
+    const isLargeScreen = useMediaQuery({ minWidth: 768 });
 
     const handleLogout = () => {
         dispatch(logout());
@@ -19,7 +21,7 @@ const BurgerMenuContent = ({ onClose }) => {
     return (
         <div className={cn('burgerMenu__container')}>
             <button onClick={onClose} className={cn('burger__button')}>
-                <Icon iconId="icon-close" w={24} h={24} />
+                <Icon iconId="icon-close" w={isLargeScreen ? 32 : 24} h={isLargeScreen ? 32 : 24} />
             </button>
             <ul className={cn('menuItems__list')}>
                 <li>

@@ -5,8 +5,11 @@ import {
     login,
     logout,
     refreshUser,
+    avatarUpdate,
+    infoUpdate,
 } from '../operations/authThunk';
 import { getProducts, getProductsCategories } from "../operations/productsThunk";
+import { exercisesCategory, getAllExercises } from "../operations/exercisesThunk";
 
 const initialState = {
     isLoading: false,
@@ -52,6 +55,22 @@ const loadingSlice = createSlice({
             .addCase(getProductsCategories.pending, PENDING)
             .addCase(getProductsCategories.fulfilled, FILFILLED)
             .addCase(getProductsCategories.rejected, REJECTED)
+
+            .addCase(avatarUpdate.pending, PENDING)
+            .addCase(avatarUpdate.fulfilled, FILFILLED)
+            .addCase(avatarUpdate.rejected, REJECTED)
+        
+            .addCase(exercisesCategory.pending, PENDING)
+            .addCase(exercisesCategory.fulfilled, FILFILLED)
+            .addCase(exercisesCategory.rejected, REJECTED)
+        
+            .addCase(getAllExercises.pending, PENDING)
+            .addCase(getAllExercises.fulfilled, FILFILLED)
+            .addCase(getAllExercises.rejected, REJECTED)
+        
+            .addCase(infoUpdate.pending, PENDING)
+            .addCase(infoUpdate.fulfilled, FILFILLED)
+            .addCase(infoUpdate.rejected, REJECTED)
     },
 });
 

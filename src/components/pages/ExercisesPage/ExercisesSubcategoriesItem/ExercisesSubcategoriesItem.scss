@@ -1,0 +1,85 @@
+@import '../../../../scss/colors';
+@import '../../../../scss/mixins';
+@import '../../../../scss/variables';
+
+.slick-slider {
+    margin: 0 auto;
+
+    & .slick-track{
+        display: flex;
+        gap: 5px;
+    }
+  }
+
+  .slick-dots{
+    bottom: -40px;
+
+    & .slick-active{
+        width: 14px;
+        height: 14px;
+        background-color: $christmas-main-orange;
+        border-radius: 50%;
+        }
+  }
+
+ul .slick-dots li{
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    color: #EFEDE81A;
+    background-color: #EFEDE81A;
+}
+
+ ul .slick-dots li button{
+    width: 14px;
+    height: 14px;
+    &:before{
+    width: 14px;
+    height: 14px;
+    content: '';
+    }
+}
+
+ul.slick-dots li.slick-active button{
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    &:before{
+        opacity: 1;
+        text-align: center;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        border: 3px solid #040404;
+        position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
+    }
+}
+
+
+div .slick-initialized .slick-slide{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 375px) {
+    .slick-slider {
+        width: 345px;
+      }
+}
+
+@media screen and (min-width: 768px) {
+    .slick-slider {
+        width: 768px;
+      }
+}
+
+@media screen and (min-width: 1440px) {
+    .slick-slider {
+        width: 1260px;
+      }
+}

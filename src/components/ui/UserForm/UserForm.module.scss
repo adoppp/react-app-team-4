@@ -1,0 +1,330 @@
+@import '../../../scss/colors';
+@import '../../../scss/mixins';
+@import '../../../scss/variables';
+
+.UserFrom__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media(min-width: 1440px) {
+          margin-right: 50px;
+        }
+};
+
+
+
+.basic__infoNameContainer{
+    margin-bottom: 14px;
+
+    @media (min-width:768px){
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        justify-content: center;
+    }
+};
+
+.basic__infoName{
+    & label {
+    font-weight: 400;
+    line-height: 1.3;
+    font-size: 12px;
+    color: $lonely-gray;
+        }
+    
+    & input {
+    margin-top: 4px;
+    margin-bottom: 14px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.3;
+    color: $snow-white;
+
+    @media (min-width:768px) {
+            min-width: 340px;
+        }
+        }
+};
+
+.basic__infoMail{
+
+    & label{
+    font-weight: 400;
+    line-height: 1.3;
+    font-size: 12px;
+    color: $lonely-gray;
+    }
+    
+    & input {
+    margin-top: 4px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.2;
+    color: $lonely-gray;
+
+    @media (min-width:768px) {
+            margin-bottom: 0px;
+            min-width: 340px;
+        }
+    }
+};
+
+.basic__info{
+    max-width: 160px;
+
+    & label {
+        font-weight: 400;
+        line-height: 1.3;
+        font-size: 12px;
+        color: $lonely-gray;
+    }
+    
+    & input {
+        margin-top: 4px;
+        height: 46px;
+        width: 160px;
+    }
+};
+
+.basic__infoInputContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+
+    @media screen and (max-width: 767px) {
+        max-width: 335px;
+    }
+};
+
+.basic__calendary{
+    height: 46px;
+    width: 160px;
+};
+
+.blood__containerParent{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    justify-content: space-between;
+    max-width: 320px;
+
+    @media(min-width:768px){
+        margin-bottom: 32px;
+    }
+
+    & label {
+            font-weight: 400;
+            line-height: 1.3;
+            font-size: 12px;
+            color: $lonely-gray;
+        }
+};
+
+.blood__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+
+    & label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        & input[type="radio"] {
+            margin: 0;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+        }   
+};
+
+.circle{
+    font-weight: 400;
+    line-height: 1.3;
+    font-size: 12px;
+    color: $lonely-gray;
+    margin-left: 8px;
+};
+
+.sex__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 21px;
+    max-height: fit-content
+};
+
+.sex__label{
+    display: flex;
+    align-items: center;
+
+    & input {
+        margin: 0;
+        padding: 0;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.levelActivity__container{
+    margin-bottom: 38px;
+}
+
+.levelActivity__label{
+    display: flex;
+    margin-bottom: 8px;
+    align-items: center;
+
+    & input {
+        margin: 0;
+        padding: 0;
+        min-width: 20px;
+        min-height: 20px;
+    }
+}
+
+.errorLabel {
+    color: $santas-node-red;
+    font-feature-settings:
+        'clig' off,
+        'liga' off;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: 0.12px;
+
+    display: flex;
+    align-items: stretch;
+}
+
+.successLabel {
+    color: $christmas-tree-green;
+    font-feature-settings:
+        'clig' off,
+        'liga' off;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.12px;
+
+    display: flex;
+    align-items: stretch;
+}
+
+.input {
+    outline: none;
+
+    background: transparent;
+
+    font-size: 14px;
+    line-height: 1.2;
+
+    color: $snow-white;
+
+    width: 100%;
+
+    max-width: 364px;
+
+    margin-bottom: 12px;
+
+    padding: 14px;
+
+    border-radius: $main-b-radius;
+    border: 1px solid $snow-alpha-white;
+
+    @include transition();
+
+    &.disabled {
+        border: 1px solid $snow-white;
+    }
+
+    &.disabled:focus {
+        border: 1px solid $snow-white;
+        padding-left: 14px;
+    }
+
+    &:focus {
+        border-color: $christmas-main-orange;
+        padding-left: 20px;
+    }
+
+    &.error {
+        border-color: #d80027;
+        margin-bottom: 4px;
+    }
+
+    &.success {
+        border-color: $christmas-tree-green;
+        margin-bottom: 4px;
+    }
+
+    @media screen and (min-width: 768px) {
+        & {
+            font-size: 16px;
+            line-height: 1.5;
+
+            margin-bottom: 20px;
+        }
+    }
+}
+
+
+.radioBtn {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+}
+
+.customRadioBtn {
+    display: inline-block;
+    min-width: 20px;
+    min-height: 20px;
+    background-color: transparent;
+    border: 2px solid $smoke-gay;
+    border-radius: 50%;
+    position: relative;
+}
+
+.radioBtn:checked+.customRadioBtn {
+    border-color: $christmas-hover-orange;
+}
+
+.radioBtn:checked+.customRadioBtn::before {
+    content: '';
+    position: absolute;
+    min-width: 10px;
+    min-height: 10px;
+    background-color: $christmas-hover-orange;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sex {
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__checkbox-wrapper {
+        display: flex;
+        margin-bottom: 8px;
+        gap: 8px;
+    }
+}

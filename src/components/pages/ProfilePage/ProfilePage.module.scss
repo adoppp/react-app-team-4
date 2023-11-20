@@ -1,0 +1,46 @@
+@import '../../../scss/colors';
+
+.Profile__Settings{
+    display: flex;
+    justify-content: center;
+};
+
+.Profile__SettingsContainer{
+    & h2 {
+        margin-top: 32px;
+    }
+};
+
+.container{
+    margin-top: 40px;
+    padding-bottom: 66px;
+
+    @media screen and (min-width: 768px) {
+        margin-top: 64px;
+    }
+
+    @media(min-width: 1440px){
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-top: 32px;
+        padding-bottom: 36px;
+    }
+};
+
+.decorative-line::after {
+
+    @media(min-width: 1440px) {
+        content: '';
+        width: 1px;
+        height: 100%;
+        background-color: $lonely-modal-gray;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        }
+};
+

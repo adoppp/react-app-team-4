@@ -15,6 +15,7 @@ const Input = ({
     customContainerLabelStyles,
     customContainerInputStyles,
     cnClassNameContainer,
+    field
 }) => {
     const id = useId();
 
@@ -42,6 +43,7 @@ const Input = ({
                 style={
                     customContainerInputStyles ? customContainerInputStyles : {}
                 }
+                {...field}
             />
         </div>
     );

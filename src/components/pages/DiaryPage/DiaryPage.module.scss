@@ -1,16 +1,63 @@
 @import '../../../scss/colors';
 @import '../../../scss//mixins';
 
-.calendar__container {
-    &-mobile {
-        display: flex;
-        justify-content: center;
-        align-items: baseline;
-    }
+.calendar__container-mobile {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
 }
+
 
 .calendar__component_wrapper {
     max-width: fit-content;
-
     margin-left: auto;
+}
+
+.calendar__container {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 52px;
+    height: 64px;
+}
+
+.diary-container {
+    display: flex;
+    // justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 64px;
+
+            @media screen and (min-width: 1140px) {
+margin-bottom: 0px;
+                }
+}
+
+.mobile__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center
+}
+
+.tables-container{
+    @media screen and (min-width: 768px) {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+}
+
+.wrapper{
+@media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+        gap: 64px;
+
+    }
+
+        @media screen and (min-width: 1140px) {
+            flex-direction: row;
+            gap: 32px;
+        }
 }
