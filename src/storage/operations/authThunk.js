@@ -80,3 +80,15 @@ export const avatarUpdate = createAsyncThunk(
         }
     }
 );
+
+export const infoUpdate = createAsyncThunk(
+    'auth/info',
+    async (user, thunkAPI) => {
+        try {
+            const response = await instance.patch('auth/info', user)
+            return response.data;
+        } catch (e) {
+            return REJECTED(thunkAPI, e);
+        }
+    }
+);

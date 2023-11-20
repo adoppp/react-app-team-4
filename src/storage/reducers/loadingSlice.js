@@ -6,6 +6,7 @@ import {
     logout,
     refreshUser,
     avatarUpdate,
+    infoUpdate,
 } from '../operations/authThunk';
 import { exercisesCategory, getAllExercises } from "../operations/exercisesThunk";
 
@@ -57,6 +58,10 @@ const loadingSlice = createSlice({
             .addCase(getAllExercises.pending, PENDING)
             .addCase(getAllExercises.fulfilled, FILFILLED)
             .addCase(getAllExercises.rejected, REJECTED)
+        
+            .addCase(infoUpdate.pending, PENDING)
+            .addCase(infoUpdate.fulfilled, FILFILLED)
+            .addCase(infoUpdate.rejected, REJECTED)
     },
 });
 

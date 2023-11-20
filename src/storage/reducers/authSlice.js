@@ -6,11 +6,19 @@ import {
     logout,
     refreshUser,
     avatarUpdate,
+    infoUpdate,
 } from '../operations/authThunk';
 
 const initialState = {
     userData: {
-        avatarURL:'',
+        avatarURL: '',
+        height: 0,
+        currentWeight: 0,
+        desiredWeight: 0,
+        birthday: '',
+        blood: '',
+        sex: '',
+        levelActivity: 0,
     },
     authenticated: false,
     token: null,
@@ -34,9 +42,14 @@ const authSlice = createSlice({
             .addCase(logout.fulfilled, (state) => {
                 state.authenticated = false;
                 state.userData = {
-                    name:'',
-                    email:'',
-                    avatarURL:'',
+                    avatarURL: '',
+                    height: 0,
+                    currentWeight: 0,
+                    desiredWeight: 0,
+                    birthday: '',
+                    blood: '',
+                    sex: '',
+                    levelActivity: 0,
                 };
                 state.token = null;
             })
@@ -46,6 +59,9 @@ const authSlice = createSlice({
             })
             .addCase(avatarUpdate.fulfilled, (state, action) => {
                 state.userData.avatarURL = action.payload;
+            })
+            .addCase(infoUpdate.fulfilled, (state, action) => {
+                state.userData = action.payload;
             })
     },
 });
