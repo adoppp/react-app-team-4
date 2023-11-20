@@ -7,6 +7,7 @@ import {
     refreshUser,
     avatarUpdate,
 } from '../operations/authThunk';
+import { exercisesCategory, getAllExercises } from "../operations/exercisesThunk";
 
 const initialState = {
     isLoading: false,
@@ -48,6 +49,14 @@ const loadingSlice = createSlice({
             .addCase(avatarUpdate.pending, PENDING)
             .addCase(avatarUpdate.fulfilled, FILFILLED)
             .addCase(avatarUpdate.rejected, REJECTED)
+        
+            .addCase(exercisesCategory.pending, PENDING)
+            .addCase(exercisesCategory.fulfilled, FILFILLED)
+            .addCase(exercisesCategory.rejected, REJECTED)
+        
+            .addCase(getAllExercises.pending, PENDING)
+            .addCase(getAllExercises.fulfilled, FILFILLED)
+            .addCase(getAllExercises.rejected, REJECTED)
     },
 });
 
