@@ -1,0 +1,99 @@
+@import '../../../../scss/colors';
+@import '../../../../scss/mixins';
+@import '../../../../scss/variables';
+
+.exercises__container{
+    @include container();
+}
+
+.exercises__button_back {
+    display: flex;
+    gap: 8px;
+
+    & svg use{
+        stroke: #EFEDE866;
+    }
+
+    & p{
+        color: rgba(239, 237, 232, 0.40);
+
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.29; /* 128.571% */
+    }
+}
+
+.exercises_ul_collections {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 335px;
+    gap: 20px;
+
+}
+
+.exercises_container{
+padding: 16px;
+flex-shrink: 0;
+border-radius: 12px;
+border: 1px solid rgba(239, 237, 232, 0.20);
+
+background: rgba(239, 237, 232, 0.05);
+
+    & button{
+        color: $christmas-main-orange;
+
+font-family: Roboto;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 1.29; /* 128.571% */
+
+padding: 0;
+border: 0;
+background-color: transparent;
+margin-bottom: 41px;
+
+margin-right: 0;
+    }
+
+    & h3{
+        color: $snow-white;
+
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Roboto;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 1.2; /* 120% */
+margin-bottom: 8px;
+    }
+}
+
+.exercises_info{
+display: block;
+
+
+    & p{
+        display: inline-block;
+        color: rgba(239, 237, 232, 0.40);
+
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5; /* 150% */
+    margin-right: 16px;
+    }
+
+    & p:last-child {
+        margin-right: 0;
+      }
+
+    & span{
+        color: $snow-white;
+    }
+}

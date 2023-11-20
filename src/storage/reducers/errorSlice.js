@@ -7,6 +7,7 @@ import {
     refreshUser,
     avatarUpdate,
 } from '../operations/authThunk';
+import { exercisesCategory, getAllExercises } from "../operations/exercisesThunk";
 
 const initialState = {
     message: null,
@@ -39,6 +40,12 @@ const errorSlice = createSlice({
         
             .addCase(avatarUpdate.pending, PENDING)
             .addCase(avatarUpdate.rejected, REJECTED)
+
+            .addCase(getAllExercises.pending, PENDING)
+            .addCase(getAllExercises.rejected, REJECTED)
+            
+            .addCase(exercisesCategory.pending, PENDING)
+            .addCase(exercisesCategory.rejected, REJECTED)
     },
 });
 

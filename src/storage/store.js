@@ -14,6 +14,7 @@ import {
 import { authReducer } from './reducers/authSlice';
 import { errorReducer } from './reducers/errorSlice';
 import { loadingReducer } from './reducers/loadingSlice';
+import { exercisesReducer } from './reducers/exercisesSlice';
 
 const authPersistConfig = {
     key: 'auth',
@@ -26,6 +27,7 @@ export const store = configureStore({
         user: persistReducer(authPersistConfig, authReducer),
         error: errorReducer,
         loading: loadingReducer,
+        exercises: exercisesReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
