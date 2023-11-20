@@ -7,8 +7,9 @@ import styles from './UserForm.module.scss';
 import { Input } from '../Input/Input';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { userSelector } from '../../../storage/selectors/authSelectors';
+import { infoUpdate } from '../../../storage/operations/authThunk';
 
 const cn = classNames.bind(styles);
 
@@ -34,23 +35,25 @@ const validationSchema = Yup.object().shape({
 });
 
 const UserForm = () => {
-  const user = useSelector(userSelector);
+    const user = useSelector(userSelector);
+    const dispatch = useDispatch();
 
   const initialValues = {
     name: user.name,
-    email: '',
-    height: 0,
-    currentWeight: 0,
-    desiredWeight: 0,
-    birthday: '',
-    blood: '',
-    sex: '',
-    levelActivity: 0,
+    height: user.height,
+    currentWeight: user.currentWeight,
+    desiredWeight: user.desiredWeight,
+    birthday: user.birthday,
+    blood: user.blood,
+    sex: user.sex,
+    levelActivity: user.levelActivity,
   };
 
-  const handleSubmit = (values) => {
-    console.log(values);
-  };
+    const handleSubmit = (values) => {
+      console.log("🚀 ~ file: UserForm.jsx:53 ~ handleSubmit ~ values:", values)
+      
+      dispatch(infoUpdate(values));
+    };
 
   return (
     <div className={cn('UserFrom__container')}>
@@ -266,14 +269,15 @@ const UserForm = () => {
 
               <div className={cn('basic__info')}>
                 <div className={cn('basic__calendary')}>
-                  <Field type="date" name="birthday" className={cn(
+                <Field type="date" name="birthday" className={cn(
                     'input',
                     // { error: errors.name && touched.name },
                     // { success: !errors.name && touched.name },
                     'bdInput'
                   )}
                     style={{ marginBottom: 0, marginTop: 22 }}
-                  />
+                />
+                    {/* <Calendar date={false} arrows={false} /> */}
                 </div>
             
               </div>

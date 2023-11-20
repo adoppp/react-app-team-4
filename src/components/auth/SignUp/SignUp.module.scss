@@ -158,6 +158,7 @@
 
     & use {
         stroke: $snow-white;
+        fill: transparent;
 
         @include transition();
 
