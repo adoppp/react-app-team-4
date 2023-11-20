@@ -21,9 +21,11 @@ const DiaryPage = () => {
                     <Calendar />
                 </div>
             </div>
+            <div className={cn('mobile__wrapper')}>
             <DiaryDashboard />
             <ProductTable />
-            <ExercisesTable/>
+                <ExercisesTable />
+                </div>
         </div>
     );
 
