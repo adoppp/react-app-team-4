@@ -1,23 +1,26 @@
 import { instance } from './authThunk.js';
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
-
-export const getProducts = createAsyncThunk('products/getAll',
+export const getProducts = createAsyncThunk(
+    'products/getAll',
     async (query, thunkAPI) => {
-    try {
-        const response = await instance.get(`/products?keyWord=${query}`);
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  });
+        try {
+            const response = await instance.get(`/products?keyWord=${query}`);
+            return response.data;
+        } catch (e) {
+            return thunkAPI.rejectWithValue(e.message);
+        }
+    },
+);
 
-  export const getProductsCategories = createAsyncThunk('products/categories',
+export const getProductsCategories = createAsyncThunk(
+    'products/categories',
     async (_, thunkAPI) => {
-    try {
-        const response = await instance.get('/products/categories');
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-});
+        try {
+            const response = await instance.get('/products/categories');
+            return response.data;
+        } catch (e) {
+            return thunkAPI.rejectWithValue(e.message);
+        }
+    },
+);

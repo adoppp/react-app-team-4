@@ -3,13 +3,14 @@ import { createPortal } from 'react-dom';
 
 import { ModalContent } from '../ModalContent';
 
-const Modal = ({ children, error }) => {
+const Modal = ({ children, error, customClose }) => {
     const [showModal, setShowModal] = useState(true);
 
     const modalRoot = document.getElementById('modal');
 
     const handleClose = () => {
-        setShowModal(false);
+        if (!customClose) setShowModal(false);
+        customClose()
     };
 
     const handleKeydown = (e) => {

@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 import {
     registration,
@@ -10,8 +10,14 @@ import {
     detailsUpdate,
     detailsCreate,
 } from '../operations/authThunk';
-import { getProducts, getProductsCategories } from "../operations/productsThunk";
-import { exercisesCategory, getAllExercises } from "../operations/exercisesThunk";
+import {
+    getProducts,
+    getProductsCategories,
+} from '../operations/productsThunk';
+import {
+    exercisesCategory,
+    getAllExercises,
+} from '../operations/exercisesThunk';
 
 const initialState = {
     isLoading: false,
@@ -23,7 +29,7 @@ const PENDING = (state) => {
 
 const FILFILLED = (state) => {
     state.isLoading = false;
-}
+};
 
 const REJECTED = (state) => {
     state.isLoading = false;
@@ -49,11 +55,11 @@ const loadingSlice = createSlice({
             .addCase(refreshUser.pending, PENDING)
             .addCase(refreshUser.fulfilled, FILFILLED)
             .addCase(refreshUser.rejected, REJECTED)
-        
+
             .addCase(getProducts.pending, PENDING)
             .addCase(getProducts.fulfilled, FILFILLED)
             .addCase(getProducts.rejected, REJECTED)
-            
+
             .addCase(getProductsCategories.pending, PENDING)
             .addCase(getProductsCategories.fulfilled, FILFILLED)
             .addCase(getProductsCategories.rejected, REJECTED)
@@ -61,26 +67,26 @@ const loadingSlice = createSlice({
             .addCase(avatarUpdate.pending, PENDING)
             .addCase(avatarUpdate.fulfilled, FILFILLED)
             .addCase(avatarUpdate.rejected, REJECTED)
-        
+
             .addCase(exercisesCategory.pending, PENDING)
             .addCase(exercisesCategory.fulfilled, FILFILLED)
             .addCase(exercisesCategory.rejected, REJECTED)
-        
+
             .addCase(getAllExercises.pending, PENDING)
             .addCase(getAllExercises.fulfilled, FILFILLED)
             .addCase(getAllExercises.rejected, REJECTED)
-        
+
             .addCase(infoUpdate.pending, PENDING)
             .addCase(infoUpdate.fulfilled, FILFILLED)
             .addCase(infoUpdate.rejected, REJECTED)
-        
+
             .addCase(detailsUpdate.pending, PENDING)
             .addCase(detailsUpdate.fulfilled, FILFILLED)
             .addCase(detailsUpdate.rejected, REJECTED)
-        
+
             .addCase(detailsCreate.pending, PENDING)
             .addCase(detailsCreate.fulfilled, FILFILLED)
-            .addCase(detailsCreate.rejected, REJECTED)
+            .addCase(detailsCreate.rejected, REJECTED);
     },
 });
 

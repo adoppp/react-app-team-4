@@ -57,7 +57,7 @@ export const refreshUser = createAsyncThunk(
     async (_, thunkAPI) => {
         const state = thunkAPI.getState();
         const userToken = state.user.token;
-        
+
         try {
             token.set(userToken);
 
@@ -73,46 +73,46 @@ export const avatarUpdate = createAsyncThunk(
     'auth/avatar',
     async (avatar, thunkAPI) => {
         try {
-            const response = await instance.patch('auth/avatar', avatar)
+            const response = await instance.patch('auth/avatar', avatar);
             return response.data;
         } catch (e) {
             return REJECTED(thunkAPI, e);
         }
-    }
+    },
 );
 
 export const infoUpdate = createAsyncThunk(
     'user/infoUpdate',
     async (user, thunkAPI) => {
         try {
-            const response = await instance.patch('user/info', user)
+            const response = await instance.patch('user/info', user);
             return response.data;
         } catch (e) {
             return REJECTED(thunkAPI, e);
         }
-    }
+    },
 );
 
 export const detailsUpdate = createAsyncThunk(
     'user/detailsUpdate',
     async (user, thunkAPI) => {
         try {
-            const response = await instance.patch('user', user)
+            const response = await instance.patch('user', user);
             return response.data;
         } catch (e) {
             return REJECTED(thunkAPI, e);
         }
-    }
+    },
 );
 
 export const detailsCreate = createAsyncThunk(
     'user/detailsCreate',
     async (user, thunkAPI) => {
         try {
-            const response = await instance.post('user', user)
+            const response = await instance.post('user', user);
             return response.data;
         } catch (e) {
             return REJECTED(thunkAPI, e);
         }
-    }
+    },
 );
