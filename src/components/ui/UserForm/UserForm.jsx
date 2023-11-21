@@ -45,9 +45,9 @@ const UserForm = () => {
         currentWeight: userInfo.currentWeight,
         desiredWeight: userInfo.desiredWeight,
         birthday: userInfo.birthday,
-        blood: userInfo.blood,
+        blood: String(userInfo.blood),
         sex: userInfo.sex,
-        levelActivity: userInfo.levelActivity,
+        levelActivity: String(userInfo.levelActivity),
     };
     
     const initialValues = {
@@ -60,6 +60,27 @@ const UserForm = () => {
         sex: '',
         levelActivity: '',
     }
+    
+    const formatDate = (date) => {
+        const [year, month, day] = date.split('-');
+        return `${year}-${month}-${day}`;
+    };
+    
+    const getChangesInDetails = (userInfoChanged, userInfo) => {
+        const changedKey = Object.keys(userInfoChanged);
+        const changesInDetails = {};
+
+        changedKey.forEach((key) => {
+            const changedValue = userInfoChanged[key];
+            const userValue = userInfo[key];
+
+            if (changedValue !== userValue) {
+                changesInDetails[key] = changedValue;
+            }
+        });
+
+        return changesInDetails;
+    };
 
     const handleSubmit = (values) => {
         const {
@@ -74,45 +95,27 @@ const UserForm = () => {
         
         const levelActivity = Number(values.levelActivity);
 
+        const formattedBirthday = formatDate(birthday);
+
         const userInfoChanged = {
             height,
             currentWeight,
             desiredWeight,
-            birthday,
+            birthday: formattedBirthday,
             sex,
             blood,
-            levelActivity
-        }
-
-        console.log('user.name:', user.name);
-        console.log('values.name:', values.name);
-        console.log('userInfo:', userInfo);
+            levelActivity,
+        };     
         
-        if (user.name === values.name && userInfo == true) {
-            console.log('im here1')
+        const option = user.name === values.name && Object.keys(userInfo).length > 0;
 
-            const changedKey = Object.keys(userInfoChanged);
+        const changesInDetails = getChangesInDetails(userInfoChanged, userInfo);
 
-            const changesInDetails = {};
-
-            changedKey.forEach(key => {
-                const changedValue = userInfoChanged[key];
-                const userValue = userInfo[key];
-
-                if (changedValue !== userValue) {
-                    changesInDetails[key] = changedValue;
-                }
-            });
-
-            dispatch(detailsUpdate(changesInDetails))               
-        } else if (user.name === values.name && userInfo !== true) {
-            console.log('im here2')
-            dispatch(detailsCreate(userInfoChanged))
-        } else if (user.name !== values.name) {
-            console.log('im here3')
-            dispatch(infoUpdate({ name: values.name }));
-        }        
+        const infoUpdateCheck = option ? dispatch(detailsUpdate(changesInDetails)) : dispatch(detailsCreate(userInfoChanged))
+        
+        user.name === values.name ? infoUpdateCheck  : dispatch(infoUpdate({ name: values.name }));
     };
+
 
   return (
     <div className={cn('UserFrom__container')}>

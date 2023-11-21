@@ -54,7 +54,7 @@ const authSlice = createSlice({
                 state.userData.name = action.payload.name;
             })
             .addCase(detailsUpdate.fulfilled, (state, action) => {
-                state.userInfo.push(action.payload);
+                state.userInfo = {...state.userInfo, ...action.payload};
             })
            .addCase(detailsCreate.fulfilled, (state, action) => {
                 state.userInfo = (action.payload);
