@@ -37,8 +37,5 @@ const productsSlice = createSlice({
     }
 });
 export const { setCategoryFilter } = productsSlice.actions;
-export const selectorProducts = state => state.products.products;
-export const selectorCategories = state => state.products.categories;
-export const selectorFilter = (state) => state.products.filter;
 
 export const productsReducer = productsSlice.reducer;

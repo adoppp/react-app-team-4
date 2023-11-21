@@ -9,7 +9,9 @@ import { Icon } from '../../../ui/Icon';
 import { useDispatch, useSelector } from 'react-redux';
 import {getProductsCategories, getProducts} from '../../../../storage/operations/productsThunk.js'
 import { useEffect } from 'react';
-import { selectorCategories, setCategoryFilter } from '../../../../storage/reducers/productsSlice.js';
+import { selectorCategories} from '../../../../storage/selectors/productsSelector.js';
+// import { setCategoryFilter } from '../../../../storage/reducers/productsSlice.js';
+
 
 
 const cn = classNames.bind(styles);
@@ -18,24 +20,28 @@ const cn = classNames.bind(styles);
 const ProductsFilters = () => {
   const [inputValue, setInputValue] = useState('');
   const isTabletScreen = useMediaQuery({ minWidth: 768 });
-   const [selectedCategory, setSelectedCategory] = useState('All');
   const dispatch = useDispatch();
   const { list } = useSelector(selectorCategories);
 
   const hendleInputChange = (e) => {
     const value = e.target.value;
     setInputValue(value);
-    dispatch(getProducts(value,selectedCategory));
   };
   const handleClearInput = () => {
     setInputValue('')
   };
 
-  const handleCategoryChange = (selectedValue) => {
-      setCategoryFilter(selectedValue)
-     setSelectedCategory(selectedValue);
-    dispatch(getProducts(inputValue, selectedValue));
+  // const handleCategoryChange = (selectedValue) => {
+  //     setCategoryFilter(selectedValue)
+  //    setSelectedCategory(selectedValue);
+    // dispatch(getProducts(inputValue, selectedValue));
+  // };
+
+ const handleFormSubmit = () => {
+   console.log(inputValue)
+    dispatch(getProducts(inputValue));
   };
+
   const IconStylesSearch = {
     stroke: '#EFEDE8',
   }
@@ -68,9 +74,7 @@ const ProductsFilters = () => {
        initialValues={{
         search: '',
        }}
-      onSubmit={values => {
-         console.log(values);
-       }}
+      onSubmit={handleFormSubmit}
     >
          <Form className={cn('form_container')}>
            <div className={cn('form_container_input')}>
@@ -109,12 +113,12 @@ const ProductsFilters = () => {
           
         <Select
           value={list}
-          handleCategoryChange={handleCategoryChange}
+          // handleCategoryChange={handleCategoryChange}
         />
         <Select value={selectList}
           customSelectStyle={customSelectStyle}
           customListSelectStyle={listSelectStyle}
-          handleCategoryChange={handleCategoryChange}
+          // handleCategoryChange={handleCategoryChange}
         />
           
          </Form>

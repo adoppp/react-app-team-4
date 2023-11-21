@@ -1,24 +1,17 @@
-
 import { Icon } from '../../../ui/Icon';
 import styles from './ProductsItem.module.scss';
 import classNames from 'classnames/bind';
 
-import { useDispatch, useSelector } from 'react-redux';
-import {getProducts} from '../../../../storage/operations/productsThunk.js'
+import { useSelector } from 'react-redux';
+import { selectorProducts } from '../../../../storage/selectors/productsSelector.js';
 
-import { useEffect } from 'react';
-import { selectorProducts } from '../../../../storage/reducers/productsSlice.js';
+
 
 const cn = classNames.bind(styles);
 
 const ProductsItem = () => {
-   
-       const dispatch = useDispatch();
-        const {items} = useSelector(selectorProducts);
 
-         useEffect(() => {
-    dispatch(getProducts())
-  }, [dispatch]);
+        const {items} = useSelector(selectorProducts);
 
      const IconStyles = {
         backgroundColor: ' #EFA082',
@@ -35,7 +28,15 @@ const ProductsItem = () => {
 
   
   return <>
-    {!items || items.length === 0 ? <p>No products found.</p> : items.map(item => {
+    {!items || items.length === 0 ?
+      <div className={cn('not_find_text')}>
+        <p>Sorry, no results were found <span>
+        for the product filters you selected.
+        You may want to consider other search options to find the product you want.
+        Our range is wide and you have the opportunity to find more options that suit your needs.</span></p>
+        <p>Try changing the search parameters.</p>
+     </div>
+      : items.map(item => {
       return <li key={item.title} className={cn('item')}>
         <div className={cn('item_container')}>
             <p className={cn('diet')} >DIET</p>
@@ -57,9 +58,9 @@ const ProductsItem = () => {
         <h2 className={cn('title')} >{item.title}</h2>
       </div>
         <div className={cn('item_list_container')}>
-        <p>Calories:{item.calories }</p>
-        <p>Category:</p>
-        <p>Weight:{item.weight}</p>
+        <p>Calories:<span className={cn('list_text')}>{item.calories }</span></p>
+        <p>Category:<span className={cn('list_text')}>{item.category }</span></p>
+        <p>Weight:<span className={cn('list_text')}>{item.weight}</span></p>
         </div>
     </li>
       
