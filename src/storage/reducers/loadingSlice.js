@@ -8,6 +8,7 @@ import {
     avatarUpdate,
     infoUpdate,
 } from '../operations/authThunk';
+import { getProducts, getProductsCategories } from "../operations/productsThunk";
 import { exercisesCategory, getAllExercises } from "../operations/exercisesThunk";
 
 const initialState = {
@@ -47,6 +48,14 @@ const loadingSlice = createSlice({
             .addCase(refreshUser.fulfilled, FILFILLED)
             .addCase(refreshUser.rejected, REJECTED)
         
+            .addCase(getProducts.pending, PENDING)
+            .addCase(getProducts.fulfilled, FILFILLED)
+            .addCase(getProducts.rejected, REJECTED)
+            
+            .addCase(getProductsCategories.pending, PENDING)
+            .addCase(getProductsCategories.fulfilled, FILFILLED)
+            .addCase(getProductsCategories.rejected, REJECTED)
+
             .addCase(avatarUpdate.pending, PENDING)
             .addCase(avatarUpdate.fulfilled, FILFILLED)
             .addCase(avatarUpdate.rejected, REJECTED)
