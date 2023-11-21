@@ -1,0 +1,14 @@
+.products_page_container {
+    @media screen and (min-width: 768px) {
+            
+        }
+    
+        @media screen and (min-width: 1440px) {
+            width: 1140px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 72px;
+            padding-bottom: 28px;
+        }
+}

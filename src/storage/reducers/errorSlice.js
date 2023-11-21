@@ -10,6 +10,7 @@ import {
     detailsUpdate,
     detailsCreate,
 } from '../operations/authThunk';
+import { getProducts, getProductsCategories } from "../operations/productsThunk";
 import { exercisesCategory, getAllExercises } from "../operations/exercisesThunk";
 
 const initialState = {
@@ -40,6 +41,12 @@ const errorSlice = createSlice({
 
             .addCase(refreshUser.pending, PENDING)
             .addCase(refreshUser.rejected, REJECTED)
+            
+            .addCase(getProducts.pending, PENDING)
+            .addCase(getProducts.rejected, REJECTED)
+            
+            .addCase(getProductsCategories.pending, PENDING)
+            .addCase(getProductsCategories.rejected, REJECTED)
         
             .addCase(avatarUpdate.pending, PENDING)
             .addCase(avatarUpdate.rejected, REJECTED)
