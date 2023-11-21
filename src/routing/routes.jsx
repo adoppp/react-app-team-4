@@ -24,7 +24,7 @@ import { SignIn } from '../components/auth/SignIn';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { ExercisesSubcategoriesItem } from '../components/pages/ExercisesPage/ExercisesSubcategoriesItem';
-import {ExercisesList} from '../components/pages/ExercisesPage/ExercisesList';
+import { ExercisesList } from '../components/pages/ExercisesPage/ExercisesList';
 
 const routes = {
     MAIN_ROUTE: '/',
@@ -118,11 +118,12 @@ const appRoutes = [
         children: [
             {
                 path: '',
-                element: 
-                <PrivateRoute>
+                element: (
+                    <PrivateRoute>
                         <Navigate to={`${routes.EXERCISES_ROUTE}/body-parts`} />
                         <ExercisesPage />
                     </PrivateRoute>
+                ),
             },
             {
                 path: ':categories',

@@ -1,17 +1,17 @@
 @import '../../../scss/colors';
 
-.Profile__Settings{
+.Profile__Settings {
     display: flex;
     justify-content: center;
-};
+}
 
-.Profile__SettingsContainer{
+.Profile__SettingsContainer {
     & h2 {
         margin-top: 32px;
     }
-};
+}
 
-.container{
+.container {
     margin-top: 40px;
     padding-bottom: 66px;
 
@@ -19,7 +19,7 @@
         margin-top: 64px;
     }
 
-    @media(min-width: 1440px){
+    @media (min-width: 1440px) {
         display: flex;
         flex-direction: row-reverse;
         justify-content: center;
@@ -28,11 +28,10 @@
         margin-top: 32px;
         padding-bottom: 36px;
     }
-};
+}
 
 .decorative-line::after {
-
-    @media(min-width: 1440px) {
+    @media (min-width: 1440px) {
         content: '';
         width: 1px;
         height: 100%;
@@ -41,6 +40,5 @@
         top: 0;
         bottom: 0;
         margin: auto;
-        }
-};
-
+    }
+}

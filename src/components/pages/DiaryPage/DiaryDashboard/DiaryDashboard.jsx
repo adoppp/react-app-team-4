@@ -20,7 +20,7 @@ const DiaryDashboard = () => {
                 <li className={cn('red')}>
                     <p className={cn('dashboard__item__desc')}>
                         <Icon
-                            iconId='icon-food'
+                            iconId="icon-food"
                             w={18}
                             h={18}
                             customStyles={iconStyles}
@@ -32,7 +32,7 @@ const DiaryDashboard = () => {
                 <li className={cn('red')}>
                     <p className={cn('dashboard__item__desc')}>
                         <Icon
-                            iconId='icon-dumbbell'
+                            iconId="icon-dumbbell"
                             w={18}
                             h={18}
                             customStyles={iconStyles}
@@ -44,7 +44,7 @@ const DiaryDashboard = () => {
                 <li>
                     <p className={cn('dashboard__item__desc')}>
                         <Icon
-                            iconId='icon-apple'
+                            iconId="icon-apple"
                             w={18}
                             h={18}
                             customStyles={iconStyles}
@@ -56,7 +56,7 @@ const DiaryDashboard = () => {
                 <li>
                     <p className={cn('dashboard__item__desc')}>
                         <Icon
-                            iconId='icon-calories'
+                            iconId="icon-calories"
                             w={18}
                             h={18}
                             customStyles={iconStyles}
@@ -68,7 +68,7 @@ const DiaryDashboard = () => {
                 <li>
                     <p className={cn('dashboard__item__desc')}>
                         <Icon
-                            iconId='icon-bubble'
+                            iconId="icon-bubble"
                             w={18}
                             h={18}
                             customStyles={iconStyles}
@@ -80,7 +80,7 @@ const DiaryDashboard = () => {
                 <li>
                     <p className={cn('dashboard__item__desc')}>
                         <Icon
-                            iconId='icon-running'
+                            iconId="icon-running"
                             w={18}
                             h={18}
                             customStyles={iconStyles}

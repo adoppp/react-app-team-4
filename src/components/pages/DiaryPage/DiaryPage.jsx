@@ -37,28 +37,31 @@ const DiaryPage = () => {
                 </div>
             </div>
             <div className={cn('mobile__wrapper')}>
-            <DiaryDashboard />
-            <ProductTable />
+                <DiaryDashboard />
+                <ProductTable />
                 <ExercisesTable />
-                </div>
+            </div>
         </div>
     );
 
     const tabletAndDekstopScreen = (
         <div className={cn('diary-container')}>
             <div className={cn('calendar__container')}>
-            <div className={cn('calendar__component_wrapper')}>
-                <Calendar />
-            </div>
-                <Title customContainerStyles={{marginTop: '20px'}} title="Diary" />
-            </div>
-    <div className={cn('wrapper')}>
-        <div className={cn('tables-container')}>
-            <ProductTable />
-            <ExercisesTable />
-        </div>
-                <DiaryDashboard />
+                <div className={cn('calendar__component_wrapper')}>
+                    <Calendar />
                 </div>
+                <Title
+                    customContainerStyles={{ marginTop: '20px' }}
+                    title="Diary"
+                />
+            </div>
+            <div className={cn('wrapper')}>
+                <div className={cn('tables-container')}>
+                    <ProductTable />
+                    <ExercisesTable />
+                </div>
+                <DiaryDashboard />
+            </div>
         </div>
     );
 

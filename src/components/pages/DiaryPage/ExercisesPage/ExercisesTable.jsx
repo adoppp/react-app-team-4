@@ -6,10 +6,12 @@ import styles from './ExercisesTable.module.scss';
 import { Icon } from '../../../ui/Icon';
 import { deleteExercise } from '../../../../storage/operations/diaryThunk';
 
-
 const cn = classNames.bind(styles);
 
 const ExercisesTable = () => {
+    const IconButtonStyles = {
+        marginLeft: 6,
+    };
 
     const exercises = useSelector((state) => state.diary.data?.exercises || []);
     const selectedDate = useSelector((state) => state.diary.selectedDate);
@@ -21,9 +23,6 @@ const ExercisesTable = () => {
         dispatch(deleteExercise({ id: exerciseId, date: selectedDate }));
     };
 
-    const IconButtonStyles = {
-        marginLeft: 6,
-    }
     return (
         <div className={cn('product__container')}>
             <div className={cn('container__header')}>
@@ -73,4 +72,3 @@ const ExercisesTable = () => {
 }
 
 export { ExercisesTable };
-    

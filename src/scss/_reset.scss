@@ -155,7 +155,7 @@ button {
     box-sizing: border-box;
 }
 
-input[type=file],
-input[type=file]::-webkit-file-upload-button {
+input[type='file'],
+input[type='file']::-webkit-file-upload-button {
     cursor: pointer;
 }

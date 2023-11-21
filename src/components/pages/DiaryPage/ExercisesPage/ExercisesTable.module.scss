@@ -8,7 +8,7 @@ a {
 
 .product__container {
     border-radius: $main-b-radius;
-    border: 1px solid rgba(239, 237, 232, 0.20);
+    border: 1px solid rgba(239, 237, 232, 0.2);
     background: rgba(239, 237, 232, 0.05);
     padding: 16px;
 
@@ -38,7 +38,7 @@ a {
     }
 
     & h2 {
-        color: rgba(239, 237, 232, 0.50);
+        color: rgba(239, 237, 232, 0.5);
         font-size: 14px;
         line-height: 18px;
     }
@@ -61,7 +61,6 @@ a {
             font-size: 16px;
             line-height: 24px;
         }
-
     }
 }
 
@@ -81,7 +80,6 @@ a {
         @media screen and (min-width: 768px) {
             flex-direction: raw;
             flex-wrap: nowrap;
-
         }
     }
 
@@ -89,9 +87,7 @@ a {
         display: flex;
         flex-direction: column;
         gap: 8px;
-
     }
-
 
     & span {
         margin-bottom: 9px;
@@ -99,15 +95,14 @@ a {
     }
 }
 
-
 .container__label {
     color: $christmas-hover-orange;
     font-size: 12px;
     line-height: 18px;
     max-width: 80px;
     white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     @media screen and (min-width: 768px) {
         display: none;
@@ -122,7 +117,7 @@ a {
     line-height: 18px;
     padding: 10px 14px;
     border-radius: $main-b-radius;
-    border: 1px solid rgba(239, 237, 232, 0.30);
+    border: 1px solid rgba(239, 237, 232, 0.3);
 
     @media screen and (min-width: 768px) {
         font-size: 16px;
@@ -162,11 +157,10 @@ a {
     @media screen and (min-width: 768px) {
         margin-right: 12px;
     }
-                @media screen and (min-width: 768px) {
-                    margin-right: 20px;
-                }
+    @media screen and (min-width: 768px) {
+        margin-right: 20px;
+    }
 }
-
 
 .title {
     @media screen and (min-width: 768px) {
@@ -196,32 +190,30 @@ a {
         width: 131px;
     }
 }
-.target{
+.target {
     @media screen and (min-width: 768px) {
-            width: 84px;
-        }
-    
-        @media screen and (min-width: 1140px) {
-            width: 106px;
-        }
+        width: 84px;
+    }
 
+    @media screen and (min-width: 1140px) {
+        width: 106px;
+    }
 }
-.butned{
+.butned {
     @media screen and (min-width: 768px) {
-            width: 78px;
-        }
-    
-        @media screen and (min-width: 1140px) {
-            width: 91px;
-        }
+        width: 78px;
+    }
 
+    @media screen and (min-width: 1140px) {
+        width: 91px;
+    }
 }
-.time{
+.time {
     @media screen and (min-width: 768px) {
-            width: 72px;
-        }
-    
-        @media screen and (min-width: 1140px) {
-            width: 82px;
-        }
+        width: 72px;
+    }
+
+    @media screen and (min-width: 1140px) {
+        width: 82px;
+    }
 }

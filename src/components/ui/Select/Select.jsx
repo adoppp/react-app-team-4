@@ -4,12 +4,15 @@ import { useEffect, useState } from 'react';
 
 const cn = classNames.bind(styles);
 
-const Select = ({value,customSelectStyle,customListSelectStyle,handleCategoryChange}) => {
+const Select = ({
+    value,
+    customSelectStyle,
+    customListSelectStyle,
+    handleCategoryChange,
+}) => {
     const [isSelectOpen, setIsSelectOpen] = useState(false);
     const [buttonText, setButtonText] = useState('Categories');
-    
 
-    
     const toggleClass = () => {
         setIsSelectOpen(!isSelectOpen);
     };
@@ -24,43 +27,52 @@ const Select = ({value,customSelectStyle,customListSelectStyle,handleCategoryCha
     const handleKeydown = (e) => {
         if (e.code === 'Escape') {
             setIsSelectOpen(false);
-        };
-        
+        }
     };
 
-  
-      useEffect(() => {
+    useEffect(() => {
         window.addEventListener('keydown', handleKeydown);
         return () => {
             window.removeEventListener('keydown', handleKeydown);
         };
-      });
-    
-    return <div className={cn('form_group')}>
-        <div className={cn('dropdown')}>
-            <button
-                type='button'
-                style={customSelectStyle ? customSelectStyle : {}}
-                onClick={toggleClass}
-                className={cn('dropdown_button')}>
-                {buttonText}
-            </button>
-            <ul style={customListSelectStyle ? customListSelectStyle : {}}
-                className={cn(isSelectOpen ? 'dropdown_list' : 'dropdown_list_visible')}>
-                {value && value.map(item => {
-                    return <li key={item}
-                        onClick={handleClick}
-                        className={cn('dropdown_item')}
-                        data-value={item}
-                    >
-                        {item}
-                    </li>
-           })}
-           
-            </ul>
+    });
+
+    return (
+        <div className={cn('form_group')}>
+            <div className={cn('dropdown')}>
+                <button
+                    type="button"
+                    style={customSelectStyle ? customSelectStyle : {}}
+                    onClick={toggleClass}
+                    className={cn('dropdown_button')}
+                >
+                    {buttonText}
+                </button>
+                <ul
+                    style={customListSelectStyle ? customListSelectStyle : {}}
+                    className={cn(
+                        isSelectOpen
+                            ? 'dropdown_list'
+                            : 'dropdown_list_visible',
+                    )}
+                >
+                    {value &&
+                        value.map((item) => {
+                            return (
+                                <li
+                                    key={item}
+                                    onClick={handleClick}
+                                    className={cn('dropdown_item')}
+                                    data-value={item}
+                                >
+                                    {item}
+                                </li>
+                            );
+                        })}
+                </ul>
+            </div>
         </div>
-       
-    </div>
+    );
 };
 
-export { Select}
+export { Select };

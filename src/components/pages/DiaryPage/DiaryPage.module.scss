@@ -8,7 +8,6 @@
     align-items: baseline;
 }
 
-
 .calendar__component_wrapper {
     max-width: fit-content;
     margin-left: auto;
@@ -28,36 +27,35 @@
     gap: 40px;
     margin-bottom: 64px;
 
-            @media screen and (min-width: 1140px) {
-margin-bottom: 0px;
-                }
+    @media screen and (min-width: 1140px) {
+        margin-bottom: 0px;
+    }
 }
 
 .mobile__wrapper {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    align-items: center
+    align-items: center;
 }
 
-.tables-container{
+.tables-container {
     @media screen and (min-width: 768px) {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-        }
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
 }
 
-.wrapper{
-@media screen and (min-width: 768px) {
-    display: flex;
-    flex-direction: column;
+.wrapper {
+    @media screen and (min-width: 768px) {
+        display: flex;
+        flex-direction: column;
         gap: 64px;
-
     }
 
-        @media screen and (min-width: 1140px) {
-            flex-direction: row;
-            gap: 32px;
-        }
+    @media screen and (min-width: 1140px) {
+        flex-direction: row;
+        gap: 32px;
+    }
 }

@@ -43,19 +43,35 @@ const UserCard = () => {
             <div className={cn('usercard__profile')}>
                 <div className={cn('container__svg')}>
                     <div className={cn('usercard__VectorProfile')}>
-                    {
-                        userData.avatarURL ?    
-                        <img src={userData.avatarURL ? `${userData.avatarURL}` : ''} alt='avatar' /> :    
-                        (<Icon
-                            iconId="icon-user"
-                            w={userSvgStyles}
-                            h={userSvgStyles}
-                        />)
-                    }
+                        {userData.avatarURL ? (
+                            <img
+                                src={
+                                    userData.avatarURL
+                                        ? `${userData.avatarURL}`
+                                        : ''
+                                }
+                                alt="avatar"
+                            />
+                        ) : (
+                            <Icon
+                                iconId="icon-user"
+                                w={userSvgStyles}
+                                h={userSvgStyles}
+                            />
+                        )}
                     </div>
                     <div className={cn('usercard__checkMark')}>
-                        <Icon iconId="icon-check-mark" w={isLargeScreen ? 32 : 24} h={isLargeScreen ? 32 : 24} />
-                        <input type="file" name="avatar" id="avatar" onChange={handleFileChange}/>
+                        <Icon
+                            iconId="icon-check-mark"
+                            w={isLargeScreen ? 32 : 24}
+                            h={isLargeScreen ? 32 : 24}
+                        />
+                        <input
+                            type="file"
+                            name="avatar"
+                            id="avatar"
+                            onChange={handleFileChange}
+                        />
                     </div>
                 </div>
                 <div className={cn('userName__container')}>
@@ -84,24 +100,31 @@ const UserCard = () => {
                 </div>
                 <div className={cn('profile__warning')}>
                     <div>
-                 <Icon iconId="icon-icons" w={24} h={24} />
+                        <Icon iconId="icon-icons" w={24} h={24} />
                     </div>
-                    <p>We understand that each individual is unique, so the entire approach to diet is relative and tailored to your unique body and goals.</p>
+                    <p>
+                        We understand that each individual is unique, so the
+                        entire approach to diet is relative and tailored to your
+                        unique body and goals.
+                    </p>
                 </div>
                 <div className={cn('logout__container')}>
-                 <button className={cn('logout__button')} onClick={handleLogout}>
-                    Logout
-                    <Icon
-                        iconId="icon-log-out"
-                        w={24}
-                        h={24}
-                        customStyles={{ marginLeft: 8 }}
-                    />
-                </button>
+                    <button
+                        className={cn('logout__button')}
+                        onClick={handleLogout}
+                    >
+                        Logout
+                        <Icon
+                            iconId="icon-log-out"
+                            w={24}
+                            h={24}
+                            customStyles={{ marginLeft: 8 }}
+                        />
+                    </button>
                 </div>
             </div>
         </div>
-    )
+    );
 };
 
 export { UserCard };

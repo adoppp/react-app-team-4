@@ -5,17 +5,17 @@ import { Link } from 'react-router-dom';
 import styles from './ProductTable.module.scss';
 import { Icon } from '../../../ui/Icon';
 import { deleteProduct } from '../../../../storage/operations/diaryThunk';
-import { userSelector } from '../../../../storage/selectors/authSelectors';
+import { userInfoSelector } from '../../../../storage/selectors/authSelectors';
 
 
 
 const cn = classNames.bind(styles);
 
-const ProductTable = () => {
+const ProductTable = ({ products }) => {
 
-    const products = useSelector((state) => state.diary.data?.products || []);
     const selectedDate = useSelector((state) => state.diary.selectedDate);
-    const userData = useSelector(userSelector);
+    const userData = useSelector(userInfoSelector);
+    const bloodType = userData.blood;
 
 
     const dispatch = useDispatch();
@@ -23,8 +23,7 @@ const ProductTable = () => {
       const handleDelete = (productId) => {
         dispatch(deleteProduct({ id: productId, date: selectedDate }));
       };
-    
-        const bloodType = userData.blood
+
 
 const IconButtonStyles = {
              marginLeft: 6,
@@ -39,9 +38,11 @@ const IconButtonStyles = {
                     <Icon iconId='icon-arrow-big' w={16} h={16} customStyles={IconButtonStyles} />
                 </button>
             </div>
-
-            <ul className={cn('container__list')}>
-                {products.map(product => {
+             {(!products || products.length === 0) ? (
+                 <p className={cn('notFound')}>Not found products</p>
+             ) : (
+                         <ul className={cn('container__list')}>
+                 {products.map(product => {
                     const isNotAllowedForBloodType = product.groupBloodNotAllowed[bloodType];
 
                     return (
@@ -75,6 +76,7 @@ const IconButtonStyles = {
                     );
                 })}
             </ul>
+             )}
         </div>
     );
 };
