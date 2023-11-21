@@ -17,6 +17,22 @@ background-position: 50% 50%;
 background-size: cover;
 background-repeat: no-repeat;
 
+    transition-property: background-color, border-color, fill, color, stroke,
+        border-radius, padding, transform, opacity;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+&:hover {
+    opacity: 0.65;
+    transform: scale(0.92);
+}
+
+&:active {
+    outline-color: #e6533c;
+    opacity: 1;
+    transform: scale(1);
+}
+
 @media screen and (min-width: 375px){
     width: 335px;
 };

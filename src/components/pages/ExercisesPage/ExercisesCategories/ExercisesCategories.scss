@@ -11,16 +11,28 @@
     line-height: 1.29; /* 128.571% */
     position: relative;
 
+    &:hover span {
+        color: $christmas-hover-orange;
+
+        @include transition();
+    }
+
     &.active span {
         color: $snow-white;
+        
+        @include transition();
+
+        &:hover  {
+            color: $lonely-gray;
+        }
         
         &::before {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -8px;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 3px;
             border-radius: 2px;
             background: $christmas-hover-orange;
             bottom: -4px;

@@ -34,9 +34,9 @@ const UserCard = () => {
         dispatch(logout());
     };
 
-    const isGravatar = userData.avatarURL.includes('gravatar');
+    // const isGravatar = userData.avatarURL.includes('gravatar');
 
-    const avatarPath = isGravatar ? `${userData.avatarURL}` : `https://powerpulse-171j.onrender.com/${userData.avatarURL}`;
+    // const avatarPath = isGravatar ? `${userData.avatarURL}` : `https://powerpulse-171j.onrender.com/${userData.avatarURL}`;
 
     return (
         <div className={cn('usercard__container')}>
@@ -45,7 +45,7 @@ const UserCard = () => {
                     <div className={cn('usercard__VectorProfile')}>
                     {
                         userData.avatarURL ?    
-                        <img src={userData.avatarURL ? avatarPath : ''} alt='avatar' /> :    
+                        <img src={userData.avatarURL ? `${userData.avatarURL}` : ''} alt='avatar' /> :    
                         (<Icon
                             iconId="icon-user"
                             w={userSvgStyles}

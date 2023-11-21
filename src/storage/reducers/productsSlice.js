@@ -3,18 +3,14 @@ import { getProducts, getProductsCategories } from '../operations/productsThunk.
 
  const initialState = {
    products: {
-    items: [],
-    isLoading: false,
-    error: null
-     },
+        items: [],
+    },
    categories: {
-    list: [],
-    isLoading: false,
-    error: null
-   },
-     filter: {
-    category: 'All',
-  },
+        list: [],
+    },
+    filter: {
+        category: 'All',
+    },
 };
 
 const productsSlice = createSlice({

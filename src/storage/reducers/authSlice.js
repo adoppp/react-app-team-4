@@ -7,19 +7,15 @@ import {
     refreshUser,
     avatarUpdate,
     infoUpdate,
+    detailsUpdate,
+    detailsCreate,
 } from '../operations/authThunk';
 
 const initialState = {
     userData: {
         avatarURL: '',
-        height: 0,
-        currentWeight: 0,
-        desiredWeight: 0,
-        birthday: '',
-        blood: '',
-        sex: '',
-        levelActivity: 0,
     },
+    userInfo: {},
     authenticated: false,
     token: null,
 };
@@ -43,14 +39,8 @@ const authSlice = createSlice({
                 state.authenticated = false;
                 state.userData = {
                     avatarURL: '',
-                    height: 0,
-                    currentWeight: 0,
-                    desiredWeight: 0,
-                    birthday: '',
-                    blood: '',
-                    sex: '',
-                    levelActivity: 0,
                 };
+                state.userInfo = {};
                 state.token = null;
             })
             .addCase(refreshUser.fulfilled, (state, action) => {
@@ -61,7 +51,13 @@ const authSlice = createSlice({
                 state.userData.avatarURL = action.payload;
             })
             .addCase(infoUpdate.fulfilled, (state, action) => {
-                state.userData = action.payload;
+                state.userData.name = action.payload.name;
+            })
+            .addCase(detailsUpdate.fulfilled, (state, action) => {
+                state.userInfo = {...state.userInfo, ...action.payload};
+            })
+           .addCase(detailsCreate.fulfilled, (state, action) => {
+                state.userInfo = (action.payload);
             })
     },
 });
