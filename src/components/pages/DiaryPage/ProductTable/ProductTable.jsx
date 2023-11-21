@@ -20,7 +20,7 @@ const ProductTable = ({ products }) => {
 
     const dispatch = useDispatch();
 
-      const handleDelete = (productId) => {
+    const handleDelete = (productId) => {
         dispatch(deleteProduct({ id: productId, date: selectedDate }));
       };
 

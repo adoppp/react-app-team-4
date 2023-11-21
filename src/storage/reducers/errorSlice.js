@@ -18,6 +18,7 @@ import {
     exercisesCategory,
     getAllExercises,
 } from '../operations/exercisesThunk';
+import { getDiaryInfo, deleteProduct, deleteExercise, addProduct, addExercise, getUser } from "../operations/diaryThunk";
 
 const initialState = {
     message: null,
@@ -70,7 +71,28 @@ const errorSlice = createSlice({
             .addCase(detailsUpdate.rejected, REJECTED)
 
             .addCase(detailsCreate.pending, PENDING)
-            .addCase(detailsCreate.rejected, REJECTED);
+            .addCase(detailsCreate.rejected, REJECTED)
+            
+            .addCase(getDiaryInfo.pending, PENDING)
+            .addCase(getDiaryInfo.rejected, REJECTED)
+        
+            .addCase(deleteProduct.pending, PENDING)
+            .addCase(deleteProduct.rejected, REJECTED)
+        
+            .addCase(deleteExercise.pending, PENDING)
+            .addCase(deleteExercise.rejected, REJECTED)
+        
+            .addCase(addProduct.pending, PENDING)
+            .addCase(addProduct.rejected, REJECTED)
+        
+            .addCase(addExercise.pending, PENDING)
+            .addCase(addExercise.rejected, REJECTED)
+        
+                
+            .addCase(getUser.pending, PENDING)
+            .addCase(getUser.rejected, REJECTED)
+        
+            
     },
 });
 

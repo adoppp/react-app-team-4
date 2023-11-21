@@ -1,19 +1,22 @@
 import { useState, forwardRef } from 'react';
-import { useDispatch } from 'react-redux';
-import { updateSelectedDate } from '../../../storage/reducers/diarySlice';
 import { useMediaQuery } from 'react-responsive';
 import DatePicker from 'react-datepicker';
+import { useDispatch } from 'react-redux';
 
 import { Icon } from '../Icon';
 import './Calendar.scss';
+import { updateSelectedDate } from '../../../storage/reducers/diarySlice';
+import {formatDate} from '../../../storage/reducers/diarySlice'
+
 
 const Calendar = () => {
-    const [selectedDate, setSelectedDate] = useState(new Date());
     const dispatch = useDispatch();
+    const [selectedDate, setSelectedDate] = useState(new Date());
 
     const isTabletScreen = useMediaQuery({ minWidth: 768 });
     const iconCalendarHeight = isTabletScreen ? 24 : 20;
     const iconCalendarWidth = isTabletScreen ? 24 : 20;
+
 
     const BtnInput = forwardRef(({ value, onClick }, ref) => (
         <div className={'button-wrapper'}>
@@ -42,28 +45,23 @@ const Calendar = () => {
         </div>
     ));
 
-
-   const updateDate = (newDate) => {
-  setSelectedDate(newDate);
-  dispatch(updateSelectedDate(newDate.toISOString())); 
-};
-
-        const handlePrevDay = () => {
+    const handlePrevDay = () => {
         const previousDay = new Date(selectedDate);
         previousDay.setDate(previousDay.getDate() - 1);
-        updateDate(previousDay);
+        setSelectedDate(previousDay);
+        dispatch(updateSelectedDate(formatDate(previousDay)));
     };
 
     const handleNextDay = () => {
         const nextDay = new Date(selectedDate);
         nextDay.setDate(nextDay.getDate() + 1);
-        updateDate(nextDay);
+        setSelectedDate(nextDay);
+        dispatch(updateSelectedDate(formatDate(nextDay)));
     };
 
-
-const handleDateChange = (date) => {
+        const handleDateChange = (date) => {
         setSelectedDate(date);
-        dispatch(updateSelectedDate(formatDateToDDMMYYYY(date))); 
+        dispatch(updateSelectedDate(formatDate(date))); 
     };
 
     return (
@@ -126,9 +124,7 @@ const handleDateChange = (date) => {
                     </div>
                 )}
                 selected={selectedDate}
-                onChange={(date) => {
-                    setSelectedDate(date);
-                }}
+                onChange={handleDateChange}
                 onMonthChange={(date) => {
                     setSelectedDate(date);
                 }}

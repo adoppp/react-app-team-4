@@ -1,13 +1,23 @@
 import classNames from 'classnames/bind';
-import { useSelector } from 'react-redux';
-// import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 import styles from './DiaryDashboard.module.scss';
 import { Icon } from '../../../ui/Icon';
+import { getUser } from '../../../../storage/operations/diaryThunk';
+
 
 const cn = classNames.bind(styles);
 
 const DiaryDashboard = () => {
+    const dispatch = useDispatch();
+    const userData = useSelector(state => state.diary.user);
+    
+    useEffect(() => {
+        dispatch(getUser);
+    }, [dispatch]);
+
+
 
     const iconStyles = {
         fill: '#EF8964',
@@ -27,7 +37,7 @@ const DiaryDashboard = () => {
                         />
                         Daily calorie intake
                     </p>
-                    <p className={cn('dashboard__item__number')}>2200</p>
+                    <p className={cn('dashboard__item__number')}>{ userData.dailyCalories }</p>
                 </li>
                 <li className={cn('red')}>
                     <p className={cn('dashboard__item__desc')}>
@@ -39,7 +49,7 @@ const DiaryDashboard = () => {
                         />
                         Daily physical activity
                     </p>
-                    <p className={cn('dashboard__item__number')}>2200</p>
+                    <p className={cn('dashboard__item__number')}>{ userData.dailyExerciseTime }</p>
                 </li>
                 <li>
                     <p className={cn('dashboard__item__desc')}>

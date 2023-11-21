@@ -1,17 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getDiaryInfo } from '../operations/diaryThunk';
+import { getDiaryInfo, getUser } from '../operations/diaryThunk';
 
-const formatDateToDDMMYYYY = (date) => {
-    const d = new Date(date);
-    const day = String(d.getDate()).padStart(2, '0');
-    const month = String(d.getMonth() + 1).padStart(2, '0'); 
-    const year = d.getFullYear();
-    return `${day}.${month}.${year}`;
+export const formatDate = (date) => {
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}.${month}.${year}`;
 };
+
 
 const initialState = {
   data: null,
-  selectedDate: formatDateToDDMMYYYY(new Date()),
+  selectedDate: formatDate(new Date()),
+  user: {
+        dailyCalories: 0,
+        dailyExerciseTime: 0
+    }
 };
 
 const diarySlice = createSlice({
@@ -23,9 +27,14 @@ const diarySlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(getDiaryInfo.fulfilled, (state, action) => {
-      state.data = action.payload;
-    });
+    builder
+     .addCase(getDiaryInfo.fulfilled, (state, action) => {
+        state.data = action.payload;
+      })
+      .addCase(getUser.fulfilled, (state, action) => {
+        state.user.dailyCalories = action.payload.dailyCalories;
+        state.user.dailyExerciseTime = action.payload.dailyExerciseTime;
+      });
   },
 });
 

@@ -8,19 +8,16 @@ import { deleteExercise } from '../../../../storage/operations/diaryThunk';
 
 const cn = classNames.bind(styles);
 
-const ExercisesTable = () => {
-    const IconButtonStyles = {
-        marginLeft: 6,
-    };
+const ExercisesTable = ({exercises}) => {
 
-    const exercises = useSelector((state) => state.diary.data?.exercises || []);
     const selectedDate = useSelector((state) => state.diary.selectedDate);
-
-
     const dispatch = useDispatch();
 
     const handleDelete = (exerciseId) => {
         dispatch(deleteExercise({ id: exerciseId, date: selectedDate }));
+    };
+      const IconButtonStyles = {
+        marginLeft: 6,
     };
 
     return (
@@ -32,8 +29,9 @@ const ExercisesTable = () => {
                     <Icon iconId='icon-arrow-big' w={16} h={16} customStyles={IconButtonStyles} />
                 </button>
             </div>
-
-            <ul className={cn('container__list')}>
+            {(!exercises || exercises.length === 0) ? (
+                <p className={cn('notFound')}>Not found exercises</p>
+            ) : (  <ul className={cn('container__list')}>
                 {exercises.map(exercise => (
                     <li key={exercise._id}>
                         <div className={cn('big-gap')}>
@@ -66,7 +64,7 @@ const ExercisesTable = () => {
                         </span>
                     </li>
                 ))}
-            </ul>
+            </ul>)}
         </div>
     );
 }

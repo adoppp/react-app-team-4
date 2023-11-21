@@ -11,12 +11,14 @@ a {
     border: 1px solid rgba(239, 237, 232, 0.2);
     background: rgba(239, 237, 232, 0.05);
     padding: 16px;
+    min-height: 335px;
 
     width: 335px;
     max-height: 824px;
     overflow-y: auto;
 
     @media screen and (min-width: 768px) {
+        min-height: 234px;
         width: 704px;
         max-height: 234px;
         padding-top: 19px;
@@ -216,4 +218,16 @@ a {
     @media screen and (min-width: 1140px) {
         width: 82px;
     }
+}
+.notFound {
+    color: rgba(239, 237, 232, 0.30);
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 125px;
+    text-align: center;
+
+    @media screen and (min-width: 768px) {
+            margin-top: 65px;
+        }
 }
