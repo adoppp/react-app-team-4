@@ -2,19 +2,25 @@ import { Vortex } from 'react-loader-spinner';
 
 const Loader = ({ customStyles }) => {
     return (
-        <div style={customStyles ? customStyles : {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            margin: '0 auto',
-            backgroundColor: '#04040466',
-            position: `fixed`,
-            top: 0,
-            left: 0,
-            zIndex: 1000,
-            height: '100vh',
-            width: `100vw`,
-        }}>
+        <div
+            style={
+                customStyles
+                    ? customStyles
+                    : {
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          margin: '0 auto',
+                          backgroundColor: '#04040466',
+                          position: `fixed`,
+                          top: 0,
+                          left: 0,
+                          zIndex: 1000,
+                          height: '100vh',
+                          width: `100vw`,
+                      }
+            }
+        >
             <Vortex
                 visible={true}
                 height="120"

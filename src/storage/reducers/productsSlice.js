@@ -1,11 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getProducts, getProductsCategories } from '../operations/productsThunk.js';
+import {
+    getProducts,
+    getProductsCategories,
+} from '../operations/productsThunk.js';
 
- const initialState = {
-   products: {
+const initialState = {
+    products: {
         items: [],
     },
-   categories: {
+    categories: {
         list: [],
     },
     filter: {
@@ -15,22 +18,22 @@ import { getProducts, getProductsCategories } from '../operations/productsThunk.
 
 const productsSlice = createSlice({
     name: 'products',
-  initialState,
-     reducers: {
-    setCategoryFilter: (state, action) => {
-      state.filter.category = action.payload;
+    initialState,
+    reducers: {
+        setCategoryFilter: (state, action) => {
+            state.filter.category = action.payload;
+        },
     },
-  },
     extraReducers: (builder) => {
         builder
-           .addCase(getProducts.fulfilled, (state, action) => {
+            .addCase(getProducts.fulfilled, (state, action) => {
                 state.products.items = action.payload;
             })
-            
-            .addCase(getProductsCategories.fulfilled, (state, action) => { 
-                 state.categories.list = action.payload;
-            })
-    }
+
+            .addCase(getProductsCategories.fulfilled, (state, action) => {
+                state.categories.list = action.payload;
+            });
+    },
 });
 export const { setCategoryFilter } = productsSlice.actions;
 

@@ -9,7 +9,10 @@ import NotFound from '../../pages/NotFound/NotFound';
 import appRoutes from '../../../routing/routes';
 import { refreshUser } from '../../../storage/operations/authThunk';
 import { tokenSelector } from '../../../storage/selectors/authSelectors';
-import { errorSelector, loadingSelector } from '../../../storage/selectors/globalSelectors';
+import {
+    errorSelector,
+    loadingSelector,
+} from '../../../storage/selectors/globalSelectors';
 import { Modal } from '../../ui/Modal';
 import NotFoundContainer from '../../containers/NotFoundContainer/NotFoundContainer';
 
@@ -28,11 +31,7 @@ function App() {
 
     return (
         <main>
-            <Suspense
-                fallback={
-                    <Loader />
-                }
-            >
+            <Suspense fallback={<Loader />}>
                 <Routes>
                     {appRoutes.map(({ path, element, children }) => (
                         <Route key={path} path={path} element={element}>
@@ -46,11 +45,14 @@ function App() {
                                 ))}
                         </Route>
                     ))}
-                    <Route path="*" element={
-                        <NotFoundContainer>
-                            <NotFound />
-                        </NotFoundContainer>
-                    } />
+                    <Route
+                        path="*"
+                        element={
+                            <NotFoundContainer>
+                                <NotFound />
+                            </NotFoundContainer>
+                        }
+                    />
                 </Routes>
             </Suspense>
             {error && (
@@ -58,7 +60,7 @@ function App() {
                     <span className={cn('error__text')}>{error}</span>
                 </Modal>
             )}
-            {isLoading && (<Loader />)}
+            {isLoading && <Loader />}
         </main>
     );
 }

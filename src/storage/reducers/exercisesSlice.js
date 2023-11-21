@@ -1,5 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { exercisesCategory, getAllExercises } from '../operations/exercisesThunk';
+import {
+    exercisesCategory,
+    getAllExercises,
+} from '../operations/exercisesThunk';
 
 const initialState = {
     data: null,
@@ -15,7 +18,7 @@ const exercisesSlice = createSlice({
             })
             .addCase(getAllExercises.fulfilled, (state, action) => {
                 state.data = action.payload;
-            })
+            });
     },
 });
 

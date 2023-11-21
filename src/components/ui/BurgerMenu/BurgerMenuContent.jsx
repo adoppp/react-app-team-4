@@ -21,7 +21,11 @@ const BurgerMenuContent = ({ onClose }) => {
     return (
         <div className={cn('burgerMenu__container')}>
             <button onClick={onClose} className={cn('burger__button')}>
-                <Icon iconId="icon-close" w={isLargeScreen ? 32 : 24} h={isLargeScreen ? 32 : 24} />
+                <Icon
+                    iconId="icon-close"
+                    w={isLargeScreen ? 32 : 24}
+                    h={isLargeScreen ? 32 : 24}
+                />
             </button>
             <ul className={cn('menuItems__list')}>
                 <li>

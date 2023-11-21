@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 import {
     registration,
@@ -10,8 +10,14 @@ import {
     detailsUpdate,
     detailsCreate,
 } from '../operations/authThunk';
-import { getProducts, getProductsCategories } from "../operations/productsThunk";
-import { exercisesCategory, getAllExercises } from "../operations/exercisesThunk";
+import {
+    getProducts,
+    getProductsCategories,
+} from '../operations/productsThunk';
+import {
+    exercisesCategory,
+    getAllExercises,
+} from '../operations/exercisesThunk';
 
 const initialState = {
     message: null,
@@ -41,30 +47,30 @@ const errorSlice = createSlice({
 
             .addCase(refreshUser.pending, PENDING)
             .addCase(refreshUser.rejected, REJECTED)
-            
+
             .addCase(getProducts.pending, PENDING)
             .addCase(getProducts.rejected, REJECTED)
-            
+
             .addCase(getProductsCategories.pending, PENDING)
             .addCase(getProductsCategories.rejected, REJECTED)
-        
+
             .addCase(avatarUpdate.pending, PENDING)
             .addCase(avatarUpdate.rejected, REJECTED)
-        
+
             .addCase(infoUpdate.pending, PENDING)
             .addCase(infoUpdate.rejected, REJECTED)
 
             .addCase(getAllExercises.pending, PENDING)
             .addCase(getAllExercises.rejected, REJECTED)
-            
+
             .addCase(exercisesCategory.pending, PENDING)
             .addCase(exercisesCategory.rejected, REJECTED)
 
             .addCase(detailsUpdate.pending, PENDING)
             .addCase(detailsUpdate.rejected, REJECTED)
-        
+
             .addCase(detailsCreate.pending, PENDING)
-            .addCase(detailsCreate.rejected, REJECTED)
+            .addCase(detailsCreate.rejected, REJECTED);
     },
 });
 

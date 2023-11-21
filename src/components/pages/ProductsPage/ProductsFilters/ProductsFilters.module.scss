@@ -12,27 +12,24 @@
     margin-right: auto;
     margin-left: auto;
     padding-top: 40px;
-   
 
     @media screen and (min-width: 768px) {
         width: 768px;
         flex-wrap: none;
-        }
+    }
 
     @media screen and (min-width: 1440px) {
-           width: 1440px;
-           padding-top: 0;
-        }
-
-};
+        width: 1440px;
+        padding-top: 0;
+    }
+}
 
 .form_container_input {
     position: relative;
-
 }
 
 .input {
-    color:#EFEDE8;
+    color: #efede8;
     padding: 14px;
     background-color: transparent;
     outline: none;
@@ -43,20 +40,19 @@
 
     @include transition();
 
-    &:hover{
-        border-color: #E6533C;
-    };
+    &:hover {
+        border-color: #e6533c;
+    }
     &:focus {
-        border-color: #E6533C;
-        padding-left: 18px
+        border-color: #e6533c;
+        padding-left: 18px;
     }
 
     @media screen and (min-width: 768px) {
-            width: 236px;
-            height: 52px;
-           
-        }
-};
+        width: 236px;
+        height: 52px;
+    }
+}
 
 .button_form {
     position: absolute;
@@ -64,7 +60,7 @@
     right: 0;
     transform: translate(-30%);
     background-color: transparent;
-    color: #EFEDE8;
+    color: #efede8;
     border: none;
 }
 .button_close {
@@ -73,7 +69,7 @@
     right: 25px;
     transform: translate(-30%);
     background-color: transparent;
-    color: #EFEDE8;
+    color: #efede8;
     border: none;
     cursor: pointer;
 }

@@ -1,10 +1,10 @@
 @import '../../../../scss/colors';
 @import '../../../../scss/mixins';
 @import '../../../../scss/variables';
- 
- li a {
+
+li a {
     text-decoration: none;
-    color: rgba(239, 237, 232, 0.40);
+    color: rgba(239, 237, 232, 0.4);
 
     font-family: Roboto;
     font-size: 14px;
@@ -19,13 +19,13 @@
 
     &.active span {
         color: $snow-white;
-        
+
         @include transition();
 
-        &:hover  {
+        &:hover {
             color: $lonely-gray;
         }
-        
+
         &::before {
             content: '';
             position: absolute;
@@ -36,13 +36,13 @@
             border-radius: 2px;
             background: $christmas-hover-orange;
             bottom: -4px;
-        };
-    };
-};
+        }
+    }
+}
 
 @media screen and (min-width: 768px) {
-    a{
+    a {
         font-size: 16px;
         line-height: 1.5; /* 150% */
-    };
-};
+    }
+}

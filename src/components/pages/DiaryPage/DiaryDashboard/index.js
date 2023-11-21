@@ -1,1 +1,1 @@
-export * from './DiaryDashboard'
+export * from './DiaryDashboard';

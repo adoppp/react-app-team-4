@@ -1,7 +1,7 @@
 @import '../../../../scss/colors';
 @import '../../../../scss/mixins';
 
-.usercard__container{
+.usercard__container {
     display: flex;
     justify-content: center;
 
@@ -16,26 +16,24 @@
         max-width: 440px;
     }
 
-    @media(min-width: 1440px){
+    @media (min-width: 1440px) {
         margin-left: 50px;
         margin-bottom: 0;
     }
-    
-};
+}
 
-.container__svg{
+.container__svg {
     margin-bottom: 20px;
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
 }
 
-.usercard__VectorProfile{
+.usercard__VectorProfile {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    
     width: 90px;
     height: 90px;
 
@@ -58,10 +56,9 @@
         position: relative;
         z-index: -1;
 
-        
         border-radius: 50%;
     }
-};
+}
 
 .usercard__checkMark {
     background-color: transparent;
@@ -73,14 +70,13 @@
     max-width: fit-content;
     cursor: pointer;
 
-    
     & use {
         fill: $christmas-main-orange;
         stroke: $snow-white;
-        
+
         @include transition();
     }
-    
+
     &:hover use {
         fill: $christmas-hover-orange;
         stroke: $silent-gray;
@@ -98,17 +94,17 @@
         left: 8px;
         cursor: pointer;
     }
-};
+}
 
-.userName__container{
+.userName__container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-};
+}
 
-.user__name{
+.user__name {
     margin-bottom: 4px;
     font-weight: 400;
     font-size: 18px;
@@ -118,26 +114,26 @@
     @media (min-width: 768px) {
         line-height: 1.1;
         font-size: 24px;
-        }
-};
+    }
+}
 
-.user__user{
+.user__user {
     margin-bottom: 40px;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.3;
     color: $lonely-gray;
-};
+}
 
-.daily__container{
+.daily__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     justify-content: center;
     margin-bottom: 40px;
-};
+}
 
-.daily__calorieAndNorm{
+.daily__calorieAndNorm {
     background-color: $christmas-main-orange;
     width: 158px;
     height: 96px;
@@ -147,22 +143,22 @@
     @media (min-width: 768px) {
         width: 214px;
         height: 108px;
-        }
+    }
 }
 
 .daily__calorieAndNorm:last-child {
     margin-right: 0px;
 }
 
-.daily__calorieContainer{
+.daily__calorieContainer {
     padding: 14px;
-};
+}
 
-.daily__icon{
+.daily__icon {
     display: flex;
     align-items: center;
 
-    & use{
+    & use {
         stroke: $christmas-hover-orange;
     }
 
@@ -173,9 +169,9 @@
         line-height: 1.3;
         color: $snow-alpha-white;
     }
-};
+}
 
-.daily__value{
+.daily__value {
     font-weight: 700;
     font-size: 18px;
     line-height: 1.1;
@@ -184,8 +180,8 @@
 
     @media (min-width: 768px) {
         margin-top: 39px;
-        }
-};
+    }
+}
 
 .daily__valueMin {
     font-weight: 700;
@@ -196,10 +192,10 @@
 
     @media (min-width: 768px) {
         margin-top: 39px;
-        }
-};
+    }
+}
 
-.profile__warning{
+.profile__warning {
     margin-bottom: 40px;
     display: flex;
 
@@ -216,14 +212,12 @@
         margin-left: 8px;
 
         @media (min-width: 768px) {
-               max-width: 339px;
-            }
+            max-width: 339px;
+        }
     }
-};
+}
 
-
-
-.logout__container{
+.logout__container {
     display: flex;
     justify-content: flex-end;
 }

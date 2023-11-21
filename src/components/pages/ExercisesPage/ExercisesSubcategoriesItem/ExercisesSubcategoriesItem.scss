@@ -5,88 +5,87 @@
 .slick-slider {
     margin: 0 auto;
 
-    & .slick-track{
+    & .slick-track {
         display: flex;
         gap: 1px;
-    };
-  };
+    }
+}
 
-  ul.slick-dots{
+ul.slick-dots {
     bottom: -40px;
 
-    & .slick-active{
+    & .slick-active {
         width: 14px;
         height: 14px;
         background-color: $christmas-main-orange;
         border-radius: 50%;
-        };
+    }
 
-    & li{
+    & li {
         width: 14px;
         height: 14px;
         border-radius: 50%;
-        color: #EFEDE81A;
-        background-color: #EFEDE81A;
+        color: #efede81a;
+        background-color: #efede81a;
 
-        & button{
+        & button {
             width: 14px;
             height: 14px;
-            &:before{
+            &:before {
+                width: 14px;
+                height: 14px;
+                content: '';
+            }
+        }
+
+        &.slick-active button {
             width: 14px;
             height: 14px;
-            content: '';
-            };
-      };
-
-        &.slick-active button{
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-
-            &:before{
-            opacity: 1;
-            width: 11px;
-            height: 11px;
             border-radius: 50%;
-            border: 3px solid $darkness-main-black;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            };
-    };
-    };
-  };
 
-div.slick-initialized .slick-slide{
+            &:before {
+                opacity: 1;
+                width: 11px;
+                height: 11px;
+                border-radius: 50%;
+                border: 3px solid $darkness-main-black;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+}
+
+div.slick-initialized .slick-slide {
     display: flex;
     gap: 20px;
     flex-direction: column;
-};
+}
 
 @media screen and (min-width: 375px) {
     .slick-slider {
         max-width: 339px;
 
-        & .slick-track{
+        & .slick-track {
             display: flex;
             gap: 2px;
-        };
-      };
-
-};
+        }
+    }
+}
 
 @media screen and (min-width: 768px) {
     .slick-slider {
         max-width: 704px;
-      };
+    }
 
-      div .slick-initialized .slick-slide{
+    div .slick-initialized .slick-slide {
         gap: 32px;
-    };
-};
+    }
+}
 
 @media screen and (min-width: 1440px) {
     .slick-slider {
         max-width: 1440px;
-      };
-};
+    }
+}
