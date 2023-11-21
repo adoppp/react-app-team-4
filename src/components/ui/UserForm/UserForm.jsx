@@ -7,8 +7,9 @@ import styles from './UserForm.module.scss';
 import { Input } from '../Input/Input';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
-import { useSelector } from 'react-redux';
-import { userSelector } from '../../../storage/selectors/authSelectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { userInfoSelector, userSelector } from '../../../storage/selectors/authSelectors';
+import { infoUpdate, detailsUpdate, detailsCreate } from '../../../storage/operations/authThunk';
 
 const cn = classNames.bind(styles);
 
@@ -34,32 +35,95 @@ const validationSchema = Yup.object().shape({
 });
 
 const UserForm = () => {
-  const user = useSelector(userSelector);
+    const user = useSelector(userSelector);
+    const userInfo = useSelector(userInfoSelector);
+    const dispatch = useDispatch();
 
-  const initialValues = {
-    name: user.name,
-    email: '',
-    height: 0,
-    currentWeight: 0,
-    desiredWeight: 0,
-    birthday: '',
-    blood: '',
-    sex: '',
-    levelActivity: 0,
-  };
+    
+    const formatDate = (date) => {
+        const [year, month, day] = date.split('-');
+        return `${year}-${month}-${day}`;
+    };
+    
+    const userValues = {
+        name: user.name,
+        height: userInfo.height,
+        currentWeight: userInfo.currentWeight,
+        desiredWeight: userInfo.desiredWeight,
+        birthday: userInfo.birthday ?  formatDate(userInfo.birthday): '',
+        blood: String(userInfo.blood),
+        sex: userInfo.sex,
+        levelActivity: String(userInfo.levelActivity),
+    };
+    
+    const initialValues = {
+        name: user.name,
+        height: 0,
+        currentWeight: 0,
+        desiredWeight: 0,
+        birthday: '',
+        blood: '',
+        sex: '',
+        levelActivity: '',
+    }
 
-  const handleSubmit = (values) => {
-    console.log(values);
-  };
+    const getChangesInDetails = (userInfoChanged, userInfo) => {
+        const changedKey = Object.keys(userInfoChanged);
+        const changesInDetails = {};
+
+        changedKey.forEach((key) => {
+            const changedValue = userInfoChanged[key];
+            const userValue = userInfo[key];
+
+            if (changedValue !== userValue) {
+                changesInDetails[key] = changedValue;
+            }
+        });
+
+        return changesInDetails;
+    };
+
+    const handleSubmit = (values) => {
+        const {
+            height,
+            currentWeight,
+            desiredWeight,
+            birthday,
+            sex,
+        } = values;
+        
+        const blood = Number(values.blood);
+        
+        const levelActivity = Number(values.levelActivity);
+
+        const formattedBirthday = formatDate(birthday);
+
+        const userInfoChanged = {
+            height,
+            currentWeight,
+            desiredWeight,
+            birthday: formattedBirthday,
+            sex,
+            blood,
+            levelActivity,
+        };     
+        
+        const option = user.name === values.name && Object.keys(userInfo).length > 0;
+
+        const changesInDetails = getChangesInDetails(userInfoChanged, userInfo);
+        
+        user.name === values.name ? option ? dispatch(detailsUpdate(changesInDetails)) : dispatch(detailsCreate(userInfoChanged))  : dispatch(infoUpdate({ name: values.name }));
+    };
+
 
   return (
     <div className={cn('UserFrom__container')}>
       <Formik
-        initialValues={initialValues}
+        initialValues={Object.keys(userInfo).length > 0 ? userValues : initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ errors, touched }) => (
+        {({ errors, touched, setFieldValue, values }) => (
           <Form>
             <div className={cn('basic__infoNameContainer')}>
               <div className={cn('basic__infoName')}>
@@ -266,14 +330,17 @@ const UserForm = () => {
 
               <div className={cn('basic__info')}>
                 <div className={cn('basic__calendary')}>
-                  <Field type="date" name="birthday" className={cn(
+                <Field type="date"
+                    name="birthday"
+                    className={cn(
                     'input',
                     // { error: errors.name && touched.name },
                     // { success: !errors.name && touched.name },
                     'bdInput'
                   )}
-                    style={{ marginBottom: 0, marginTop: 22 }}
-                  />
+                style={{ marginBottom: 0, marginTop: 22 }}
+                />
+                    {/* <Calendar date={false} arrows={false} onChange={setFieldValue} /> */}
                 </div>
             
               </div>

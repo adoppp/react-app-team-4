@@ -125,19 +125,12 @@ const appRoutes = [
                     </PrivateRoute>
             },
             {
-                path: ':categories/:workout',
-                element: <ExercisesList />,
-            },
-            {
                 path: ':categories',
                 element: <ExercisesSubcategoriesItem />,
-                children: [
-                    {
-                        index: true,
-                        element: <ExercisesSubcategoriesItem />,
-                    },
-                    
-                ],
+            },
+            {
+                path: ':categories/:workout',
+                element: <ExercisesList />,
             },
         ],
     },

@@ -8,7 +8,7 @@ const Loader = ({ customStyles }) => {
             justifyContent: 'center',
             margin: '0 auto',
             backgroundColor: '#04040466',
-            position: `absolute`,
+            position: `fixed`,
             top: 0,
             left: 0,
             zIndex: 1000,

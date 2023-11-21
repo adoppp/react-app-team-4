@@ -1,3 +1,10 @@
+@import '../../../scss/colors';
+@import '../../../scss/mixins';
+
+.exercises{
+    position: relative;
+};
+
 .exercises__categories {
     display: flex;
     flex-direction: column;
@@ -6,18 +13,74 @@
     padding-top: 40px;
 };
 
+.exercises__button_back {
+    display: flex;
+    position: absolute;
+    top:10px;
+    gap: 8px;
+
+    & svg use {
+        stroke: #EFEDE866;
+
+        @include transition();
+    };
+
+    &:hover svg use {
+        stroke: $christmas-hover-orange;
+    };
+
+    &:active svg use {
+        stroke: $christmas-main-orange;
+    };
+
+    & p {
+        color: rgba(239, 237, 232, 0.40);
+
+        font-size: 14px;
+        line-height: 1.29; /* 128.571% */
+
+        @include transition();
+    };
+
+    &:hover p {
+        color: $christmas-hover-orange;
+    };
+
+    &:active p {
+        color: $christmas-main-orange;
+    };
+};
+
 @media screen and (min-width: 375px) {
     .exercises__categories {
         width: 100%;
-flex-direction: row;
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
-    }
+    };
 };
 
 @media screen and (min-width: 768px) {
     .exercises__categories {
         padding-top: 72px;
-        margin-bottom: 64px;
-    }
+        padding-bottom: 64px;
     };
+
+    .exercises__button_back {
+        top:32px;
+    };
+};
+
+@media screen and (min-width: 1440px){
+    .exercises{
+        overflow-y: hidden;
+    };
+
+    .exercises__categories {
+        padding-bottom: 32px;
+    };
+
+    .exercises__button_back {
+        top:36px;
+    };
+};

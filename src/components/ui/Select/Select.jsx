@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 const cn = classNames.bind(styles);
 
-const Select = ({list,customSelectStyle,customListSelectStyle}) => {
+const Select = ({value,customSelectStyle,customListSelectStyle,handleCategoryChange}) => {
     const [isSelectOpen, setIsSelectOpen] = useState(false);
     const [buttonText, setButtonText] = useState('Categories');
     
@@ -15,13 +15,16 @@ const Select = ({list,customSelectStyle,customListSelectStyle}) => {
     };
 
     const handleClick = (e) => {
-        const value = e.target.textContent;
-        setButtonText(value)
+        const selectedValue = e.target.getAttribute('data-value');
+        setButtonText(selectedValue);
         setIsSelectOpen(!isSelectOpen);
+        handleCategoryChange(selectedValue);
     };
 
     const handleKeydown = (e) => {
-        if (e.code === 'Escape'){  setIsSelectOpen(false);};
+        if (e.code === 'Escape') {
+            setIsSelectOpen(false);
+        };
         
     };
 
@@ -44,9 +47,15 @@ const Select = ({list,customSelectStyle,customListSelectStyle}) => {
             </button>
             <ul style={customListSelectStyle ? customListSelectStyle : {}}
                 className={cn(isSelectOpen ? 'dropdown_list' : 'dropdown_list_visible')}>
-           <li onClick={handleClick} className={cn('dropdown_item')} data-value='all' >all</li>
-           <li onClick={handleClick} className={cn('dropdown_item')} data-value='all' >all</li>
-           <li onClick={handleClick} className={cn('dropdown_item')} data-value='all' >all</li>
+                {value && value.map(item => {
+                    return <li key={item}
+                        onClick={handleClick}
+                        className={cn('dropdown_item')}
+                        data-value={item}
+                    >
+                        {item}
+                    </li>
+           })}
            
             </ul>
         </div>

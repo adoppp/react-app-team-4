@@ -11,16 +11,17 @@
     gap: 16px;
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 40px;
+    padding-top: 40px;
    
 
     @media screen and (min-width: 768px) {
-        width: 868px;
+        width: 768px;
         flex-wrap: none;
         }
 
     @media screen and (min-width: 1440px) {
-           width: 1440;
+           width: 1440px;
+           padding-top: 0;
         }
 
 };
@@ -40,15 +41,19 @@
     border-radius: 12px;
     border: 1px solid#EFEDE84D;
 
+    @include transition();
+
     &:hover{
         border-color: #E6533C;
     };
     &:focus {
         border-color: #E6533C;
+        padding-left: 18px
     }
 
     @media screen and (min-width: 768px) {
             width: 236px;
+            height: 52px;
            
         }
 };
@@ -56,7 +61,7 @@
 .button_form {
     position: absolute;
     top: 30%;
-    right: 5px;
+    right: 0;
     transform: translate(-30%);
     background-color: transparent;
     color: #EFEDE8;
@@ -65,7 +70,7 @@
 .button_close {
     position: absolute;
     top: 30%;
-    right: 30px;
+    right: 25px;
     transform: translate(-30%);
     background-color: transparent;
     color: #EFEDE8;

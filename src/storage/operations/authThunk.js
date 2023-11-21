@@ -80,3 +80,39 @@ export const avatarUpdate = createAsyncThunk(
         }
     }
 );
+
+export const infoUpdate = createAsyncThunk(
+    'user/infoUpdate',
+    async (user, thunkAPI) => {
+        try {
+            const response = await instance.patch('user/info', user)
+            return response.data;
+        } catch (e) {
+            return REJECTED(thunkAPI, e);
+        }
+    }
+);
+
+export const detailsUpdate = createAsyncThunk(
+    'user/detailsUpdate',
+    async (user, thunkAPI) => {
+        try {
+            const response = await instance.patch('user', user)
+            return response.data;
+        } catch (e) {
+            return REJECTED(thunkAPI, e);
+        }
+    }
+);
+
+export const detailsCreate = createAsyncThunk(
+    'user/detailsCreate',
+    async (user, thunkAPI) => {
+        try {
+            const response = await instance.post('user', user)
+            return response.data;
+        } catch (e) {
+            return REJECTED(thunkAPI, e);
+        }
+    }
+);
