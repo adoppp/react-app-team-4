@@ -6,7 +6,6 @@ import styles from './ExercisesPage.module.scss';
 import { Title } from '../../global/Title';
 import { ExercisesCategories } from './ExercisesCategories';
 import { Icon } from '../../ui/Icon';
-import { Loader } from '../../ui/Loader/Loader';
 
 const cn = classNames.bind(styles);
 
@@ -21,14 +20,14 @@ const ExercisesPage = () => {
   return (
     <section className={cn('exercises')}>
           {params.workout && <Link className={cn('exercises__button_back')} to=".." relative="path" >
-        <Icon iconId="icon-arrow" w={16} h={16}/>
+        <Icon iconId="icon-arrow-back" w={16} h={16}/>
         <p>Back</p>
     </Link>}
       <div className={cn('exercises__categories')}>
         <Title title={`${title}`} />
         <ExercisesCategories/>
       </div>
-      <Suspense fallback={<Loader/>}>
+      <Suspense>
         <Outlet />
      </Suspense>
     </section>
