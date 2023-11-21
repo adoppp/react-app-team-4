@@ -47,7 +47,9 @@ const validationSchema = Yup.object().shape({
 
 const UserForm = () => {
     const user = useSelector(userSelector);
+    console.log("🚀 ~ file: UserForm.jsx:50 ~ UserForm ~ user:", user)
     const userInfo = useSelector(userInfoSelector);
+    console.log("🚀 ~ file: UserForm.jsx:51 ~ UserForm ~ userInfo:", userInfo)
     const dispatch = useDispatch();
 
     const formatDate = (date) => {
@@ -112,8 +114,7 @@ const UserForm = () => {
             levelActivity,
         };
 
-        const option =
-            user.name === values.name && Object.keys(userInfo).length > 0;
+        const option = user.name === values.name && Object.keys(userInfo).length > 0;
 
         const changesInDetails = getChangesInDetails(userInfoChanged, userInfo);
 
