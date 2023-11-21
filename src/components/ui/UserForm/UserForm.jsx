@@ -8,8 +8,8 @@ import { Input } from '../Input/Input';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { useDispatch, useSelector } from 'react-redux';
-import { userSelector } from '../../../storage/selectors/authSelectors';
-import { infoUpdate } from '../../../storage/operations/authThunk';
+import { userInfoSelector, userSelector } from '../../../storage/selectors/authSelectors';
+import { infoUpdate, detailsUpdate, detailsCreate } from '../../../storage/operations/authThunk';
 
 const cn = classNames.bind(styles);
 
@@ -36,33 +36,92 @@ const validationSchema = Yup.object().shape({
 
 const UserForm = () => {
     const user = useSelector(userSelector);
+    const userInfo = useSelector(userInfoSelector);
     const dispatch = useDispatch();
 
-  const initialValues = {
-    name: user.name,
-    height: user.height,
-    currentWeight: user.currentWeight,
-    desiredWeight: user.desiredWeight,
-    birthday: user.birthday,
-    blood: user.blood,
-    sex: user.sex,
-    levelActivity: user.levelActivity,
-  };
+    const userValues = {
+        name: user.name,
+        height: userInfo.height,
+        currentWeight: userInfo.currentWeight,
+        desiredWeight: userInfo.desiredWeight,
+        birthday: userInfo.birthday,
+        blood: userInfo.blood,
+        sex: userInfo.sex,
+        levelActivity: userInfo.levelActivity,
+    };
+    
+    const initialValues = {
+        name: user.name,
+        height: 0,
+        currentWeight: 0,
+        desiredWeight: 0,
+        birthday: '',
+        blood: '',
+        sex: '',
+        levelActivity: '',
+    }
 
     const handleSubmit = (values) => {
-      console.log("🚀 ~ file: UserForm.jsx:53 ~ handleSubmit ~ values:", values)
-      
-      dispatch(infoUpdate(values));
+        const {
+            height,
+            currentWeight,
+            desiredWeight,
+            birthday,
+            sex,
+        } = values;
+        
+        const blood = Number(values.blood);
+        
+        const levelActivity = Number(values.levelActivity);
+
+        const userInfoChanged = {
+            height,
+            currentWeight,
+            desiredWeight,
+            birthday,
+            sex,
+            blood,
+            levelActivity
+        }
+
+        console.log('user.name:', user.name);
+        console.log('values.name:', values.name);
+        console.log('userInfo:', userInfo);
+        
+        if (user.name === values.name && userInfo == true) {
+            console.log('im here1')
+
+            const changedKey = Object.keys(userInfoChanged);
+
+            const changesInDetails = {};
+
+            changedKey.forEach(key => {
+                const changedValue = userInfoChanged[key];
+                const userValue = userInfo[key];
+
+                if (changedValue !== userValue) {
+                    changesInDetails[key] = changedValue;
+                }
+            });
+
+            dispatch(detailsUpdate(changesInDetails))               
+        } else if (user.name === values.name && userInfo !== true) {
+            console.log('im here2')
+            dispatch(detailsCreate(userInfoChanged))
+        } else if (user.name !== values.name) {
+            console.log('im here3')
+            dispatch(infoUpdate({ name: values.name }));
+        }        
     };
 
   return (
     <div className={cn('UserFrom__container')}>
       <Formik
-        initialValues={initialValues}
+        initialValues={userInfo ? userValues : initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ errors, touched }) => (
+        {({ errors, touched, setFieldValue }) => (
           <Form>
             <div className={cn('basic__infoNameContainer')}>
               <div className={cn('basic__infoName')}>
@@ -277,7 +336,7 @@ const UserForm = () => {
                   )}
                     style={{ marginBottom: 0, marginTop: 22 }}
                 />
-                    {/* <Calendar date={false} arrows={false} /> */}
+                    {/* <Calendar date={false} arrows={false} onChange={setFieldValue} /> */}
                 </div>
             
               </div>

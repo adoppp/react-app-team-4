@@ -50,9 +50,9 @@ const Header = () => {
     
     const routeLogoPath = autheticated ? '/diary' : '/welcome';
     
-    const isGravatar = avatar.includes('gravatar');
+    // const isGravatar = avatar.includes('gravatar');
 
-    const avatarPath = isGravatar ? `${avatar}` : `https://powerpulse-171j.onrender.com/${avatar}`;
+    // const avatarPath = isGravatar ? `${avatar}` : `https://powerpulse-171j.onrender.com/${avatar}`;
 
     const authHeader = (
         <div className={cn('header__routing-container')}>
@@ -80,7 +80,7 @@ const Header = () => {
                     </li>
                     <li className={cn('header__user', {avatarStyle: avatar})}>
                     {avatar ?    
-                        <img src={avatar ? avatarPath : ''} alt='avatar' /> :    
+                        <img src={avatar ? avatar : ''} alt='avatar' /> :    
                         (<Icon
                             iconId="icon-user"
                             w={userSvgStyles}
