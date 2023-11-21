@@ -1,3 +1,6 @@
+@import '../../../scss/colors';
+@import '../../../scss/mixins';
+
 .dropdown {
     position: relative;
    
@@ -82,10 +85,22 @@ cursor: pointer;
 };
 
 .dropdown_item {
-    color: #EFEDE8;
+    color: $snow-white;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.3;
+    cursor: pointer;
+
+    @include transition();
+
+    &:hover {
+        background-color: $silent-gray;
+    }
+
+    &:active {
+        background-color: $lonely-modal-gray;
+    }
+    
     @media screen and (min-width: 768px) {
         font-size: 16px;
         line-height: 1.5;
