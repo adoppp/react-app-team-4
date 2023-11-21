@@ -56,8 +56,10 @@ const ProductsFilters = () => {
     width: widthSelect,
   };
 
+  const heightSelect = isTabletScreen ? 116 : 98;
+
   const listSelectStyle = {
-    height: 98,
+    height: heightSelect,
     overflow: 'hidden',
   };
 

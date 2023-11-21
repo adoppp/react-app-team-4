@@ -2,31 +2,29 @@ import { Icon } from '../../../ui/Icon';
 import styles from './ProductsItem.module.scss';
 import classNames from 'classnames/bind';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectorProducts } from '../../../../storage/selectors/productsSelector.js';
+import { getProducts } from '../../../../storage/operations/productsThunk.js';
+import { useEffect } from 'react';
 
 
 
 const cn = classNames.bind(styles);
 
 const ProductsItem = () => {
+  const dispatch = useDispatch();
+  const { items } = useSelector(selectorProducts);
+  const defaltProduct = 'A';
+  
+   useEffect(() => {
+    dispatch(getProducts(defaltProduct));
+  }, [dispatch]); 
 
-        const {items} = useSelector(selectorProducts);
-
-     const IconStyles = {
-        backgroundColor: ' #EFA082',
-        width: 24,
-        height: 24,
-        borderRadius: 50,
-         
-   } 
   const IconButtonStyles = {
     marginLeft: 8,
  
   };
-  console.log(items)
 
-  
   return <>
     {!items || items.length === 0 ?
       <div className={cn('not_find_text')}>
@@ -50,11 +48,7 @@ const ProductsItem = () => {
          </div>  
         </div >
         <div className={cn('title_container')} >
-              <Icon
-            iconId='icon-running-stick'
-            w={12}
-            h={14}
-            customStyles={IconStyles}/>
+        <Icon iconId="icon-run" w={24} h={24} />
         <h2 className={cn('title')} >{item.title}</h2>
       </div>
         <div className={cn('item_list_container')}>

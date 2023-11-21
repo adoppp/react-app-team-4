@@ -8,7 +8,11 @@ const Select = ({value,customSelectStyle,customListSelectStyle,handleCategoryCha
     const [isSelectOpen, setIsSelectOpen] = useState(false);
     const [buttonText, setButtonText] = useState('Categories');
     
-
+    const capitalizeFirstLetter = (text) => {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+    }
+    
+   const battonCapitalize = capitalizeFirstLetter(buttonText)
     
     const toggleClass = () => {
         setIsSelectOpen(!isSelectOpen);
@@ -43,7 +47,7 @@ const Select = ({value,customSelectStyle,customListSelectStyle,handleCategoryCha
                 style={customSelectStyle ? customSelectStyle : {}}
                 onClick={toggleClass}
                 className={cn('dropdown_button')}>
-                {buttonText}
+                {battonCapitalize}
             </button>
             <ul style={customListSelectStyle ? customListSelectStyle : {}}
                 className={cn(isSelectOpen ? 'dropdown_list' : 'dropdown_list_visible')}>
