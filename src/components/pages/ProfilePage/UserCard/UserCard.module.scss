@@ -73,9 +73,22 @@
     max-width: fit-content;
     cursor: pointer;
 
+    
     & use {
         fill: $christmas-main-orange;
         stroke: $snow-white;
+        
+        @include transition();
+    }
+    
+    &:hover use {
+        fill: $christmas-hover-orange;
+        stroke: $silent-gray;
+    }
+
+    &:active use {
+        fill: $christmas-beige;
+        stroke: $darkness-modal-black;
     }
 
     & input {

@@ -39,12 +39,18 @@ const UserForm = () => {
     const userInfo = useSelector(userInfoSelector);
     const dispatch = useDispatch();
 
+    
+    const formatDate = (date) => {
+        const [year, month, day] = date.split('-');
+        return `${year}-${month}-${day}`;
+    };
+    
     const userValues = {
         name: user.name,
         height: userInfo.height,
         currentWeight: userInfo.currentWeight,
         desiredWeight: userInfo.desiredWeight,
-        birthday: userInfo.birthday,
+        birthday: userInfo.birthday ?  formatDate(userInfo.birthday): '',
         blood: String(userInfo.blood),
         sex: userInfo.sex,
         levelActivity: String(userInfo.levelActivity),
@@ -60,12 +66,7 @@ const UserForm = () => {
         sex: '',
         levelActivity: '',
     }
-    
-    const formatDate = (date) => {
-        const [year, month, day] = date.split('-');
-        return `${year}-${month}-${day}`;
-    };
-    
+
     const getChangesInDetails = (userInfoChanged, userInfo) => {
         const changedKey = Object.keys(userInfoChanged);
         const changesInDetails = {};
@@ -110,21 +111,19 @@ const UserForm = () => {
         const option = user.name === values.name && Object.keys(userInfo).length > 0;
 
         const changesInDetails = getChangesInDetails(userInfoChanged, userInfo);
-
-        const infoUpdateCheck = option ? dispatch(detailsUpdate(changesInDetails)) : dispatch(detailsCreate(userInfoChanged))
         
-        user.name === values.name ? infoUpdateCheck  : dispatch(infoUpdate({ name: values.name }));
+        user.name === values.name ? option ? dispatch(detailsUpdate(changesInDetails)) : dispatch(detailsCreate(userInfoChanged))  : dispatch(infoUpdate({ name: values.name }));
     };
 
 
   return (
     <div className={cn('UserFrom__container')}>
       <Formik
-        initialValues={userInfo ? userValues : initialValues}
+        initialValues={Object.keys(userInfo).length > 0 ? userValues : initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ errors, touched, setFieldValue }) => (
+        {({ errors, touched, setFieldValue, values }) => (
           <Form>
             <div className={cn('basic__infoNameContainer')}>
               <div className={cn('basic__infoName')}>
@@ -331,13 +330,15 @@ const UserForm = () => {
 
               <div className={cn('basic__info')}>
                 <div className={cn('basic__calendary')}>
-                <Field type="date" name="birthday" className={cn(
+                <Field type="date"
+                    name="birthday"
+                    className={cn(
                     'input',
                     // { error: errors.name && touched.name },
                     // { success: !errors.name && touched.name },
                     'bdInput'
                   )}
-                    style={{ marginBottom: 0, marginTop: 22 }}
+                style={{ marginBottom: 0, marginTop: 22 }}
                 />
                     {/* <Calendar date={false} arrows={false} onChange={setFieldValue} /> */}
                 </div>

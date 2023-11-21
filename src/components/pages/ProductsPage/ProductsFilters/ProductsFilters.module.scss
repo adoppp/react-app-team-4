@@ -41,11 +41,14 @@
     border-radius: 12px;
     border: 1px solid#EFEDE84D;
 
+    @include transition();
+
     &:hover{
         border-color: #E6533C;
     };
     &:focus {
         border-color: #E6533C;
+        padding-left: 18px
     }
 
     @media screen and (min-width: 768px) {
