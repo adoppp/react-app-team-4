@@ -51,6 +51,27 @@
     }
 }
 
+.your-button-class {
+    color: rgba(239, 237, 232, 1);
+    font-size: 16px;
+    font-weight: 400;
+    margin-right: 0;
+    gap: 26px;
+}
+
+.btn-custom-class {
+    margin-right: 0;
+
+}
+
+.your-custom-class {
+    border: 1px solid rgba(239, 237, 232, 0.3);
+    border-radius: 12px;
+    padding: 14px;
+    height: 46px;
+    width: 160px;
+}
+
 .icon-previous-btn-icon,
 .icon-next-btn-icon {
     background-color: transparent;

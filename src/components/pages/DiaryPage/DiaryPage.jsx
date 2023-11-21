@@ -33,7 +33,7 @@ const DiaryPage = () => {
         <div className={cn('diary-container')}>
             <div className={cn('calendar__container')}>
             <div className={cn('calendar__component_wrapper')}>
-                <Calendar />
+                <Calendar initialDate={new Date()}/>
             </div>
                 <Title customContainerStyles={{marginTop: '20px'}} title="Diary" />
             </div>

@@ -5,37 +5,53 @@ import DatePicker from 'react-datepicker';
 import { Icon } from '../Icon';
 import './Calendar.scss';
 
-const Calendar = () => {
-    const [selectedDate, setSelectedDate] = useState(new Date());
-
+const Calendar = ({
+    initialDate,
+    containerClass,
+    buttonClass,
+    showNavigationButtons = true,
+    onChange,
+    calendarIconSize = { width: 18, height: 18 },
+}) => {
+    console.log({ initialDate });
+    const [selectedDate, setSelectedDate] = useState(initialDate);
     const isTabletScreen = useMediaQuery({ minWidth: 768 });
     const iconCalendarHeight = isTabletScreen ? 24 : 20;
     const iconCalendarWidth = isTabletScreen ? 24 : 20;
 
+    console.log({ selectedDate });
+
     const BtnInput = forwardRef(({ value, onClick }, ref) => (
-        <div className={'button-wrapper'}>
+        <div className={`button-wrapper ${buttonClass}`}>
             <button
-                className={'button-calendar'}
+                type="button"
+                className={`button-calendar ${buttonClass}`}
                 onClick={() => onClick()}
                 ref={ref}
             >
-                {value}
+                {value ? value : '00.00.0000'}
                 <Icon
                     iconId="icon-calendar"
-                    w={iconCalendarHeight}
-                    h={iconCalendarWidth}
+                    w={calendarIconSize.width || iconCalendarHeight}
+                    h={calendarIconSize.height || iconCalendarWidth}
                 />
             </button>
-
-            <button
-                className={'icon-previous-btn-icon'}
-                onClick={handlePrevDay}
-            >
-                <Icon iconId="calendar-arrow-left" w={16} h={16} />
-            </button>
-            <button className={'icon-next-btn-icon'} onClick={handleNextDay}>
-                <Icon iconId="calendar-arrow-right" w={16} h={16} />
-            </button>
+            {showNavigationButtons && (
+                <>
+                    <button
+                        className={'icon-previous-btn-icon'}
+                        onClick={handlePrevDay}
+                    >
+                        <Icon iconId="calendar-arrow-left" w={16} h={16} />
+                    </button>
+                    <button
+                        className={'icon-next-btn-icon'}
+                        onClick={handleNextDay}
+                    >
+                        <Icon iconId="calendar-arrow-right" w={16} h={16} />
+                    </button>
+                </>
+            )}
         </div>
     ));
 
@@ -52,7 +68,7 @@ const Calendar = () => {
     };
 
     return (
-        <div className="calendar-container">
+        <div className={`calendar-container ${containerClass}`}>
             <DatePicker
                 renderCustomHeader={({
                     monthDate,
@@ -74,6 +90,7 @@ const Calendar = () => {
                             onClick={() => {
                                 decreaseMonth();
                             }}
+                            type="button"
                         >
                             <Icon
                                 iconId="icon-Arrow-next"
@@ -98,6 +115,7 @@ const Calendar = () => {
                             onClick={() => {
                                 increaseMonth();
                             }}
+                            type="button"
                         >
                             <Icon
                                 iconId="icon-Arrow-previous"
@@ -113,9 +131,11 @@ const Calendar = () => {
                 selected={selectedDate}
                 onChange={(date) => {
                     setSelectedDate(date);
+                    onChange(date);
                 }}
                 onMonthChange={(date) => {
                     setSelectedDate(date);
+                    onChange(date);
                 }}
                 dateFormat={'dd/MM/yyyy'}
                 calendarStartDay={1}
