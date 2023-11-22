@@ -9,6 +9,7 @@ import {
     infoUpdate,
     detailsUpdate,
     detailsCreate,
+    // getParameters,
 } from '../operations/authThunk';
 import {
     getProducts,
@@ -18,7 +19,7 @@ import {
     exercisesCategory,
     getAllExercises,
 } from '../operations/exercisesThunk';
-import { getDiaryInfo, deleteProduct, deleteExercise, addProduct, addExercise, getUser } from "../operations/diaryThunk";
+import { getDiaryInfo, deleteProduct, deleteExercise, addProduct, addExercise, } from "../operations/diaryThunk";
 
 const initialState = {
     isLoading: false,
@@ -109,9 +110,9 @@ const loadingSlice = createSlice({
             .addCase(addExercise.fulfilled, FILFILLED)
             .addCase(addExercise.rejected, REJECTED)
         
-            .addCase(getUser.pending, PENDING)
-            .addCase(getUser.fulfilled, FILFILLED)
-            .addCase(getUser.rejected, REJECTED)
+            // .addCase(getParameters.pending, PENDING)
+            // .addCase(getParameters.fulfilled, FILFILLED)
+            // .addCase(getParameters.rejected, REJECTED)
     },
 });
 

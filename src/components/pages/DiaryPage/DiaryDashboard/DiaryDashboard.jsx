@@ -1,28 +1,41 @@
 import classNames from 'classnames/bind';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-
 import styles from './DiaryDashboard.module.scss';
 import { Icon } from '../../../ui/Icon';
-import { getUser } from '../../../../storage/operations/diaryThunk';
-
+import { useSelector } from 'react-redux';
+import { userInfoSelector } from '../../../../storage/selectors/authSelectors';
 
 const cn = classNames.bind(styles);
 
 const DiaryDashboard = () => {
-    const dispatch = useDispatch();
-    const userData = useSelector(state => state.diary.user);
+    const userData = useSelector(userInfoSelector);
+    const products = useSelector((state) => state.diary.products);
+    const exercises = useSelector((state) => state.diary.exercises);
     
-    useEffect(() => {
-        dispatch(getUser);
-    }, [dispatch]);
-
+    const totalExerciseTime = exercises.reduce((total, exercise) => {
+        return total + exercise.exercise.time; 
+    }, 0);
+    
+    const totalCaloruesConsumed = products.reduce((total, product) => {
+        return total + product.product.calories; 
+    }, 0);
+       const totalCaloruesBurned = exercises.reduce((total, exercise) => {
+        return total + exercise.exercise.burnedCalories; 
+    }, 0);
 
 
     const iconStyles = {
         fill: '#EF8964',
         marginRight: '6px',
     };
+
+    const calories = userData
+        ? Math.round(userData.BMR)
+        : 0;
+
+    
+    const isCaloriesExceeded = calories < totalCaloruesConsumed;
+    const isExerciseRemaining = userData.dailyExerciseTime > totalExerciseTime;
+
 
     return (
         <div>
@@ -37,7 +50,7 @@ const DiaryDashboard = () => {
                         />
                         Daily calorie intake
                     </p>
-                    <p className={cn('dashboard__item__number')}>{ userData.dailyCalories }</p>
+                    <p className={cn('dashboard__item__number')}>{calories}</p>
                 </li>
                 <li className={cn('red')}>
                     <p className={cn('dashboard__item__desc')}>
@@ -49,7 +62,9 @@ const DiaryDashboard = () => {
                         />
                         Daily physical activity
                     </p>
-                    <p className={cn('dashboard__item__number')}>{ userData.dailyExerciseTime }</p>
+                    <p className={cn('dashboard__item__number')}>
+                        {userData.dailyExerciseTime} min
+                    </p>
                 </li>
                 <li>
                     <p className={cn('dashboard__item__desc')}>
@@ -61,7 +76,7 @@ const DiaryDashboard = () => {
                         />
                         Сalories consumed
                     </p>
-                    <p className={cn('dashboard__item__number')}>2200</p>
+                    <p className={cn('dashboard__item__number')}>{ totalCaloruesConsumed }</p>
                 </li>
                 <li>
                     <p className={cn('dashboard__item__desc')}>
@@ -73,9 +88,9 @@ const DiaryDashboard = () => {
                         />
                         Сalories burned
                     </p>
-                    <p className={cn('dashboard__item__number')}>2200</p>
+                    <p className={cn('dashboard__item__number')}>{ totalCaloruesBurned }</p>
                 </li>
-                <li>
+                <li className={cn('dashboard__item', { 'green': isExerciseRemaining, 'red': !isExerciseRemaining })}>
                     <p className={cn('dashboard__item__desc')}>
                         <Icon
                             iconId="icon-bubble"
@@ -85,9 +100,9 @@ const DiaryDashboard = () => {
                         />
                         Calories remaining
                     </p>
-                    <p className={cn('dashboard__item__number')}>2200</p>
+                    <p className={cn('dashboard__item__number')}>{calories - totalCaloruesConsumed }</p>
                 </li>
-                <li>
+                <li className={cn('dashboard__item',{ 'green': isExerciseRemaining, 'red': !isExerciseRemaining })}>
                     <p className={cn('dashboard__item__desc')}>
                         <Icon
                             iconId="icon-running"
@@ -97,7 +112,7 @@ const DiaryDashboard = () => {
                         />
                         Sports remaining
                     </p>
-                    <p className={cn('dashboard__item__number')}>2200</p>
+                    <p className={cn('dashboard__item__number')}>{ userData.dailyExerciseTime - totalExerciseTime } min</p>
                 </li>
             </ul>
             <p className={cn('dashboard__desc')}>

@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from './authThunk';
 
+
 const REJECTED = (thunkAPI, e) => thunkAPI.rejectWithValue(e.message);
 
 export const getDiaryInfo = createAsyncThunk(
@@ -16,19 +17,6 @@ export const getDiaryInfo = createAsyncThunk(
         }
     },
 );
-
-export const getUser = createAsyncThunk(
-    'user/getUser',
-    async (user, thunkAPI) => {
-        try {
-            const response = await instance.get('user')
-            return response.data;
-        } catch (e) {
-            return REJECTED(thunkAPI, e);
-        }
-    }
-);
-
 
 export const deleteProduct = createAsyncThunk(
     'diary/deleteProduct',
@@ -46,7 +34,7 @@ export const deleteExercise = createAsyncThunk(
     'diary/deleteExercise',
     async ({ id, date }, thunkAPI) => {
         try {
-            const payload = { id, date };
+            const payload = { date };
             const response = await instance.delete(`diary/exercise/${id}`, { data: payload });
         } catch (e) {
             return REJECTED(thunkAPI, e);

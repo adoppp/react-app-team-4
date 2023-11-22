@@ -9,6 +9,7 @@ import {
     infoUpdate,
     detailsUpdate,
     detailsCreate,
+    // getParameters,
 } from '../operations/authThunk';
 import {
     getProducts,
@@ -18,7 +19,7 @@ import {
     exercisesCategory,
     getAllExercises,
 } from '../operations/exercisesThunk';
-import { getDiaryInfo, deleteProduct, deleteExercise, addProduct, addExercise, getUser } from "../operations/diaryThunk";
+import { getDiaryInfo, deleteProduct, deleteExercise, addProduct, addExercise, } from "../operations/diaryThunk";
 
 const initialState = {
     message: null,
@@ -89,8 +90,8 @@ const errorSlice = createSlice({
             .addCase(addExercise.rejected, REJECTED)
         
                 
-            .addCase(getUser.pending, PENDING)
-            .addCase(getUser.rejected, REJECTED)
+            // .addCase(getParameters.pending, PENDING)
+            // .addCase(getParameters.rejected, REJECTED)
         
             
     },

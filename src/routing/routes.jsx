@@ -17,6 +17,9 @@ const ProductsPage = lazy(() =>
 const ExercisesPage = lazy(() =>
     import('../components/pages/ExercisesPage/ExercisesPage'),
 );
+const ProductsContainer = lazy(() =>
+    import('../components/containers/ProductsContainer/ProductsContainer'),
+);
 
 import { Welcome } from '../components/global/Welcome';
 import { SignUp } from '../components/auth/SignUp';
@@ -100,9 +103,9 @@ const appRoutes = [
         path: routes.PRODUCTS_ROUTE,
         element: (
             <PrivateRoute>
-                <PrivateContainer>
+                <ProductsContainer>
                     <ProductsPage />
-                </PrivateContainer>
+                </ProductsContainer>
             </PrivateRoute>
         ),
     },

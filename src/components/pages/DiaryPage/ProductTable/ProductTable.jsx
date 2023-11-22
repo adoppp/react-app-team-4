@@ -4,25 +4,31 @@ import { Link } from 'react-router-dom';
 
 import styles from './ProductTable.module.scss';
 import { Icon } from '../../../ui/Icon';
-import { deleteProduct } from '../../../../storage/operations/diaryThunk';
+import { deleteProduct,getDiaryInfo } from '../../../../storage/operations/diaryThunk';
 import { userInfoSelector } from '../../../../storage/selectors/authSelectors';
+
 
 
 
 const cn = classNames.bind(styles);
 
-const ProductTable = ({ products }) => {
+const ProductTable = () => {
 
     const selectedDate = useSelector((state) => state.diary.selectedDate);
+    const products = useSelector((state) => state.diary.products);
+
     const userData = useSelector(userInfoSelector);
     const bloodType = userData.blood;
 
 
     const dispatch = useDispatch();
 
-    const handleDelete = (productId) => {
-        dispatch(deleteProduct({ id: productId, date: selectedDate }));
-      };
+   const handleDelete = (productId) => {
+    dispatch(deleteProduct({ id: productId, date: selectedDate }))
+        .then(() => {
+            dispatch(getDiaryInfo(selectedDate));
+        });
+};
 
 
 const IconButtonStyles = {
@@ -42,26 +48,27 @@ const IconButtonStyles = {
                  <p className={cn('notFound')}>Not found products</p>
              ) : (
                          <ul className={cn('container__list')}>
-                 {products.map(product => {
-                    const isNotAllowedForBloodType = product.groupBloodNotAllowed[bloodType];
+                         {products.map(product => {
+                             const { _id, title, category, calories, weight, groupBloodNotAllowed } = product.product;
+                             const isNotAllowedForBloodType = groupBloodNotAllowed[bloodType];
 
                     return (
-                        <li key={product._id}>
+                        <li key={_id}>
                              <div className={cn('big-gap')}>
                             <h3 className={cn('container__label')}>Title</h3>
-                            <p className={cn('container__input', 'title')}>{product.title}</p>
+                            <p className={cn('container__input', 'title')}>{title}</p>
                         </div>
                         <div className={cn('big-gap')}>
                             <h3 className={cn('container__label')}>Category</h3>
-                            <p className={cn('container__input', 'category')}>{product.category}</p>
+                            <p className={cn('container__input', 'category')}>{category}</p>
                         </div>
                         <div className={cn('big-gap')}>
                             <h3 className={cn('container__label')}>Calories</h3>
-                            <p className={cn('container__input__small')}>{product.calories}</p>
+                            <p className={cn('container__input__small')}>{calories}</p>
                         </div>
                         <div className={cn('big-gap')}>
                             <h3 className={cn('container__label')}>Weight</h3>
-                            <p className={cn('container__input__small')}>{product.weight}</p>
+                            <p className={cn('container__input__small')}>{weight}</p>
                         </div>
                         <div className={cn('small-gap')}>
                             <h3 className={cn('container__label')}>Recommend</h3>
@@ -69,7 +76,7 @@ const IconButtonStyles = {
                                 {isNotAllowedForBloodType ? 'No' : 'Yes'}
                             </p>
                         </div>
-                            <span onClick={() => handleDelete(product._id)}>
+                            <span onClick={() => handleDelete(_id)}>
                                 <Icon iconId="icon-trash" w={20} h={20} customStyles={{}} />
                             </span>
                         </li>

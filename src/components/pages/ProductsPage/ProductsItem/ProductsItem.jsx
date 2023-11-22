@@ -7,7 +7,7 @@ import { selectorProducts } from '../../../../storage/selectors/productsSelector
 
 const cn = classNames.bind(styles);
 
-const ProductsItem = ({open}) => {
+const ProductsItem = ({ open }) => {
     const { items } = useSelector(selectorProducts);
 
     const IconStyles = {
@@ -19,7 +19,6 @@ const ProductsItem = ({open}) => {
     const IconButtonStyles = {
         marginLeft: 8,
     };
-    console.log(items);
 
     return (
         <>
@@ -45,7 +44,16 @@ const ProductsItem = ({open}) => {
                                 <p className={cn('diet')}>DIET</p>
                                 <div className={cn('button_container')}>
                                     <p className={cn('text')}>Recommended</p>
-                                    <button className={cn('button')} onClick={open}>
+                                    <button
+                                        className={cn('button')}
+                                        onClick={() =>
+                                            open(
+                                                item.title,
+                                                item.calories,
+                                                item._id,
+                                            )
+                                        }
+                                    >
                                         Add
                                         <Icon
                                             iconId="icon-next"

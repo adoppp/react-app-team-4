@@ -4,18 +4,24 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import styles from './ExercisesTable.module.scss';
 import { Icon } from '../../../ui/Icon';
-import { deleteExercise } from '../../../../storage/operations/diaryThunk';
+import { deleteExercise, getDiaryInfo } from '../../../../storage/operations/diaryThunk';
 
 const cn = classNames.bind(styles);
 
-const ExercisesTable = ({exercises}) => {
+const ExercisesTable = () => {
 
     const selectedDate = useSelector((state) => state.diary.selectedDate);
+    const exercises = useSelector((state) => state.diary.exercises);
     const dispatch = useDispatch();
 
     const handleDelete = (exerciseId) => {
-        dispatch(deleteExercise({ id: exerciseId, date: selectedDate }));
-    };
+    dispatch(deleteExercise({ id: exerciseId, date: selectedDate }))
+        .then(() => {
+            dispatch(getDiaryInfo(selectedDate));
+        });
+};
+
+
       const IconButtonStyles = {
         marginLeft: 6,
     };
@@ -31,39 +37,43 @@ const ExercisesTable = ({exercises}) => {
             </div>
             {(!exercises || exercises.length === 0) ? (
                 <p className={cn('notFound')}>Not found exercises</p>
-            ) : (  <ul className={cn('container__list')}>
-                {exercises.map(exercise => (
-                    <li key={exercise._id}>
-                        <div className={cn('big-gap')}>
-                            <h3 className={cn('container__label')}>Body Part</h3>
-                            <p className={cn('container__input', 'title')}>{exercise.bodyPart}</p>
-                        </div>
-                        <div className={cn('big-gap')}>
-                            <h3 className={cn('container__label')}>Equipment</h3>
-                            <p className={cn('container__input', 'category')}>{exercise.equipment}</p>
-                        </div>
-                        <div className={cn('big-gap')}>
-                            <h3 className={cn('container__label')}>Name</h3>
-                            <p className={cn('container__input', 'name')}>{exercise.name}</p>
-                        </div>
-                        <div className={cn('big-gap')}>
-                            <h3 className={cn('container__label')}>Target</h3>
-                            <p className={cn('container__input__small', 'target')}>{exercise.target}</p>
-                        </div>
-                        <div className={cn('big-gap')}>
-                            <h3 className={cn('container__label')}>Burned Calories</h3>
-                            <p className={cn('container__input__small', 'burned')}>{exercise.burnedCalories}</p>
-                        </div>
-                        <div className={cn('small-gap')}>
-                            <h3 className={cn('container__label')}>Time</h3>
-                            <p className={cn('container__input__small', 'time')}>{exercise.time}</p>
-                        </div>
+            ) : ( <ul className={cn('container__list')}>
+                    {exercises.map(exercise => {
+                        const { _id, bodyPart,equipment,name, target, burnedCalories, time} = exercise.exercise;
+                
+                        return (
+                                 <li key={_id}>
+                            <div className={cn('big-gap')}>
+                                <h3 className={cn('container__label')}>Body Part</h3>
+                                <p className={cn('container__input', 'title')}>{bodyPart}</p>
+                            </div>
+                            <div className={cn('big-gap')}>
+                                <h3 className={cn('container__label')}>Equipment</h3>
+                                <p className={cn('container__input', 'category')}>{equipment}</p>
+                            </div>
+                            <div className={cn('big-gap')}>
+                                <h3 className={cn('container__label')}>Name</h3>
+                                <p className={cn('container__input', 'name')}>{name}</p>
+                            </div>
+                            <div className={cn('big-gap')}>
+                                <h3 className={cn('container__label')}>Target</h3>
+                                <p className={cn('container__input__small', 'target')}>{target}</p>
+                            </div>
+                            <div className={cn('big-gap')}>
+                                <h3 className={cn('container__label')}>Burned Calories</h3>
+                                <p className={cn('container__input__small', 'burned')}>{burnedCalories}</p>
+                            </div>
+                            <div className={cn('small-gap')}>
+                                <h3 className={cn('container__label')}>Time</h3>
+                                <p className={cn('container__input__small', 'time')}>{time}</p>
+                            </div>
 
-                        <span onClick={() => handleDelete(exercise._id)}>
-                            <Icon iconId="icon-trash" w={20} h={20} customStyles={{}} />
-                        </span>
-                    </li>
-                ))}
+                            <span onClick={() => handleDelete(_id)}>
+                                <Icon iconId="icon-trash" w={20} h={20} customStyles={{}} />
+                            </span>
+                        </li>
+                            )
+                    })}
             </ul>)}
         </div>
     );

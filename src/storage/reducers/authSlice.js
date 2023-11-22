@@ -9,13 +9,18 @@ import {
     infoUpdate,
     detailsUpdate,
     detailsCreate,
+    // getParameters,
 } from '../operations/authThunk';
 
 const initialState = {
-    userData: {
-        avatarURL: '',
+    userDetails: {
+        userData: { avatarURL: '' },
+        userInfo: {},
+        userParameters: {
+            dailyCalories: 0,
+            dailyExerciseTime: 0,
+        },
     },
-    userInfo: {},
     authenticated: false,
     token: null,
 };
@@ -27,38 +32,55 @@ const authSlice = createSlice({
         builder
             .addCase(registration.fulfilled, (state, action) => {
                 state.authenticated = true;
-                state.userData = action.payload.user;
+                state.userDetails.userData = {
+                    avatarURL: '',
+                    ...action.payload,
+                };
+                state.userDetails.userParameters = {
+                    dailyCalories: 0,
+                    dailyExerciseTime: 0,
+                };
                 state.token = action.payload.token;
             })
             .addCase(login.fulfilled, (state, action) => {
                 state.authenticated = true;
-                state.userData = action.payload.user;
+                state.userDetails = action.payload;
                 state.token = action.payload.token;
             })
             .addCase(logout.fulfilled, (state) => {
                 state.authenticated = false;
-                state.userData = {
+                state.userDetails.userData = {
                     avatarURL: '',
                 };
-                state.userInfo = {};
+                state.userDetails.userInfo = {};
+                state.userDetails.userParameters = {
+                    dailyCalories: 0,
+                    dailyExerciseTime: 0,
+                };
                 state.token = null;
             })
             .addCase(refreshUser.fulfilled, (state, action) => {
                 state.authenticated = true;
-                state.userData = action.payload;
+                state.userDetails = action.payload;
             })
             .addCase(avatarUpdate.fulfilled, (state, action) => {
-                state.userData.avatarURL = action.payload;
+                state.userDetails.userData.avatarURL = action.payload;
             })
             .addCase(infoUpdate.fulfilled, (state, action) => {
-                state.userData.name = action.payload.name;
+                state.userDetails.userData.name = action.payload.name;
             })
             .addCase(detailsUpdate.fulfilled, (state, action) => {
-                state.userInfo = { ...state.userInfo, ...action.payload };
+                state.userDetails.userInfo = {
+                    ...state.userDetails.userInfo,
+                    ...action.payload,
+                };
             })
             .addCase(detailsCreate.fulfilled, (state, action) => {
-                state.userInfo = action.payload;
-            });
+                state.userDetails.userInfo = action.payload;
+            })
+            // .addCase(getParameters.fulfilled, (state, action) => {
+            //     state.userDetails.userParameters = action.payload;
+            // });
     },
 });
 

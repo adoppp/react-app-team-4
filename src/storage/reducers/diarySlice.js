@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getDiaryInfo, getUser } from '../operations/diaryThunk';
+import { getDiaryInfo, deleteProduct, addProduct, deleteExercise, addExercise } from '../operations/diaryThunk';
 
 export const formatDate = (date) => {
   const day = date.getDate().toString().padStart(2, '0');
@@ -11,11 +11,9 @@ export const formatDate = (date) => {
 
 const initialState = {
   data: null,
+  products: [],
+  exercises: [],
   selectedDate: formatDate(new Date()),
-  user: {
-        dailyCalories: 0,
-        dailyExerciseTime: 0
-    }
 };
 
 const diarySlice = createSlice({
@@ -28,13 +26,30 @@ const diarySlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-     .addCase(getDiaryInfo.fulfilled, (state, action) => {
-        state.data = action.payload;
+      .addCase(getDiaryInfo.fulfilled, (state, action) => {
+      if (action.payload.message === "Day is empty") {
+    state.data = null;
+    state.products = [];
+    state.exercises = [];
+  } else {
+    state.data = action.payload.days;
+    state.products = action.payload.days[0]?.products || [];
+    state.exercises = action.payload.days[0]?.exercises || [];
+  }
       })
-      .addCase(getUser.fulfilled, (state, action) => {
-        state.user.dailyCalories = action.payload.dailyCalories;
-        state.user.dailyExerciseTime = action.payload.dailyExerciseTime;
-      });
+    .addCase(deleteProduct.fulfilled, (state, action) => {
+        const productId = action.meta.arg.id;
+        state.products = state.products.filter(product => product.product._id !== productId);
+    })
+    .addCase(deleteExercise.fulfilled, (state, action) => {
+        const exerciseID = action.meta.arg.id;
+        state.exercises = state.exercises.filter(exercise => exercise.exercise._id !== exerciseID);
+    })
+    // .addCase(addProduct.fulfilled, (state, action) => {
+    //    state.products.push(action.payload);
+    // })
+    
+
   },
 });
 
