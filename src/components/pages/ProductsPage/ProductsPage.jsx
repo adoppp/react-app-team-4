@@ -3,7 +3,7 @@ import { ProductsList } from './ProductsList';
 import { Title } from '../../global/Title/Title';
 import styles from './ProductsPage.module.scss';
 import classNames from 'classnames/bind';
-import { ProductsModal } from './ProductsModal'
+import { ProductsModal } from './ProductsModal';
 import { Modal } from '../../ui/Modal';
 import { useState } from 'react';
 
@@ -11,24 +11,20 @@ const cn = classNames.bind(styles);
 
 const ProductsPage = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [productDetails, setProductDetails] = useState({})
-    
+    const [productDetails, setProductDetails] = useState({});
+
     const titleProduts = {};
-    
-    const handleOpen = (
-        name,
-        cal,
-        _id
-    ) => {
-        setProductDetails({ name, cal, _id })
-        
-        setIsOpen(true)
-    }
-    
+
+    const handleOpen = (name, cal, _id) => {
+        setProductDetails({ name, cal, _id });
+
+        setIsOpen(true);
+    };
+
     const handleClose = () => {
-        setIsOpen(false)
-    }
-        
+        setIsOpen(false);
+    };
+
     return (
         <div>
             <div className={cn('products_page_container')}>
@@ -36,11 +32,14 @@ const ProductsPage = () => {
                 <ProductsFilters />
             </div>
             <ProductsList open={handleOpen} />
-            {isOpen &&
-            <Modal customClose={handleClose}>
-                <ProductsModal close={handleClose} product={productDetails} />
-            </Modal>
-            }
+            {isOpen && (
+                <Modal customClose={handleClose}>
+                    <ProductsModal
+                        close={handleClose}
+                        product={productDetails}
+                    />
+                </Modal>
+            )}
         </div>
     );
 };

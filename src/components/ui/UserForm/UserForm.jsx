@@ -1,10 +1,7 @@
-import React from 'react';
-import { Calendar } from '../Calendar/Calendar';
 import classNames from 'classnames/bind';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import styles from './UserForm.module.scss';
-import { Input } from '../Input/Input';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,6 +14,7 @@ import {
     detailsUpdate,
     detailsCreate,
 } from '../../../storage/operations/authThunk';
+import { useState } from 'react';
 
 const cn = classNames.bind(styles);
 
@@ -47,9 +45,8 @@ const validationSchema = Yup.object().shape({
 
 const UserForm = () => {
     const user = useSelector(userSelector);
-    console.log("🚀 ~ file: UserForm.jsx:50 ~ UserForm ~ user:", user)
     const userInfo = useSelector(userInfoSelector);
-    console.log("🚀 ~ file: UserForm.jsx:51 ~ UserForm ~ userInfo:", userInfo)
+    const [isDisabled, setIsDisabled] = useState(false);
     const dispatch = useDispatch();
 
     const formatDate = (date) => {
@@ -114,7 +111,8 @@ const UserForm = () => {
             levelActivity,
         };
 
-        const option = user.name === values.name && Object.keys(userInfo).length > 0;
+        const option =
+            user.name === values.name && Object.keys(userInfo).length > 0;
 
         const changesInDetails = getChangesInDetails(userInfoChanged, userInfo);
 
@@ -136,7 +134,7 @@ const UserForm = () => {
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
             >
-                {({ errors, touched, setFieldValue, values }) => (
+                {({ errors, touched, values }) => (
                     <Form>
                         <div className={cn('basic__infoNameContainer')}>
                             <div className={cn('basic__infoName')}>
@@ -714,7 +712,10 @@ const UserForm = () => {
                         </div>
 
                         <div>
-                            <Button label="Save" type="submit" />
+                            <Button
+                                label="Save"
+                                type="submit"
+                            />
                         </div>
                     </Form>
                 )}

@@ -9,14 +9,17 @@ import {
     infoUpdate,
     detailsUpdate,
     detailsCreate,
+    getParameters,
 } from '../operations/authThunk';
 
 const initialState = {
     userDetails: {
-        userData: {
-            avatarURL: '',
-        },
+        userData: { avatarURL: '' },
         userInfo: {},
+        userParameters: {
+            dailyCalories: 0,
+            dailyExerciseTime: 0,
+        },
     },
     authenticated: false,
     token: null,
@@ -29,7 +32,14 @@ const authSlice = createSlice({
         builder
             .addCase(registration.fulfilled, (state, action) => {
                 state.authenticated = true;
-                state.userDetails = action.payload;
+                state.userDetails.userData = {
+                    avatarURL: '',
+                    ...action.payload,
+                };
+                state.userDetails.userParameters = {
+                    dailyCalories: 0,
+                    dailyExerciseTime: 0,
+                };
                 state.token = action.payload.token;
             })
             .addCase(login.fulfilled, (state, action) => {
@@ -43,6 +53,10 @@ const authSlice = createSlice({
                     avatarURL: '',
                 };
                 state.userDetails.userInfo = {};
+                state.userDetails.userParameters = {
+                    dailyCalories: 0,
+                    dailyExerciseTime: 0,
+                };
                 state.token = null;
             })
             .addCase(refreshUser.fulfilled, (state, action) => {
@@ -56,10 +70,16 @@ const authSlice = createSlice({
                 state.userDetails.userData.name = action.payload.name;
             })
             .addCase(detailsUpdate.fulfilled, (state, action) => {
-                state.userDetails.userInfo = { ...state.userDetails.userInfo, ...action.payload };
+                state.userDetails.userInfo = {
+                    ...state.userDetails.userInfo,
+                    ...action.payload,
+                };
             })
             .addCase(detailsCreate.fulfilled, (state, action) => {
                 state.userDetails.userInfo = action.payload;
+            })
+            .addCase(getParameters.fulfilled, (state, action) => {
+                state.userDetails.userParameters = action.payload;
             });
     },
 });

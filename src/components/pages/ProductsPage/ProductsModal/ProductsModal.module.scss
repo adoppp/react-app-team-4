@@ -3,12 +3,13 @@
 @import '../../../../scss/mixins';
 
 .product_modal {
-
     // width: 335px;
     // height: 280px;
-    @media screen and (min-width: 768px) {}
+    @media screen and (min-width: 768px) {
+    }
 
-    @media screen and (min-width: 1440px) {}
+    @media screen and (min-width: 1440px) {
+    }
 }
 
 .input {
@@ -37,7 +38,8 @@
         height: 40px;
     }
 
-    @media screen and (min-width: 1440px) {}
+    @media screen and (min-width: 1440px) {
+    }
 }
 
 .input_container-grams {
@@ -66,18 +68,17 @@
     border: 1px solid$snow-alpha-white;
 
     @include transition();
-    
+
     &:focus {
         border-color: $christmas-main-orange;
     }
-    
+
     @media screen and (min-width: 768px) {
         width: 155px;
         height: 40px;
         margin-left: 16px;
     }
 }
-
 
 .button_container {
     display: flex;
@@ -124,8 +125,10 @@
     top: 11px;
     right: 14px;
 
-    color: rgba(239, 237, 232, 0.40);
-    font-feature-settings: 'clig' off, 'liga' off;
+    color: rgba(239, 237, 232, 0.4);
+    font-feature-settings:
+        'clig' off,
+        'liga' off;
     font-size: 12px;
     font-weight: 400;
     line-height: 1.5;

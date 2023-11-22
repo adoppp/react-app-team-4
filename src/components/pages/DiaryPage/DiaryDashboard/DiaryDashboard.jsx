@@ -1,16 +1,26 @@
 import classNames from 'classnames/bind';
-import { useMediaQuery } from 'react-responsive';
-
 import styles from './DiaryDashboard.module.scss';
 import { Icon } from '../../../ui/Icon';
+import { useSelector } from 'react-redux';
+import { userParametersSelector } from '../../../../storage/selectors/authSelectors';
 
 const cn = classNames.bind(styles);
 
 const DiaryDashboard = () => {
+    const userParameters = useSelector(userParametersSelector);
+
     const iconStyles = {
         fill: '#EF8964',
         marginRight: '6px',
     };
+
+    const calories = userParameters
+        ? Math.round(userParameters.dailyCalories)
+        : 0;
+
+    const exTime = userParameters
+        ? Math.round(userParameters.dailyExerciseTime)
+        : 0;
 
     return (
         <div>
@@ -25,7 +35,7 @@ const DiaryDashboard = () => {
                         />
                         Daily calorie intake
                     </p>
-                    <p className={cn('dashboard__item__number')}>2200</p>
+                    <p className={cn('dashboard__item__number')}>{calories}</p>
                 </li>
                 <li className={cn('red')}>
                     <p className={cn('dashboard__item__desc')}>
@@ -37,7 +47,9 @@ const DiaryDashboard = () => {
                         />
                         Daily physical activity
                     </p>
-                    <p className={cn('dashboard__item__number')}>2200</p>
+                    <p className={cn('dashboard__item__number')}>
+                        {`${exTime} `}min
+                    </p>
                 </li>
                 <li>
                     <p className={cn('dashboard__item__desc')}>
