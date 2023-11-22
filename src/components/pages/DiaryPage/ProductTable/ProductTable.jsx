@@ -48,7 +48,8 @@ const IconButtonStyles = {
              ) : (
                          <ul className={cn('container__list')}>
                          {products.map(product => {
-                             const { _id, title, category, calories, weight, groupBloodNotAllowed } = product.product;
+                             const { _id, title, category, groupBloodNotAllowed } = product.product;
+                             const { weight, consumedCalories } = product;
                              const isNotAllowedForBloodType = groupBloodNotAllowed[bloodType];
 
                     return (
@@ -63,7 +64,7 @@ const IconButtonStyles = {
                         </div>
                         <div className={cn('big-gap')}>
                             <h3 className={cn('container__label')}>Calories</h3>
-                            <p className={cn('container__input__small')}>{calories}</p>
+                            <p className={cn('container__input__small')}>{consumedCalories}</p>
                         </div>
                         <div className={cn('big-gap')}>
                             <h3 className={cn('container__label')}>Weight</h3>

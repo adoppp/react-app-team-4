@@ -16,7 +16,7 @@ const DiaryDashboard = () => {
     }, 0);
     
     const totalCaloruesConsumed = products.reduce((total, product) => {
-        return total + product.product.calories; 
+        return total + product.consumedCalories; 
     }, 0);
     
     const totalCaloruesBurned = exercises.reduce((total, exercise) => {
