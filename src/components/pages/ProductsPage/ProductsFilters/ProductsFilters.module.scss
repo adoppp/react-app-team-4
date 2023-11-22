@@ -8,16 +8,19 @@
     flex-wrap: wrap;
     gap: 16px;
     padding-top: 40px;
+    width: min-content;
     max-width: 400px;
 
     @media screen and (min-width: 768px) {
-        width: 768px;
+        max-width: fit-content;
         flex-wrap: nowrap;
+        
     }
 
     @media screen and (min-width: 1440px) {
         width: 1440px;
         padding-top: 0;
+        justify-content: flex-end;
     }
 }
 

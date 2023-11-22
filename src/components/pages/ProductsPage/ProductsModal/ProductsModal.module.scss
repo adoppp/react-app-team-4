@@ -65,12 +65,19 @@
     border-radius: 12px;
     border: 1px solid$snow-alpha-white;
 
+    @include transition();
+    
+    &:focus {
+        border-color: $christmas-main-orange;
+    }
+    
     @media screen and (min-width: 768px) {
         width: 155px;
         height: 40px;
         margin-left: 16px;
     }
 }
+
 
 .button_container {
     display: flex;
@@ -122,4 +129,8 @@
     font-size: 12px;
     font-weight: 400;
     line-height: 1.5;
+}
+
+.container {
+    margin-top: 6px;
 }

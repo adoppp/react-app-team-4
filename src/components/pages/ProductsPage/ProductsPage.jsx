@@ -11,16 +11,24 @@ const cn = classNames.bind(styles);
 
 const ProductsPage = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [productDetails, setProductDetails] = useState({})
+    
     const titleProduts = {};
-
+    
+    const handleOpen = (
+        name,
+        cal,
+        _id
+    ) => {
+        setProductDetails({ name, cal, _id })
+        
+        setIsOpen(true)
+    }
+    
     const handleClose = () => {
         setIsOpen(false)
     }
-
-    const handleOpen = () => {
-        setIsOpen(true)
-    }
-
+        
     return (
         <div>
             <div className={cn('products_page_container')}>
@@ -30,7 +38,7 @@ const ProductsPage = () => {
             <ProductsList open={handleOpen} />
             {isOpen &&
             <Modal customClose={handleClose}>
-                <ProductsModal close={handleClose} />
+                <ProductsModal close={handleClose} product={productDetails} />
             </Modal>
             }
         </div>

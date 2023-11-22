@@ -1,5 +1,6 @@
 .products_page_container {
-    margin-top: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
@@ -8,15 +9,18 @@
         max-width: fit-content;
     }
     @media screen and (min-width: 768px) {
-        margin-top: 70px;
+        padding-top: 72px;
+        padding-bottom: 32px;
+
+        & h2 {
+            max-width: none;
+        }
     }
 
     @media screen and (min-width: 1440px) {
-        width: 1140px;
+        max-width: 1440px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-top: 72px;
-        padding-bottom: 28px;
     }
 }
