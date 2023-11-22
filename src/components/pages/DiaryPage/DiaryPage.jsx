@@ -11,7 +11,7 @@ import { Calendar } from '../../ui/Calendar';
 import { Title } from '../../global/Title';
 import { DiaryDashboard } from './DiaryDashboard';
 import { ProductTable } from './ProductTable';
-import { ExercisesTable } from './ExercisesPage';
+import { ExercisesTable } from './ExercisesTable';
 import { Loader } from '../../ui/Loader/Loader';
 
 const cn = classNames.bind(styles);

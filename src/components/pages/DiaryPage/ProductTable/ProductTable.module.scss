@@ -211,3 +211,10 @@ margin-bottom: 22px;
             margin-top: 65px;
         }
 }
+
+.container__input.title {
+    max-width: 148px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

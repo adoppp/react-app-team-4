@@ -12,9 +12,11 @@ const SuccessModal = ({ onClose, calories }) => {
     const IconButtonStyles = {
         marginLeft: 6,
         fill: '#EFEDE84D',
+        stroke:'#EFEDE84D',
     } 
     const buttonStyles = {
         marginBottom: '28px',
+        fontSize: '16px',
     }
 
     return (
@@ -22,7 +24,7 @@ const SuccessModal = ({ onClose, calories }) => {
             <div className={cn('successModal')}>
                 <h2>Well done</h2>
                 <p className={cn('title_calories')}>
-                Calories: {calories}
+                Calories: <span>{calories}</span>
                 </p>
                 <Button
                                     label="Next product"

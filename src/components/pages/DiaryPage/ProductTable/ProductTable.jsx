@@ -9,7 +9,6 @@ import { userInfoSelector } from '../../../../storage/selectors/authSelectors';
 
 
 
-
 const cn = classNames.bind(styles);
 
 const ProductTable = () => {

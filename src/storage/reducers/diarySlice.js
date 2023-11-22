@@ -45,10 +45,6 @@ const diarySlice = createSlice({
         const exerciseID = action.meta.arg.id;
         state.exercises = state.exercises.filter(exercise => exercise.exercise._id !== exerciseID);
     })
-    // .addCase(addProduct.fulfilled, (state, action) => {
-    //    state.products.push(action.payload);
-    // })
-    
 
   },
 });

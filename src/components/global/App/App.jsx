@@ -8,7 +8,6 @@ import { Loader } from '../../ui/Loader';
 import NotFound from '../../pages/NotFound/NotFound';
 import appRoutes from '../../../routing/routes';
 import {
-    // getParameters,
     refreshUser,
 } from '../../../storage/operations/authThunk';
 import { tokenSelector } from '../../../storage/selectors/authSelectors';
@@ -30,7 +29,6 @@ function App() {
     useEffect(() => {
         if (!token) return;
         dispatch(refreshUser());
-        // dispatch(getParameters());
     }, [dispatch, token]);
 
     return (

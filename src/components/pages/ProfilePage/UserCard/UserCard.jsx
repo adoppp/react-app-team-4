@@ -5,12 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './UserCard.module.scss';
 import { Icon } from '../../../ui/Icon';
 import {
-    // userParametersSelector,
+    userInfoSelector,
     userSelector,
 } from '../../../../storage/selectors/authSelectors';
 import {
     avatarUpdate,
-    // getParameters,
 } from '../../../../storage/operations/authThunk';
 import { useEffect } from 'react';
 import { logout } from '../../../../storage/operations/authThunk';
@@ -19,16 +18,12 @@ const cn = classNames.bind(styles);
 
 const UserCard = () => {
     const userData = useSelector(userSelector);
-    // const userParameters = useSelector(userParametersSelector);
+    const userInfo= useSelector(userInfoSelector);
     const dispatch = useDispatch();
 
     const isLargeScreen = useMediaQuery({ minWidth: 768 });
 
     const userSvgStyles = isLargeScreen ? 16 : 14;
-
-    // useEffect(() => {
-    //     dispatch(getParameters());
-    // }, [dispatch]);
 
     const handleFileChange = (event) => {
         event.preventDefault();
@@ -43,14 +38,14 @@ const UserCard = () => {
     const handleLogout = () => {
         dispatch(logout());
     };
+    
+     const dailyCalorieIntake = Object.keys(userInfo).length !== 0
+    ? Math.round(userInfo.BMR)
+    : 0;
 
-    // const calories = userParameters
-    //     ? Math.round(userParameters.dailyCalories)
-    //     : 0;
-
-    // const exTime = userParameters
-    //     ? Math.round(userParameters.dailyExerciseTime)
-    //     : 0;
+const dailyPhysicalActivity = Object.keys(userInfo).length !== 0
+    ? userInfo.dailyExerciseTime
+    : 0;
 
     return (
         <div className={cn('usercard__container')}>
@@ -99,7 +94,7 @@ const UserCard = () => {
                                 <Icon iconId="icon-fluent_food" w={20} h={20} />
                                 <p>Daily calorie intake</p>
                             </div>
-                            {/* <div className={cn('daily__value')}>{calories}</div> */}
+                            <div className={cn('daily__value')}>{dailyCalorieIntake}</div>
                         </div>
                     </div>
                     <div className={cn('daily__calorieAndNorm')}>
@@ -108,10 +103,10 @@ const UserCard = () => {
                                 <Icon iconId="icon-dumbbell" w={20} h={20} />
                                 <p>Daily physical activity</p>
                             </div>
-                            {/* <div className={cn('daily__valueMin')}>
-                                {`${exTime} `}
+                            <div className={cn('daily__valueMin')}>
+                                {`${dailyPhysicalActivity} `}
                                 min
-                            </div> */}
+                            </div>
                         </div>
                     </div>
                 </div>
