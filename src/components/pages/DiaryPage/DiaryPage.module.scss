@@ -22,14 +22,17 @@
 
 .diary-container {
     display: flex;
-    // justify-content: center;
     flex-direction: column;
     gap: 40px;
     margin-bottom: 64px;
 
-    @media screen and (min-width: 1140px) {
-        margin-bottom: 0px;
-    }
+    @media screen and (min-width: 768px) {
+            gap: 32px;
+        }
+
+                 @media screen and (min-width: 1140px) {
+                    margin-bottom: 0px;
+                 }
 }
 
 .mobile__wrapper {

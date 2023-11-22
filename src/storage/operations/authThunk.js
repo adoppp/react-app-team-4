@@ -116,15 +116,3 @@ export const detailsCreate = createAsyncThunk(
         }
     },
 );
-
-export const getParameters = createAsyncThunk(
-    'user/parameters',
-    async (_, thunkAPI) => {
-        try {
-            const response = await instance.get('user');
-            return response.data;
-        } catch (e) {
-            return REJECTED(thunkAPI, e);
-        }
-    },
-);

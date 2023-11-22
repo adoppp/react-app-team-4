@@ -1,16 +1,22 @@
 import { useState, forwardRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import DatePicker from 'react-datepicker';
+import { useDispatch } from 'react-redux';
 
 import { Icon } from '../Icon';
 import './Calendar.scss';
+import { updateSelectedDate } from '../../../storage/reducers/diarySlice';
+import {formatDate} from '../../../storage/reducers/diarySlice'
+
 
 const Calendar = () => {
+    const dispatch = useDispatch();
     const [selectedDate, setSelectedDate] = useState(new Date());
 
     const isTabletScreen = useMediaQuery({ minWidth: 768 });
     const iconCalendarHeight = isTabletScreen ? 24 : 20;
     const iconCalendarWidth = isTabletScreen ? 24 : 20;
+
 
     const BtnInput = forwardRef(({ value, onClick }, ref) => (
         <div className={'button-wrapper'}>
@@ -43,12 +49,19 @@ const Calendar = () => {
         const previousDay = new Date(selectedDate);
         previousDay.setDate(previousDay.getDate() - 1);
         setSelectedDate(previousDay);
+        dispatch(updateSelectedDate(formatDate(previousDay)));
     };
 
     const handleNextDay = () => {
         const nextDay = new Date(selectedDate);
         nextDay.setDate(nextDay.getDate() + 1);
         setSelectedDate(nextDay);
+        dispatch(updateSelectedDate(formatDate(nextDay)));
+    };
+
+        const handleDateChange = (date) => {
+        setSelectedDate(date);
+        dispatch(updateSelectedDate(formatDate(date))); 
     };
 
     return (
@@ -111,9 +124,7 @@ const Calendar = () => {
                     </div>
                 )}
                 selected={selectedDate}
-                onChange={(date) => {
-                    setSelectedDate(date);
-                }}
+                onChange={handleDateChange}
                 onMonthChange={(date) => {
                     setSelectedDate(date);
                 }}

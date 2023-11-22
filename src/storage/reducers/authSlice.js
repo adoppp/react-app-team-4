@@ -9,17 +9,12 @@ import {
     infoUpdate,
     detailsUpdate,
     detailsCreate,
-    getParameters,
 } from '../operations/authThunk';
 
 const initialState = {
     userDetails: {
         userData: { avatarURL: '' },
         userInfo: {},
-        userParameters: {
-            dailyCalories: 0,
-            dailyExerciseTime: 0,
-        },
     },
     authenticated: false,
     token: null,
@@ -78,9 +73,6 @@ const authSlice = createSlice({
             .addCase(detailsCreate.fulfilled, (state, action) => {
                 state.userDetails.userInfo = action.payload;
             })
-            .addCase(getParameters.fulfilled, (state, action) => {
-                state.userDetails.userParameters = action.payload;
-            });
     },
 });
 

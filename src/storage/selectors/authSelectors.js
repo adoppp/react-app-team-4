@@ -8,6 +8,3 @@ export const avatarSelector = (state) =>
 export const userSelector = (state) => state.user.userDetails.userData;
 
 export const userInfoSelector = (state) => state.user.userDetails.userInfo;
-
-export const userParametersSelector = (state) =>
-    state.user.userDetails.userParameters;
