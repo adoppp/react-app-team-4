@@ -1,0 +1,78 @@
+@import '../../../../scss/colors';
+@import '../../../../scss/mixins';
+
+.successExercises{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 301px;
+
+    @media screen and (min-width: 768px) {
+        width: 396px;
+    };
+
+    & img{
+        margin-bottom: 28px;
+    };
+
+    & h2{
+        color: $snow-white;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.33; /* 133.333% */
+        margin-bottom: 16px;
+    };
+};
+
+.successExercises__list{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 24px;
+
+    & li{
+        display: flex;
+
+        & .successExercises__list_el{
+            color: rgba(239, 237, 232, 0.30);
+            font-size: 14px;
+            line-height: 1.29; /* 128.571% */
+        };
+
+        & p{
+            color: $christmas-main-orange;
+            font-size: 14px;
+            line-height: 1.29; /* 128.571% */
+        };
+    };
+};
+
+.successExercises__link{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+
+    @include transition();
+    
+    & p{
+        color: rgba(239, 237, 232, 0.30);
+        font-size: 14px;
+        line-height: 1.29; /* 128.571% */
+    };
+
+    &:hover p{
+        color: $snow-white;
+    };
+
+    & svg{
+        stroke: rgba(239, 237, 232, 0.30);
+    };
+
+    &:hover svg{
+        stroke: $snow-white;
+    };
+};

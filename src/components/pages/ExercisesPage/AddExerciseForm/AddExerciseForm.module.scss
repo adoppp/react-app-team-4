@@ -1,0 +1,148 @@
+@import '../../../../scss/mixins';
+@import '../../../../scss/colors';
+@import '../../../../scss/variables';
+
+.modalExercises{
+    position: relative;
+    max-width: 302px;
+    padding-bottom: 32px;
+
+    @media screen and (min-width: 768px) {
+        display: flex;
+        padding: 0 16px 32px 16px;
+        max-width: 662px;
+        gap: 16px;
+    };
+
+    & div{
+        text-align: center;
+
+    & img{
+        width: 270px;
+        height: 226px;
+        flex-shrink: 0;
+        border-radius: 12px;
+        border: 1px solid rgba(239, 237, 232, 0.20);
+        background: linear-gradient(0deg, rgba(4, 4, 4, 0.20) 0%, rgba(4, 4, 4, 0.20) 100%), lightgray 0px -17.5px / 100% 119.469% no-repeat;
+    };
+};
+
+    & .modalExercises__timer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 14px;
+
+        @media screen and (min-width: 768px) {
+            & .modalExercises__timer_container{
+                display: flex;
+                flex-direction: column;
+            };
+        };
+
+        & .modalExercises__timer_title{
+            margin-bottom: 4px;
+            color: rgba(239, 237, 232, 0.40);
+            font-feature-settings: 'clig' off, 'liga' off;
+            font-size: 10px;
+            line-height: 1.4; /* 140% */
+        };
+
+        & .modalExercises__timer_circle{
+            margin-bottom: 14px;
+        };
+
+        & .modalExercises__timer_calories{
+            color: rgba(239, 237, 232, 0.30);
+            font-size: 14px;
+            line-height: 1.29px; /* 128.571% */
+            margin-top: 8px;
+
+            & span{
+                color: $christmas-main-orange;
+                font-size: 14px;
+                line-height: 1.29; /* 128.571% */
+            };
+        };
+
+        & button{
+            border: 0;
+            background-color: transparent;
+            padding: 0;
+
+            & svg>use{
+                width: 24px;
+                height: 24px;
+            };
+        };
+    };
+
+    & .modalExercises__tablet_element{
+        text-align: left;
+        };
+
+        @media screen and (min-width: 768px) {
+            .modalExercises__tablet_element{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: end;
+            };
+        };
+};
+
+.modalExercises__info{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+    text-align: left;
+
+    & li{
+        display: flex;
+        flex-direction: column;
+        width: 147px;
+        height: 62px;
+        padding: 12px 18px;
+        justify-content: center;
+        gap: 4px;
+        border-radius: 12px;
+        border: 1px solid rgba(239, 237, 232, 0.20);
+        background: rgba(239, 237, 232, 0.05);
+
+        @media screen and (min-width: 768px) {
+            width: 168px;
+            height: 70px;
+        };
+
+        & p{
+            color: rgba(239, 237, 232, 0.40);
+            font-feature-settings: 'clig' off, 'liga' off;
+            font-size: 12px;
+            line-height: 1.33; /* 133.333% */
+
+            @media screen and (min-width: 768px) {
+                font-size: 14px;
+                line-height: 1.5; /* 150% */
+            };
+        };
+
+        & span{
+            color: $snow-white;
+            font-feature-settings: 'clig' off, 'liga' off;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.29; /* 128.571% */
+            width: 120px;
+            overflow:hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            @media screen and (min-width: 768px) {
+                font-size: 16px;
+                line-height: 1.5; /* 150% */
+                };
+        };
+    };
+};
