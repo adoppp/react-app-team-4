@@ -10,6 +10,7 @@ const Button = ({
     action,
     customContainerStyles,
     type,
+    isDisabled,
 }) => {
     return (
         <button
@@ -17,6 +18,7 @@ const Button = ({
             onClick={action}
             style={customContainerStyles ? customContainerStyles : {}}
             type={type ? `${type}` : 'button'}
+            disabled={isDisabled}
         >
             <span>{label}</span>
         </button>

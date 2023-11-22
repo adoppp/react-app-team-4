@@ -7,7 +7,10 @@ import styles from './App.module.scss';
 import { Loader } from '../../ui/Loader';
 import NotFound from '../../pages/NotFound/NotFound';
 import appRoutes from '../../../routing/routes';
-import { refreshUser } from '../../../storage/operations/authThunk';
+import {
+    getParameters,
+    refreshUser,
+} from '../../../storage/operations/authThunk';
 import { tokenSelector } from '../../../storage/selectors/authSelectors';
 import {
     errorSelector,
@@ -27,6 +30,7 @@ function App() {
     useEffect(() => {
         if (!token) return;
         dispatch(refreshUser());
+        dispatch(getParameters());
     }, [dispatch, token]);
 
     return (

@@ -1,0 +1,17 @@
+@import '../../../scss/mixins';
+
+.container {
+    @include container();
+}
+
+.background {
+    @media screen and (min-width: 1440px) {
+        height: 100vh;
+        background-image: url('../../../assets/images/products_bg_jpg.jpg');
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        position: relative;
+        background-size: contain;
+        background-position-y: 95px;
+    }
+}

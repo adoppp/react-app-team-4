@@ -1,10 +1,7 @@
-import React from 'react';
-import { Calendar } from '../Calendar/Calendar';
 import classNames from 'classnames/bind';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import styles from './UserForm.module.scss';
-import { Input } from '../Input/Input';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,6 +14,7 @@ import {
     detailsUpdate,
     detailsCreate,
 } from '../../../storage/operations/authThunk';
+import { useState } from 'react';
 
 const cn = classNames.bind(styles);
 
@@ -48,6 +46,7 @@ const validationSchema = Yup.object().shape({
 const UserForm = () => {
     const user = useSelector(userSelector);
     const userInfo = useSelector(userInfoSelector);
+    const [isDisabled, setIsDisabled] = useState(false);
     const dispatch = useDispatch();
 
     const formatDate = (date) => {
@@ -135,7 +134,7 @@ const UserForm = () => {
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
             >
-                {({ errors, touched, setFieldValue, values }) => (
+                {({ errors, touched, values }) => (
                     <Form>
                         <div className={cn('basic__infoNameContainer')}>
                             <div className={cn('basic__infoName')}>
@@ -713,7 +712,10 @@ const UserForm = () => {
                         </div>
 
                         <div>
-                            <Button label="Save" type="submit" />
+                            <Button
+                                label="Save"
+                                type="submit"
+                            />
                         </div>
                     </Form>
                 )}

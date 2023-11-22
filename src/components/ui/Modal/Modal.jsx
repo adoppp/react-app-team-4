@@ -10,7 +10,7 @@ const Modal = ({ children, error, customClose }) => {
 
     const handleClose = () => {
         if (!customClose) setShowModal(false);
-        customClose()
+        customClose();
     };
 
     const handleKeydown = (e) => {
