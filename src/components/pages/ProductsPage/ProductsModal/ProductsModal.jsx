@@ -68,9 +68,9 @@ const ProductsModal = ({ close, product }) => {
         <div className={cn('container')}>
             <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema} >
                 {({ values, handleSubmit }) => {
-
+                const calories = Math.round(((product.cal / 100) * values.grams) )
                     useEffect(() => {
-                        setCalculatedCalories(Math.round(((product.cal / 100) * values.grams) * 100) / 100);
+                        setCalculatedCalories(calories);
                     }, [values.grams, product.cal]);
 
                     return (
