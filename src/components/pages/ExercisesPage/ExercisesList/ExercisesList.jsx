@@ -7,6 +7,8 @@ import { useParams } from 'react-router-dom';
 import { Icon } from '../../../ui/Icon';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllExercises } from '../../../../storage/operations/exercisesThunk';
+import { AddExerciseForm } from '../AddExerciseForm';
+import { Modal } from '../../../ui/Modal';
 
 const cn = classNames.bind(styles);
 
@@ -15,6 +17,8 @@ const ExercisesList = () => {
     const { workout } = useParams();
 
     const [currentExercisesList, setCurrentExercisesList] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+    const [currentWorkout, setCurrentWorkout] = useState(null);
 
     const allExercises = useSelector((state) => state.exercises.data);
 
@@ -37,7 +41,7 @@ const ExercisesList = () => {
                 name: item.name[0].toUpperCase() + item.name.slice(1),
             })),
         );
-    }
+    };
 
     useEffect(() => {
         if (allExercises) {
@@ -49,8 +53,18 @@ const ExercisesList = () => {
             );
 
             upperCaseName(filtered);
-        }
+        };
     }, [allExercises, workout]);
+
+    useEffect(() => {
+        if(currentWorkout){
+            setShowModal(true);
+        };
+            }, [currentWorkout]);
+
+    const handleClose = () => {
+        setShowModal(false);
+    };
 
     return (
         <div className={cn('exercises__container')}>
@@ -58,7 +72,7 @@ const ExercisesList = () => {
                 {currentExercisesList.map((exercise) => (
                     <li className={cn('exercises__item')} key={exercise._id}>
                         <p className={cn('exercises__item_head')}>WORKOUT</p>
-                        <button type="button">
+                        <button type="button" onClick={()=>{setCurrentWorkout(exercise)}}>
                             Start
                             <Icon iconId="icon-arrow-big" w={16} h={16} />
                         </button>
@@ -82,6 +96,12 @@ const ExercisesList = () => {
                     </li>
                 ))}
             </ul>
+            {showModal && <Modal customClose={handleClose}>
+                <AddExerciseForm 
+                    data={currentWorkout} 
+                    customClose={handleClose}
+                    />
+            </Modal>}
         </div>
     );
 };
