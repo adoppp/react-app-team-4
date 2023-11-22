@@ -25,6 +25,7 @@
         padding-top: 16px;
     }
 }
+
 .container__header{
 display: flex;
 justify-content: space-between;
@@ -52,6 +53,36 @@ margin-bottom: 22px;
         border: 0;
 
         cursor: pointer;
+
+        & a {
+            @include transition();
+        }
+
+        &:hover a {
+            color: $silent-gray;
+        }
+
+        &:active a {
+            color: $christmas-hover-orange;
+        }
+
+        & svg use {
+            stroke: $christmas-main-orange;
+            fill: $christmas-main-orange;
+
+            @include transition();
+        }
+
+        &:hover svg use {
+            stroke: $silent-gray;
+            fill: $silent-gray;
+        }
+
+        &:active svg use {
+            stroke: $christmas-hover-orange;
+            fill: $christmas-hover-orange;
+        }
+
 
         @media screen and (min-width: 768px) {
             font-size: 16px;
@@ -95,7 +126,9 @@ margin-bottom: 22px;
     color: $christmas-hover-orange;
     font-size: 12px;
     line-height: 18px;
+}
 
+.containerlist li:not(:first-child) .containerlabel {
     @media screen and (min-width: 768px) {
         display: none;
     }
@@ -217,4 +250,23 @@ margin-bottom: 22px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.button__delete {
+    cursor: pointer;
+
+    & svg use {
+        stroke: $christmas-hover-orange;
+        fill: none;
+
+        @include transition();
+    }
+
+    &:hover svg use {
+        stroke: $christmas-beige;
+    }
+
+    &:active svg use {
+        stroke: $christmas-main-orange;
+    }
 }

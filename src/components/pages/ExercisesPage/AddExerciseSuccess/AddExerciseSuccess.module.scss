@@ -55,24 +55,34 @@
     align-items: center;
     justify-content: center;
     margin-top: 16px;
-
-    @include transition();
     
     & p{
         color: rgba(239, 237, 232, 0.30);
         font-size: 14px;
         line-height: 1.29; /* 128.571% */
+
+        @include transition();
     };
 
     &:hover p{
         color: $snow-white;
     };
 
+    &:active p{
+        color: $christmas-beige;
+    };
+
     & svg{
         stroke: rgba(239, 237, 232, 0.30);
+
+        @include transition();
     };
 
     &:hover svg{
         stroke: $snow-white;
+    };
+
+    &:active svg{
+        stroke: $christmas-beige;
     };
 };

@@ -39,13 +39,13 @@ const UserCard = () => {
         dispatch(logout());
     };
     
-     const dailyCalorieIntake = Object.keys(userInfo).length !== 0
-    ? Math.round(userInfo.BMR)
-    : 0;
+     const dailyCalorieIntake = Object.keys(userInfo).includes('BMR')
+        ? Math.round(userInfo.BMR)
+        : 0;
 
-const dailyPhysicalActivity = Object.keys(userInfo).length !== 0
-    ? userInfo.dailyExerciseTime
-    : 0;
+    const dailyPhysicalActivity = Object.keys(userInfo).includes('dailyExerciseTime')
+        ? userInfo.dailyExerciseTime
+        : 0;
 
     return (
         <div className={cn('usercard__container')}>

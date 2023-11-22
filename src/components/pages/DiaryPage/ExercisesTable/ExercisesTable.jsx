@@ -68,7 +68,7 @@ const ExercisesTable = () => {
                                 <p className={cn('container__input__small', 'time')}>{time}</p>
                             </div>
 
-                            <span onClick={() => handleDelete(_id)}>
+                            <span onClick={() => handleDelete(_id)} className={cn('button__delete')}>
                                 <Icon iconId="icon-trash" w={20} h={20} customStyles={{}} />
                             </span>
                         </li>

@@ -14,11 +14,17 @@ const Modal = ({ children, error, customClose }) => {
     };
 
     const handleKeydown = (e) => {
-        if (e.code === 'Escape') setShowModal(false);
+        if (e.code === 'Escape') {
+            setShowModal(false);
+            customClose();
+        }     
     };
 
     const handleBackdropClick = (e) => {
-        if (e.target === e.currentTarget) setShowModal(false);
+        if (e.target === e.currentTarget) {
+            setShowModal(false)
+            customClose();
+        };
     };
 
     useEffect(() => {

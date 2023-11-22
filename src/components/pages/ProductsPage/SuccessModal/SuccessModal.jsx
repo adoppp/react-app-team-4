@@ -27,10 +27,10 @@ const SuccessModal = ({ onClose, calories }) => {
                 Calories: <span>{calories}</span>
                 </p>
                 <Button
-                                    label="Next product"
-                                    action={onClose} 
-                                    customContainerStyles={buttonStyles}
-                                    buttonStyles="orange"
+                    label="Next product"
+                    action={onClose} 
+                    customContainerStyles={buttonStyles}
+                    buttonStyles="orange"
                 />
                 <button className={cn('button')}>
                     <Link to="/diary">To the diary</Link>

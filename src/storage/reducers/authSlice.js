@@ -28,7 +28,6 @@ const authSlice = createSlice({
             .addCase(registration.fulfilled, (state, action) => {
                 state.authenticated = true;
                 state.userDetails.userData = {
-                    avatarURL: '',
                     ...action.payload,
                 };
                 state.userDetails.userParameters = {

@@ -23,19 +23,19 @@ const DiaryDashboard = () => {
         return total + exercise.exercise.burnedCalories; 
        }, 0);
     
-    const dailyCalorieIntake = Object.keys(userInfo).length !== 0
+    const dailyCalorieIntake = Object.keys(userInfo).includes('BMR')
     ? Math.round(userInfo.BMR)
     : 0;
 
-const dailyPhysicalActivity = Object.keys(userInfo).length !== 0
+const dailyPhysicalActivity = Object.keys(userInfo).includes('dailyExerciseTime')
     ? userInfo.dailyExerciseTime
     : 0;
 
-const sportsRemaining = Object.keys(userInfo).length !== 0
+const sportsRemaining = Object.keys(userInfo).includes('BMR')
     ? (dailyPhysicalActivity - totalExerciseTime)
     : 0;
 
-const caloriesRemaining = Object.keys(userInfo).length !== 0
+const caloriesRemaining = Object.keys(userInfo).includes('dailyExerciseTime')
     ? (dailyCalorieIntake - totalCaloruesConsumed)
     : 0;
 

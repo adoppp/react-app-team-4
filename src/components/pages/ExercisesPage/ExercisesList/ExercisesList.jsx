@@ -60,7 +60,12 @@ const ExercisesList = () => {
         if(currentWorkout){
             setShowModal(true);
         };
-            }, [currentWorkout]);
+    }, [currentWorkout]);
+    
+    const handleOpen = (e) => {
+        setCurrentWorkout(e)
+        setShowModal(true)
+    }
 
     const handleClose = () => {
         setShowModal(false);
@@ -72,7 +77,7 @@ const ExercisesList = () => {
                 {currentExercisesList.map((exercise) => (
                     <li className={cn('exercises__item')} key={exercise._id}>
                         <p className={cn('exercises__item_head')}>WORKOUT</p>
-                        <button type="button" onClick={()=>{setCurrentWorkout(exercise)}}>
+                        <button type="button" onClick={()=>{handleOpen(exercise)}} className={cn('button__start')}>
                             Start
                             <Icon iconId="icon-arrow-big" w={16} h={16} />
                         </button>

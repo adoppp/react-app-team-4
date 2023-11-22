@@ -60,6 +60,35 @@ a {
 
         cursor: pointer;
 
+        & a {
+            @include transition();
+        }
+
+        &:hover a {
+            color: $silent-gray;
+        }
+
+        &:active a {
+            color: $christmas-hover-orange;
+        }
+
+        & svg use {
+            stroke: $christmas-main-orange;
+            fill: $christmas-main-orange;
+
+            @include transition();
+        }
+
+        &:hover svg use {
+            stroke: $silent-gray;
+            fill: $silent-gray;
+        }
+
+        &:active svg use {
+            stroke: $christmas-hover-orange;
+            fill: $christmas-hover-orange;
+        }
+
         @media screen and (min-width: 768px) {
             font-size: 16px;
             line-height: 24px;
@@ -231,4 +260,23 @@ a {
     @media screen and (min-width: 768px) {
             margin-top: 65px;
         }
+}
+
+.button__delete {
+    cursor: pointer;
+
+    & svg use {
+        stroke: $christmas-hover-orange;
+        fill: none;
+
+        @include transition();
+    }
+
+    &:hover svg use {
+        stroke: $christmas-beige;
+    }
+
+    &:active svg use {
+        stroke: $christmas-main-orange;
+    }
 }

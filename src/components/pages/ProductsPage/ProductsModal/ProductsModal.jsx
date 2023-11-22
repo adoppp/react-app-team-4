@@ -64,8 +64,9 @@ const ProductsModal = ({ close, product }) => {
     };
 
 
-    return (
-        <div className={cn('container')}>
+    return <>
+    {!showSuccessModal ?
+        <div className={cn('container')} >
             <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema} >
                 {({ values, handleSubmit }) => {
                 const calories = Math.round(((product.cal / 100) * values.grams) )
@@ -112,11 +113,10 @@ const ProductsModal = ({ close, product }) => {
                     </Form>
                 )
                 }}
-            </Formik>
-            {showSuccessModal && (
-                <SuccessModal onClose={closeSuccessModal} calories={calculatedCalories} />
-            )}
-        </div>
-    );
+            </Formik> 
+        </div > :
+        <SuccessModal onClose={closeSuccessModal} calories={calculatedCalories} />}
+    </>
+;
 };
 export { ProductsModal };
