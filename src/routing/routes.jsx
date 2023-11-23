@@ -30,6 +30,7 @@ import { PrivateRoute } from './PrivateRoute';
 import { ExercisesSubcategoriesItem } from '../components/pages/ExercisesPage/ExercisesSubcategoriesItem';
 import { ExercisesList } from '../components/pages/ExercisesPage/ExercisesList';
 import { VerifyRoute } from './VerifyRoute';
+import NotFoundContainer from '../components/containers/NotFoundContainer/NotFoundContainer';
 
 const routes = {
     MAIN_ROUTE: '/',
@@ -114,7 +115,9 @@ const appRoutes = [
         path: routes.VERIFY_ROUTE,
         element: (
             <VerifyRoute >
-                <VerifyPage />
+                <NotFoundContainer >
+                    <VerifyPage />
+                </NotFoundContainer>
             </VerifyRoute>
         )
     },

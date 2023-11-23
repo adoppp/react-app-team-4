@@ -18,6 +18,7 @@ const initialState = {
     },
     authenticated: false,
     token: null,
+    verificationCode: null,
 };
 
 const authSlice = createSlice({
@@ -30,6 +31,7 @@ const authSlice = createSlice({
                     ...action.payload.user,
                 };
                 state.token = action.payload.token;
+                state.verificationCode = action.payload.verificationCode;
             })
             .addCase(login.fulfilled, (state, action) => {
                 state.authenticated = true;

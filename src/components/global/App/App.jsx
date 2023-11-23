@@ -38,6 +38,7 @@ function App() {
     }, [dispatch, token]);
 
     Notify.init({
+        position: 'center-top',
         success: {
             background: '#3cbf61',
             textColor: '#303030',
