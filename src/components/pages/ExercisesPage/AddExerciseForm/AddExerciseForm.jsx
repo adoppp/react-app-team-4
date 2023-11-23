@@ -6,14 +6,17 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { Icon } from '../../../ui/Icon';
 import { useMediaQuery } from 'react-responsive';
 import { AddExerciseSuccess } from '../AddExerciseSuccess/AddExerciseSuccess';
+import { addExercise } from '../../../../storage/operations/diaryThunk';
+import { useDispatch, useSelector } from 'react-redux';
 
 const cn = classNames.bind(styles);
 
-const AddExerciseForm = ({data, customClose}) => {
+const AddExerciseForm = ({ data, customClose }) => {
+    const dispatch = useDispatch();
+    const selectedDate = useSelector((state) => state.diary.selectedDate);
     const [burnedCalories, setBurnedCalories] = useState(0);
     const [pause, setPause] = useState(true);
     const [time, setTime] = useState(0);
-    const [todayDate, setTodayDate] = useState(null);
     const [showModal, setShowModal] = useState(false);
 
     const isLargeScreen = useMediaQuery({ minWidth: 768 });
@@ -47,34 +50,31 @@ const AddExerciseForm = ({data, customClose}) => {
     };
 
 
-    useEffect(() => {
-        const today = new Date();
-        const yyyy = today.getFullYear();
-        let mm = today.getMonth() + 1;
-        let dd = today.getDate();
-        
-        if (dd < 10) dd = '0' + dd;
-        if (mm < 10) mm = '0' + mm;
-
-        const formattedToday = dd + '/' + mm + '/' + yyyy;
-        setTodayDate(formattedToday);
-    }, []);
     
     const handleClickPause = () => {
         setPause(prevPause => !prevPause);
         clearTimeout(timerId);
     };
 
+
     const handleClick = () => {
         const ExercisesData = {
             exercise:data._id,
-            date:todayDate,
+            date:selectedDate,
             time: time,
             calories: burnedCalories
         };
         
+         dispatch(addExercise({
+            id:data._id,
+            date:selectedDate,
+            time: time,
+        }))
+
+        
         if(time >= 60 && burnedCalories >= 1) {
             console.log(ExercisesData);
+
         } ;
         // =====це перемістити на 73 рядок, щоб спрацьовувало за умови=====
         setShowModal(true);//==============================================
