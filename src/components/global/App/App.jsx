@@ -29,7 +29,7 @@ function App() {
 
     useEffect(() => {
         if (!token) return;
-        if (!user.verify) return;
+        // if (!user.verify) return;
         dispatch(refreshUser());
     }, [dispatch, token]);
 
