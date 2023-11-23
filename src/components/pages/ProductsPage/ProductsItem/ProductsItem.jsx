@@ -66,7 +66,7 @@ const ProductsItem = ({ open }) => {
                             </div>
                             <div className={cn('title_container')}>
                                 <Icon
-                                    iconId="icon-running-stick"
+                                    iconId="icon-run"
                                     w={12}
                                     h={14}
                                     customStyles={IconStyles}

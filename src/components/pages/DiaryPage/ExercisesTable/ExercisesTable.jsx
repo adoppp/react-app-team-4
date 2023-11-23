@@ -40,6 +40,7 @@ const ExercisesTable = () => {
             ) : ( <ul className={cn('container__list')}>
                     {exercises.map(exercise => {
                         const { _id, bodyPart,equipment,name, target, burnedCalories, time} = exercise.exercise;
+                        console.log("🚀 ~ file: ExercisesTable.jsx:43 ~ ExercisesTable ~ burnedCalories:", burnedCalories)
                 
                         return (
                                  <li key={_id}>
@@ -68,7 +69,7 @@ const ExercisesTable = () => {
                                 <p className={cn('container__input__small', 'time')}>{time}</p>
                             </div>
 
-                            <span onClick={() => handleDelete(_id)}>
+                            <span onClick={() => handleDelete(_id)} className={cn('button__delete')}>
                                 <Icon iconId="icon-trash" w={20} h={20} customStyles={{}} />
                             </span>
                         </li>

@@ -1,6 +1,4 @@
-import React from 'react';
 import classNames from 'classnames/bind';
-import {Modal} from '../../../ui/Modal'; 
 import styles from './SuccessModal.module.scss';
 import { Button } from '../../../ui/Button';
 import { Link } from 'react-router-dom';
@@ -20,17 +18,16 @@ const SuccessModal = ({ onClose, calories }) => {
     }
 
     return (
-        <Modal>
             <div className={cn('successModal')}>
                 <h2>Well done</h2>
                 <p className={cn('title_calories')}>
                 Calories: <span>{calories}</span>
                 </p>
                 <Button
-                                    label="Next product"
-                                    action={onClose} 
-                                    customContainerStyles={buttonStyles}
-                                    buttonStyles="orange"
+                    label="Next product"
+                    action={onClose} 
+                    customContainerStyles={buttonStyles}
+                    buttonStyles="orange"
                 />
                 <button className={cn('button')}>
                     <Link to="/diary">To the diary</Link>
@@ -38,7 +35,6 @@ const SuccessModal = ({ onClose, calories }) => {
                 </button>
                 
             </div>
-        </Modal>
     );
 };
 

@@ -136,6 +136,32 @@
     };
 };
 
+.button__start {
+    @include transition();
+
+    &:hover  {
+        color: $silent-gray;
+    }
+
+    &:active {
+        color: $christmas-hover-orange;
+    }
+
+    & svg use {
+        stroke: $christmas-main-orange;
+        
+        @include transition();
+    }
+
+    &:hover svg use {
+        stroke: $silent-gray;
+    }
+
+    &:active svg use {
+        stroke: $christmas-hover-orange;
+    }
+}
+
 @media screen and (min-width: 1440px) {
     .exercises__container {
         width: 850px;

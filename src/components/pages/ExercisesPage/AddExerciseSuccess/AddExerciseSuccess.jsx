@@ -35,7 +35,7 @@ const AddExerciseSuccess = ({ closeModal, data }) => {
         </ul>
         <Button 
                 type= {"button"} 
-                label={'Next product'}
+                label={'Next exercise'}
                 action={() =>{closeModal()}}
                 customContainerStyles={buttonStylesAdd}
             />

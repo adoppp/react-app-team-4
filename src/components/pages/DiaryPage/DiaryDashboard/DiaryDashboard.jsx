@@ -23,19 +23,19 @@ const DiaryDashboard = () => {
         return total + exercise.exercise.burnedCalories; 
        }, 0);
     
-    const dailyCalorieIntake = Object.keys(userInfo).length !== 0
+    const dailyCalorieIntake = Object.keys(userInfo).includes('BMR')
     ? Math.round(userInfo.BMR)
     : 0;
 
-const dailyPhysicalActivity = Object.keys(userInfo).length !== 0
+const dailyPhysicalActivity = Object.keys(userInfo).includes('dailyExerciseTime')
     ? userInfo.dailyExerciseTime
     : 0;
 
-const sportsRemaining = Object.keys(userInfo).length !== 0
+const sportsRemaining = Object.keys(userInfo).includes('BMR')
     ? (dailyPhysicalActivity - totalExerciseTime)
     : 0;
 
-const caloriesRemaining = Object.keys(userInfo).length !== 0
+const caloriesRemaining = Object.keys(userInfo).includes('dailyExerciseTime')
     ? (dailyCalorieIntake - totalCaloruesConsumed)
     : 0;
 
@@ -63,7 +63,7 @@ const caloriesRemaining = Object.keys(userInfo).length !== 0
                         />
                         Daily calorie intake
                     </p>
-                    <p className={cn('dashboard__item__number')}>{dailyCalorieIntake}</p>
+                    <p className={cn('dashboard__item__number')}>{Math.round(dailyCalorieIntake)}</p>
                 </li>
                 <li className={cn('red')}>
                     <p className={cn('dashboard__item__desc')}>
@@ -89,7 +89,7 @@ const caloriesRemaining = Object.keys(userInfo).length !== 0
                         />
                         Сalories consumed
                     </p>
-                    <p className={cn('dashboard__item__number')}>{ totalCaloruesConsumed }</p>
+                    <p className={cn('dashboard__item__number')}>{Math.round(totalCaloruesConsumed)}</p>
                 </li>
                 <li>
                     <p className={cn('dashboard__item__desc')}>
@@ -101,7 +101,7 @@ const caloriesRemaining = Object.keys(userInfo).length !== 0
                         />
                         Сalories burned
                     </p>
-                    <p className={cn('dashboard__item__number')}>{ totalCaloruesBurned }</p>
+                    <p className={cn('dashboard__item__number')}>{Math.round(totalCaloruesBurned)}</p>
                 </li>
                 <li className={cn({ 'redHighlight': isCaloriesExceeded })}>
                     <p className={cn('dashboard__item__desc')}>
@@ -113,7 +113,7 @@ const caloriesRemaining = Object.keys(userInfo).length !== 0
                         />
                         Calories remaining
                     </p>
-                    <p className={cn('dashboard__item__number')}>{ caloriesRemaining }</p>
+                    <p className={cn('dashboard__item__number')}>{Math.round(caloriesRemaining)}</p>
                 </li>
                 <li className={cn( { 'greenHighlight': isExerciseRemaining})}>
                     <p className={cn('dashboard__item__desc')}>

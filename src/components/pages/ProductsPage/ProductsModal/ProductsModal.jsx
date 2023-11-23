@@ -17,13 +17,13 @@ const ProductsModal = ({ close, product }) => {
     const dispatch = useDispatch();
     const selectedDate = useSelector((state) => state.diary.selectedDate);
     const [showSuccessModal, setShowSuccessModal] = useState(false);
-     const [calculatedCalories, setCalculatedCalories] = useState(0);
+    const [calculatedCalories, setCalculatedCalories] = useState(0);
     
-        const validationSchema = Yup.object({
+    const validationSchema = Yup.object({
         grams: Yup.number()
             .required('Grams is required')
             .positive('Grams must be a positive number')
-            .integer('Grams must be an integer'),
+            .integer('Grams must be an integer')
         });
     
     const isLargeScreen = useMediaQuery({ minWidth: 768 });
@@ -47,7 +47,6 @@ const ProductsModal = ({ close, product }) => {
     const onSubmit = (values) => {
         const id = product._id;
         const date = selectedDate;
-        
 
         dispatch(addProduct({
             id: id,
@@ -64,17 +63,18 @@ const ProductsModal = ({ close, product }) => {
     };
 
 
-    return (
-        <div className={cn('container')}>
+    return <>
+    {!showSuccessModal ?
+        <div className={cn('container')} >
             <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema} >
                 {({ values, handleSubmit }) => {
                 const calories = Math.round(((product.cal / 100) * values.grams) )
                     useEffect(() => {
                         setCalculatedCalories(calories);
-                    }, [values.grams, product.cal]);
+                    }, [calories]);
 
                     return (
-                 <Form onSubmit={handleSubmit}> 
+                <Form onSubmit={handleSubmit}> 
                         <div className={cn('product_modal')}>
                             <div className={cn('inputs')}>
                                 <div className={cn('product')}>
@@ -82,9 +82,9 @@ const ProductsModal = ({ close, product }) => {
                                 </div>
                                 <div className={cn('input_container-grams')}>
                                     <Field
-                                        type="text"
-                                        id="grams"
-                                        name="grams"
+                                        type='text'
+                                        id='grams'
+                                        name='grams'
                                         className={cn('input-grams')}
                                     />
                                     <span className={cn('input__title')}>
@@ -112,11 +112,10 @@ const ProductsModal = ({ close, product }) => {
                     </Form>
                 )
                 }}
-            </Formik>
-            {showSuccessModal && (
-                <SuccessModal onClose={closeSuccessModal} calories={calculatedCalories} />
-            )}
-        </div>
-    );
+            </Formik> 
+        </div > :
+        <SuccessModal onClose={closeSuccessModal} calories={calculatedCalories} />}
+    </>
+;
 };
 export { ProductsModal };

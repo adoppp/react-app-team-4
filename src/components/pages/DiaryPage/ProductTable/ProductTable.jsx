@@ -64,7 +64,7 @@ const IconButtonStyles = {
                         </div>
                         <div className={cn('big-gap')}>
                             <h3 className={cn('container__label')}>Calories</h3>
-                            <p className={cn('container__input__small')}>{consumedCalories}</p>
+                            <p className={cn('container__input__small')}>{Math.round(consumedCalories)}</p>
                         </div>
                         <div className={cn('big-gap')}>
                             <h3 className={cn('container__label')}>Weight</h3>
@@ -76,8 +76,8 @@ const IconButtonStyles = {
                                 {isNotAllowedForBloodType ? 'No' : 'Yes'}
                             </p>
                         </div>
-                            <span onClick={() => handleDelete(_id)}>
-                                <Icon iconId="icon-trash" w={20} h={20} customStyles={{}} />
+                            <span onClick={() => handleDelete(_id)} className={cn('button__delete')}>
+                                <Icon iconId="icon-trash" w={20} h={20}  />
                             </span>
                         </li>
                     );

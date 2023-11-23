@@ -53,10 +53,6 @@ const Header = () => {
 
     const routeLogoPath = autheticated ? '/diary' : '/welcome';
 
-    // const isGravatar = avatar.includes('gravatar');
-
-    // const avatarPath = isGravatar ? `${avatar}` : `https://powerpulse-171j.onrender.com/${avatar}`;
-
     const authHeader = (
         <div className={cn('header__routing-container')}>
             <ul className={cn('header__links')}>

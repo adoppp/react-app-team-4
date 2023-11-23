@@ -87,13 +87,7 @@ const errorSlice = createSlice({
             .addCase(addProduct.rejected, REJECTED)
         
             .addCase(addExercise.pending, PENDING)
-            .addCase(addExercise.rejected, REJECTED)
-        
-                
-            // .addCase(getParameters.pending, PENDING)
-            // .addCase(getParameters.rejected, REJECTED)
-        
-            
+            .addCase(addExercise.rejected, REJECTED)            
     },
 });
 
