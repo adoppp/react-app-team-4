@@ -21,7 +21,7 @@ const ExercisesTable = () => {
             dispatch(getDiaryInfo(selectedDate));
         });
 };
-
+console.log(exercises)
 
     const IconButtonStyles = {
         marginLeft: 6,
@@ -40,7 +40,9 @@ const ExercisesTable = () => {
                 <p className={cn('notFound')}>Not found exercises</p>
             ) : ( <ul className={cn('container__list')}>
                     {exercises.map(exercise => {
-                        const { _id, bodyPart,equipment,name, target, burnedCalories, time} = exercise.exercise;
+                        const { burnedCalories, time} = exercise;
+                        const { _id, bodyPart,equipment,name, target} = exercise.exercise;
+                        console.log("🚀 ~ file: ExercisesTable.jsx:43 ~ ExercisesTable ~ burnedCalories:", burnedCalories)
                 
                         return (
                         <li key={_id}>
@@ -62,11 +64,11 @@ const ExercisesTable = () => {
                             </div>
                             <div className={cn('big-gap')}>
                                 <h3 className={cn('container__label')}>Burned Calories</h3>
-                                <p className={cn('container__input__small', 'burned')}>{burnedCalories}</p>
+                                <p className={cn('container__input__small', 'burned')}>{Math.floor(burnedCalories)}</p>
                             </div>
                             <div className={cn('small-gap')}>
                                 <h3 className={cn('container__label')}>Time</h3>
-                                <p className={cn('container__input__small', 'time')}>{time}</p>
+                                <p className={cn('container__input__small', 'time')}>{Math.floor(time)}</p>
                             </div>
 
                             <span onClick={() => handleDelete(_id)} className={cn('button__delete')}>

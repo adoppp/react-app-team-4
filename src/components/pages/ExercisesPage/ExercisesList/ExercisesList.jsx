@@ -39,6 +39,8 @@ const ExercisesList = () => {
             el.map((item) => ({
                 ...item,
                 name: item.name[0].toUpperCase() + item.name.slice(1),
+                bodyPart: item.bodyPart[0].toUpperCase() + item.bodyPart.slice(1),
+                target: item.target[0].toUpperCase() + item.target.slice(1),
             })),
         );
     };
