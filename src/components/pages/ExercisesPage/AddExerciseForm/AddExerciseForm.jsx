@@ -44,41 +44,27 @@ const AddExerciseForm = ({ data, customClose }) => {
         const minutes = Math.floor(elapsedTime / 60);
         const seconds = Math.floor(elapsedTime % 60);
         const formattedTime = `${minutes}:${seconds}`;
-
+        
         setTimeout(() => setTime(Math.floor(elapsedTime)), 0);
         return formattedTime;
     };
-
-
     
     const handleClickPause = () => {
         setPause(prevPause => !prevPause);
         clearTimeout(timerId);
     };
 
-
     const handleClick = () => {
         const ExercisesData = {
-            exercise:data._id,
-            date:selectedDate,
-            time: time,
-            calories: burnedCalories
-        };
-        
-         dispatch(addExercise({
             id:data._id,
             date:selectedDate,
-            time: time,
-        }))
-
-        
+            time: time/60,
+        };
+        console.log('time > 1 min')
         if(time >= 60 && burnedCalories >= 1) {
-            console.log(ExercisesData);
-
+            dispatch(addExercise(ExercisesData));
+            setShowModal(true);
         } ;
-        // =====це перемістити на 73 рядок, щоб спрацьовувало за умови=====
-        setShowModal(true);//==============================================
-        // ================================================================
     };
 
     return (

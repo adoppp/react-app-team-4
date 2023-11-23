@@ -25,11 +25,11 @@ const AddExerciseSuccess = ({ closeModal, data }) => {
         <h2>Well done</h2>
         <ul className={cn('successExercises__list')}>
             <li >
-                <p className={cn('successExercises__list_el')}>Your  time:</p>
-                <p>{data.time}</p>
+                <p className={cn('successExercises__list_el')}>Your  time:&nbsp;</p>
+                <p>{`${Math.floor(data.time / 60)}:${Math.floor(data.time % 60)}`}</p>
             </li>
             <li>
-                <p className={cn('successExercises__list_el')}>Burned calories:</p>
+                <p className={cn('successExercises__list_el')}>Burned calories:&nbsp;</p>
                 <p>{data.burnedCalories}</p>
             </li>
         </ul>

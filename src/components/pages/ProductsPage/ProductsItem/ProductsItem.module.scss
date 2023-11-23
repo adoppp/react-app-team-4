@@ -98,6 +98,11 @@
     font-weight: 400;
     font-size: 20;
     line-height: 1.2;
+    
+    width: 240px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .item_list_container {
