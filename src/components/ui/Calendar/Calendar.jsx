@@ -1,17 +1,28 @@
 import { useState, forwardRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import DatePicker from 'react-datepicker';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Icon } from '../Icon';
 import './Calendar.scss';
 import { updateSelectedDate } from '../../../storage/reducers/diarySlice';
 import {formatDate} from '../../../storage/reducers/diarySlice'
+import { userSelector } from '../../../storage/selectors/authSelectors';
 
 
 const Calendar = () => {
     const dispatch = useDispatch();
     const [selectedDate, setSelectedDate] = useState(new Date());
+    const userData = useSelector(userSelector);
+    let registrationDate;
+    if (userData) {
+        registrationDate = new Date(userData.createdAt);
+    }
+    
+    const firstDayOfRegistrationMonth = userData ? new Date(userData.createdAt) : new Date();
+    firstDayOfRegistrationMonth.setDate(1);
+
+
 
     const isTabletScreen = useMediaQuery({ minWidth: 768 });
     const iconCalendarHeight = isTabletScreen ? 24 : 20;
@@ -48,6 +59,10 @@ const Calendar = () => {
     const handlePrevDay = () => {
         const previousDay = new Date(selectedDate);
         previousDay.setDate(previousDay.getDate() - 1);
+
+         if (userData && previousDay < new Date(userData.createdAt)) {
+        return;
+    }
         setSelectedDate(previousDay);
         dispatch(updateSelectedDate(formatDate(previousDay)));
     };
@@ -76,6 +91,8 @@ const Calendar = () => {
                     <div className={'header-calendar'}>
                         <button
                             aria-label="Previous Month"
+                            disabled={monthDate.getMonth() === firstDayOfRegistrationMonth.getMonth() &&
+                                      monthDate.getFullYear() === firstDayOfRegistrationMonth.getFullYear()}
                             className={
                                 'react-datepicker__navigation react-datepicker__navigation--previous'
                             }
@@ -96,6 +113,7 @@ const Calendar = () => {
                                     'react-datepicker__navigation-icon react-datepicker__navigation-icon--next'
                                 }
                             />
+                        
                         </button>
                         <span className="react-datepicker__current-month">
                             {monthDate.toLocaleString('en-US', {
@@ -129,6 +147,7 @@ const Calendar = () => {
                     setSelectedDate(date);
                 }}
                 dateFormat={'dd/MM/yyyy'}
+                minDate={registrationDate}
                 calendarStartDay={1}
                 customInput={<BtnInput />}
             />

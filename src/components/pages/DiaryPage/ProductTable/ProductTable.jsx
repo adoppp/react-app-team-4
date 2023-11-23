@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './ProductTable.module.scss';
 import { Icon } from '../../../ui/Icon';
-import { deleteProduct,getDiaryInfo } from '../../../../storage/operations/diaryThunk';
+import { deleteProduct, getDiaryInfo } from '../../../../storage/operations/diaryThunk';
 import { userInfoSelector } from '../../../../storage/selectors/authSelectors';
 
 
