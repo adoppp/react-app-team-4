@@ -3,21 +3,26 @@ import styles from './ProductsItem.module.scss';
 import classNames from 'classnames/bind';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { selectorProducts } from '../../../../storage/selectors/productsSelector.js';
+import { selectorFilter, selectorProducts } from '../../../../storage/selectors/productsSelector.js';
 import { getProducts } from '../../../../storage/operations/productsThunk.js';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
 
 const cn = classNames.bind(styles);
 
 const ProductsItem = ({ open }) => {
-   const dispatch = useDispatch()
-    const { items } = useSelector(selectorProducts);
-     const defaltProduct = 'A';
-  
+  const dispatch = useDispatch()
+  const { items } = useSelector(selectorProducts);
+  // const filterCategory = useSelector(selectorFilter);
+  const defaltProduct = '';
+  const userBloodGroup = 2;
+
+  // const filterProducts = items.filter(product => product.category === filterCategory.category);
+
+
   useEffect(() => {
     dispatch(getProducts(defaltProduct));
   }, [dispatch]);
-
 
     const IconStyles = {
         backgroundColor: ' #EFA082',
@@ -27,11 +32,20 @@ const ProductsItem = ({ open }) => {
     };
     const IconButtonStyles = {
         marginLeft: 8,
-    };
+  };
+  console.log('item:',items)
+  // // console.log(filterProducts);
+  // console.log(filterCategory);
 
+  // console.log(filterCategory)
+
+  // console.log(items.notRecommendedProducts)
+  // console.log(items.recommendedProdusct)
+
+      
     return (
         <>
-            {!items || items.length === 0 ? (
+             {!items ? (
                 <div className={cn('not_find_text')}>
                     <p>
                         Sorry, no results were found{' '}
@@ -45,14 +59,19 @@ const ProductsItem = ({ open }) => {
                     </p>
                     <p>Try changing the search parameters.</p>
                 </div>
-            ) : (
-                items.map((item) => {
+        ) : (
+          
+   items &&  items.map((item) => {
+            const groupBloodNotAllowed = item.groupBloodNotAllowed;
+                const isRecommendedForUser = !groupBloodNotAllowed[userBloodGroup];
                     return (
                         <li key={item.title} className={cn('item')}>
                             <div className={cn('item_container')}>
                                 <p className={cn('diet')}>DIET</p>
                                 <div className={cn('button_container')}>
-                                    <p className={cn('text')}>Recommended</p>
+                            <p className={cn('text',{ 'green':isRecommendedForUser , 'red': !isRecommendedForUser })}>
+                              {isRecommendedForUser ? ' Recommended' : 'Not Recommended'}
+                                  </p>
                                     <button
                                         className={cn('button')}
                                         onClick={() =>
@@ -105,7 +124,7 @@ const ProductsItem = ({ open }) => {
                         </li>
                     );
                 })
-            )}
+            )} 
         </>
     );
 };

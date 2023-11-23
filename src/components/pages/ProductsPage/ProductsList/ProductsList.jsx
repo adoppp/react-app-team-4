@@ -9,7 +9,7 @@ const cn = classNames.bind(styles);
 const ProductsList = ({ open }) => {
     const { items } = useSelector(selectorProducts);
 
-    const isScroll = items.length === 0 ? { overflowY: 'auto' } : {};
+    const isScroll =items && items.length === 0 ? { overflowY: 'auto' } : {};
 
     return (
         <ul className={cn('list')} style={isScroll}>

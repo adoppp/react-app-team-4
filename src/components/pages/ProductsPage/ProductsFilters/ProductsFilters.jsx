@@ -10,18 +10,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     getProductsCategories,
     getProducts,
+    getProductsOfBlood,
+    getProductsOfBloodNotRecommended,
+
 } from '../../../../storage/operations/productsThunk.js';
 import { useEffect } from 'react';
-import { selectorCategories } from '../../../../storage/selectors/productsSelector.js';
-// import { setCategoryFilter } from '../../../../storage/reducers/productsSlice.js';
+import { selectorCategories, selectorProducts } from '../../../../storage/selectors/productsSelector.js';
+import { setCategoryFilter } from '../../../../storage/reducers/productsSlice.js';
 
 const cn = classNames.bind(styles);
 
 const ProductsFilters = () => {
-    const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState('');
     const isTabletScreen = useMediaQuery({ minWidth: 768 });
     const dispatch = useDispatch();
-    const { list } = useSelector(selectorCategories);
+  const { list } = useSelector(selectorCategories);
+    const { items , filterCategory} = useSelector(selectorProducts);
 
     const hendleInputChange = (e) => {
         const value = e.target.value;
@@ -29,16 +33,33 @@ const ProductsFilters = () => {
     };
     const handleClearInput = () => {
         setInputValue('');
-    };
+  };
+  
 
-    // const handleCategoryChange = (selectedValue) => {
-    //     setCategoryFilter(selectedValue)
-    //    setSelectedCategory(selectedValue);
-    // dispatch(getProducts(inputValue, selectedValue));
-    // };
+
+  const handleCategoryChange = (selectedValue) => {
+    const filterProducts = filterCategory && filterCategory.filter(product => product.category == selectedValue);
+    dispatch(setCategoryFilter(filterProducts))
+  };
+
+  const handleCategoryBlodChange = (selectedValue) => {
+   const blood = 2;
+  switch (selectedValue) {
+    case 'Recommended':
+       dispatch(getProductsOfBlood(blood));
+      break;
+    case 'Not recommended':
+     dispatch(getProductsOfBloodNotRecommended(blood));
+      break;
+    default:
+      dispatch(getProducts(''));
+  }
+};
+
+
+ 
 
     const handleFormSubmit = () => {
-        console.log(inputValue);
         dispatch(getProducts(inputValue));
     };
 
@@ -114,13 +135,13 @@ const ProductsFilters = () => {
 
                     <Select
                         value={list}
-                        // handleCategoryChange={handleCategoryChange}
+                        handleCategoryChange={handleCategoryChange}
                     />
                     <Select
                         value={selectList}
                         customSelectStyle={customSelectStyle}
                         customListSelectStyle={listSelectStyle}
-                        // handleCategoryChange={handleCategoryChange}
+                        handleCategoryChange={handleCategoryBlodChange}
                     />
                 </Form>
             </Formik>
