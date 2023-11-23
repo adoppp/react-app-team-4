@@ -8,7 +8,7 @@ export const userSelector = (state) => state.user.userDetails.userData;
 
 export const userInfoSelector = (state) => state.user.userDetails.userInfo;
 
-export const userVerifySelector = (state) => state.user.verify;
+export const userVerifySelector = (state) => state.user.userDetails.userData.verify;
 
 export const errorVerifySelector = (state) => state.error.notificationMessage;
 
