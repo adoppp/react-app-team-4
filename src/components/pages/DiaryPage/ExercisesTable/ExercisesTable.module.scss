@@ -10,23 +10,19 @@ a {
     border-radius: $main-b-radius;
     border: 1px solid rgba(239, 237, 232, 0.2);
     background: rgba(239, 237, 232, 0.05);
-    padding: 16px;
-    min-height: 335px;
     padding: 16px 12px;
 
-    width: 335px;
-    max-height: 824px;
-    overflow-y: auto;
+    max-width: 380px;
 
     @media screen and (min-width: 768px) {
-        min-height: 234px;
-        width: 704px;
+        min-width: 704px;
         max-height: 234px;
         padding-top: 19px;
+        min-height: 234px;
     }
 
     @media screen and (min-width: 1140px) {
-        width: 826px;
+        min-width: 826px;
         padding-top: 16px;
     }
 }
@@ -100,9 +96,19 @@ a {
     display: flex;
     flex-direction: column;
     gap: 40px;
+    max-height: 824px;
+    overflow-y: auto;
+    min-height: 335px;
 
     @media screen and (min-width: 768px) {
         gap: 8px;
+        overflow-y: auto;
+        min-height: 120px;
+        max-height: 150px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        overflow-x: clip;
     }
 
     & li {

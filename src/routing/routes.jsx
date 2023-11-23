@@ -20,6 +20,7 @@ const ExercisesPage = lazy(() =>
 const ProductsContainer = lazy(() =>
     import('../components/containers/ProductsContainer/ProductsContainer'),
 );
+const VerifyPage = lazy(() => import('../components/pages/VerifyPage/VerifyPage'));
 
 import { Welcome } from '../components/global/Welcome';
 import { SignUp } from '../components/auth/SignUp';
@@ -28,6 +29,7 @@ import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { ExercisesSubcategoriesItem } from '../components/pages/ExercisesPage/ExercisesSubcategoriesItem';
 import { ExercisesList } from '../components/pages/ExercisesPage/ExercisesList';
+import { VerifyRoute } from './VerifyRoute';
 
 const routes = {
     MAIN_ROUTE: '/',
@@ -38,6 +40,7 @@ const routes = {
     DIARY_ROUTE: '/diary',
     PRODUCTS_ROUTE: '/products',
     EXERCISES_ROUTE: '/exercises',
+    VERIFY_ROUTE: '/verify',
 };
 
 const appRoutes = [
@@ -62,11 +65,9 @@ const appRoutes = [
     {
         path: routes.SIGNUP_ROUTE,
         element: (
-            <RestrictedRoute>
                 <MainСontainer>
                     <SignUp />
                 </MainСontainer>
-            </RestrictedRoute>
         ),
     },
     {
@@ -108,6 +109,14 @@ const appRoutes = [
                 </ProductsContainer>
             </PrivateRoute>
         ),
+    },
+    {
+        path: routes.VERIFY_ROUTE,
+        element: (
+            <VerifyRoute >
+                <VerifyPage />
+            </VerifyRoute>
+        )
     },
     {
         path: routes.EXERCISES_ROUTE,

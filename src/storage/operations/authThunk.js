@@ -116,3 +116,15 @@ export const detailsCreate = createAsyncThunk(
         }
     },
 );
+
+export const verifyOneMore = createAsyncThunk(
+    'user/verify_If_Email_Didnt_Send',
+    async (email, thunkAPI) => {
+        try {
+            const response = await instance.post('auth/verify', email);
+            return response.data;
+        } catch (e) {
+            return REJECTED(thunkAPI, e);
+        }
+    }
+)

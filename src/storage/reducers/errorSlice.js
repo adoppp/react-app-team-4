@@ -9,6 +9,7 @@ import {
     infoUpdate,
     detailsUpdate,
     detailsCreate,
+    verifyOneMore,
     // getParameters,
 } from '../operations/authThunk';
 import {
@@ -23,6 +24,8 @@ import { getDiaryInfo, deleteProduct, deleteExercise, addProduct, addExercise, }
 
 const initialState = {
     message: null,
+    notificationMessage: null,
+    isError: false,
 };
 
 const REJECTED = (state, action) => {
@@ -31,6 +34,16 @@ const REJECTED = (state, action) => {
 
 const PENDING = (state) => {
     state.message = null;
+};
+
+const REJECTEDverify = (state, action) => {
+    state.notificationMessage = action.payload;
+    state.isError = true
+};
+
+const PENDINGverify = (state) => {
+    state.notificationMessage = null;
+    state.isError = false;
 };
 
 const errorSlice = createSlice({
@@ -87,7 +100,14 @@ const errorSlice = createSlice({
             .addCase(addProduct.rejected, REJECTED)
         
             .addCase(addExercise.pending, PENDING)
-            .addCase(addExercise.rejected, REJECTED)            
+            .addCase(addExercise.rejected, REJECTED)
+        
+            .addCase(verifyOneMore.pending, PENDINGverify)
+            .addCase(verifyOneMore.fulfilled, (state) => {
+                state.notificationMessage = 'Successful resubmission'
+                state.isError = false;
+            })
+            .addCase(verifyOneMore.rejected, REJECTEDverify)     
     },
 });
 

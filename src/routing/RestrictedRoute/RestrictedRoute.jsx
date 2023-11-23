@@ -6,12 +6,9 @@ import { autheticatedSelector, userInfoSelector} from '../../storage/selectors/a
 
 const RestrictedRoute = ({ children, redirectTo = routes.PROFILE_ROUTE }) => {
     const authentificated = useSelector(autheticatedSelector);
-    // const userData = useSelector(userInfoSelector);
+    const userData = useSelector(userInfoSelector);
 
-
-    const hasProfileData = true;
-
-     const targetRoute = authentificated ? (hasProfileData ? routes.DIARY_ROUTE : routes.PROFILE_ROUTE) : null;
+    const targetRoute = authentificated ? (userData ? routes.DIARY_ROUTE : routes.PROFILE_ROUTE) : null;
 
     return targetRoute ? <Navigate to={targetRoute} replace /> : children;
 };
