@@ -5,13 +5,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import styles from './ExercisesTable.module.scss';
 import { Icon } from '../../../ui/Icon';
 import { deleteExercise, getDiaryInfo } from '../../../../storage/operations/diaryThunk';
+import { dateExerciseSelector, diaryExercisesSelector } from '../../../../storage/selectors/diarySelectors';
 
 const cn = classNames.bind(styles);
 
 const ExercisesTable = () => {
 
-    const selectedDate = useSelector((state) => state.diary.selectedDate);
-    const exercises = useSelector((state) => state.diary.exercises);
+    const selectedDate = useSelector(dateExerciseSelector);
+    const exercises = useSelector(diaryExercisesSelector);
     const dispatch = useDispatch();
 
     const handleDelete = (exerciseId) => {
@@ -22,7 +23,7 @@ const ExercisesTable = () => {
 };
 
 
-      const IconButtonStyles = {
+    const IconButtonStyles = {
         marginLeft: 6,
     };
 
@@ -40,10 +41,9 @@ const ExercisesTable = () => {
             ) : ( <ul className={cn('container__list')}>
                     {exercises.map(exercise => {
                         const { _id, bodyPart,equipment,name, target, burnedCalories, time} = exercise.exercise;
-                        console.log("🚀 ~ file: ExercisesTable.jsx:43 ~ ExercisesTable ~ burnedCalories:", burnedCalories)
                 
                         return (
-                                 <li key={_id}>
+                        <li key={_id}>
                             <div className={cn('big-gap')}>
                                 <h3 className={cn('container__label')}>Body Part</h3>
                                 <p className={cn('container__input', 'title')}>{bodyPart}</p>

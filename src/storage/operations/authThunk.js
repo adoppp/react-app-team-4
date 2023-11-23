@@ -73,7 +73,7 @@ export const avatarUpdate = createAsyncThunk(
     'auth/avatar',
     async (avatar, thunkAPI) => {
         try {
-            const response = await instance.patch('auth/avatar', avatar);
+            const response = await instance.post('auth/avatar', avatar);
             return response.data;
         } catch (e) {
             return REJECTED(thunkAPI, e);
