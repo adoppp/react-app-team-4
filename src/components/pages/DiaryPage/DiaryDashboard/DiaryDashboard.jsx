@@ -12,15 +12,15 @@ const DiaryDashboard = () => {
     const exercises = useSelector((state) => state.diary.exercises);
     
     const totalExerciseTime = exercises.reduce((total, exercise) => {
-        return total + exercise.exercise.time; 
+        return total + exercise.time; 
     }, 0);
     
-    const totalCaloruesConsumed = products.reduce((total, product) => {
+    const totalCaloriesConsumed = products.reduce((total, product) => {
         return total + product.consumedCalories; 
     }, 0);
     
-    const totalCaloruesBurned = exercises.reduce((total, exercise) => {
-        return total + exercise.exercise.burnedCalories; 
+    const totalCaloriesBurned = exercises.reduce((total, exercise) => {
+        return total + Math.floor(exercise.burnedCalories); 
        }, 0);
     
     const dailyCalorieIntake = Object.keys(userInfo).includes('BMR')
@@ -32,11 +32,11 @@ const dailyPhysicalActivity = Object.keys(userInfo).includes('dailyExerciseTime'
     : 0;
 
 const sportsRemaining = Object.keys(userInfo).includes('BMR')
-    ? (dailyPhysicalActivity - totalExerciseTime)
+    ? (dailyPhysicalActivity - Math.floor(totalExerciseTime))
     : 0;
 
 const caloriesRemaining = Object.keys(userInfo).includes('dailyExerciseTime')
-    ? (dailyCalorieIntake - totalCaloruesConsumed)
+    ? (dailyCalorieIntake - totalCaloriesConsumed)
     : 0;
 
 
@@ -46,9 +46,8 @@ const caloriesRemaining = Object.keys(userInfo).includes('dailyExerciseTime')
     };
     
     
-    const isCaloriesExceeded = dailyCalorieIntake < totalCaloruesConsumed;
+    const isCaloriesExceeded = dailyCalorieIntake < totalCaloriesConsumed;
     const isExerciseRemaining = dailyPhysicalActivity < totalExerciseTime;
-
 
     return (
         <div>
@@ -64,6 +63,30 @@ const caloriesRemaining = Object.keys(userInfo).includes('dailyExerciseTime')
                         Daily calorie intake
                     </p>
                     <p className={cn('dashboard__item__number')}>{Math.round(dailyCalorieIntake)}</p>
+                </li>
+                <li>
+                    <p className={cn('dashboard__item__desc')}>
+                        <Icon
+                            iconId="icon-apple"
+                            w={18}
+                            h={18}
+                            customStyles={iconStyles}
+                        />
+                        Calories consumed
+                    </p>
+                    <p className={cn('dashboard__item__number')}>{Math.round(totalCaloriesConsumed)}</p>
+                </li>
+                <li className={cn({ 'redHighlight': isCaloriesExceeded })}>
+                    <p className={cn('dashboard__item__desc')}>
+                        <Icon
+                            iconId="icon-bubble"
+                            w={18}
+                            h={18}
+                            customStyles={iconStyles}
+                        />
+                        Calories remaining
+                    </p>
+                    <p className={cn('dashboard__item__number')}>{Math.round(caloriesRemaining)}</p>
                 </li>
                 <li className={cn('red')}>
                     <p className={cn('dashboard__item__desc')}>
@@ -82,38 +105,14 @@ const caloriesRemaining = Object.keys(userInfo).includes('dailyExerciseTime')
                 <li>
                     <p className={cn('dashboard__item__desc')}>
                         <Icon
-                            iconId="icon-apple"
-                            w={18}
-                            h={18}
-                            customStyles={iconStyles}
-                        />
-                        Сalories consumed
-                    </p>
-                    <p className={cn('dashboard__item__number')}>{Math.round(totalCaloruesConsumed)}</p>
-                </li>
-                <li>
-                    <p className={cn('dashboard__item__desc')}>
-                        <Icon
                             iconId="icon-calories"
                             w={18}
                             h={18}
                             customStyles={iconStyles}
                         />
-                        Сalories burned
+                        Calories burned
                     </p>
-                    <p className={cn('dashboard__item__number')}>{Math.round(totalCaloruesBurned)}</p>
-                </li>
-                <li className={cn({ 'redHighlight': isCaloriesExceeded })}>
-                    <p className={cn('dashboard__item__desc')}>
-                        <Icon
-                            iconId="icon-bubble"
-                            w={18}
-                            h={18}
-                            customStyles={iconStyles}
-                        />
-                        Calories remaining
-                    </p>
-                    <p className={cn('dashboard__item__number')}>{Math.round(caloriesRemaining)}</p>
+                    <p className={cn('dashboard__item__number')}>{Math.round(totalCaloriesBurned)}</p>
                 </li>
                 <li className={cn( { 'greenHighlight': isExerciseRemaining})}>
                     <p className={cn('dashboard__item__desc')}>
