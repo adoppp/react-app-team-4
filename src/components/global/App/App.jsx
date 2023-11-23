@@ -32,7 +32,7 @@ function App() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (!token || autheticated === false) return;
+        if (!token) return;
         // if (!user.verify) return;
         dispatch(refreshUser());
     }, [dispatch, token]);

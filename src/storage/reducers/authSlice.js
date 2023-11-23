@@ -38,7 +38,8 @@ const authSlice = createSlice({
             })
             .addCase(login.fulfilled, (state, action) => {
                 state.authenticated = true;
-                state.userDetails = action.payload;
+                state.userDetails.userData = action.payload.userData;
+                state.userDetails.userInfo = action.payload.userInfo;
                 state.token = action.payload.token;
             })
             .addCase(logout.fulfilled, (state) => {
