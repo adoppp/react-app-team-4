@@ -14,7 +14,9 @@ import {
 
 const initialState = {
     userDetails: {
-        userData: { avatarURL: '' },
+        userData: {
+            verify: false,
+        },
         userInfo: {},
     },
     authenticated: false,
@@ -42,14 +44,11 @@ const authSlice = createSlice({
             .addCase(logout.fulfilled, (state) => {
                 state.authenticated = false;
                 state.userDetails.userData = {
-                    avatarURL: '',
+                    verify: false,
                 };
                 state.userDetails.userInfo = {};
-                state.userDetails.userParameters = {
-                    dailyCalories: 0,
-                    dailyExerciseTime: 0,
-                };
                 state.token = null;
+                state.verificationCode = null;
             })
             .addCase(refreshUser.fulfilled, (state, action) => {
                 state.authenticated = true;
