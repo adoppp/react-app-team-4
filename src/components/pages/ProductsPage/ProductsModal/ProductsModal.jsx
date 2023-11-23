@@ -17,9 +17,9 @@ const ProductsModal = ({ close, product }) => {
     const dispatch = useDispatch();
     const selectedDate = useSelector((state) => state.diary.selectedDate);
     const [showSuccessModal, setShowSuccessModal] = useState(false);
-     const [calculatedCalories, setCalculatedCalories] = useState(0);
+    const [calculatedCalories, setCalculatedCalories] = useState(0);
     
-        const validationSchema = Yup.object({
+    const validationSchema = Yup.object({
         grams: Yup.number()
             .required('Grams is required')
             .positive('Grams must be a positive number')
@@ -47,7 +47,6 @@ const ProductsModal = ({ close, product }) => {
     const onSubmit = (values) => {
         const id = product._id;
         const date = selectedDate;
-        
 
         dispatch(addProduct({
             id: id,
@@ -72,10 +71,10 @@ const ProductsModal = ({ close, product }) => {
                 const calories = Math.round(((product.cal / 100) * values.grams) )
                     useEffect(() => {
                         setCalculatedCalories(calories);
-                    }, [values.grams, product.cal]);
+                    }, [calories]);
 
                     return (
-                 <Form onSubmit={handleSubmit}> 
+                <Form onSubmit={handleSubmit}> 
                         <div className={cn('product_modal')}>
                             <div className={cn('inputs')}>
                                 <div className={cn('product')}>

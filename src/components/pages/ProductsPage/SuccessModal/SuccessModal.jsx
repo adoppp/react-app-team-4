@@ -1,6 +1,4 @@
-import React from 'react';
 import classNames from 'classnames/bind';
-import {Modal} from '../../../ui/Modal'; 
 import styles from './SuccessModal.module.scss';
 import { Button } from '../../../ui/Button';
 import { Link } from 'react-router-dom';
@@ -20,7 +18,6 @@ const SuccessModal = ({ onClose, calories }) => {
     }
 
     return (
-        <Modal>
             <div className={cn('successModal')}>
                 <h2>Well done</h2>
                 <p className={cn('title_calories')}>
@@ -38,7 +35,6 @@ const SuccessModal = ({ onClose, calories }) => {
                 </button>
                 
             </div>
-        </Modal>
     );
 };
 

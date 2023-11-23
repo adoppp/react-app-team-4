@@ -6,11 +6,11 @@
     // width: 335px;
     // height: 280px;
     @media screen and (min-width: 768px) {
-    }
+    };
 
     @media screen and (min-width: 1440px) {
-    }
-}
+    };
+};
 
 .input {
     color: $snow-alpha-white;
@@ -27,19 +27,19 @@
 
     &:hover {
         border-color: $christmas-main-orange;
-    }
+    };
 
     &:focus {
         border-color: $christmas-main-orange;
-    }
+    };
 
     @media screen and (min-width: 768px) {
         width: 244px;
         height: 40px;
-    }
+    };
 
     @media screen and (min-width: 1440px) {
-    }
+    };
 }
 
 .input_container-grams {
@@ -48,12 +48,12 @@
 
     @media screen and (min-width: 768px) {
         margin-bottom: 0px;
-    }
-}
+    };
+};
 
 .input_container {
     margin-bottom: 16px;
-}
+};
 
 .input-grams {
     font-size: 12px;
@@ -71,20 +71,20 @@
 
     &:focus {
         border-color: $christmas-main-orange;
-    }
+    };
 
     @media screen and (min-width: 768px) {
         width: 155px;
         height: 40px;
         margin-left: 16px;
-    }
-}
+    };
+};
 
 .button_container {
     display: flex;
     align-items: center;
     gap: 14px;
-}
+};
 
 .title_calories {
     font-size: 12px;
@@ -94,8 +94,8 @@
     @media screen and (min-width: 768px) {
         display: flex;
         margin-bottom: 64px;
-    }
-}
+    };
+};
 
 .inputs {
     margin-bottom: 16px;
@@ -103,8 +103,8 @@
         display: flex;
         margin-bottom: 16px;
         justify-content: space-between;
-    }
-}
+    };
+};
 
 .product {
     border: 1px solid rgba(239, 237, 232, 0.4);
@@ -117,8 +117,8 @@
 
     @media screen and (max-width: 767px) {
         margin-bottom: 16px;
-    }
-}
+    };
+};
 
 .input__title {
     position: absolute;
@@ -132,8 +132,8 @@
     font-size: 12px;
     font-weight: 400;
     line-height: 1.5;
-}
+};
 
 .container {
     margin-top: 6px;
-}
+};
