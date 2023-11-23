@@ -31,11 +31,9 @@ const ProductsFilters = () => {
         setInputValue('');
     };
 
-    // const handleCategoryChange = (selectedValue) => {
-    //     setCategoryFilter(selectedValue)
-    //    setSelectedCategory(selectedValue);
-    // dispatch(getProducts(inputValue, selectedValue));
-    // };
+    const handleCategoryChange = (selectedValue) => {
+        dispatch(getProducts(selectedValue));
+    };
 
     const handleFormSubmit = () => {
         console.log(inputValue);
@@ -56,8 +54,8 @@ const ProductsFilters = () => {
     };
 
     const listSelectStyle = {
-        height: 98,
-        overflow: 'hidden',
+        height: 112,
+        overflow: 'visible',
     };
 
     const selectList = ['All', 'Recommended', 'Not recommended'];
@@ -113,13 +111,13 @@ const ProductsFilters = () => {
 
                     <Select
                         value={list}
-                        // handleCategoryChange={handleCategoryChange}
+                        handleCategoryChange={handleCategoryChange}
                     />
                     <Select
                         value={selectList}
                         customSelectStyle={customSelectStyle}
                         customListSelectStyle={listSelectStyle}
-                        // handleCategoryChange={handleCategoryChange}
+                        handleCategoryChange={handleCategoryChange}
                     />
                 </Form>
             </Formik>

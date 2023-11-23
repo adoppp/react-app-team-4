@@ -6,6 +6,7 @@ import styles from './ProductTable.module.scss';
 import { Icon } from '../../../ui/Icon';
 import { deleteProduct, getDiaryInfo } from '../../../../storage/operations/diaryThunk';
 import { userInfoSelector } from '../../../../storage/selectors/authSelectors';
+import { dateExerciseSelector, diaryProductsSelector } from '../../../../storage/selectors/diarySelectors';
 
 
 
@@ -13,8 +14,8 @@ const cn = classNames.bind(styles);
 
 const ProductTable = () => {
 
-    const selectedDate = useSelector((state) => state.diary.selectedDate);
-    const products = useSelector((state) => state.diary.products);
+    const selectedDate = useSelector(dateExerciseSelector);
+    const products = useSelector(diaryProductsSelector);
 
     const userData = useSelector(userInfoSelector);
     const bloodType = userData.blood;
@@ -48,10 +49,10 @@ const IconButtonStyles = {
              ) : (
                          <ul className={cn('container__list')}>
                          {products.map(product => {
-                             const { _id, title, category, groupBloodNotAllowed } = product.product;
-                             const { weight, consumedCalories } = product;
+                            const { _id, title, category, groupBloodNotAllowed } = product.product;
+                            const { weight, consumedCalories } = product;
                              const isNotAllowedForBloodType = groupBloodNotAllowed[bloodType];
-
+                             console.log(groupBloodNotAllowed[bloodType])
                     return (
                         <li key={_id}>
                              <div className={cn('big-gap')}>
@@ -72,8 +73,8 @@ const IconButtonStyles = {
                         </div>
                         <div className={cn('small-gap')}>
                             <h3 className={cn('container__label')}>Recommend</h3>
-                            <p className={cn('container__input__small', { 'red': isNotAllowedForBloodType, 'green': !isNotAllowedForBloodType })}>
-                                {isNotAllowedForBloodType ? 'No' : 'Yes'}
+                            <p className={cn('container__input__small', { 'red': !isNotAllowedForBloodType, 'green': isNotAllowedForBloodType })}>
+                                {isNotAllowedForBloodType ? 'Yes' : 'No'}
                             </p>
                         </div>
                             <span onClick={() => handleDelete(_id)} className={cn('button__delete')}>
