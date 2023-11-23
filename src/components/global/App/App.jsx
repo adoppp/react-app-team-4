@@ -32,10 +32,12 @@ function App() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (!token) return;
-        // if (!user.verify) return;
-        dispatch(refreshUser());
-    }, [dispatch, token]);
+            if (!token) return;
+            else if (!autheticated) return;
+            // else if (!user.verify) return;
+
+            dispatch(refreshUser());
+    }, [dispatch, token, autheticated]);
 
     Notify.init({
         position: 'center-top',

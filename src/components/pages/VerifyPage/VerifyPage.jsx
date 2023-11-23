@@ -17,7 +17,6 @@ const VerifyPage = () => {
     const isLargeScreen = useMediaQuery({ minWidth: 768 });
     const dispatch = useDispatch();
     const verificationCode = useSelector(verificationCodeSelector);
-    console.log("🚀 ~ file: VerifyPage.jsx:20 ~ VerifyPage ~ user:", verificationCode)
 
     const buttonStyles = {
         fontSize: isSmallScreen ? '12px' : isLargeScreen ? '18px' : '16px',
@@ -33,7 +32,7 @@ const VerifyPage = () => {
 
     useEffect(() => {
         dispatch(verifyByVerificationCode(verificationCode))
-    }, [dispatch])
+    }, [dispatch, verificationCode])
 
     // const handleVerification = () => {
     //     waiting for zahar to send email
