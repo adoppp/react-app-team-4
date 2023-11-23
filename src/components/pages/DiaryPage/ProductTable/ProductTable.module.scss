@@ -128,7 +128,7 @@ margin-bottom: 22px;
     line-height: 18px;
 }
 
-.containerlist li:not(:first-child) .containerlabel {
+.container__list li:not(:first-child) .container__label {
     @media screen and (min-width: 768px) {
         display: none;
     }

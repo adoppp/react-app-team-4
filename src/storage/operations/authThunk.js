@@ -14,7 +14,7 @@ export const token = {
     },
 };
 
-const REJECTED = (thunkAPI, e) => thunkAPI.rejectWithValue(e.message);
+const REJECTED = (thunkAPI, e) => thunkAPI.rejectWithValue(e.response.data.message ? e.response.data.message : e.message);
 
 export const registration = createAsyncThunk(
     'auth/registration',

@@ -141,6 +141,12 @@ a {
     }
 }
 
+.container__list li:not(:first-child) .container__label {
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+}
+
 .container__input,
 .container__input__small {
     display: block;

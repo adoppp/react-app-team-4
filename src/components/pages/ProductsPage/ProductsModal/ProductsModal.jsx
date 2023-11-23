@@ -23,7 +23,7 @@ const ProductsModal = ({ close, product }) => {
         grams: Yup.number()
             .required('Grams is required')
             .positive('Grams must be a positive number')
-            .integer('Grams must be an integer'),
+            .integer('Grams must be an integer')
         });
     
     const isLargeScreen = useMediaQuery({ minWidth: 768 });
@@ -82,9 +82,9 @@ const ProductsModal = ({ close, product }) => {
                                 </div>
                                 <div className={cn('input_container-grams')}>
                                     <Field
-                                        type="text"
-                                        id="grams"
-                                        name="grams"
+                                        type='text'
+                                        id='grams'
+                                        name='grams'
                                         className={cn('input-grams')}
                                     />
                                     <span className={cn('input__title')}>

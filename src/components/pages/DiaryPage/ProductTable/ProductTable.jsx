@@ -64,7 +64,7 @@ const IconButtonStyles = {
                         </div>
                         <div className={cn('big-gap')}>
                             <h3 className={cn('container__label')}>Calories</h3>
-                            <p className={cn('container__input__small')}>{consumedCalories}</p>
+                            <p className={cn('container__input__small')}>{Math.round(consumedCalories)}</p>
                         </div>
                         <div className={cn('big-gap')}>
                             <h3 className={cn('container__label')}>Weight</h3>

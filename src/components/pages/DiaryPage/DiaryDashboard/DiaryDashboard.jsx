@@ -63,7 +63,7 @@ const caloriesRemaining = Object.keys(userInfo).includes('dailyExerciseTime')
                         />
                         Daily calorie intake
                     </p>
-                    <p className={cn('dashboard__item__number')}>{dailyCalorieIntake}</p>
+                    <p className={cn('dashboard__item__number')}>{Math.round(dailyCalorieIntake)}</p>
                 </li>
                 <li className={cn('red')}>
                     <p className={cn('dashboard__item__desc')}>
@@ -89,7 +89,7 @@ const caloriesRemaining = Object.keys(userInfo).includes('dailyExerciseTime')
                         />
                         Сalories consumed
                     </p>
-                    <p className={cn('dashboard__item__number')}>{ totalCaloruesConsumed }</p>
+                    <p className={cn('dashboard__item__number')}>{Math.round(totalCaloruesConsumed)}</p>
                 </li>
                 <li>
                     <p className={cn('dashboard__item__desc')}>
@@ -101,7 +101,7 @@ const caloriesRemaining = Object.keys(userInfo).includes('dailyExerciseTime')
                         />
                         Сalories burned
                     </p>
-                    <p className={cn('dashboard__item__number')}>{ totalCaloruesBurned }</p>
+                    <p className={cn('dashboard__item__number')}>{Math.round(totalCaloruesBurned)}</p>
                 </li>
                 <li className={cn({ 'redHighlight': isCaloriesExceeded })}>
                     <p className={cn('dashboard__item__desc')}>
@@ -113,7 +113,7 @@ const caloriesRemaining = Object.keys(userInfo).includes('dailyExerciseTime')
                         />
                         Calories remaining
                     </p>
-                    <p className={cn('dashboard__item__number')}>{ caloriesRemaining }</p>
+                    <p className={cn('dashboard__item__number')}>{Math.round(caloriesRemaining)}</p>
                 </li>
                 <li className={cn( { 'greenHighlight': isExerciseRemaining})}>
                     <p className={cn('dashboard__item__desc')}>

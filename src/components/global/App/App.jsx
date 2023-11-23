@@ -10,7 +10,7 @@ import appRoutes from '../../../routing/routes';
 import {
     refreshUser,
 } from '../../../storage/operations/authThunk';
-import { tokenSelector } from '../../../storage/selectors/authSelectors';
+import { tokenSelector, userSelector } from '../../../storage/selectors/authSelectors';
 import {
     errorSelector,
     loadingSelector,
@@ -22,12 +22,14 @@ const cn = classNames.bind(styles);
 
 function App() {
     const token = useSelector(tokenSelector);
+    const user = useSelector(userSelector);
     const error = useSelector(errorSelector);
     const isLoading = useSelector(loadingSelector);
     const dispatch = useDispatch();
 
     useEffect(() => {
         if (!token) return;
+        if (!user.verify) return;
         dispatch(refreshUser());
     }, [dispatch, token]);
 

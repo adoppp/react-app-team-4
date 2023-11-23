@@ -149,6 +149,7 @@
 
     & .header__settings a use {
         stroke: $snow-alpha-white;
+        fill: none;
 
         @include transition();
     }
