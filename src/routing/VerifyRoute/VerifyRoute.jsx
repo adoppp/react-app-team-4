@@ -6,6 +6,7 @@ import { autheticatedSelector, userInfoSelector, userSelector, userVerifySelecto
 
 const VerifyRoute = ({ children, redirectTo = routes.PROFILE_ROUTE }) => {
     const verify = useSelector(userVerifySelector);
+    console.log("🚀 ~ file: VerifyRoute.jsx:9 ~ VerifyRoute ~ verify:", verify)
 
     return verify ? <Navigate to={redirectTo} replace /> : children;
 }
