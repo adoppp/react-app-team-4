@@ -9,17 +9,12 @@ import {
     infoUpdate,
     detailsUpdate,
     detailsCreate,
-    getParameters,
 } from '../operations/authThunk';
 
 const initialState = {
     userDetails: {
         userData: { avatarURL: '' },
         userInfo: {},
-        userParameters: {
-            dailyCalories: 0,
-            dailyExerciseTime: 0,
-        },
     },
     authenticated: false,
     token: null,
@@ -31,14 +26,8 @@ const authSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(registration.fulfilled, (state, action) => {
-                state.authenticated = true;
                 state.userDetails.userData = {
-                    avatarURL: '',
-                    ...action.payload,
-                };
-                state.userDetails.userParameters = {
-                    dailyCalories: 0,
-                    dailyExerciseTime: 0,
+                    ...action.payload.user,
                 };
                 state.token = action.payload.token;
             })
@@ -64,7 +53,7 @@ const authSlice = createSlice({
                 state.userDetails = action.payload;
             })
             .addCase(avatarUpdate.fulfilled, (state, action) => {
-                state.userDetails.userData.avatarURL = action.payload;
+                state.userDetails.userData.avatarURL = action.payload.avatarURL;
             })
             .addCase(infoUpdate.fulfilled, (state, action) => {
                 state.userDetails.userData.name = action.payload.name;
@@ -78,9 +67,6 @@ const authSlice = createSlice({
             .addCase(detailsCreate.fulfilled, (state, action) => {
                 state.userDetails.userInfo = action.payload;
             })
-            .addCase(getParameters.fulfilled, (state, action) => {
-                state.userDetails.userParameters = action.payload;
-            });
     },
 });
 

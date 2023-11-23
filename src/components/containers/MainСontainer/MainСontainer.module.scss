@@ -46,8 +46,6 @@
     color: $snow-white;
     border-radius: $main-b-radius;
     padding: 14px 18px;
-    bottom: 186px;
-    right: 108px;
     background-color: $silent-gray;
 
     display: flex;
@@ -59,7 +57,14 @@
     font-size: 16px;
     font-weight: 700;
     line-height: 18px;
-
+    bottom: 28px;
+    right: 150px;
+    
+    @media screen and (min-height: 710px) {
+        bottom: 186px;
+        right: 108px;
+    }
+    
     @media screen and (min-width: 768px) {
         padding: 20px 23px;
         bottom: 214px;

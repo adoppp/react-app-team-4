@@ -24,35 +24,6 @@ const NotFoundContainer = ({ children }) => {
     return (
         <div className={cn('main__container')}>
             {children}
-            <div className={cn('video__box')}>
-                <div className={cn('icon__container')}>
-                    <Icon
-                        iconId="icon-Polygon"
-                        w={12}
-                        h={12}
-                        customStyles={iconVideoStyle}
-                    />
-                </div>
-                <p className={cn('descriprion__container')}>
-                    350+
-                    <span>Video tutorial</span>
-                </p>
-            </div>
-
-            <div className={cn('cal__box')}>
-                <div className={cn('icon__container')}>
-                    <Icon
-                        iconId="icon-running-stick"
-                        w={12}
-                        h={12}
-                        customStyles={iconRunStyle}
-                    />
-                </div>
-                <p className={cn('descriprion__container')}>
-                    500
-                    <span>cal</span>
-                </p>
-            </div>
         </div>
     );
 };

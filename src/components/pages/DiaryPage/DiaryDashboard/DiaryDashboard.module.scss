@@ -37,6 +37,13 @@
             padding: 18px;
         }
     }
+        .greenHighlight {
+            border: 1px solid #3CBF61;
+        }
+    
+        .redHighlight {
+            border: 1px solid #E9101D;
+        }
 
     .red {
         background: $christmas-main-orange;
@@ -47,12 +54,18 @@
     }
 }
 
+
 .dashboard__item__desc {
     display: flex;
     align-items: center;
     color: rgba(239, 237, 232, 0.4);
     font-size: 12px;
     line-height: 16px;
+
+    & svg use {
+        stroke: $christmas-main-orange;
+        fill: $christmas-main-orange;
+    }
 
     @media screen and (min-width: 768px) {
     }

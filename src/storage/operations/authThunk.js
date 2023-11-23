@@ -14,7 +14,7 @@ export const token = {
     },
 };
 
-const REJECTED = (thunkAPI, e) => thunkAPI.rejectWithValue(e.message);
+const REJECTED = (thunkAPI, e) => thunkAPI.rejectWithValue(e.response.data.message ? e.response.data.message : e.message);
 
 export const registration = createAsyncThunk(
     'auth/registration',
@@ -73,7 +73,7 @@ export const avatarUpdate = createAsyncThunk(
     'auth/avatar',
     async (avatar, thunkAPI) => {
         try {
-            const response = await instance.patch('auth/avatar', avatar);
+            const response = await instance.post('auth/avatar', avatar);
             return response.data;
         } catch (e) {
             return REJECTED(thunkAPI, e);
@@ -85,7 +85,7 @@ export const infoUpdate = createAsyncThunk(
     'user/infoUpdate',
     async (user, thunkAPI) => {
         try {
-            const response = await instance.patch('user/info', user);
+            const response = await instance.post('user/info', user);
             return response.data;
         } catch (e) {
             return REJECTED(thunkAPI, e);
@@ -117,14 +117,14 @@ export const detailsCreate = createAsyncThunk(
     },
 );
 
-export const getParameters = createAsyncThunk(
-    'user/parameters',
-    async (_, thunkAPI) => {
+export const verifyOneMore = createAsyncThunk(
+    'user/verify_If_Email_Didnt_Send',
+    async (email, thunkAPI) => {
         try {
-            const response = await instance.get('user');
+            const response = await instance.post('auth/verify', email);
             return response.data;
         } catch (e) {
             return REJECTED(thunkAPI, e);
         }
-    },
-);
+    }
+)

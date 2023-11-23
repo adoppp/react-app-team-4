@@ -3,9 +3,9 @@ import styles from './ProductsItem.module.scss';
 import classNames from 'classnames/bind';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { selectorFilter, selectorProducts } from '../../../../storage/selectors/productsSelector.js';
+import { selectorProducts } from '../../../../storage/selectors/productsSelector.js';
 import { getProducts } from '../../../../storage/operations/productsThunk.js';
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 
 
 const cn = classNames.bind(styles);
@@ -13,11 +13,9 @@ const cn = classNames.bind(styles);
 const ProductsItem = ({ open }) => {
   const dispatch = useDispatch()
   const { items } = useSelector(selectorProducts);
-  // const filterCategory = useSelector(selectorFilter);
   const defaltProduct = '';
   const userBloodGroup = 2;
 
-  // const filterProducts = items.filter(product => product.category === filterCategory.category);
 
 
   useEffect(() => {
@@ -33,16 +31,7 @@ const ProductsItem = ({ open }) => {
     const IconButtonStyles = {
         marginLeft: 8,
   };
-  console.log('item:',items)
-  // // console.log(filterProducts);
-  // console.log(filterCategory);
-
-  // console.log(filterCategory)
-
-  // console.log(items.notRecommendedProducts)
-  // console.log(items.recommendedProdusct)
-
-      
+  console.log('item:',items) 
     return (
         <>
              {!items ? (
@@ -94,7 +83,7 @@ const ProductsItem = ({ open }) => {
                             </div>
                             <div className={cn('title_container')}>
                                 <Icon
-                                    iconId="icon-running-stick"
+                                    iconId="icon-run"
                                     w={12}
                                     h={14}
                                     customStyles={IconStyles}

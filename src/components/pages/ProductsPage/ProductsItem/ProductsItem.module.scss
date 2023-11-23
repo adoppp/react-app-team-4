@@ -120,6 +120,11 @@
     font-size: 20;
     line-height: 1.2;
     text-transform: capitalize;
+
+    width: 240px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .item_list_container {

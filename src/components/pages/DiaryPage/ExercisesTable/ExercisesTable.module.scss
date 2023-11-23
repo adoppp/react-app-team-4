@@ -2,24 +2,27 @@
 @import '../../../../scss/variables';
 @import '../../../../scss/colors';
 
+a {
+    color: $christmas-main-orange;
+}
+
 .product__container {
     border-radius: $main-b-radius;
     border: 1px solid rgba(239, 237, 232, 0.2);
     background: rgba(239, 237, 232, 0.05);
-    padding: 16px;
+    padding: 16px 12px;
 
-    width: 335px;
-    max-height: 824px;
-    overflow-y: auto;
+    max-width: 380px;
 
     @media screen and (min-width: 768px) {
-        width: 704px;
+        min-width: 704px;
         max-height: 234px;
         padding-top: 19px;
+        min-height: 234px;
     }
 
     @media screen and (min-width: 1140px) {
-        width: 826px;
+        min-width: 826px;
         padding-top: 16px;
     }
 }
@@ -53,6 +56,35 @@
 
         cursor: pointer;
 
+        & a {
+            @include transition();
+        }
+
+        &:hover a {
+            color: $silent-gray;
+        }
+
+        &:active a {
+            color: $christmas-hover-orange;
+        }
+
+        & svg use {
+            stroke: $christmas-main-orange;
+            fill: $christmas-main-orange;
+
+            @include transition();
+        }
+
+        &:hover svg use {
+            stroke: $silent-gray;
+            fill: $silent-gray;
+        }
+
+        &:active svg use {
+            stroke: $christmas-hover-orange;
+            fill: $christmas-hover-orange;
+        }
+
         @media screen and (min-width: 768px) {
             font-size: 16px;
             line-height: 24px;
@@ -64,9 +96,19 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
+    max-height: 824px;
+    overflow-y: auto;
+    min-height: 335px;
 
     @media screen and (min-width: 768px) {
         gap: 8px;
+        overflow-y: auto;
+        min-height: 120px;
+        max-height: 150px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        overflow-x: clip;
     }
 
     & li {
@@ -99,7 +141,9 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
 
+.container__list li:not(:first-child) .container__label {
     @media screen and (min-width: 768px) {
         display: none;
     }
@@ -114,6 +158,9 @@
     padding: 10px 14px;
     border-radius: $main-b-radius;
     border: 1px solid rgba(239, 237, 232, 0.3);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     @media screen and (min-width: 768px) {
         font-size: 16px;
@@ -211,5 +258,36 @@
 
     @media screen and (min-width: 1140px) {
         width: 82px;
+    }
+}
+.notFound {
+    color: rgba(239, 237, 232, 0.30);
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 125px;
+    text-align: center;
+
+    @media screen and (min-width: 768px) {
+            margin-top: 65px;
+        }
+}
+
+.button__delete {
+    cursor: pointer;
+
+    & svg use {
+        stroke: $christmas-hover-orange;
+        fill: none;
+
+        @include transition();
+    }
+
+    &:hover svg use {
+        stroke: $christmas-beige;
+    }
+
+    &:active svg use {
+        stroke: $christmas-main-orange;
     }
 }

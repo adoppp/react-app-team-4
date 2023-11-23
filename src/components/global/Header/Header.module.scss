@@ -118,8 +118,8 @@
         border-radius: 50%;
 
         & img {
-            max-width: 36px;
-            max-height: 36px;
+            width: 36px;
+            height: 36px;
 
             position: relative;
             z-index: -1;
@@ -133,8 +133,8 @@
             }
 
             & img {
-                max-width: 46px;
-                max-height: 46px;
+                width: 46px;
+                height: 46px;
             }
         }
     }
@@ -149,6 +149,7 @@
 
     & .header__settings a use {
         stroke: $snow-alpha-white;
+        fill: none;
 
         @include transition();
     }

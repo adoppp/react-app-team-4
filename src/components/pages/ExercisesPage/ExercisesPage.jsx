@@ -4,8 +4,8 @@ import classNames from 'classnames/bind';
 
 import styles from './ExercisesPage.module.scss';
 import { Title } from '../../global/Title';
-import { ExercisesCategories } from './ExercisesCategories';
 import { Icon } from '../../ui/Icon';
+import { ExercisesCategories } from './ExercisesCategories';
 
 const cn = classNames.bind(styles);
 
@@ -25,7 +25,7 @@ const ExercisesPage = () => {
                     relative="path"
                 >
                     <Icon iconId="icon-arrow-back" w={16} h={16} />
-                    <p>Back</p>
+                    <button type='button'>Back</button>
                 </Link>
             )}
             <div className={cn('exercises__categories')}>

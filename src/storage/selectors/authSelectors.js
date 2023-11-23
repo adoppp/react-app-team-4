@@ -2,12 +2,14 @@ export const autheticatedSelector = (state) => state.user.authenticated;
 
 export const tokenSelector = (state) => state.user.token;
 
-export const avatarSelector = (state) =>
-    state.user.userDetails.userData.avatarURL;
+export const avatarSelector = (state) => state.user.userDetails.userData.avatarURL;
 
 export const userSelector = (state) => state.user.userDetails.userData;
 
 export const userInfoSelector = (state) => state.user.userDetails.userInfo;
 
-export const userParametersSelector = (state) =>
-    state.user.userDetails.userParameters;
+export const userVerifySelector = (state) => state.user.verify;
+
+export const errorVerifySelector = (state) => state.error.notificationMessage;
+
+export const isErrorVerifySelector = (state) => state.error.isError;

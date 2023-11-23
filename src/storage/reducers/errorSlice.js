@@ -9,6 +9,8 @@ import {
     infoUpdate,
     detailsUpdate,
     detailsCreate,
+    verifyOneMore,
+    // getParameters,
 } from '../operations/authThunk';
 import {
     getProducts,
@@ -18,9 +20,12 @@ import {
     exercisesCategory,
     getAllExercises,
 } from '../operations/exercisesThunk';
+import { getDiaryInfo, deleteProduct, deleteExercise, addProduct, addExercise, } from "../operations/diaryThunk";
 
 const initialState = {
     message: null,
+    notificationMessage: null,
+    isError: false,
 };
 
 const REJECTED = (state, action) => {
@@ -29,6 +34,16 @@ const REJECTED = (state, action) => {
 
 const PENDING = (state) => {
     state.message = null;
+};
+
+const REJECTEDverify = (state, action) => {
+    state.notificationMessage = action.payload;
+    state.isError = true
+};
+
+const PENDINGverify = (state) => {
+    state.notificationMessage = null;
+    state.isError = false;
 };
 
 const errorSlice = createSlice({
@@ -70,7 +85,29 @@ const errorSlice = createSlice({
             .addCase(detailsUpdate.rejected, REJECTED)
 
             .addCase(detailsCreate.pending, PENDING)
-            .addCase(detailsCreate.rejected, REJECTED);
+            .addCase(detailsCreate.rejected, REJECTED)
+            
+            .addCase(getDiaryInfo.pending, PENDING)
+            .addCase(getDiaryInfo.rejected, REJECTED)
+        
+            .addCase(deleteProduct.pending, PENDING)
+            .addCase(deleteProduct.rejected, REJECTED)
+        
+            .addCase(deleteExercise.pending, PENDING)
+            .addCase(deleteExercise.rejected, REJECTED)
+        
+            .addCase(addProduct.pending, PENDING)
+            .addCase(addProduct.rejected, REJECTED)
+        
+            .addCase(addExercise.pending, PENDING)
+            .addCase(addExercise.rejected, REJECTED)
+        
+            .addCase(verifyOneMore.pending, PENDINGverify)
+            .addCase(verifyOneMore.fulfilled, (state) => {
+                state.notificationMessage = 'Successful resubmission'
+                state.isError = false;
+            })
+            .addCase(verifyOneMore.rejected, REJECTEDverify)     
     },
 });
 

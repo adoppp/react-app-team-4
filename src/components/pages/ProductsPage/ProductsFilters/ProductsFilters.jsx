@@ -25,7 +25,7 @@ const ProductsFilters = () => {
     const isTabletScreen = useMediaQuery({ minWidth: 768 });
     const dispatch = useDispatch();
   const { list } = useSelector(selectorCategories);
-    const { items , filterCategory} = useSelector(selectorProducts);
+    const { filterCategory} = useSelector(selectorProducts);
 
     const hendleInputChange = (e) => {
         const value = e.target.value;
@@ -35,6 +35,7 @@ const ProductsFilters = () => {
         setInputValue('');
   };
   
+
 
 
   const handleCategoryChange = (selectedValue) => {
@@ -56,9 +57,6 @@ const ProductsFilters = () => {
   }
 };
 
-
- 
-
     const handleFormSubmit = () => {
         dispatch(getProducts(inputValue));
     };
@@ -75,12 +73,13 @@ const ProductsFilters = () => {
     const customSelectStyle = {
         width: widthSelect,
     };
-  const heightSelect = isTabletScreen ? 116 : 98;
+ 
 
-  const listSelectStyle = {
-    height: heightSelect,
-    overflow: 'hidden',
-  };
+
+    const listSelectStyle = {
+        height: 112,
+        overflow: 'visible',
+    };
 
     const selectList = ['All', 'Recommended', 'Not recommended'];
 
@@ -142,6 +141,7 @@ const ProductsFilters = () => {
                         customSelectStyle={customSelectStyle}
                         customListSelectStyle={listSelectStyle}
                         handleCategoryChange={handleCategoryBlodChange}
+
                     />
                 </Form>
             </Formik>

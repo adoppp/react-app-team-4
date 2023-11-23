@@ -8,30 +8,43 @@ import { Loader } from '../../ui/Loader';
 import NotFound from '../../pages/NotFound/NotFound';
 import appRoutes from '../../../routing/routes';
 import {
-    getParameters,
     refreshUser,
 } from '../../../storage/operations/authThunk';
-import { tokenSelector } from '../../../storage/selectors/authSelectors';
+import { autheticatedSelector, errorVerifySelector, isErrorVerifySelector, tokenSelector, userSelector } from '../../../storage/selectors/authSelectors';
 import {
     errorSelector,
     loadingSelector,
 } from '../../../storage/selectors/globalSelectors';
 import { Modal } from '../../ui/Modal';
 import NotFoundContainer from '../../containers/NotFoundContainer/NotFoundContainer';
+import { Notify } from 'notiflix';
 
 const cn = classNames.bind(styles);
 
 function App() {
     const token = useSelector(tokenSelector);
+    const user = useSelector(userSelector);
+    const autheticated = useSelector(autheticatedSelector);
     const error = useSelector(errorSelector);
     const isLoading = useSelector(loadingSelector);
+    const notifErrorVerify = useSelector(errorVerifySelector);
+    const isError = useSelector(isErrorVerifySelector);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (!token) return;
+        if (!token || autheticated === false) return;
+        // if (!user.verify) return;
         dispatch(refreshUser());
-        dispatch(getParameters());
     }, [dispatch, token]);
+
+    Notify.init({
+        success: {
+            background: '#3cbf61',
+            textColor: '#303030',
+            notiflixIconColor: '#303030',
+            backOverlayColor: '#e6533c'
+        }
+    })
 
     return (
         <main>
@@ -65,6 +78,14 @@ function App() {
                 </Modal>
             )}
             {isLoading && <Loader />}
+            {notifErrorVerify && 
+                <div>
+                    {isError ?
+                        Notify.failure(`${notifErrorVerify}`) :
+                        Notify.success(`${notifErrorVerify}`)
+                    }
+                </div>
+            }
         </main>
     );
 }
