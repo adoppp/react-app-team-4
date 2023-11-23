@@ -85,7 +85,7 @@ export const infoUpdate = createAsyncThunk(
     'user/infoUpdate',
     async (user, thunkAPI) => {
         try {
-            const response = await instance.post('user/info', user);
+            const response = await instance.patch('user/info', user);
             return response.data;
         } catch (e) {
             return REJECTED(thunkAPI, e);

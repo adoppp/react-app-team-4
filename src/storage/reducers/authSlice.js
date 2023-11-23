@@ -15,6 +15,7 @@ import {
 const initialState = {
     userDetails: {
         userData: {
+            avatarURL: '',
             verify: false,
         },
         userInfo: {},
