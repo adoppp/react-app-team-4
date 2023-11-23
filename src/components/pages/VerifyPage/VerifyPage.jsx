@@ -5,17 +5,24 @@ import styles from './VerifyPage.module.scss';
 import { Link } from 'react-router-dom';
 import { Button } from '../../ui/Button';
 import { Icon } from '../../ui/Icon';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { verifyByVerificationCode } from '../../../storage/operations/authThunk';
+import { verificationCodeSelector } from '../../../storage/selectors/authSelectors';
 
 const cn = classNames.bind(styles);
 
 const VerifyPage = () => {
     const isSmallScreen = useMediaQuery({ maxWidth: 320 });
     const isLargeScreen = useMediaQuery({ minWidth: 768 });
+    const dispatch = useDispatch();
+    const verificationCode = useSelector(verificationCodeSelector);
+    console.log("🚀 ~ file: VerifyPage.jsx:20 ~ VerifyPage ~ user:", verificationCode)
 
     const buttonStyles = {
-        fontSize: isSmallScreen ? '12px' : isLargeScreen ? '20px' : '16px',
-        width: isLargeScreen ? '208px' : '155px',
-        padding: isLargeScreen ? '16px 60px' : '12px 40px',
+        fontSize: isSmallScreen ? '12px' : isLargeScreen ? '18px' : '16px',
+
+        padding: isLargeScreen ? '16px 8px' : '12px 12px',
     };
 
     const iconStyles = {
@@ -23,6 +30,14 @@ const VerifyPage = () => {
         width: isLargeScreen ? '44px' : '36px',
         height: isLargeScreen ? '17px' : '13px',
     };
+
+    useEffect(() => {
+        dispatch(verifyByVerificationCode(verificationCode))
+    }, [dispatch])
+
+    // const handleVerification = () => {
+    //     waiting for zahar to send email
+    // }
 
     return (
         <div className={cn('notfound__container')}>
@@ -36,16 +51,15 @@ const VerifyPage = () => {
                     />
                     <span className={cn('info__logo_text')}>PowerPulse</span>
                 </Link>
-                <h1>Please verify your email</h1>
+                <h1>Email verification failed</h1>
                 <p>
-                    Just click on the link in that email to complete your signup.
-                    If you don't see it, you may need to check your spam folder.
-                    Stil can't find the email? No problem.
+                    Try to resend email. Just click down.
                 </p>
                 <Button
                     label="Resend Verification Email"
                     buttonStyles="orange"
                     customContainerStyles={buttonStyles}
+                    // action={handleVerification}
                 />
             </div>
         </div>

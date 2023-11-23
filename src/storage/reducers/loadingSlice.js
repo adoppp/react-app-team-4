@@ -9,6 +9,7 @@ import {
     infoUpdate,
     detailsUpdate,
     detailsCreate,
+    verifyByVerificationCode,
     // getParameters,
 } from '../operations/authThunk';
 import {
@@ -109,6 +110,10 @@ const loadingSlice = createSlice({
             .addCase(addExercise.pending, PENDING)
             .addCase(addExercise.fulfilled, FILFILLED)
             .addCase(addExercise.rejected, REJECTED)
+        
+            .addCase(verifyByVerificationCode.pending, PENDING)
+            .addCase(verifyByVerificationCode.fulfilled, FILFILLED)
+            .addCase(verifyByVerificationCode.rejected, REJECTED)
         
             // .addCase(getParameters.pending, PENDING)
             // .addCase(getParameters.fulfilled, FILFILLED)

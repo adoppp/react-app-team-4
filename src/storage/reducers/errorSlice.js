@@ -10,6 +10,7 @@ import {
     detailsUpdate,
     detailsCreate,
     verifyOneMore,
+    verifyByVerificationCode,
     // getParameters,
 } from '../operations/authThunk';
 import {
@@ -107,7 +108,10 @@ const errorSlice = createSlice({
                 state.notificationMessage = 'Successful resubmission'
                 state.isError = false;
             })
-            .addCase(verifyOneMore.rejected, REJECTEDverify)     
+            .addCase(verifyOneMore.rejected, REJECTEDverify)
+        
+            .addCase(verifyByVerificationCode.pending, PENDING)
+            .addCase(verifyByVerificationCode.rejected, REJECTED)   
     },
 });
 

@@ -9,6 +9,7 @@ import {
     infoUpdate,
     detailsUpdate,
     detailsCreate,
+    verifyByVerificationCode,
 } from '../operations/authThunk';
 
 const initialState = {
@@ -68,6 +69,9 @@ const authSlice = createSlice({
             })
             .addCase(detailsCreate.fulfilled, (state, action) => {
                 state.userDetails.userInfo = action.payload;
+            })
+            .addCase(verifyByVerificationCode.fulfilled, (state, action) => {
+                state.userDetails.userData.verify = action.payload.verify;
             })
     },
 });

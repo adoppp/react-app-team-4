@@ -127,4 +127,16 @@ export const verifyOneMore = createAsyncThunk(
             return REJECTED(thunkAPI, e);
         }
     }
-)
+);
+
+export const verifyByVerificationCode = createAsyncThunk(
+    'user/verificationByCode',
+    async (verificationCode, thunkAPI) => {
+        try {
+            const response = await instance.get(`auth/verify/${verificationCode}`);
+            return response.data;
+        } catch (e) {
+            return REJECTED(thunkAPI, e);
+        }
+    }
+);
