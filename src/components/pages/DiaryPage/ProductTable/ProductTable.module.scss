@@ -8,14 +8,14 @@
     background: rgba(239, 237, 232, 0.05);
     padding: 16px 12px;
 
-        max-width: 380px;
+    max-width: 380px;
 
-            @media screen and (min-width: 768px) {
-                min-width: 704px;
-                max-height: 234px;
-                padding-top: 19px;
-                min-height: 234px;
-                }
+    @media screen and (min-width: 768px) {
+        min-width: 704px;
+        max-height: 234px;
+        padding-top: 19px;
+        min-height: 234px;
+    }
 
     @media screen and (min-width: 1140px) {
         min-width: 826px;
@@ -23,13 +23,13 @@
     }
 }
 
-.container__header{
-display: flex;
-justify-content: space-between;
-margin-bottom: 22px;
-            @media screen and (min-width: 768px) {
-                    margin-bottom: 16px;
-                }
+.container__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 22px;
+    @media screen and (min-width: 768px) {
+        margin-bottom: 16px;
+    }
 
     & h2 {
         color: rgba(239, 237, 232, 0.5);
@@ -79,7 +79,6 @@ margin-bottom: 22px;
             stroke: $christmas-hover-orange;
             fill: $christmas-hover-orange;
         }
-
 
         @media screen and (min-width: 768px) {
             font-size: 16px;
@@ -234,13 +233,13 @@ margin-bottom: 22px;
         width: 128px;
     }
 
-            @media screen and (min-width: 1140px) {
-            width: 166px;
-        }
+    @media screen and (min-width: 1140px) {
+        width: 166px;
+    }
 }
 
 .notFound {
-    color: rgba(239, 237, 232, 0.30);
+    color: rgba(239, 237, 232, 0.3);
     font-family: Roboto;
     font-size: 14px;
     line-height: 18px;
@@ -248,8 +247,8 @@ margin-bottom: 22px;
     text-align: center;
 
     @media screen and (min-width: 768px) {
-            margin-top: 65px;
-        }
+        margin-top: 65px;
+    }
 }
 
 .container__input.title {

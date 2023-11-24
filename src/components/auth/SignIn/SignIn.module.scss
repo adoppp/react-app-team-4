@@ -7,13 +7,13 @@
 
     padding-top: 10px;
 
-    @media screen and (min-height: 710px){
-            padding-top: 80px;
-        }
+    @media screen and (min-height: 710px) {
+        padding-top: 80px;
+    }
 
-                @media screen and (min-width: 768px) {
-                padding-top: 80px;
-                }
+    @media screen and (min-width: 768px) {
+        padding-top: 80px;
+    }
     & p {
         font-size: 14px;
         font-weight: 400;

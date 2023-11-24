@@ -19,34 +19,42 @@ const AddExerciseSuccess = ({ closeModal, data }) => {
         color: 'rgba(239, 237, 232, 1)',
     };
 
-  return (
-    <div className={cn('successExercises')}>
-        <img src={img} alt="ok" />
-        <h2>Well done</h2>
-        <ul className={cn('successExercises__list')}>
-            <li >
-                <p className={cn('successExercises__list_el')}>Your  time:&nbsp;</p>
-                <p>{`${Math.floor(data.time / 60)}:${Math.floor(data.time % 60)}`}</p>
-            </li>
-            <li>
-                <p className={cn('successExercises__list_el')}>Burned calories:&nbsp;</p>
-                <p>{data.burnedCalories}</p>
-            </li>
-        </ul>
-        <Button 
-                type= {"button"} 
+    return (
+        <div className={cn('successExercises')}>
+            <img src={img} alt="ok" />
+            <h2>Well done</h2>
+            <ul className={cn('successExercises__list')}>
+                <li>
+                    <p className={cn('successExercises__list_el')}>
+                        Your time:&nbsp;
+                    </p>
+                    <p>{`${Math.floor(data.time / 60)}:${Math.floor(
+                        data.time % 60,
+                    )}`}</p>
+                </li>
+                <li>
+                    <p className={cn('successExercises__list_el')}>
+                        Burned calories:&nbsp;
+                    </p>
+                    <p>{data.burnedCalories}</p>
+                </li>
+            </ul>
+            <Button
+                type={'button'}
                 label={'Next exercise'}
-                action={() =>{closeModal()}}
+                action={() => {
+                    closeModal();
+                }}
                 customContainerStyles={buttonStylesAdd}
             />
-        <Link to="/diary">
-            <div className={cn('successExercises__link')}>
-                <p>To the diary</p>
-                <Icon iconId="icon-arrow-next" w={16} h={16} />
-            </div>
-        </Link>
-    </div>
-  );
+            <Link to="/diary">
+                <div className={cn('successExercises__link')}>
+                    <p>To the diary</p>
+                    <Icon iconId="icon-arrow-next" w={16} h={16} />
+                </div>
+            </Link>
+        </div>
+    );
 };
 
-export {AddExerciseSuccess};
+export { AddExerciseSuccess };

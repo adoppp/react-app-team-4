@@ -10,42 +10,44 @@ const DiaryDashboard = () => {
     const userInfo = useSelector(userInfoSelector);
     const products = useSelector((state) => state.diary.products);
     const exercises = useSelector((state) => state.diary.exercises);
-    
+
     const totalExerciseTime = exercises.reduce((total, exercise) => {
-        return total + exercise.time; 
+        return total + exercise.time;
     }, 0);
-    
+
     const totalCaloriesConsumed = products.reduce((total, product) => {
-        return total + product.consumedCalories; 
+        return total + product.consumedCalories;
     }, 0);
-    
+
     const totalCaloriesBurned = exercises.reduce((total, exercise) => {
-        return total + Math.floor(exercise.burnedCalories); 
-       }, 0);
-    
+        return total + Math.floor(exercise.burnedCalories);
+    }, 0);
+
     const dailyCalorieIntake = Object.keys(userInfo).includes('BMR')
-    ? Math.round(userInfo.BMR)
-    : 0;
+        ? Math.round(userInfo.BMR)
+        : 0;
 
-const dailyPhysicalActivity = Object.keys(userInfo).includes('dailyExerciseTime')
-    ? userInfo.dailyExerciseTime
-    : 0;
+    const dailyPhysicalActivity = Object.keys(userInfo).includes(
+        'dailyExerciseTime',
+    )
+        ? userInfo.dailyExerciseTime
+        : 0;
 
-const sportsRemaining = Object.keys(userInfo).includes('BMR')
-    ? (dailyPhysicalActivity - Math.floor(totalExerciseTime))
-    : 0;
+    const sportsRemaining = Object.keys(userInfo).includes('BMR')
+        ? dailyPhysicalActivity - Math.floor(totalExerciseTime)
+        : 0;
 
-const caloriesRemaining = Object.keys(userInfo).includes('dailyExerciseTime')
-    ? (dailyCalorieIntake - totalCaloriesConsumed)
-    : 0;
-
+    const caloriesRemaining = Object.keys(userInfo).includes(
+        'dailyExerciseTime',
+    )
+        ? dailyCalorieIntake - totalCaloriesConsumed
+        : 0;
 
     const iconStyles = {
         fill: '#EF8964',
         marginRight: '6px',
     };
-    
-    
+
     const isCaloriesExceeded = dailyCalorieIntake < totalCaloriesConsumed;
     const isExerciseRemaining = dailyPhysicalActivity < totalExerciseTime;
 
@@ -62,7 +64,9 @@ const caloriesRemaining = Object.keys(userInfo).includes('dailyExerciseTime')
                         />
                         Daily calorie intake
                     </p>
-                    <p className={cn('dashboard__item__number')}>{Math.round(dailyCalorieIntake)}</p>
+                    <p className={cn('dashboard__item__number')}>
+                        {Math.round(dailyCalorieIntake)}
+                    </p>
                 </li>
                 <li>
                     <p className={cn('dashboard__item__desc')}>
@@ -74,9 +78,11 @@ const caloriesRemaining = Object.keys(userInfo).includes('dailyExerciseTime')
                         />
                         Calories consumed
                     </p>
-                    <p className={cn('dashboard__item__number')}>{Math.round(totalCaloriesConsumed)}</p>
+                    <p className={cn('dashboard__item__number')}>
+                        {Math.round(totalCaloriesConsumed)}
+                    </p>
                 </li>
-                <li className={cn({ 'redHighlight': isCaloriesExceeded })}>
+                <li className={cn({ redHighlight: isCaloriesExceeded })}>
                     <p className={cn('dashboard__item__desc')}>
                         <Icon
                             iconId="icon-bubble"
@@ -86,7 +92,9 @@ const caloriesRemaining = Object.keys(userInfo).includes('dailyExerciseTime')
                         />
                         Calories remaining
                     </p>
-                    <p className={cn('dashboard__item__number')}>{Math.round(caloriesRemaining)}</p>
+                    <p className={cn('dashboard__item__number')}>
+                        {Math.round(caloriesRemaining)}
+                    </p>
                 </li>
                 <li className={cn('red')}>
                     <p className={cn('dashboard__item__desc')}>
@@ -112,9 +120,11 @@ const caloriesRemaining = Object.keys(userInfo).includes('dailyExerciseTime')
                         />
                         Calories burned
                     </p>
-                    <p className={cn('dashboard__item__number')}>{Math.round(totalCaloriesBurned)}</p>
+                    <p className={cn('dashboard__item__number')}>
+                        {Math.round(totalCaloriesBurned)}
+                    </p>
                 </li>
-                <li className={cn( { 'greenHighlight': isExerciseRemaining})}>
+                <li className={cn({ greenHighlight: isExerciseRemaining })}>
                     <p className={cn('dashboard__item__desc')}>
                         <Icon
                             iconId="icon-running"
@@ -124,7 +134,9 @@ const caloriesRemaining = Object.keys(userInfo).includes('dailyExerciseTime')
                         />
                         Sports remaining
                     </p>
-                    <p className={cn('dashboard__item__number')}>{ sportsRemaining } min</p>
+                    <p className={cn('dashboard__item__number')}>
+                        {sportsRemaining} min
+                    </p>
                 </li>
             </ul>
             <p className={cn('dashboard__desc')}>

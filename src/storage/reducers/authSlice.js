@@ -9,15 +9,20 @@ import {
     infoUpdate,
     detailsUpdate,
     detailsCreate,
+    verifyByVerificationCode,
 } from '../operations/authThunk';
 
 const initialState = {
     userDetails: {
-        userData: { avatarURL: '' },
+        userData: {
+            avatarURL: '',
+            verify: false,
+        },
         userInfo: {},
     },
     authenticated: false,
     token: null,
+    verificationCode: null,
 };
 
 const authSlice = createSlice({
@@ -30,23 +35,23 @@ const authSlice = createSlice({
                     ...action.payload.user,
                 };
                 state.token = action.payload.token;
+                state.verificationCode = action.payload.verificationCode;
             })
             .addCase(login.fulfilled, (state, action) => {
                 state.authenticated = true;
-                state.userDetails = action.payload;
+                state.userDetails.userData = action.payload.userData;
+                state.userDetails.userInfo = action.payload.userInfo;
                 state.token = action.payload.token;
+                state.verificationCode = null;
             })
             .addCase(logout.fulfilled, (state) => {
                 state.authenticated = false;
                 state.userDetails.userData = {
-                    avatarURL: '',
+                    verify: false,
                 };
                 state.userDetails.userInfo = {};
-                state.userDetails.userParameters = {
-                    dailyCalories: 0,
-                    dailyExerciseTime: 0,
-                };
                 state.token = null;
+                state.verificationCode = null;
             })
             .addCase(refreshUser.fulfilled, (state, action) => {
                 state.authenticated = true;
@@ -67,6 +72,9 @@ const authSlice = createSlice({
             .addCase(detailsCreate.fulfilled, (state, action) => {
                 state.userDetails.userInfo = action.payload;
             })
+            .addCase(verifyByVerificationCode.fulfilled, (state, action) => {
+                state.userDetails.userData.verify = action.payload.verify;
+            });
     },
 });
 

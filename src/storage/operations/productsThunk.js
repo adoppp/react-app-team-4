@@ -8,7 +8,9 @@ export const getProducts = createAsyncThunk(
             const response = await instance.get(`/products?keyWord=${query}`);
             return response.data;
         } catch (e) {
-            return thunkAPI.rejectWithValue(e.response.data.message ? e.response.data.message : e.message);
+            return thunkAPI.rejectWithValue(
+                e.response.data.message ? e.response.data.message : e.message,
+            );
         }
     },
 );
@@ -43,7 +45,9 @@ export const getProductsCategories = createAsyncThunk(
             const response = await instance.get('/products/categories');
             return response.data;
         } catch (e) {
-            return thunkAPI.rejectWithValue(e.response.data.message ? e.response.data.message : e.message);
+            return thunkAPI.rejectWithValue(
+                e.response.data.message ? e.response.data.message : e.message,
+            );
         }
     },
 );

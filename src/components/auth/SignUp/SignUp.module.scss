@@ -179,7 +179,9 @@
 
     & p {
         color: $lonely-gray;
-        font-feature-settings: 'clig' off, 'liga' off;
+        font-feature-settings:
+            'clig' off,
+            'liga' off;
         font-size: 16px;
         font-weight: 400;
         line-height: 1.2;

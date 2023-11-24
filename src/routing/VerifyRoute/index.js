@@ -1,1 +1,1 @@
-export * from './VerifyRoute'
+export * from './VerifyRoute';

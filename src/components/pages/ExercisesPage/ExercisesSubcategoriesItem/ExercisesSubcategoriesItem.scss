@@ -8,8 +8,8 @@
     & .slick-track {
         display: flex;
         gap: 1px;
-    };
-};
+    }
+}
 
 ul.slick-dots {
     bottom: -40px;
@@ -19,7 +19,7 @@ ul.slick-dots {
         height: 14px;
         background-color: $christmas-main-orange;
         border-radius: 50%;
-    };
+    }
 
     & li {
         width: 14px;
@@ -35,8 +35,8 @@ ul.slick-dots {
                 width: 14px;
                 height: 14px;
                 content: '';
-            };
-        };
+            }
+        }
 
         &.slick-active button {
             width: 14px;
@@ -52,16 +52,16 @@ ul.slick-dots {
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-            };
-        };
-    };
-};
+            }
+        }
+    }
+}
 
 div.slick-initialized .slick-slide {
     display: flex;
     gap: 20px;
     flex-direction: column;
-};
+}
 
 @media screen and (min-width: 375px) {
     .slick-slider {
@@ -70,22 +70,22 @@ div.slick-initialized .slick-slide {
         & .slick-track {
             display: flex;
             gap: 2px;
-        };
-    };
-};
+        }
+    }
+}
 
 @media screen and (min-width: 768px) {
     .slick-slider {
         max-width: 720px;
-    };
+    }
 
     div .slick-initialized .slick-slide {
         gap: 32px;
-    };
-};
+    }
+}
 
 @media screen and (min-width: 1440px) {
     .slick-slider {
         max-width: 1440px;
-    };
-};
+    }
+}

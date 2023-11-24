@@ -32,6 +32,21 @@
     @media screen and (min-width: 768px) {
         font-size: 20px;
     }
+
+    &:disabled,
+    &[disabled]{
+    color: rgba(239, 237, 232, 0.60);
+    }
+
+    &:disabled:hover,
+    &[disabled]:hover{
+        background-color: $christmas-main-orange;
+    }
+
+    &:disabled:active,
+    &[disabled]:active{
+        background-color: $christmas-main-orange;
+    }
 }
 
 .gray {

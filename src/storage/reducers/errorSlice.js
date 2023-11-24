@@ -10,6 +10,7 @@ import {
     detailsUpdate,
     detailsCreate,
     verifyOneMore,
+    verifyByVerificationCode,
     // getParameters,
 } from '../operations/authThunk';
 import {
@@ -20,7 +21,13 @@ import {
     exercisesCategory,
     getAllExercises,
 } from '../operations/exercisesThunk';
-import { getDiaryInfo, deleteProduct, deleteExercise, addProduct, addExercise, } from "../operations/diaryThunk";
+import {
+    getDiaryInfo,
+    deleteProduct,
+    deleteExercise,
+    addProduct,
+    addExercise,
+} from '../operations/diaryThunk';
 
 const initialState = {
     message: null,
@@ -38,7 +45,7 @@ const PENDING = (state) => {
 
 const REJECTEDverify = (state, action) => {
     state.notificationMessage = action.payload;
-    state.isError = true
+    state.isError = true;
 };
 
 const PENDINGverify = (state) => {
@@ -86,28 +93,31 @@ const errorSlice = createSlice({
 
             .addCase(detailsCreate.pending, PENDING)
             .addCase(detailsCreate.rejected, REJECTED)
-            
+
             .addCase(getDiaryInfo.pending, PENDING)
             .addCase(getDiaryInfo.rejected, REJECTED)
-        
+
             .addCase(deleteProduct.pending, PENDING)
             .addCase(deleteProduct.rejected, REJECTED)
-        
+
             .addCase(deleteExercise.pending, PENDING)
             .addCase(deleteExercise.rejected, REJECTED)
-        
+
             .addCase(addProduct.pending, PENDING)
             .addCase(addProduct.rejected, REJECTED)
-        
+
             .addCase(addExercise.pending, PENDING)
             .addCase(addExercise.rejected, REJECTED)
-        
+
             .addCase(verifyOneMore.pending, PENDINGverify)
             .addCase(verifyOneMore.fulfilled, (state) => {
-                state.notificationMessage = 'Successful resubmission'
+                state.notificationMessage = 'Successful resubmission';
                 state.isError = false;
             })
-            .addCase(verifyOneMore.rejected, REJECTEDverify)     
+            .addCase(verifyOneMore.rejected, REJECTEDverify)
+
+            .addCase(verifyByVerificationCode.pending, PENDING)
+            .addCase(verifyByVerificationCode.rejected, REJECTED);
     },
 });
 

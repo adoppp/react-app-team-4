@@ -1,7 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from './authThunk';
 
-const REJECTED = (thunkAPI, e) => thunkAPI.rejectWithValue(e.response.data.message ? e.response.data.message : e.message);
+const REJECTED = (thunkAPI, e) =>
+    thunkAPI.rejectWithValue(
+        e.response.data.message ? e.response.data.message : e.message,
+    );
 
 export const getAllExercises = createAsyncThunk(
     'getAll/exercises',

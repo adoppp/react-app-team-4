@@ -9,6 +9,7 @@ import {
     infoUpdate,
     detailsUpdate,
     detailsCreate,
+    verifyByVerificationCode,
     // getParameters,
 } from '../operations/authThunk';
 import {
@@ -19,7 +20,13 @@ import {
     exercisesCategory,
     getAllExercises,
 } from '../operations/exercisesThunk';
-import { getDiaryInfo, deleteProduct, deleteExercise, addProduct, addExercise, } from "../operations/diaryThunk";
+import {
+    getDiaryInfo,
+    deleteProduct,
+    deleteExercise,
+    addProduct,
+    addExercise,
+} from '../operations/diaryThunk';
 
 const initialState = {
     isLoading: false,
@@ -89,30 +96,34 @@ const loadingSlice = createSlice({
             .addCase(detailsCreate.pending, PENDING)
             .addCase(detailsCreate.fulfilled, FILFILLED)
             .addCase(detailsCreate.rejected, REJECTED)
-        
+
             .addCase(getDiaryInfo.pending, PENDING)
             .addCase(getDiaryInfo.fulfilled, FILFILLED)
             .addCase(getDiaryInfo.rejected, REJECTED)
-        
+
             .addCase(deleteProduct.pending, PENDING)
             .addCase(deleteProduct.fulfilled, FILFILLED)
             .addCase(deleteProduct.rejected, REJECTED)
-        
+
             .addCase(deleteExercise.pending, PENDING)
             .addCase(deleteExercise.fulfilled, FILFILLED)
             .addCase(deleteExercise.rejected, REJECTED)
-        
+
             .addCase(addProduct.pending, PENDING)
             .addCase(addProduct.fulfilled, FILFILLED)
             .addCase(addProduct.rejected, REJECTED)
-        
+
             .addCase(addExercise.pending, PENDING)
             .addCase(addExercise.fulfilled, FILFILLED)
             .addCase(addExercise.rejected, REJECTED)
-        
-            // .addCase(getParameters.pending, PENDING)
-            // .addCase(getParameters.fulfilled, FILFILLED)
-            // .addCase(getParameters.rejected, REJECTED)
+
+            .addCase(verifyByVerificationCode.pending, PENDING)
+            .addCase(verifyByVerificationCode.fulfilled, FILFILLED)
+            .addCase(verifyByVerificationCode.rejected, REJECTED);
+
+        // .addCase(getParameters.pending, PENDING)
+        // .addCase(getParameters.fulfilled, FILFILLED)
+        // .addCase(getParameters.rejected, REJECTED)
     },
 });
 

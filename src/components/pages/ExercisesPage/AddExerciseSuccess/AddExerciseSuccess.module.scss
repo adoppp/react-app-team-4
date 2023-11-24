@@ -1,7 +1,7 @@
 @import '../../../../scss/colors';
 @import '../../../../scss/mixins';
 
-.successExercises{
+.successExercises {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,79 +10,79 @@
 
     @media screen and (min-width: 768px) {
         width: 396px;
-    };
+    }
 
-    & img{
+    & img {
         margin-bottom: 28px;
-    };
+    }
 
-    & h2{
+    & h2 {
         color: $snow-white;
         font-size: 24px;
         font-style: normal;
         font-weight: 700;
         line-height: 1.33; /* 133.333% */
         margin-bottom: 16px;
-    };
-};
+    }
+}
 
-.successExercises__list{
+.successExercises__list {
     display: flex;
     flex-direction: column;
     gap: 4px;
     margin-bottom: 24px;
 
-    & li{
+    & li {
         display: flex;
 
-        & .successExercises__list_el{
-            color: rgba(239, 237, 232, 0.30);
+        & .successExercises__list_el {
+            color: rgba(239, 237, 232, 0.3);
             font-size: 14px;
             line-height: 1.29; /* 128.571% */
-        };
+        }
 
-        & p{
+        & p {
             color: $christmas-main-orange;
             font-size: 14px;
             line-height: 1.29; /* 128.571% */
-        };
-    };
-};
+        }
+    }
+}
 
-.successExercises__link{
+.successExercises__link {
     display: flex;
     gap: 8px;
     align-items: center;
     justify-content: center;
     margin-top: 16px;
-    
-    & p{
-        color: rgba(239, 237, 232, 0.30);
+
+    & p {
+        color: rgba(239, 237, 232, 0.3);
         font-size: 14px;
         line-height: 1.29; /* 128.571% */
 
         @include transition();
-    };
+    }
 
-    &:hover p{
+    &:hover p {
         color: $snow-white;
-    };
+    }
 
-    &:active p{
+    &:active p {
         color: $christmas-beige;
-    };
+    }
 
-    & svg{
-        stroke: rgba(239, 237, 232, 0.30);
+    & svg {
+        stroke: rgba(239, 237, 232, 0.3);
 
         @include transition();
-    };
+    }
 
-    &:hover svg{
+    &:hover svg {
         stroke: $snow-white;
-    };
+    }
 
-    &:active svg{
+    &:active svg {
         stroke: $christmas-beige;
-    };
-};
+    }
+}
