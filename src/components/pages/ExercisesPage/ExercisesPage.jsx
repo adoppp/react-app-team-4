@@ -25,7 +25,7 @@ const ExercisesPage = () => {
                     relative="path"
                 >
                     <Icon iconId="icon-arrow-back" w={16} h={16} />
-                    <button type='button'>Back</button>
+                    <button type="button">Back</button>
                 </Link>
             )}
             <div className={cn('exercises__categories')}>

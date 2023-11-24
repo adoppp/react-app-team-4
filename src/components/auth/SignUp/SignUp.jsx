@@ -7,12 +7,18 @@ import { useMediaQuery } from 'react-responsive';
 import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './SignUp.module.scss';
-import { registration, verifyOneMore } from '../../../storage/operations/authThunk';
+import {
+    registration,
+    verifyOneMore,
+} from '../../../storage/operations/authThunk';
 import { Button } from '../../ui/Button/Button';
 import { Icon } from '../../ui/Icon';
 import { Title } from '../../global/Title';
 import { Modal } from '../../ui/Modal';
-import { errorSelector, loadingSelector } from '../../../storage/selectors/globalSelectors';
+import {
+    errorSelector,
+    loadingSelector,
+} from '../../../storage/selectors/globalSelectors';
 import { userSelector } from '../../../storage/selectors/authSelectors';
 
 const cn = classNames.bind(styles);
@@ -40,7 +46,10 @@ const SignUp = () => {
     const validationSchema = Yup.object().shape({
         name: Yup.string().required('The name field is required'),
         email: Yup.string()
-            .matches(emailPattern, 'The email should look like this: example@example.com')
+            .matches(
+                emailPattern,
+                'The email should look like this: example@example.com',
+            )
             .required('The email field is required'),
         password: Yup.string()
             .min(6, 'The password field must contain at least 6 characters')
@@ -53,17 +62,17 @@ const SignUp = () => {
     };
 
     const handleSubmit = (e) => {
-        setShowModal(true)
+        setShowModal(true);
         dispatch(registration(e));
     };
 
     const handleClose = () => {
-        setShowModal(false)
-    }
+        setShowModal(false);
+    };
 
     const handleVerify = () => {
-        dispatch(verifyOneMore({email: userData.email}))
-    }
+        dispatch(verifyOneMore({ email: userData.email }));
+    };
 
     return (
         <section>
@@ -265,51 +274,46 @@ const SignUp = () => {
                     <span>Already have an account? </span>
                     <Link to="/signin">Sign In</Link>
                 </div>
-                {showModal && !isLoading && !error &&
+                {showModal && !isLoading && !error && (
                     <Modal customClose={handleClose}>
                         <div className={cn('verify')}>
                             <Icon
-                                iconId='icon-email-v'
+                                iconId="icon-email-v"
                                 w={120}
                                 h={120}
                                 customStyles={{
                                     fill: '#e6533c',
-                                    marginBottom: 32
+                                    marginBottom: 32,
                                 }}
                             />
                             <Title
-                                title='Please verify your email'
-                                customContainerStyles={{marginBottom: 16}}
+                                title="Please verify your email"
+                                customContainerStyles={{ marginBottom: 16 }}
                             />
                             <p>
-                                You're almost there, We sent an email to
-                                <span>
-                                    {` ${userData.email} `}
-                                </span>
+                                You&#39;re almost there, We sent an email to
+                                <span>{` ${userData.email} `}</span>
                             </p>
                             <p className={cn('verify__conditions')}>
-                                Just click on the link in that email to complete your signup.
-                                If you don't see it, you may need to 
-                                <span> 
-                                    {' check your spam '}
-                                </span>
+                                Just click on the link in that email to complete
+                                your signup. If you don&#39;t see it, you may need
+                                to
+                                <span>{' check your spam '}</span>
                                 folder.
                             </p>
-                            <p>
-                                Still can't find the email? No problem.
-                            </p>
+                            <p>Still can&#39;t find the email? No problem.</p>
                             <Button
-                                label='Resend Verification Email'
+                                label="Resend Verification Email"
                                 customContainerStyles={{
                                     fontSize: 18,
                                     marginTop: 44,
-                                    marginBottom: 16
+                                    marginBottom: 16,
                                 }}
                                 action={handleVerify}
                             />
                         </div>
                     </Modal>
-                }
+                )}
             </div>
         </section>
     );

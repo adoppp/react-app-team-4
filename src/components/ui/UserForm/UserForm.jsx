@@ -14,7 +14,7 @@ import {
     detailsUpdate,
     detailsCreate,
 } from '../../../storage/operations/authThunk';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const cn = classNames.bind(styles);
 
@@ -46,7 +46,7 @@ const validationSchema = Yup.object().shape({
 const UserForm = () => {
     const user = useSelector(userSelector);
     const userInfo = useSelector(userInfoSelector);
-    const [isDisabled, setIsDisabled] = useState(false);
+    const [isDisabled, setIsDisabled] = useState(true);
     const dispatch = useDispatch();
 
     const formatDate = (date) => {
@@ -110,10 +110,10 @@ const UserForm = () => {
             blood,
             levelActivity,
         };
-
+        
         const option =
-            user.name === values.name && Object.keys(userInfo).length > 0;
-
+        user.name === values.name && Object.keys(userInfo).length > 0;
+        
         const changesInDetails = getChangesInDetails(userInfoChanged, userInfo);
 
         user.name === values.name
@@ -715,7 +715,6 @@ const UserForm = () => {
                             <Button
                                 label="Save"
                                 type="submit"
-                                // isDisabled={buttonType ? true : false}
                             />
                         </div>
                     </Form>

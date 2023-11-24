@@ -2,10 +2,10 @@
 @import '../../../../scss//mixins';
 @import '../../../../scss/variables';
 
-.successModal{
+.successModal {
     display: flex;
     flex-direction: column;
-   align-items: center;
+    align-items: center;
 
     background-image: url('../../../../assets/images/avocado.png');
     background-repeat: no-repeat;
@@ -17,26 +17,26 @@
     height: 362px;
 
     @media screen and (min-width: 768px) {
-    width: 430px;
-    height: 428px;
-    padding: 64px 16px;
+        width: 430px;
+        height: 428px;
+        padding: 64px 16px;
 
-    background-position: center 64px;
-        }
+        background-position: center 64px;
+    }
 
-& h2 {
-    margin-top: 100px;
-    margin-bottom: 16px;
-    color: $snow-white;
-    font-size: 24px;
+    & h2 {
+        margin-top: 100px;
+        margin-bottom: 16px;
+        color: $snow-white;
+        font-size: 24px;
 
-    font-weight: 700;
-    line-height: 32px;
+        font-weight: 700;
+        line-height: 32px;
 
-    @media screen and (min-width: 768px) {
+        @media screen and (min-width: 768px) {
             margin-top: 116px;
         }
-}
+    }
 }
 
 .title_calories {
@@ -44,26 +44,25 @@
     color: rgba(239, 237, 232, 0.4);
     margin-bottom: 24px;
 
-    & span{
-    color: $christmas-main-orange;
+    & span {
+        color: $christmas-main-orange;
     }
 
     @media screen and (min-width: 768px) {
-    margin-bottom: 32px;
+        margin-bottom: 32px;
     }
 }
 
 .button {
-display: flex;
-background-color: transparent;
-border: none;
-align-items: center;
+    display: flex;
+    background-color: transparent;
+    border: none;
+    align-items: center;
 
-& a {
-color: rgba(239, 237, 232, 0.30);
-font-size: 14px;
-font-weight: 400;
-line-height: 18px;
-}
-
+    & a {
+        color: rgba(239, 237, 232, 0.3);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+    }
 }

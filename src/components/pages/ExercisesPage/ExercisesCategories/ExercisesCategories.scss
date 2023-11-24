@@ -13,7 +13,7 @@ li a {
         color: $christmas-hover-orange;
 
         @include transition();
-    };
+    }
 
     &.active span {
         color: $snow-white;
@@ -22,7 +22,7 @@ li a {
 
         &:hover {
             color: $lonely-gray;
-        };
+        }
 
         &::before {
             content: '';
@@ -34,13 +34,13 @@ li a {
             border-radius: 2px;
             background: $christmas-hover-orange;
             bottom: -4px;
-        };
-    };
-};
+        }
+    }
+}
 
 @media screen and (min-width: 768px) {
     a {
         font-size: 16px;
         line-height: 1.5; /* 150% */
-    };
-};
+    }
+}

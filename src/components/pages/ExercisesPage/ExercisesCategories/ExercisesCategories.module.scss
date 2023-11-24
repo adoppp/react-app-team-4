@@ -9,8 +9,8 @@
         color: rgba(239, 237, 232, 0.4);
         font-size: 14px;
         line-height: 1.29; /* 128.571% */
-    };
-};
+    }
+}
 
 @media screen and (min-width: 768px) {
     .category__list {
@@ -21,6 +21,6 @@
             line-height: 1.5; /* 150% */
 
             @include transition();
-        };
-    };
-};
+        }
+    }
+}

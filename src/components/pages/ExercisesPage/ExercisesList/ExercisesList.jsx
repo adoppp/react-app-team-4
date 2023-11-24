@@ -39,11 +39,12 @@ const ExercisesList = () => {
             el.map((item) => ({
                 ...item,
                 name: item.name[0].toUpperCase() + item.name.slice(1),
-                bodyPart: item.bodyPart[0].toUpperCase() + item.bodyPart.slice(1),
+                bodyPart:
+                    item.bodyPart[0].toUpperCase() + item.bodyPart.slice(1),
                 target: item.target[0].toUpperCase() + item.target.slice(1),
             })),
         );
-    };
+    }
 
     useEffect(() => {
         if (allExercises) {
@@ -55,19 +56,19 @@ const ExercisesList = () => {
             );
 
             upperCaseName(filtered);
-        };
+        }
     }, [allExercises, workout]);
 
     useEffect(() => {
-        if(currentWorkout){
+        if (currentWorkout) {
             setShowModal(true);
-        };
+        }
     }, [currentWorkout]);
-    
+
     const handleOpen = (e) => {
-        setCurrentWorkout(e)
-        setShowModal(true)
-    }
+        setCurrentWorkout(e);
+        setShowModal(true);
+    };
 
     const handleClose = () => {
         setShowModal(false);
@@ -79,7 +80,13 @@ const ExercisesList = () => {
                 {currentExercisesList.map((exercise) => (
                     <li className={cn('exercises__item')} key={exercise._id}>
                         <p className={cn('exercises__item_head')}>WORKOUT</p>
-                        <button type="button" onClick={()=>{handleOpen(exercise)}} className={cn('button__start')}>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                handleOpen(exercise);
+                            }}
+                            className={cn('button__start')}
+                        >
                             Start
                             <Icon iconId="icon-arrow-big" w={16} h={16} />
                         </button>
@@ -103,12 +110,14 @@ const ExercisesList = () => {
                     </li>
                 ))}
             </ul>
-            {showModal && <Modal customClose={handleClose}>
-                <AddExerciseForm 
-                    data={currentWorkout} 
-                    customClose={handleClose}
+            {showModal && (
+                <Modal customClose={handleClose}>
+                    <AddExerciseForm
+                        data={currentWorkout}
+                        customClose={handleClose}
                     />
-            </Modal>}
+                </Modal>
+            )}
         </div>
     );
 };

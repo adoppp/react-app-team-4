@@ -74,7 +74,7 @@ const authSlice = createSlice({
             })
             .addCase(verifyByVerificationCode.fulfilled, (state, action) => {
                 state.userDetails.userData.verify = action.payload.verify;
-            })
+            });
     },
 });
 

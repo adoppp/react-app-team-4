@@ -20,7 +20,9 @@ const ExercisesPage = lazy(() =>
 const ProductsContainer = lazy(() =>
     import('../components/containers/ProductsContainer/ProductsContainer'),
 );
-const VerifyPage = lazy(() => import('../components/pages/VerifyPage/VerifyPage'));
+const VerifyPage = lazy(() =>
+    import('../components/pages/VerifyPage/VerifyPage'),
+);
 
 import { Welcome } from '../components/global/Welcome';
 import { SignUp } from '../components/auth/SignUp';
@@ -66,9 +68,9 @@ const appRoutes = [
     {
         path: routes.SIGNUP_ROUTE,
         element: (
-                <MainСontainer>
-                    <SignUp />
-                </MainСontainer>
+            <MainСontainer>
+                <SignUp />
+            </MainСontainer>
         ),
     },
     {
@@ -114,12 +116,12 @@ const appRoutes = [
     {
         path: routes.VERIFY_ROUTE,
         element: (
-            <VerifyRoute >
-                <NotFoundContainer >
+            <VerifyRoute>
+                <NotFoundContainer>
                     <VerifyPage />
                 </NotFoundContainer>
             </VerifyRoute>
-        )
+        ),
     },
     {
         path: routes.EXERCISES_ROUTE,

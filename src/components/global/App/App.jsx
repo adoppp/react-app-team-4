@@ -7,10 +7,16 @@ import styles from './App.module.scss';
 import { Loader } from '../../ui/Loader';
 import NotFound from '../../pages/NotFound/NotFound';
 import appRoutes from '../../../routing/routes';
+import { refreshUser } from '../../../storage/operations/authThunk';
 import {
-    refreshUser,
-} from '../../../storage/operations/authThunk';
-import { autheticatedSelector, errorVerifySelector, isErrorVerifySelector, tokenSelector, userSelector } from '../../../storage/selectors/authSelectors';
+    autheticatedSelector,
+    errorVerifySelector,
+    isErrorVerifySelector,
+    tokenSelector,
+    userSelector,
+    userVerifySelector,
+    verificationCodeSelector,
+} from '../../../storage/selectors/authSelectors';
 import {
     errorSelector,
     loadingSelector,
@@ -23,20 +29,19 @@ const cn = classNames.bind(styles);
 
 function App() {
     const token = useSelector(tokenSelector);
-    const user = useSelector(userSelector);
     const autheticated = useSelector(autheticatedSelector);
     const error = useSelector(errorSelector);
     const isLoading = useSelector(loadingSelector);
     const notifErrorVerify = useSelector(errorVerifySelector);
     const isError = useSelector(isErrorVerifySelector);
+    const verify = useSelector(verificationCodeSelector);
     const dispatch = useDispatch();
 
     useEffect(() => {
-            if (!token) return;
-            else if (!autheticated) return;
-            // else if (!user.verify) return;
+        if (!token) return;
+        else if (verify) return;
 
-            dispatch(refreshUser());
+        dispatch(refreshUser());
     }, [dispatch, token, autheticated]);
 
     Notify.init({
@@ -45,9 +50,9 @@ function App() {
             background: '#3cbf61',
             textColor: '#303030',
             notiflixIconColor: '#303030',
-            backOverlayColor: '#e6533c'
-        }
-    })
+            backOverlayColor: '#e6533c',
+        },
+    });
 
     return (
         <main>
@@ -81,14 +86,13 @@ function App() {
                 </Modal>
             )}
             {isLoading && <Loader />}
-            {notifErrorVerify && 
+            {notifErrorVerify && (
                 <div>
-                    {isError ?
-                        Notify.failure(`${notifErrorVerify}`) :
-                        Notify.success(`${notifErrorVerify}`)
-                    }
+                    {isError
+                        ? Notify.failure(`${notifErrorVerify}`)
+                        : Notify.success(`${notifErrorVerify}`)}
                 </div>
-            }
+            )}
         </main>
     );
 }

@@ -261,7 +261,7 @@ a {
     }
 }
 .notFound {
-    color: rgba(239, 237, 232, 0.30);
+    color: rgba(239, 237, 232, 0.3);
     font-family: Roboto;
     font-size: 14px;
     line-height: 18px;
@@ -269,8 +269,8 @@ a {
     text-align: center;
 
     @media screen and (min-width: 768px) {
-            margin-top: 65px;
-        }
+        margin-top: 65px;
+    }
 }
 
 .button__delete {

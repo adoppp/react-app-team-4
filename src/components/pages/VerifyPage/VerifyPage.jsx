@@ -31,8 +31,8 @@ const VerifyPage = () => {
     };
 
     useEffect(() => {
-        dispatch(verifyByVerificationCode(verificationCode))
-    }, [dispatch, verificationCode])
+        dispatch(verifyByVerificationCode(verificationCode));
+    }, [dispatch, verificationCode]);
 
     // const handleVerification = () => {
     //     waiting for zahar to send email
@@ -51,9 +51,7 @@ const VerifyPage = () => {
                     <span className={cn('info__logo_text')}>PowerPulse</span>
                 </Link>
                 <h1>Email verification failed</h1>
-                <p>
-                    Try to resend email. Just click down.
-                </p>
+                <p>Try to resend email. Just click down.</p>
                 <Button
                     label="Resend Verification Email"
                     buttonStyles="orange"
@@ -63,6 +61,6 @@ const VerifyPage = () => {
             </div>
         </div>
     );
-}
+};
 
 export default VerifyPage;

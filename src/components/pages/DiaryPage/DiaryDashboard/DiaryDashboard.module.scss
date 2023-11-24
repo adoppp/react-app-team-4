@@ -37,13 +37,13 @@
             padding: 18px;
         }
     }
-        .greenHighlight {
-            border: 1px solid #3CBF61;
-        }
-    
-        .redHighlight {
-            border: 1px solid #E9101D;
-        }
+    .greenHighlight {
+        border: 1px solid #3cbf61;
+    }
+
+    .redHighlight {
+        border: 1px solid #e9101d;
+    }
 
     .red {
         background: $christmas-main-orange;
@@ -53,7 +53,6 @@
         }
     }
 }
-
 
 .dashboard__item__desc {
     display: flex;

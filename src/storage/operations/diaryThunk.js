@@ -1,15 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from './authThunk';
 
-
-const REJECTED = (thunkAPI, e) => thunkAPI.rejectWithValue(e.response.data.message ? e.response.data.message : e.message);
+const REJECTED = (thunkAPI, e) =>
+    thunkAPI.rejectWithValue(
+        e.response.data.message ? e.response.data.message : e.message,
+    );
 
 export const getDiaryInfo = createAsyncThunk(
     'diary/getInfo',
     async (date, thunkAPI) => {
         try {
             const response = await instance.get('diary/day', {
-                params: { date: date }
+                params: { date: date },
             });
             return response.data;
         } catch (e) {
@@ -23,11 +25,13 @@ export const deleteProduct = createAsyncThunk(
     async ({ id, date }, thunkAPI) => {
         try {
             const payload = { date };
-            const response = await instance.delete(`diary/product/${id}`, { data: payload });
+            const response = await instance.delete(`diary/product/${id}`, {
+                data: payload,
+            });
         } catch (e) {
             return REJECTED(thunkAPI, e);
         }
-    }
+    },
 );
 
 export const deleteExercise = createAsyncThunk(
@@ -35,11 +39,13 @@ export const deleteExercise = createAsyncThunk(
     async ({ id, date }, thunkAPI) => {
         try {
             const payload = { date };
-            const response = await instance.delete(`diary/exercise/${id}`, { data: payload });
+            const response = await instance.delete(`diary/exercise/${id}`, {
+                data: payload,
+            });
         } catch (e) {
             return REJECTED(thunkAPI, e);
         }
-    }
+    },
 );
 
 export const addProduct = createAsyncThunk(
@@ -47,12 +53,15 @@ export const addProduct = createAsyncThunk(
     async ({ id, date, weight }, thunkAPI) => {
         try {
             const payload = { date, weight };
-            const response = await instance.patch(`diary/product/${id}`, payload);
+            const response = await instance.patch(
+                `diary/product/${id}`,
+                payload,
+            );
             return response.data;
         } catch (e) {
             return REJECTED(thunkAPI, e);
         }
-    }
+    },
 );
 
 export const addExercise = createAsyncThunk(
@@ -60,10 +69,13 @@ export const addExercise = createAsyncThunk(
     async ({ id, date, time }, thunkAPI) => {
         try {
             const payload = { date, time };
-            const response = await instance.patch(`diary/exercise/${id}`, payload);
+            const response = await instance.patch(
+                `diary/exercise/${id}`,
+                payload,
+            );
             return response.data;
         } catch (e) {
             return REJECTED(thunkAPI, e);
         }
-    }
+    },
 );

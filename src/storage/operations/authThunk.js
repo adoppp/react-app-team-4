@@ -14,7 +14,10 @@ export const token = {
     },
 };
 
-const REJECTED = (thunkAPI, e) => thunkAPI.rejectWithValue(e.response.data.message ? e.response.data.message : e.message);
+const REJECTED = (thunkAPI, e) =>
+    thunkAPI.rejectWithValue(
+        e.response.data.message ? e.response.data.message : e.message,
+    );
 
 export const registration = createAsyncThunk(
     'auth/registration',
@@ -126,17 +129,19 @@ export const verifyOneMore = createAsyncThunk(
         } catch (e) {
             return REJECTED(thunkAPI, e);
         }
-    }
+    },
 );
 
 export const verifyByVerificationCode = createAsyncThunk(
     'user/verificationByCode',
     async (verificationCode, thunkAPI) => {
         try {
-            const response = await instance.get(`auth/verify/${verificationCode}`);
+            const response = await instance.get(
+                `auth/verify/${verificationCode}`,
+            );
             return response.data;
         } catch (e) {
             return REJECTED(thunkAPI, e);
         }
-    }
+    },
 );

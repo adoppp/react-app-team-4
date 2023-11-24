@@ -6,9 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Icon } from '../Icon';
 import './Calendar.scss';
 import { updateSelectedDate } from '../../../storage/reducers/diarySlice';
-import {formatDate} from '../../../storage/reducers/diarySlice'
+import { formatDate } from '../../../storage/reducers/diarySlice';
 import { userSelector } from '../../../storage/selectors/authSelectors';
-
 
 const Calendar = () => {
     const dispatch = useDispatch();
@@ -18,16 +17,15 @@ const Calendar = () => {
     if (userData) {
         registrationDate = new Date(userData.createdAt);
     }
-    
-    const firstDayOfRegistrationMonth = userData ? new Date(userData.createdAt) : new Date();
+
+    const firstDayOfRegistrationMonth = userData
+        ? new Date(userData.createdAt)
+        : new Date();
     firstDayOfRegistrationMonth.setDate(1);
-
-
 
     const isTabletScreen = useMediaQuery({ minWidth: 768 });
     const iconCalendarHeight = isTabletScreen ? 24 : 20;
     const iconCalendarWidth = isTabletScreen ? 24 : 20;
-
 
     const BtnInput = forwardRef(({ value, onClick }, ref) => (
         <div className={'button-wrapper'}>
@@ -60,9 +58,9 @@ const Calendar = () => {
         const previousDay = new Date(selectedDate);
         previousDay.setDate(previousDay.getDate() - 1);
 
-         if (userData && previousDay < new Date(userData.createdAt)) {
-        return;
-    }
+        if (userData && previousDay < new Date(userData.createdAt)) {
+            return;
+        }
         setSelectedDate(previousDay);
         dispatch(updateSelectedDate(formatDate(previousDay)));
     };
@@ -74,9 +72,9 @@ const Calendar = () => {
         dispatch(updateSelectedDate(formatDate(nextDay)));
     };
 
-        const handleDateChange = (date) => {
+    const handleDateChange = (date) => {
         setSelectedDate(date);
-        dispatch(updateSelectedDate(formatDate(date))); 
+        dispatch(updateSelectedDate(formatDate(date)));
     };
 
     return (
@@ -91,8 +89,12 @@ const Calendar = () => {
                     <div className={'header-calendar'}>
                         <button
                             aria-label="Previous Month"
-                            disabled={monthDate.getMonth() === firstDayOfRegistrationMonth.getMonth() &&
-                                      monthDate.getFullYear() === firstDayOfRegistrationMonth.getFullYear()}
+                            disabled={
+                                monthDate.getMonth() ===
+                                    firstDayOfRegistrationMonth.getMonth() &&
+                                monthDate.getFullYear() ===
+                                    firstDayOfRegistrationMonth.getFullYear()
+                            }
                             className={
                                 'react-datepicker__navigation react-datepicker__navigation--previous'
                             }
@@ -113,7 +115,6 @@ const Calendar = () => {
                                     'react-datepicker__navigation-icon react-datepicker__navigation-icon--next'
                                 }
                             />
-                        
                         </button>
                         <span className="react-datepicker__current-month">
                             {monthDate.toLocaleString('en-US', {

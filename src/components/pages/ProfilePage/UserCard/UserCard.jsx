@@ -8,17 +8,14 @@ import {
     userInfoSelector,
     userSelector,
 } from '../../../../storage/selectors/authSelectors';
-import {
-    avatarUpdate,
-} from '../../../../storage/operations/authThunk';
-import { useEffect } from 'react';
+import { avatarUpdate } from '../../../../storage/operations/authThunk';
 import { logout } from '../../../../storage/operations/authThunk';
 
 const cn = classNames.bind(styles);
 
 const UserCard = () => {
     const userData = useSelector(userSelector);
-    const userInfo= useSelector(userInfoSelector);
+    const userInfo = useSelector(userInfoSelector);
     const dispatch = useDispatch();
 
     const isLargeScreen = useMediaQuery({ minWidth: 768 });
@@ -38,12 +35,14 @@ const UserCard = () => {
     const handleLogout = () => {
         dispatch(logout());
     };
-    
-     const dailyCalorieIntake = Object.keys(userInfo).includes('BMR')
+
+    const dailyCalorieIntake = Object.keys(userInfo).includes('BMR')
         ? Math.round(userInfo.BMR)
         : 0;
 
-    const dailyPhysicalActivity = Object.keys(userInfo).includes('dailyExerciseTime')
+    const dailyPhysicalActivity = Object.keys(userInfo).includes(
+        'dailyExerciseTime',
+    )
         ? userInfo.dailyExerciseTime
         : 0;
 
@@ -94,7 +93,9 @@ const UserCard = () => {
                                 <Icon iconId="icon-fluent_food" w={20} h={20} />
                                 <p>Daily calorie intake</p>
                             </div>
-                            <div className={cn('daily__value')}>{dailyCalorieIntake}</div>
+                            <div className={cn('daily__value')}>
+                                {dailyCalorieIntake}
+                            </div>
                         </div>
                     </div>
                     <div className={cn('daily__calorieAndNorm')}>

@@ -10,7 +10,6 @@ import { useMediaQuery } from 'react-responsive';
 import { useEffect, useState } from 'react';
 import { SuccessModal } from '../SuccessModal/SuccessModal';
 
-
 const cn = classNames.bind(styles);
 
 const ProductsModal = ({ close, product }) => {
@@ -18,14 +17,14 @@ const ProductsModal = ({ close, product }) => {
     const selectedDate = useSelector((state) => state.diary.selectedDate);
     const [showSuccessModal, setShowSuccessModal] = useState(false);
     const [calculatedCalories, setCalculatedCalories] = useState(0);
-    
+
     const validationSchema = Yup.object({
         grams: Yup.number()
             .required('Grams is required')
             .positive('Grams must be a positive number')
-            .integer('Grams must be an integer')
-        });
-    
+            .integer('Grams must be an integer'),
+    });
+
     const isLargeScreen = useMediaQuery({ minWidth: 768 });
     const buttonStylesAdd = {
         fontSize: 16,
@@ -48,74 +47,100 @@ const ProductsModal = ({ close, product }) => {
         const id = product._id;
         const date = selectedDate;
 
-        dispatch(addProduct({
-            id: id,
-            date: date,
-            weight: values.grams,
-        })).then(() => {
-            setShowSuccessModal(true); 
-        })
-        
+        dispatch(
+            addProduct({
+                id: id,
+                date: date,
+                weight: values.grams,
+            }),
+        ).then(() => {
+            setShowSuccessModal(true);
+        });
     };
     const closeSuccessModal = () => {
         setShowSuccessModal(false);
-        close(); 
+        close();
     };
 
+    return (
+        <>
+            {!showSuccessModal ? (
+                <div className={cn('container')}>
+                    <Formik
+                        initialValues={initialValues}
+                        onSubmit={onSubmit}
+                        validationSchema={validationSchema}
+                    >
+                        {({ values, handleSubmit }) => {
+                            const calories = Math.round(
+                                (product.cal / 100) * values.grams,
+                            );
+                            useEffect(() => {
+                                setCalculatedCalories(calories);
+                            }, [calories]);
 
-    return <>
-    {!showSuccessModal ?
-        <div className={cn('container')} >
-            <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema} >
-                {({ values, handleSubmit }) => {
-                const calories = Math.round(((product.cal / 100) * values.grams) )
-                    useEffect(() => {
-                        setCalculatedCalories(calories);
-                    }, [calories]);
-
-                    return (
-                <Form onSubmit={handleSubmit}> 
-                        <div className={cn('product_modal')}>
-                            <div className={cn('inputs')}>
-                                <div className={cn('product')}>
-                                    {product.name}
-                                </div>
-                                <div className={cn('input_container-grams')}>
-                                    <Field
-                                        type='text'
-                                        id='grams'
-                                        name='grams'
-                                        className={cn('input-grams')}
-                                    />
-                                    <span className={cn('input__title')}>
-                                        grams
-                                    </span>
-                                </div>
-                            </div>
-                            <p className={cn('title_calories')}>
-                                Calories: {calculatedCalories}
-                            </p>
-                            <div className={cn('button_container')}>
-                                <Button
-                                    label="Add to diary"
-                                    type="submit" 
-                                    customContainerStyles={buttonStylesAdd}
-                                />
-                                <Button
-                                    label="Cancel"
-                                    action={close} 
-                                    customContainerStyles={buttonStylesCancel}
-                                    buttonStyles="gray"
-                                />
-                            </div>
-                        </div>
-                    </Form>
-                )
-                }}
-            </Formik> 
-        </div > :
-        <SuccessModal onClose={closeSuccessModal} calories={calculatedCalories} />}
-    </>
-;
+                            return (
+                                <Form onSubmit={handleSubmit}>
+                                    <div className={cn('product_modal')}>
+                                        <div className={cn('inputs')}>
+                                            <div className={cn('product')}>
+                                                {product.name}
+                                            </div>
+                                            <div
+                                                className={cn(
+                                                    'input_container-grams',
+                                                )}
+                                            >
+                                                <Field
+                                                    type="text"
+                                                    id="grams"
+                                                    name="grams"
+                                                    className={cn(
+                                                        'input-grams',
+                                                    )}
+                                                />
+                                                <span
+                                                    className={cn(
+                                                        'input__title',
+                                                    )}
+                                                >
+                                                    grams
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <p className={cn('title_calories')}>
+                                            Calories: {calculatedCalories}
+                                        </p>
+                                        <div className={cn('button_container')}>
+                                            <Button
+                                                label="Add to diary"
+                                                type="submit"
+                                                customContainerStyles={
+                                                    buttonStylesAdd
+                                                }
+                                            />
+                                            <Button
+                                                label="Cancel"
+                                                action={close}
+                                                customContainerStyles={
+                                                    buttonStylesCancel
+                                                }
+                                                buttonStyles="gray"
+                                            />
+                                        </div>
+                                    </div>
+                                </Form>
+                            );
+                        }}
+                    </Formik>
+                </div>
+            ) : (
+                <SuccessModal
+                    onClose={closeSuccessModal}
+                    calories={calculatedCalories}
+                />
+            )}
+        </>
+    );
 };
 export { ProductsModal };

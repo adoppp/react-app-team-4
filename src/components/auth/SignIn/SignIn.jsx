@@ -32,7 +32,10 @@ const SignIn = () => {
 
     const validationSchema = Yup.object().shape({
         email: Yup.string()
-            .matches(emailPattern, 'The email should look like this: example@example.com')
+            .matches(
+                emailPattern,
+                'The email should look like this: example@example.com',
+            )
             .required('The email field is required'),
         password: Yup.string()
             .min(6, 'The password field must contain at least 6 characters')
