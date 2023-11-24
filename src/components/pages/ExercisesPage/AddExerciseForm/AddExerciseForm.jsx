@@ -42,8 +42,11 @@ const AddExerciseForm = ({ data, customClose }) => {
     const renderTime = ({ elapsedTime }) => {
         const minutes = Math.floor(elapsedTime / 60);
         const seconds = Math.floor(elapsedTime % 60);
-        const formattedTime = `${minutes}:${seconds}`;
 
+        const formattedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+        const formattedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+        
+        const formattedTime = `${formattedMinutes}:${formattedSeconds}`;
         setTimeout(() => setTime(Math.floor(elapsedTime)), 0);
         return formattedTime;
     };
