@@ -76,7 +76,28 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 1.5;
-}
+};
+
+.green::before {
+    content: '';
+    background-color: #419b09;
+    border-radius: 50%;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    vertical-align: middle;
+};
+.red::before {
+    content: '';
+    background-color: #e9101d;
+    border-radius: 50%;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    vertical-align: middle;
+};
 
 .button {
     display: flex;
@@ -98,6 +119,8 @@
     font-weight: 400;
     font-size: 20;
     line-height: 1.2;
+    text-transform: capitalize;
+
 
     width: 240px;
     overflow: hidden;
@@ -119,5 +142,6 @@
     & span {
         color: #efede8;
         margin-left: 4px;
+        text-transform: capitalize;
     }
 }
