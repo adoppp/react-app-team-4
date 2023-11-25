@@ -7,17 +7,17 @@ const Loader = ({ customStyles }) => {
                 customStyles
                     ? customStyles
                     : {
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          margin: '0 auto',
-                          backgroundColor: '#04040466',
-                          position: `fixed`,
-                          top: 0,
-                          left: 0,
-                          zIndex: 1000,
-                          height: '100vh',
-                          width: `100vw`,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        margin: '0 auto',
+                        backgroundColor: '#04040466',
+                        position: `fixed`,
+                        top: 0,
+                        left: 0,
+                        zIndex: 1000,
+                        height: '100vh',
+                        width: `100vw`,
                       }
             }
         >
@@ -26,7 +26,7 @@ const Loader = ({ customStyles }) => {
                 height="120"
                 width="120"
                 ariaLabel="vortex-loading"
-                wrapperStyle={{}}
+                wrapperStyle={{width: 160, height: 160}}
                 colors={[
                     '#E6533C',
                     '#EF8964',
