@@ -274,3 +274,14 @@
 .react-datepicker__aria-live {
     display: none;
 }
+
+
+.react-datepicker__day--disabled {
+    color: rgba(239, 237, 232, 0.2);
+    cursor: default;
+}
+
+.react-datepicker__day--disabled:hover {
+background-color: transparent;
+color: rgba(239, 237, 232, 0.2);
+}
