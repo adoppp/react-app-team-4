@@ -76,7 +76,7 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 1.5;
-};
+}
 
 .green::before {
     content: '';
@@ -87,7 +87,7 @@
     height: 14px;
     margin-right: 8px;
     vertical-align: middle;
-};
+}
 .red::before {
     content: '';
     background-color: #e9101d;
@@ -97,7 +97,7 @@
     height: 14px;
     margin-right: 8px;
     vertical-align: middle;
-};
+}
 
 .button {
     display: flex;
@@ -120,7 +120,6 @@
     font-size: 20;
     line-height: 1.2;
     text-transform: capitalize;
-
 
     width: 240px;
     overflow: hidden;

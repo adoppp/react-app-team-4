@@ -7,21 +7,23 @@ import { useState } from 'react';
 import { Icon } from '../../../ui/Icon';
 
 import { useDispatch, useSelector } from 'react-redux';
-import {getProducts, getProductsCategories} from '../../../../storage/operations/productsThunk.js';
+import {
+    getProducts,
+    getProductsCategories,
+} from '../../../../storage/operations/productsThunk.js';
 import { useEffect } from 'react';
 import { selectorCategories } from '../../../../storage/selectors/productsSelector.js';
 
 const cn = classNames.bind(styles);
 
 const ProductsFilters = () => {
-  const [inputValue, setInputValue] = useState('');
+    const [inputValue, setInputValue] = useState('');
     const isTabletScreen = useMediaQuery({ minWidth: 768 });
     const dispatch = useDispatch();
-  const {list} = useSelector(selectorCategories);
-  
+    const { list } = useSelector(selectorCategories);
 
-  const [category, setCategory] = useState('');
-  const [isRecommended, setIsRecommended] = useState(null);
+    const [category, setCategory] = useState('');
+    const [isRecommended, setIsRecommended] = useState(null);
 
     const hendleInputChange = (e) => {
         const value = e.target.value;
@@ -29,32 +31,27 @@ const ProductsFilters = () => {
     };
     const handleClearInput = () => {
         setInputValue('');
-  };
+    };
 
-  const handleCategoryChange = (selectedValue) => {
-    setCategory(selectedValue);
-    
+    const handleCategoryChange = (selectedValue) => {
+        setCategory(selectedValue);
 
-     dispatch(getProducts({inputValue,category,isRecommended}));
-  
-  };
+        dispatch(getProducts({ inputValue, category, isRecommended }));
+    };
 
-  const handleCategoryBlodChange = (selectedValue) => {
-    if (selectedValue == 'Recommended') {
-      setIsRecommended(true)
-    } else if(selectedValue == 'Not recommended') {
-    setIsRecommended(false)
-    } else {
-    setIsRecommended(null)
-    }
-    dispatch(getProducts({inputValue,category,isRecommended}));
-  };
-  const handleFormSubmit = () => {
-      dispatch(getProducts({inputValue,category,isRecommended}));
-  
-      
-  };
-  
+    const handleCategoryBlodChange = (selectedValue) => {
+        if (selectedValue == 'Recommended') {
+            setIsRecommended(true);
+        } else if (selectedValue == 'Not recommended') {
+            setIsRecommended(false);
+        } else {
+            setIsRecommended(null);
+        }
+        dispatch(getProducts({ inputValue, category, isRecommended }));
+    };
+    const handleFormSubmit = () => {
+        dispatch(getProducts({ inputValue, category, isRecommended }));
+    };
 
     const IconStylesSearch = {
         stroke: '#EFEDE8',
@@ -68,17 +65,15 @@ const ProductsFilters = () => {
     const customSelectStyle = {
         width: widthSelect,
     };
- 
-
 
     const listSelectStyle = {
         height: 112,
         overflow: 'visible',
-  };
+    };
 
-   useEffect(() => {
-    handleFormSubmit();
-  }, [category, isRecommended]);
+    useEffect(() => {
+        handleFormSubmit();
+    }, [category, isRecommended]);
 
     useEffect(() => {
         dispatch(getProductsCategories());
@@ -140,7 +135,6 @@ const ProductsFilters = () => {
                         customSelectStyle={customSelectStyle}
                         customListSelectStyle={listSelectStyle}
                         handleCategoryChange={handleCategoryBlodChange}
-
                     />
                 </Form>
             </Formik>

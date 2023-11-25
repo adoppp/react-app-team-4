@@ -3,7 +3,7 @@ import {
     getProducts,
     getProductsCategories,
     getProductsOfBlood,
-    getProductsOfBloodNotRecommended 
+    getProductsOfBloodNotRecommended,
 } from '../operations/productsThunk.js';
 
 const initialState = {
@@ -29,19 +29,21 @@ const productsSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(getProducts.fulfilled, (state, action) => {         
+            .addCase(getProducts.fulfilled, (state, action) => {
                 state.products.items = action.payload.products;
                 state.products.filterCategory = action.payload;
-                
             })
 
             .addCase(getProductsOfBlood.fulfilled, (state, action) => {
                 state.products.items = action.payload.recommendedProducts;
-               
             })
-             .addCase(getProductsOfBloodNotRecommended.fulfilled, (state, action) => {
-                state.products.items = action.payload.notRecommendedProducts;
-            })
+            .addCase(
+                getProductsOfBloodNotRecommended.fulfilled,
+                (state, action) => {
+                    state.products.items =
+                        action.payload.notRecommendedProducts;
+                },
+            )
 
             .addCase(getProductsCategories.fulfilled, (state, action) => {
                 state.categories.list = action.payload;

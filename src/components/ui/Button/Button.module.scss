@@ -34,17 +34,17 @@
     }
 
     &:disabled,
-    &[disabled]{
-    color: rgba(239, 237, 232, 0.60);
+    &[disabled] {
+        color: rgba(239, 237, 232, 0.6);
     }
 
     &:disabled:hover,
-    &[disabled]:hover{
+    &[disabled]:hover {
         background-color: $christmas-main-orange;
     }
 
     &:disabled:active,
-    &[disabled]:active{
+    &[disabled]:active {
         background-color: $christmas-main-orange;
     }
 }

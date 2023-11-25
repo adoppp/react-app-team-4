@@ -14,7 +14,7 @@ const cn = classNames.bind(styles);
 const ProductsPage = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [productDetails, setProductDetails] = useState({});
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const titleProduts = {};
 

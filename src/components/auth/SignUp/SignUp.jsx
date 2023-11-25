@@ -296,8 +296,8 @@ const SignUp = () => {
                             </p>
                             <p className={cn('verify__conditions')}>
                                 Just click on the link in that email to complete
-                                your signup. If you don&#39;t see it, you may need
-                                to
+                                your signup. If you don&#39;t see it, you may
+                                need to
                                 <span>{' check your spam '}</span>
                                 folder.
                             </p>

@@ -12,27 +12,34 @@ const Button = ({
     type,
     isDisabled,
 }) => {
-
-    const disabletBtn =
-        <button button
+    const disabletBtn = (
+        <button
+            button
             className={cn('button', { [`${buttonStyles}`]: buttonStyles })}
             onClick={action}
-            style={customContainerStyles ? {...customContainerStyles, cursor: 'not-allowed'} : {cursor: 'not-allowed'}}
+            style={
+                customContainerStyles
+                    ? { ...customContainerStyles, cursor: 'not-allowed' }
+                    : { cursor: 'not-allowed' }
+            }
             type={type ? `${type}` : 'button'}
-            disabled={true}    
+            disabled={true}
         >
             <span>{label}</span>
-        </button>;
-    
-    const btn =
-        <button button
-                className={cn('button', { [`${buttonStyles}`]: buttonStyles })}
-                onClick={action}
-                style={customContainerStyles ? customContainerStyles : {}}
-                type={type ? `${type}` : 'button'}   
-            >
-                <span>{label}</span>
         </button>
+    );
+
+    const btn = (
+        <button
+            button
+            className={cn('button', { [`${buttonStyles}`]: buttonStyles })}
+            onClick={action}
+            style={customContainerStyles ? customContainerStyles : {}}
+            type={type ? `${type}` : 'button'}
+        >
+            <span>{label}</span>
+        </button>
+    );
 
     return isDisabled ? disabletBtn : btn;
 };

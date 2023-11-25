@@ -5,22 +5,20 @@ import classNames from 'classnames/bind';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectorProducts } from '../../../../storage/selectors/productsSelector.js';
 import { getProducts } from '../../../../storage/operations/productsThunk.js';
-import { useEffect} from 'react';
-
+import { useEffect } from 'react';
 
 const cn = classNames.bind(styles);
 
 const ProductsItem = ({ open }) => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const { items } = useSelector(selectorProducts);
     const userBloodGroup = 2;
 
-
-
     useEffect(() => {
-        dispatch(getProducts({inputValue:'', category:'', isRecommended:null}));
-
-    },[dispatch]);
+        dispatch(
+            getProducts({ inputValue: '', category: '', isRecommended: null }),
+        );
+    }, [dispatch]);
 
     const IconStyles = {
         backgroundColor: ' #EFA082',
@@ -30,10 +28,10 @@ const ProductsItem = ({ open }) => {
     };
     const IconButtonStyles = {
         marginLeft: 8,
-  };
+    };
     return (
         <>
-         {!items|| items.length === 0 ? (
+            {!items || items.length === 0 ? (
                 <div className={cn('not_find_text')}>
                     <p>
                         Sorry, no results were found{' '}
@@ -47,19 +45,27 @@ const ProductsItem = ({ open }) => {
                     </p>
                     <p>Try changing the search parameters.</p>
                 </div>
-        ) : (
-          
-   items &&  items.map((item) => {
-            const groupBloodNotAllowed = item.groupBloodNotAllowed;
-                const isRecommendedForUser = !groupBloodNotAllowed[userBloodGroup];
+            ) : (
+                items &&
+                items.map((item) => {
+                    const groupBloodNotAllowed = item.groupBloodNotAllowed;
+                    const isRecommendedForUser =
+                        !groupBloodNotAllowed[userBloodGroup];
                     return (
                         <li key={item.title} className={cn('item')}>
                             <div className={cn('item_container')}>
                                 <p className={cn('diet')}>DIET</p>
                                 <div className={cn('button_container')}>
-                            <p className={cn('text',{ 'green':isRecommendedForUser , 'red': !isRecommendedForUser })}>
-                              {isRecommendedForUser ? ' Recommended' : 'Not Recommended'}
-                                  </p>
+                                    <p
+                                        className={cn('text', {
+                                            green: isRecommendedForUser,
+                                            red: !isRecommendedForUser,
+                                        })}
+                                    >
+                                        {isRecommendedForUser
+                                            ? ' Recommended'
+                                            : 'Not Recommended'}
+                                    </p>
                                     <button
                                         className={cn('button')}
                                         onClick={() =>
@@ -112,8 +118,8 @@ const ProductsItem = ({ open }) => {
                         </li>
                     );
                 })
-            )}  
-        </> 
+            )}
+        </>
     );
 };
 

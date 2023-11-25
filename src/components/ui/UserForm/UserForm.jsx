@@ -112,30 +112,33 @@ const UserForm = () => {
         };
 
         if (Object.keys(userInfo).length > 0) {
-            const changesInDetails = getChangesInDetails(userInfoChanged, userInfo);
-            console.log("🚀 ~ file: UserForm.jsx:116 ~ handleSubmit ~ changesInDetails:", changesInDetails)
+            const changesInDetails = getChangesInDetails(
+                userInfoChanged,
+                userInfo,
+            );
 
             if (Object.keys(changesInDetails).length === 0) {
-                setIsDisabled(false)
+                setIsDisabled(false);
             }
+
             user.name === values.name
                 ? dispatch(detailsUpdate(changesInDetails))
-                : dispatch(detailsCreate(userInfoChanged))
+                : dispatch(detailsCreate(userInfoChanged));
         } else if (user.name !== values.name) {
-            dispatch(infoUpdate({ name: values.name }))
+            dispatch(infoUpdate({ name: values.name }));
         }
     };
 
     const handleFormChange = () => {
-        setIsDisabled(true)
-    }
+        setIsDisabled(true);
+    };
 
     useEffect(() => {
         if (Object.keys(userInfo).length > 0) {
-            setIsDisabled(true)
-        } 
-        setIsDisabled(false)
-    }, [userInfo])
+            setIsDisabled(true);
+        }
+        setIsDisabled(false);
+    }, [userInfo]);
 
     return (
         <div className={cn('UserFrom__container')}>
