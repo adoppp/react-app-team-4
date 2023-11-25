@@ -11,16 +11,16 @@ import { useEffect} from 'react';
 const cn = classNames.bind(styles);
 
 const ProductsItem = ({ open }) => {
-  const dispatch = useDispatch()
-  const { items } = useSelector(selectorProducts);
-  const defaltProduct = '';
-  const userBloodGroup = 2;
+    const dispatch = useDispatch()
+    const { items } = useSelector(selectorProducts);
+    const userBloodGroup = 2;
 
 
 
-  useEffect(() => {
-    dispatch(getProducts(defaltProduct));
-  }, [dispatch]);
+    useEffect(() => {
+        dispatch(getProducts({inputValue:'', category:'', isRecommended:null}));
+
+    },[dispatch]);
 
     const IconStyles = {
         backgroundColor: ' #EFA082',
@@ -31,10 +31,9 @@ const ProductsItem = ({ open }) => {
     const IconButtonStyles = {
         marginLeft: 8,
   };
-  console.log('item:',items) 
     return (
         <>
-             {!items ? (
+         {!items|| items.length === 0 ? (
                 <div className={cn('not_find_text')}>
                     <p>
                         Sorry, no results were found{' '}
@@ -113,8 +112,8 @@ const ProductsItem = ({ open }) => {
                         </li>
                     );
                 })
-            )} 
-        </>
+            )}  
+        </> 
     );
 };
 
