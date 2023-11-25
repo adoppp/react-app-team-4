@@ -110,22 +110,26 @@ const UserForm = () => {
             blood,
             levelActivity,
         };
+        
+        const changesInDetails = getChangesInDetails(
+            userInfoChanged,
+            userInfo,
+        )
 
-        if (Object.keys(userInfo).length > 0) {
-            const changesInDetails = getChangesInDetails(
-                userInfoChanged,
-                userInfo,
-            );
+        if (Object.keys(changesInDetails).length === 0 && Object.keys(userInfo).length > 0) {
 
-            if (Object.keys(changesInDetails).length === 0) {
-                setIsDisabled(false);
-            }
+            setIsDisabled(false);
 
-            user.name === values.name
-                ? dispatch(detailsUpdate(changesInDetails))
-                : dispatch(detailsCreate(userInfoChanged));
+        } else if (user.name === values.name) {
+
+            Object.keys(userInfo).length > 0 ?
+                dispatch(detailsUpdate(changesInDetails)) :
+                dispatch(detailsCreate(userInfoChanged));
+            
         } else if (user.name !== values.name) {
+
             dispatch(infoUpdate({ name: values.name }));
+
         }
     };
 
