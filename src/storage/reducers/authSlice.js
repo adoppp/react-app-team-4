@@ -38,6 +38,7 @@ const authSlice = createSlice({
                 state.email = action.payload.user.email;
                 state.token = action.payload.token;
                 state.verificationCode = action.payload.verificationCode;
+                state.authenticated = false;
             })
             .addCase(login.fulfilled, (state, action) => {
                 state.authenticated = true;
