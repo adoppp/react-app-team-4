@@ -111,7 +111,7 @@
         flex-wrap: wrap;
 
         @media screen and (min-width: 768px) {
-            flex-direction: raw;
+            flex-direction: row;
             flex-wrap: nowrap;
         }
     }
@@ -177,7 +177,7 @@
         width: 90px;
     }
     @media screen and (min-width: 1140px) {
-        width: 105px;
+        width: 110px;
     }
 }
 
@@ -252,7 +252,7 @@
 }
 
 .container__input.title {
-    max-width: 148px;
+    max-width: 212px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

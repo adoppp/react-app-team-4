@@ -29,6 +29,7 @@ import { SignUp } from '../components/auth/SignUp';
 import { SignIn } from '../components/auth/SignIn';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
+import { InfoRoute } from './InfoRoute';
 import { ExercisesSubcategoriesItem } from '../components/pages/ExercisesPage/ExercisesSubcategoriesItem';
 import { ExercisesList } from '../components/pages/ExercisesPage/ExercisesList';
 import { VerifyRoute } from './VerifyRoute';
@@ -97,9 +98,11 @@ const appRoutes = [
         path: routes.DIARY_ROUTE,
         element: (
             <PrivateRoute>
-                <PrivateContainer>
-                    <DiaryPage />
-                </PrivateContainer>
+                <InfoRoute>
+                    <PrivateContainer>
+                        <DiaryPage />
+                    </PrivateContainer>
+                </InfoRoute>
             </PrivateRoute>
         ),
     },
@@ -107,9 +110,11 @@ const appRoutes = [
         path: routes.PRODUCTS_ROUTE,
         element: (
             <PrivateRoute>
-                <ProductsContainer>
-                    <ProductsPage />
-                </ProductsContainer>
+                <InfoRoute>
+                    <ProductsContainer>
+                        <ProductsPage />
+                    </ProductsContainer>
+                </InfoRoute>
             </PrivateRoute>
         ),
     },
@@ -127,9 +132,11 @@ const appRoutes = [
         path: routes.EXERCISES_ROUTE,
         element: (
             <PrivateRoute>
-                <PrivateContainer>
-                    <ExercisesPage />
-                </PrivateContainer>
+                <InfoRoute>
+                    <PrivateContainer>
+                        <ExercisesPage />
+                    </PrivateContainer>
+                </InfoRoute>
             </PrivateRoute>
         ),
         children: [

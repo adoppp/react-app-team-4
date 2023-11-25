@@ -116,7 +116,7 @@ a {
         flex-wrap: wrap;
 
         @media screen and (min-width: 768px) {
-            flex-direction: raw;
+            flex-direction: row;
             flex-wrap: nowrap;
         }
     }
@@ -183,7 +183,7 @@ a {
 }
 
 .container__input__small {
-    width: 81px;
+    width: 91px;
 }
 
 .big-gap {
