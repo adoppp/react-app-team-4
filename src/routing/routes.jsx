@@ -69,9 +69,11 @@ const appRoutes = [
     {
         path: routes.SIGNUP_ROUTE,
         element: (
-            <MainСontainer>
-                <SignUp />
-            </MainСontainer>
+            <RestrictedRoute>
+                <MainСontainer>
+                    <SignUp />
+                </MainСontainer>
+            </RestrictedRoute>
         ),
     },
     {

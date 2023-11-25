@@ -34,12 +34,12 @@ function App() {
     const isLoading = useSelector(loadingSelector);
     const notifErrorVerify = useSelector(errorVerifySelector);
     const isError = useSelector(isErrorVerifySelector);
-    const verify = useSelector(verificationCodeSelector);
+    const verify = useSelector(userVerifySelector);
     const dispatch = useDispatch();
 
     useEffect(() => {
         if (!token) return;
-        else if (!autheticated) return;
+        else if (verify === false) return;
 
         dispatch(refreshUser());
     }, [dispatch, token, autheticated]);

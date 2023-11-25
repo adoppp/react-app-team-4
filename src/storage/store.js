@@ -21,7 +21,7 @@ import { diaryReducer } from './reducers/diarySlice';
 const authPersistConfig = {
     key: 'auth',
     storage,
-    whitelist: ['token', 'verificationCode', 'email'],
+    whitelist: ['token', 'verificationCode', 'email', 'userDetails'],
 };
 
 export const store = configureStore({
