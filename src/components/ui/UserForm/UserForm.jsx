@@ -46,7 +46,7 @@ const validationSchema = Yup.object().shape({
 const UserForm = () => {
     const user = useSelector(userSelector);
     const userInfo = useSelector(userInfoSelector);
-    const [isDisabled, setIsDisabled] = useState(true);
+    const [isDisabled, setIsDisabled] = useState(false);
     const dispatch = useDispatch();
 
     const formatDate = (date) => {
@@ -110,18 +110,32 @@ const UserForm = () => {
             blood,
             levelActivity,
         };
-        
-        const option =
-        user.name === values.name && Object.keys(userInfo).length > 0;
-        
-        const changesInDetails = getChangesInDetails(userInfoChanged, userInfo);
 
-        user.name === values.name
-            ? option
+        if (Object.keys(userInfo).length > 0) {
+            const changesInDetails = getChangesInDetails(userInfoChanged, userInfo);
+            console.log("🚀 ~ file: UserForm.jsx:116 ~ handleSubmit ~ changesInDetails:", changesInDetails)
+
+            if (Object.keys(changesInDetails).length === 0) {
+                setIsDisabled(false)
+            }
+            user.name === values.name
                 ? dispatch(detailsUpdate(changesInDetails))
                 : dispatch(detailsCreate(userInfoChanged))
-            : dispatch(infoUpdate({ name: values.name }));
+        } else if (user.name !== values.name) {
+            dispatch(infoUpdate({ name: values.name }))
+        }
     };
+
+    const handleFormChange = () => {
+        setIsDisabled(true)
+    }
+
+    useEffect(() => {
+        if (Object.keys(userInfo).length > 0) {
+            setIsDisabled(true)
+        } 
+        setIsDisabled(false)
+    }, [userInfo])
 
     return (
         <div className={cn('UserFrom__container')}>
@@ -134,8 +148,8 @@ const UserForm = () => {
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
             >
-                {({ errors, touched, values }) => (
-                    <Form>
+                {({ errors, touched }) => (
+                    <Form onChange={handleFormChange}>
                         <div className={cn('basic__infoNameContainer')}>
                             <div className={cn('basic__infoName')}>
                                 <label>Basic info</label>
@@ -715,6 +729,7 @@ const UserForm = () => {
                             <Button
                                 label="Save"
                                 type="submit"
+                                isDisabled={!isDisabled}
                             />
                         </div>
                     </Form>

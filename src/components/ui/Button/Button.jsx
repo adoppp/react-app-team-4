@@ -17,7 +17,7 @@ const Button = ({
         <button button
             className={cn('button', { [`${buttonStyles}`]: buttonStyles })}
             onClick={action}
-            style={customContainerStyles ? customContainerStyles : {}}
+            style={customContainerStyles ? {...customContainerStyles, cursor: 'not-allowed'} : {cursor: 'not-allowed'}}
             type={type ? `${type}` : 'button'}
             disabled={true}    
         >
