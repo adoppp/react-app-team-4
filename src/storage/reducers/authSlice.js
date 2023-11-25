@@ -20,6 +20,7 @@ const initialState = {
         },
         userInfo: {},
     },
+    email: '',
     authenticated: false,
     token: null,
     verificationCode: null,
@@ -34,6 +35,7 @@ const authSlice = createSlice({
                 state.userDetails.userData = {
                     ...action.payload.user,
                 };
+                state.email = action.payload.user.email;
                 state.token = action.payload.token;
                 state.verificationCode = action.payload.verificationCode;
             })

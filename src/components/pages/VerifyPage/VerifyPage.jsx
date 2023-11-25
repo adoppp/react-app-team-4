@@ -7,8 +7,8 @@ import { Button } from '../../ui/Button';
 import { Icon } from '../../ui/Icon';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { verifyByVerificationCode } from '../../../storage/operations/authThunk';
-import { verificationCodeSelector } from '../../../storage/selectors/authSelectors';
+import { verifyByVerificationCode, verifyOneMore } from '../../../storage/operations/authThunk';
+import { emailSelector, verificationCodeSelector } from '../../../storage/selectors/authSelectors';
 
 const cn = classNames.bind(styles);
 
@@ -17,6 +17,7 @@ const VerifyPage = () => {
     const isLargeScreen = useMediaQuery({ minWidth: 768 });
     const dispatch = useDispatch();
     const verificationCode = useSelector(verificationCodeSelector);
+    const email = useSelector(emailSelector);
 
     const buttonStyles = {
         fontSize: isSmallScreen ? '12px' : isLargeScreen ? '18px' : '16px',
@@ -34,9 +35,9 @@ const VerifyPage = () => {
         dispatch(verifyByVerificationCode(verificationCode));
     }, [dispatch, verificationCode]);
 
-    // const handleVerification = () => {
-    //     waiting for zahar to send email
-    // }
+    const handleVerification = () => {
+        dispatch(verifyOneMore({ email: email }))
+    }
 
     return (
         <div className={cn('notfound__container')}>
@@ -56,7 +57,7 @@ const VerifyPage = () => {
                     label="Resend Verification Email"
                     buttonStyles="orange"
                     customContainerStyles={buttonStyles}
-                    // action={handleVerification}
+                    action={handleVerification}
                 />
             </div>
         </div>

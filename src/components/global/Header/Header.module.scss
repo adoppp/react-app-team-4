@@ -135,6 +135,8 @@
             & img {
                 width: 46px;
                 height: 46px;
+                min-width: 46px;
+                min-height: 46px;
             }
         }
     }
@@ -174,6 +176,8 @@
         & .header__user {
             width: 46px;
             height: 46px;
+            min-width: 46px;
+            min-height: 46px;
         }
     }
 }

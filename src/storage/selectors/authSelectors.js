@@ -17,3 +17,5 @@ export const errorVerifySelector = (state) => state.error.notificationMessage;
 export const isErrorVerifySelector = (state) => state.error.isError;
 
 export const verificationCodeSelector = (state) => state.user.verificationCode;
+
+export const emailSelector = (state) => state.user.email;

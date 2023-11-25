@@ -36,6 +36,8 @@
 
     width: 90px;
     height: 90px;
+    min-width: 90px;
+    min-height: 90px;
 
     padding: 11px;
 
@@ -45,6 +47,13 @@
     border: 1px solid $christmas-main-orange;
     border-radius: 50%;
 
+    @media screen and (min-width: 768px){
+        width: 150px;
+        height: 150px;
+        min-width: 150px;
+        min-height: 150px;
+    }
+
     & use {
         stroke: $christmas-main-orange;
     }
@@ -52,11 +61,20 @@
     & img {
         width: 90px;
         height: 90px;
+        min-width: 90px;
+        min-height: 90px;
 
         position: relative;
         z-index: -1;
 
         border-radius: 50%;
+
+        @media screen and (min-width: 768px) {
+            width: 150px;
+            height: 150px;
+            min-width: 150px;
+            min-height: 150px;
+        }
     }
 }
 
