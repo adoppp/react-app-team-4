@@ -3,9 +3,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const getProducts = createAsyncThunk(
     'products/getAll',
-    async (query, thunkAPI) => {
+    async( { inputValue, category, isRecommended }, thunkAPI) => {
         try {
-            const response = await instance.get(`/products?keyWord=${query}`);
+          
+            const response = await instance.get(`/products?keyword=${inputValue}&category=${category}&recommend=${isRecommended}`);
             return response.data;
         } catch (e) {
             return thunkAPI.rejectWithValue(

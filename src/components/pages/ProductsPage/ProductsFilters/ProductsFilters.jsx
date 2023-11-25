@@ -7,16 +7,9 @@ import { useState } from 'react';
 import { Icon } from '../../../ui/Icon';
 
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    getProductsCategories,
-    getProducts,
-    getProductsOfBlood,
-    getProductsOfBloodNotRecommended,
-
-} from '../../../../storage/operations/productsThunk.js';
+import {getProducts, getProductsCategories} from '../../../../storage/operations/productsThunk.js';
 import { useEffect } from 'react';
-import { selectorCategories, selectorProducts } from '../../../../storage/selectors/productsSelector.js';
-import { setCategoryFilter } from '../../../../storage/reducers/productsSlice.js';
+import { selectorCategories } from '../../../../storage/selectors/productsSelector.js';
 
 const cn = classNames.bind(styles);
 
@@ -24,8 +17,11 @@ const ProductsFilters = () => {
   const [inputValue, setInputValue] = useState('');
     const isTabletScreen = useMediaQuery({ minWidth: 768 });
     const dispatch = useDispatch();
-  const { list } = useSelector(selectorCategories);
-    const { filterCategory} = useSelector(selectorProducts);
+  const {list} = useSelector(selectorCategories);
+  
+
+  const [category, setCategory] = useState('');
+  const [isRecommended, setIsRecommended] = useState(null);
 
     const hendleInputChange = (e) => {
         const value = e.target.value;
@@ -34,32 +30,31 @@ const ProductsFilters = () => {
     const handleClearInput = () => {
         setInputValue('');
   };
-  
-
-
 
   const handleCategoryChange = (selectedValue) => {
-    const filterProducts = filterCategory && filterCategory.filter(product => product.category == selectedValue);
-    dispatch(setCategoryFilter(filterProducts))
+    setCategory(selectedValue);
+    
+
+     dispatch(getProducts({inputValue,category,isRecommended}));
+  
   };
 
   const handleCategoryBlodChange = (selectedValue) => {
-   const blood = 2;
-  switch (selectedValue) {
-    case 'Recommended':
-       dispatch(getProductsOfBlood(blood));
-      break;
-    case 'Not recommended':
-     dispatch(getProductsOfBloodNotRecommended(blood));
-      break;
-    default:
-      dispatch(getProducts(''));
-  }
-};
-
-    const handleFormSubmit = () => {
-        dispatch(getProducts(inputValue));
-    };
+    if (selectedValue == 'Recommended') {
+      setIsRecommended(true)
+    } else if(selectedValue == 'Not recommended') {
+    setIsRecommended(false)
+    } else {
+    setIsRecommended(null)
+    }
+    dispatch(getProducts({inputValue,category,isRecommended}));
+  };
+  const handleFormSubmit = () => {
+      dispatch(getProducts({inputValue,category,isRecommended}));
+  
+      
+  };
+  
 
     const IconStylesSearch = {
         stroke: '#EFEDE8',
@@ -79,13 +74,17 @@ const ProductsFilters = () => {
     const listSelectStyle = {
         height: 112,
         overflow: 'visible',
-    };
+  };
 
-    const selectList = ['All', 'Recommended', 'Not recommended'];
+   useEffect(() => {
+    handleFormSubmit();
+  }, [category, isRecommended]);
 
     useEffect(() => {
         dispatch(getProductsCategories());
     }, [dispatch]);
+
+    const selectList = ['All', 'Recommended', 'Not recommended'];
 
     return (
         <>

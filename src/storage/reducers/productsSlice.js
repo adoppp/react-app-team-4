@@ -15,7 +15,7 @@ const initialState = {
         list: [],
     },
     filter: {
-        category: 'All',
+        category: '',
     },
 };
 
@@ -24,13 +24,13 @@ const productsSlice = createSlice({
     initialState,
     reducers: {
         setCategoryFilter: (state, action) => {
-            state.products.items = action.payload;
+            state.categories.filter = action.payload;
         },
     },
     extraReducers: (builder) => {
         builder
             .addCase(getProducts.fulfilled, (state, action) => {         
-                state.products.items = action.payload;
+                state.products.items = action.payload.products;
                 state.products.filterCategory = action.payload;
                 
             })
