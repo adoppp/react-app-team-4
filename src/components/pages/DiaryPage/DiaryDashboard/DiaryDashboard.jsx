@@ -68,34 +68,6 @@ const DiaryDashboard = () => {
                         {Math.round(dailyCalorieIntake)}
                     </p>
                 </li>
-                <li>
-                    <p className={cn('dashboard__item__desc')}>
-                        <Icon
-                            iconId="icon-apple"
-                            w={18}
-                            h={18}
-                            customStyles={iconStyles}
-                        />
-                        Calories consumed
-                    </p>
-                    <p className={cn('dashboard__item__number')}>
-                        {Math.round(totalCaloriesConsumed)}
-                    </p>
-                </li>
-                <li className={cn({ redHighlight: isCaloriesExceeded })}>
-                    <p className={cn('dashboard__item__desc')}>
-                        <Icon
-                            iconId="icon-bubble"
-                            w={18}
-                            h={18}
-                            customStyles={iconStyles}
-                        />
-                        Calories remaining
-                    </p>
-                    <p className={cn('dashboard__item__number')}>
-                        {Math.round(caloriesRemaining)}
-                    </p>
-                </li>
                 <li className={cn('red')}>
                     <p className={cn('dashboard__item__desc')}>
                         <Icon
@@ -113,6 +85,20 @@ const DiaryDashboard = () => {
                 <li>
                     <p className={cn('dashboard__item__desc')}>
                         <Icon
+                            iconId="icon-apple"
+                            w={18}
+                            h={18}
+                            customStyles={iconStyles}
+                        />
+                        Calories consumed
+                    </p>
+                    <p className={cn('dashboard__item__number')}>
+                        {Math.round(totalCaloriesConsumed)}
+                    </p>
+                </li>
+                <li>
+                    <p className={cn('dashboard__item__desc')}>
+                        <Icon
                             iconId="icon-calories"
                             w={18}
                             h={18}
@@ -124,6 +110,21 @@ const DiaryDashboard = () => {
                         {Math.round(totalCaloriesBurned)}
                     </p>
                 </li>
+                <li className={cn({ redHighlight: isCaloriesExceeded })}>
+                    <p className={cn('dashboard__item__desc')}>
+                        <Icon
+                            iconId="icon-bubble"
+                            w={18}
+                            h={18}
+                            customStyles={iconStyles}
+                        />
+                        Calories remaining
+                    </p>
+                    <p className={cn('dashboard__item__number')}>
+                        {Math.round(caloriesRemaining)}
+                    </p>
+                </li>
+
                 <li className={cn({ greenHighlight: isExerciseRemaining })}>
                     <p className={cn('dashboard__item__desc')}>
                         <Icon

@@ -12,7 +12,7 @@ a {
     background: rgba(239, 237, 232, 0.05);
     padding: 16px 12px;
 
-    max-width: 380px;
+    width: 335px;
 
     @media screen and (min-width: 768px) {
         min-width: 704px;
@@ -21,7 +21,7 @@ a {
         min-height: 234px;
     }
 
-    @media screen and (min-width: 1140px) {
+    @media screen and (min-width: 1440px) {
         min-width: 826px;
         padding-top: 16px;
     }
@@ -31,7 +31,6 @@ a {
     display: flex;
     justify-content: space-between;
     margin-bottom: 22px;
-
     @media screen and (min-width: 768px) {
         margin-bottom: 16px;
     }
@@ -150,7 +149,8 @@ a {
 }
 
 .container__input,
-.container__input__small {
+.container__input__small,
+.container__input_small_Product {
     display: block;
     color: $snow-white;
     font-size: 14px;
@@ -183,7 +183,7 @@ a {
 }
 
 .container__input__small {
-    width: 91px;
+    width: 81px;
 }
 
 .big-gap {
@@ -210,7 +210,7 @@ a {
         width: 90px;
     }
 
-    @media screen and (min-width: 1140px) {
+    @media screen and (min-width: 1440px) {
         width: 115px;
     }
 }
@@ -220,16 +220,17 @@ a {
         width: 132px;
     }
 
-    @media screen and (min-width: 1140px) {
+    @media screen and (min-width: 1440px) {
         width: 157px;
     }
 }
+
 .name {
     @media screen and (min-width: 768px) {
         width: 128px;
     }
 
-    @media screen and (min-width: 1140px) {
+    @media screen and (min-width: 1440px) {
         width: 131px;
     }
 }
@@ -238,7 +239,7 @@ a {
         width: 84px;
     }
 
-    @media screen and (min-width: 1140px) {
+    @media screen and (min-width: 1440px) {
         width: 106px;
     }
 }
@@ -247,7 +248,7 @@ a {
         width: 78px;
     }
 
-    @media screen and (min-width: 1140px) {
+    @media screen and (min-width: 1440px) {
         width: 91px;
     }
 }
@@ -256,7 +257,7 @@ a {
         width: 72px;
     }
 
-    @media screen and (min-width: 1140px) {
+    @media screen and (min-width: 1440px) {
         width: 82px;
     }
 }
@@ -289,5 +290,72 @@ a {
 
     &:active svg use {
         stroke: $christmas-main-orange;
+    }
+}
+
+
+// ===============================================
+// ===============ProductTable.scss====================
+// ===============================================
+
+
+.green::before {
+    content: '';
+    background-color: #419b09;
+    border-radius: 50%;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.red::before {
+    background-color: #e9101d;
+    content: '';
+    border-radius: 50%;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.category__product {
+    @media screen and (min-width: 768px) {
+        width: 128px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 166px;
+    }
+}
+
+.title__product {
+    @media screen and (min-width: 768px) {
+        width: 204px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 212px;
+    }
+}
+
+.small-gap__product {
+    margin-right: 6px;
+
+    @media screen and (min-width: 768px) {
+        margin-right: 12px;
+    }
+}
+
+.container__input_small_Product {
+    width: 81px;
+
+    @media screen and (min-width: 768px) {
+        width: 90px;
+    }
+    @media screen and (min-width: 1440px) {
+        width: 110px;
     }
 }

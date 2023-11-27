@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import styles from './ProductTable.module.scss';
+import styles from '../ExercisesTable/ExercisesTable.module.scss';
 import { Icon } from '../../../ui/Icon';
 import {
     deleteProduct,
@@ -61,7 +61,6 @@ const ProductTable = () => {
                         const { weight, consumedCalories } = product;
                         const isNotAllowedForBloodType =
                             groupBloodNotAllowed[bloodType];
-                        console.log(groupBloodNotAllowed[bloodType]);
                         return (
                             <li key={_id}>
                                 <div className={cn('big-gap')}>
@@ -71,7 +70,7 @@ const ProductTable = () => {
                                     <p
                                         className={cn(
                                             'container__input',
-                                            'title',
+                                            'title__product',
                                         )}
                                     >
                                         {title}
@@ -84,7 +83,7 @@ const ProductTable = () => {
                                     <p
                                         className={cn(
                                             'container__input',
-                                            'category',
+                                            'category__product',
                                         )}
                                     >
                                         {category}
@@ -96,7 +95,7 @@ const ProductTable = () => {
                                     </h3>
                                     <p
                                         className={cn(
-                                            'container__input__small',
+                                            'container__input_small_Product',
                                         )}
                                     >
                                         {Math.round(consumedCalories)}
@@ -108,19 +107,19 @@ const ProductTable = () => {
                                     </h3>
                                     <p
                                         className={cn(
-                                            'container__input__small',
+                                            'container__input_small_Product',
                                         )}
                                     >
                                         {weight}
                                     </p>
                                 </div>
-                                <div className={cn('small-gap')}>
+                                <div className={cn('small-gap__product')}>
                                     <h3 className={cn('container__label')}>
                                         Recommend
                                     </h3>
                                     <p
                                         className={cn(
-                                            'container__input__small',
+                                            'container__input_small_Product',
                                             {
                                                 red: !isNotAllowedForBloodType,
                                                 green: isNotAllowedForBloodType,

@@ -3,54 +3,57 @@ import { useMediaQuery } from 'react-responsive';
 import styles from './ProductsFilters.module.scss';
 import classNames from 'classnames/bind';
 import { Select } from '../../../ui/Select/Select';
-import { useState } from 'react';
 import { Icon } from '../../../ui/Icon';
 
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    getProducts,
-    getProductsCategories,
-} from '../../../../storage/operations/productsThunk.js';
-import { useEffect } from 'react';
-import { selectorCategories } from '../../../../storage/selectors/productsSelector.js';
+import { getProducts, getProductsCategories } from '../../../../storage/operations/productsThunk.js';
+import { selectorCategories, selectorParam } from '../../../../storage/selectors/productsSelector.js';
+import { useEffect, useState } from 'react';
 
 const cn = classNames.bind(styles);
 
 const ProductsFilters = () => {
-    const [inputValue, setInputValue] = useState('');
-    const isTabletScreen = useMediaQuery({ minWidth: 768 });
     const dispatch = useDispatch();
+    const isTabletScreen = useMediaQuery({ minWidth: 768 });
+
+    const params = useSelector(selectorParam);
     const { list } = useSelector(selectorCategories);
-
-    const [category, setCategory] = useState('');
+        
+    const [inputValue, setInputValue] = useState('');
     const [isRecommended, setIsRecommended] = useState(null);
+    const [currentCategory, setCurrentCategory] = useState('');
 
-    const hendleInputChange = (e) => {
-        const value = e.target.value;
-        setInputValue(value);
-    };
-    const handleClearInput = () => {
-        setInputValue('');
+    const handleCategoryBloodChange = async(value) => {
+        switch (value) {
+            case 'Recommended':
+                setIsRecommended(true);
+            break;
+            case 'Not recommended':
+                setIsRecommended(false);
+            break;
+            default:
+                setIsRecommended(null);
+            break;
+        };
     };
 
-    const handleCategoryChange = (selectedValue) => {
-        setCategory(selectedValue);
-
-        dispatch(getProducts({ inputValue, category, isRecommended }));
-    };
-
-    const handleCategoryBlodChange = (selectedValue) => {
-        if (selectedValue == 'Recommended') {
-            setIsRecommended(true);
-        } else if (selectedValue == 'Not recommended') {
-            setIsRecommended(false);
-        } else {
-            setIsRecommended(null);
-        }
-        dispatch(getProducts({ inputValue, category, isRecommended }));
-    };
-    const handleFormSubmit = () => {
-        dispatch(getProducts({ inputValue, category, isRecommended }));
+    useEffect(() => {
+        if(params.category !== currentCategory || params.recommend !== isRecommended)
+        dispatch(getProducts({
+    ...params,
+    category: currentCategory,
+    recommend: isRecommended,
+    query: inputValue,
+    page: 1,
+}));
+    }, [currentCategory, dispatch, inputValue, isRecommended, params]);
+    
+    const handleFormSubmit = async() => {
+        await dispatch(getProducts({
+            ...params,
+            query: inputValue,
+            page: 1,
+        }));
     };
 
     const IconStylesSearch = {
@@ -70,10 +73,6 @@ const ProductsFilters = () => {
         height: 112,
         overflow: 'visible',
     };
-
-    useEffect(() => {
-        handleFormSubmit();
-    }, [category, isRecommended]);
 
     useEffect(() => {
         dispatch(getProductsCategories());
@@ -99,13 +98,13 @@ const ProductsFilters = () => {
                             autoComplete="off"
                             autoFocus
                             placeholder="Search"
-                            onChange={hendleInputChange}
+                            onChange={(e)=>setInputValue(e.target.value)}
                         />
                         {inputValue && (
                             <button
                                 type="button"
                                 className={cn('button_close')}
-                                onClick={handleClearInput}
+                                onClick={()=>setInputValue('')}
                             >
                                 <Icon
                                     iconId="icon-close"
@@ -115,7 +114,6 @@ const ProductsFilters = () => {
                                 />
                             </button>
                         )}
-
                         <button className={cn('button_form')} type="submit">
                             <Icon
                                 iconId="icon-search"
@@ -125,16 +123,15 @@ const ProductsFilters = () => {
                             />
                         </button>
                     </div>
-
                     <Select
                         value={list}
-                        handleCategoryChange={handleCategoryChange}
+                        handleCategoryChange={(e)=> setCurrentCategory(e)}
                     />
                     <Select
                         value={selectList}
                         customSelectStyle={customSelectStyle}
                         customListSelectStyle={listSelectStyle}
-                        handleCategoryChange={handleCategoryBlodChange}
+                        handleCategoryChange={handleCategoryBloodChange}
                     />
                 </Form>
             </Formik>

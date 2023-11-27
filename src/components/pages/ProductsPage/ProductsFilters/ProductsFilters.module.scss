@@ -27,22 +27,22 @@
 }
 
 .input {
-    color: #efede8;
+    color: $snow-white;
     padding: 14px;
     background-color: transparent;
     outline: none;
     width: 335px;
     height: 46px;
-    border-radius: 12px;
-    border: 1px solid#EFEDE84D;
+    border-radius: $main-b-radius;
+    border: 1px solid $snow-alpha-white;
 
     @include transition();
 
     &:hover {
-        border-color: #e6533c;
+        border-color: $christmas-main-orange;
     }
     &:focus {
-        border-color: #e6533c;
+        border-color: $christmas-main-orange;
         padding-left: 18px;
     }
 
@@ -58,7 +58,7 @@
     right: 0;
     transform: translate(-30%);
     background-color: transparent;
-    color: #efede8;
+    color: $snow-white;
     border: none;
 }
 .button_close {
@@ -67,7 +67,7 @@
     right: 25px;
     transform: translate(-30%);
     background-color: transparent;
-    color: #efede8;
+    color: $snow-white;
     border: none;
     cursor: pointer;
 }

@@ -46,6 +46,7 @@ const Welcome = () => {
             <div>
                 <Link to="/signup">
                     <Button
+                    type={'submit'}
                         label="Sign Up"
                         action={() => {
                             console.log('click');
@@ -56,6 +57,7 @@ const Welcome = () => {
 
                 <Link to="/signin">
                     <Button
+                    type={'submit'}
                         label="Sign In"
                         buttonStyles="gray"
                         action={() => {

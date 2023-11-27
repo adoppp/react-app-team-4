@@ -1,5 +1,6 @@
 @import '../../../../scss/colors';
 @import '../../../../scss/mixins';
+@import '../../../../scss/variables';
 
 .usercard__container {
     display: flex;
@@ -156,7 +157,7 @@
     width: 158px;
     height: 96px;
     margin-right: 14px;
-    border-radius: 12px;
+    border-radius: $main-b-radius;
 
     @media (min-width: 768px) {
         width: 214px;

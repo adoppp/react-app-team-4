@@ -90,6 +90,7 @@ const Header = () => {
                     </li>
                     <li>
                         <button
+                        type='submit'
                             className={cn('logout__button')}
                             onClick={handleLogout}
                         >
@@ -104,7 +105,7 @@ const Header = () => {
                     </li>
                 </ul>
             </div>
-            <button className={cn('header__burgerMenu')} onClick={openMenu}>
+            <button type='button' className={cn('header__burgerMenu')} onClick={openMenu}>
                 <Icon iconId="icon-menu-02" w={24} h={24} />
             </button>
         </div>

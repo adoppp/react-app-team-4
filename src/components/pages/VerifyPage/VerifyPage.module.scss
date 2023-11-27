@@ -42,7 +42,7 @@
 
     & div {
         @include container();
-        background-color: #e6533c;
+        background-color: $christmas-main-orange;
         height: 100vb;
         width: 240px;
         margin: 0 0;

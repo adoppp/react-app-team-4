@@ -20,17 +20,22 @@
     height: 64px;
 }
 
-.diary-container {
+.diary__container {
+    width: 335px;
     display: flex;
     flex-direction: column;
     gap: 40px;
-    margin-bottom: 64px;
+    padding-bottom: 80px;
+    margin: 0 auto;
 
     @media screen and (min-width: 768px) {
+        width: 704px;
         gap: 32px;
+        padding-bottom: 64px;
     }
 
-    @media screen and (min-width: 1140px) {
+    @media screen and (min-width: 1440px) {
+        width: auto;
         margin-bottom: 0px;
     }
 }
@@ -57,7 +62,7 @@
         gap: 64px;
     }
 
-    @media screen and (min-width: 1140px) {
+    @media screen and (min-width: 1440px) {
         flex-direction: row;
         gap: 32px;
     }

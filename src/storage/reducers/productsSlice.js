@@ -2,14 +2,17 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
     getProducts,
     getProductsCategories,
-    getProductsOfBlood,
-    getProductsOfBloodNotRecommended,
 } from '../operations/productsThunk.js';
 
 const initialState = {
+    param:{
+        query:'',
+        page: 1,
+        recommend: null,
+        category: '',
+    },
     products: {
         items: [],
-        filterCategory: [],
     },
     categories: {
         list: [],
@@ -30,24 +33,16 @@ const productsSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(getProducts.fulfilled, (state, action) => {
-                state.products.items = action.payload.products;
-                state.products.filterCategory = action.payload;
-            })
+                    state.products.items = action.payload.products;
 
-            .addCase(getProductsOfBlood.fulfilled, (state, action) => {
-                state.products.items = action.payload.recommendedProducts;
+                    state.param.query = action.meta.arg.query
+                    state.param.page = action.meta.arg.page;
+                    state.param.recommend = action.meta.arg.recommend
+                    state.param.category = action.meta.arg.category
             })
-            .addCase(
-                getProductsOfBloodNotRecommended.fulfilled,
-                (state, action) => {
-                    state.products.items =
-                        action.payload.notRecommendedProducts;
-                },
-            )
-
             .addCase(getProductsCategories.fulfilled, (state, action) => {
                 state.categories.list = action.payload;
-            });
+            })
     },
 });
 export const { setCategoryFilter } = productsSlice.actions;

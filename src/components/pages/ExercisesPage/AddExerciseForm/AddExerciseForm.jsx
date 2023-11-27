@@ -8,6 +8,7 @@ import { useMediaQuery } from 'react-responsive';
 import { AddExerciseSuccess } from '../AddExerciseSuccess/AddExerciseSuccess';
 import { addExercise } from '../../../../storage/operations/diaryThunk';
 import { useDispatch, useSelector } from 'react-redux';
+import { Notify } from 'notiflix';
 
 const cn = classNames.bind(styles);
 
@@ -62,7 +63,7 @@ const AddExerciseForm = ({ data, customClose }) => {
             date: selectedDate,
             time: time / 60,
         };
-        console.log('time > 1 min');
+        Notify.warning('Time should be more then 1 minutes');
         if (time >= 60 && burnedCalories >= 1) {
             dispatch(addExercise(ExercisesData));
             setShowModal(true);
@@ -101,7 +102,7 @@ const AddExerciseForm = ({ data, customClose }) => {
                                     {renderTime}
                                 </CountdownCircleTimer>
                             </div>
-                            <button onClick={() => handleClickPause(pause)}>
+                            <button type='button' onClick={() => handleClickPause(pause)}>
                                 {pause && (
                                     <Icon
                                         iconId="icon-pause-square"
