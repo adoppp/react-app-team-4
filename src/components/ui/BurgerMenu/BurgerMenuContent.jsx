@@ -20,7 +20,11 @@ const BurgerMenuContent = ({ onClose }) => {
 
     return (
         <div className={cn('burgerMenu__container')}>
-            <button onClick={onClose} className={cn('burger__button')}>
+            <button 
+            type='button' 
+            aria-label="Close menu"
+            onClick={onClose} 
+            className={cn('burger__button')}>
                 <Icon
                     iconId="icon-close"
                     w={isLargeScreen ? 32 : 24}

@@ -1,50 +1,36 @@
-import { lazy } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate } from "react-router-dom";
 
-const MainСontainer = lazy(() =>
-    import('../components/containers/MainСontainer/MainСontainer'),
-);
-const PrivateContainer = lazy(() =>
-    import('../components/containers/PrivateContainer/PrivateContainer'),
-);
-const ProfilePage = lazy(() =>
-    import('../components/pages/ProfilePage/ProfilePage'),
-);
-const DiaryPage = lazy(() => import('../components/pages/DiaryPage/DiaryPage'));
-const ProductsPage = lazy(() =>
-    import('../components/pages/ProductsPage/ProductsPage'),
-);
-const ExercisesPage = lazy(() =>
-    import('../components/pages/ExercisesPage/ExercisesPage'),
-);
-const ProductsContainer = lazy(() =>
-    import('../components/containers/ProductsContainer/ProductsContainer'),
-);
-const VerifyPage = lazy(() =>
-    import('../components/pages/VerifyPage/VerifyPage'),
-);
-
-import { Welcome } from '../components/global/Welcome';
-import { SignUp } from '../components/auth/SignUp';
-import { SignIn } from '../components/auth/SignIn';
-import { RestrictedRoute } from './RestrictedRoute';
-import { PrivateRoute } from './PrivateRoute';
-import { InfoRoute } from './InfoRoute';
-import { ExercisesSubcategoriesItem } from '../components/pages/ExercisesPage/ExercisesSubcategoriesItem';
-import { ExercisesList } from '../components/pages/ExercisesPage/ExercisesList';
-import { VerifyRoute } from './VerifyRoute';
-import NotFoundContainer from '../components/containers/NotFoundContainer/NotFoundContainer';
+import {     
+    SignIn,
+    SignUp,
+    Welcome,
+    DiaryPage,
+    InfoRoute,
+    VerifyPage,
+    ProfilePage,
+    VerifyRoute,
+    ProductsPage,
+    PrivateRoute,
+    ExercisesPage,
+    ExercisesList,
+    MainContainer,
+    RestrictedRoute,
+    PrivateContainer,
+    ProductsContainer,
+    NotFoundContainer, 
+    ExercisesSubcategoriesItem
+} from "./routesImport";
 
 const routes = {
     MAIN_ROUTE: '/',
-    WELCOME_ROUTE: '/welcome',
-    SIGNUP_ROUTE: '/signup',
-    SIGNIN_ROUTE: '/signin',
-    PROFILE_ROUTE: '/profile',
     DIARY_ROUTE: '/diary',
+    SIGNIN_ROUTE: '/signin',
+    SIGNUP_ROUTE: '/signup',
+    VERIFY_ROUTE: '/verify',
+    PROFILE_ROUTE: '/profile',
+    WELCOME_ROUTE: '/welcome',
     PRODUCTS_ROUTE: '/products',
     EXERCISES_ROUTE: '/exercises',
-    VERIFY_ROUTE: '/verify',
 };
 
 const appRoutes = [
@@ -60,9 +46,9 @@ const appRoutes = [
         path: routes.WELCOME_ROUTE,
         element: (
             <RestrictedRoute>
-                <MainСontainer>
+                <MainContainer>
                     <Welcome />
-                </MainСontainer>
+                </MainContainer>
             </RestrictedRoute>
         ),
     },
@@ -70,9 +56,9 @@ const appRoutes = [
         path: routes.SIGNUP_ROUTE,
         element: (
             <RestrictedRoute>
-                <MainСontainer>
+                <MainContainer>
                     <SignUp />
-                </MainСontainer>
+                </MainContainer>
             </RestrictedRoute>
         ),
     },
@@ -80,9 +66,9 @@ const appRoutes = [
         path: routes.SIGNIN_ROUTE,
         element: (
             <RestrictedRoute>
-                <MainСontainer>
+                <MainContainer>
                     <SignIn />
-                </MainСontainer>
+                </MainContainer>
             </RestrictedRoute>
         ),
     },

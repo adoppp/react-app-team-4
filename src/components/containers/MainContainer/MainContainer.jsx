@@ -1,13 +1,13 @@
 import classNames from 'classnames/bind';
 import { useMediaQuery } from 'react-responsive';
 
-import styles from './MainСontainer.module.scss';
+import styles from './MainContainer.module.scss';
 import { Icon } from '../../ui/Icon';
 import { Header } from '../../global/Header';
 
 const cn = classNames.bind(styles);
 
-const MainСontainer = ({ children }) => {
+const MainContainer = ({ children }) => {
     const isTabletScreen = useMediaQuery({ minWidth: 768 });
 
     const iconVideoStyle = {
@@ -35,7 +35,7 @@ const MainСontainer = ({ children }) => {
                         customStyles={iconVideoStyle}
                     />
                 </div>
-                <p className={cn('descriprion__container')}>
+                <p className={cn('description__container')}>
                     350+
                     <span>Video tutorial</span>
                 </p>
@@ -50,7 +50,7 @@ const MainСontainer = ({ children }) => {
                         customStyles={iconRunStyle}
                     />
                 </div>
-                <p className={cn('descriprion__container')}>
+                <p className={cn('description__container')}>
                     500
                     <span>cal</span>
                 </p>
@@ -59,4 +59,4 @@ const MainСontainer = ({ children }) => {
     );
 };
 
-export default MainСontainer;
+export default MainContainer;

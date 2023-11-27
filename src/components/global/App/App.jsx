@@ -9,13 +9,11 @@ import NotFound from '../../pages/NotFound/NotFound';
 import appRoutes from '../../../routing/routes';
 import { refreshUser } from '../../../storage/operations/authThunk';
 import {
-    autheticatedSelector,
+    authenticatedSelector as authenticatedSelector,
     errorVerifySelector,
     isErrorVerifySelector,
     tokenSelector,
-    userSelector,
     userVerifySelector,
-    verificationCodeSelector,
 } from '../../../storage/selectors/authSelectors';
 import {
     errorSelector,
@@ -29,10 +27,10 @@ const cn = classNames.bind(styles);
 
 function App() {
     const token = useSelector(tokenSelector);
-    const autheticated = useSelector(autheticatedSelector);
+    const authenticated = useSelector(authenticatedSelector);
     const error = useSelector(errorSelector);
     const isLoading = useSelector(loadingSelector);
-    const notifErrorVerify = useSelector(errorVerifySelector);
+    const notifyErrorVerify = useSelector(errorVerifySelector);
     const isError = useSelector(isErrorVerifySelector);
     const verify = useSelector(userVerifySelector);
     const dispatch = useDispatch();
@@ -42,7 +40,7 @@ function App() {
         else if (verify === false) return;
 
         dispatch(refreshUser());
-    }, [dispatch, token, autheticated]);
+    }, [dispatch, token, authenticated, verify]);
 
     Notify.init({
         position: 'center-top',
@@ -86,11 +84,11 @@ function App() {
                 </Modal>
             )}
             {isLoading && <Loader />}
-            {notifErrorVerify && (
+            {notifyErrorVerify && (
                 <div>
                     {isError
-                        ? Notify.failure(`${notifErrorVerify}`)
-                        : Notify.success(`${notifErrorVerify}`)}
+                        ? Notify.failure(`${notifyErrorVerify}`)
+                        : Notify.success(`${notifyErrorVerify}`)}
                 </div>
             )}
         </main>
