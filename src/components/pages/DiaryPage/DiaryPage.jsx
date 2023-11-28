@@ -9,8 +9,7 @@ import styles from './DiaryPage.module.scss';
 import { Calendar } from '../../ui/Calendar';
 import { Title } from '../../global/Title';
 import { DiaryDashboard } from './DiaryDashboard';
-import { ProductTable } from './ProductTable';
-import { ExercisesTable } from './ExercisesTable';
+import { ExercisesTable, ProductTable } from './Tables';
 import { Loader } from '../../ui/Loader/Loader';
 
 const cn = classNames.bind(styles);
@@ -43,7 +42,7 @@ const DiaryPage = () => {
         </div>
     );
 
-    const tabletAndDekstopScreen = (
+    const tabletAndDesktopScreen = (
         <div className={cn('diary__container')}>
             <div className={cn('calendar__container')}>
                 <div className={cn('calendar__component_wrapper')}>
@@ -66,7 +65,7 @@ const DiaryPage = () => {
 
     return (
         <section>
-            {isMobileScreen ? mobileScreen : tabletAndDekstopScreen}
+            {isMobileScreen ? mobileScreen : tabletAndDesktopScreen}
         </section>
     );
 };

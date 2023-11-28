@@ -3,9 +3,6 @@ import { Navigate } from 'react-router-dom';
 
 import { routes } from '../routes';
 import {
-    authenticatedSelector,
-    userInfoSelector,
-    userSelector,
     userVerifySelector,
 } from '../../storage/selectors/authSelectors';
 

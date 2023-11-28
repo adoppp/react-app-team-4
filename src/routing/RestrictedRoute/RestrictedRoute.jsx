@@ -8,10 +8,10 @@ import {
 } from '../../storage/selectors/authSelectors';
 
 const RestrictedRoute = ({ children, redirectTo = routes.PROFILE_ROUTE }) => {
-    const authentificated = useSelector(authenticatedSelector);
+    const authenticated = useSelector(authenticatedSelector);
     const userData = useSelector(userInfoSelector);
 
-    const targetRoute = authentificated
+    const targetRoute = authenticated
         ? userData
             ? routes.DIARY_ROUTE
             : routes.PROFILE_ROUTE

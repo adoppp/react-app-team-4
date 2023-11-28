@@ -2,9 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
     getDiaryInfo,
     deleteProduct,
-    addProduct,
     deleteExercise,
-    addExercise,
 } from '../operations/diaryThunk';
 
 export const formatDate = (date) => {

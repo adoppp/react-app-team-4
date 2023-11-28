@@ -36,7 +36,7 @@ const PENDING = (state) => {
     state.isLoading = true;
 };
 
-const FILFILLED = (state) => {
+const FULFILLED = (state) => {
     state.isLoading = false;
 };
 
@@ -50,80 +50,76 @@ const loadingSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(registration.pending, PENDING)
-            .addCase(registration.fulfilled, FILFILLED)
+            .addCase(registration.fulfilled, FULFILLED)
             .addCase(registration.rejected, REJECTED)
 
             .addCase(login.pending, PENDING)
-            .addCase(login.fulfilled, FILFILLED)
+            .addCase(login.fulfilled, FULFILLED)
             .addCase(login.rejected, REJECTED)
 
             .addCase(logout.pending, PENDING)
-            .addCase(logout.fulfilled, FILFILLED)
+            .addCase(logout.fulfilled, FULFILLED)
             .addCase(logout.rejected, REJECTED)
 
             .addCase(refreshUser.pending, PENDING)
-            .addCase(refreshUser.fulfilled, FILFILLED)
+            .addCase(refreshUser.fulfilled, FULFILLED)
             .addCase(refreshUser.rejected, REJECTED)
 
             .addCase(getProducts.pending, PENDING)
-            .addCase(getProducts.fulfilled, FILFILLED)
+            .addCase(getProducts.fulfilled, FULFILLED)
             .addCase(getProducts.rejected, REJECTED)
 
             .addCase(getProductsCategories.pending, PENDING)
-            .addCase(getProductsCategories.fulfilled, FILFILLED)
+            .addCase(getProductsCategories.fulfilled, FULFILLED)
             .addCase(getProductsCategories.rejected, REJECTED)
 
             .addCase(avatarUpdate.pending, PENDING)
-            .addCase(avatarUpdate.fulfilled, FILFILLED)
+            .addCase(avatarUpdate.fulfilled, FULFILLED)
             .addCase(avatarUpdate.rejected, REJECTED)
 
             .addCase(exercisesCategory.pending, PENDING)
-            .addCase(exercisesCategory.fulfilled, FILFILLED)
+            .addCase(exercisesCategory.fulfilled, FULFILLED)
             .addCase(exercisesCategory.rejected, REJECTED)
 
             .addCase(getAllExercises.pending, PENDING)
-            .addCase(getAllExercises.fulfilled, FILFILLED)
+            .addCase(getAllExercises.fulfilled, FULFILLED)
             .addCase(getAllExercises.rejected, REJECTED)
 
             .addCase(infoUpdate.pending, PENDING)
-            .addCase(infoUpdate.fulfilled, FILFILLED)
+            .addCase(infoUpdate.fulfilled, FULFILLED)
             .addCase(infoUpdate.rejected, REJECTED)
 
             .addCase(detailsUpdate.pending, PENDING)
-            .addCase(detailsUpdate.fulfilled, FILFILLED)
+            .addCase(detailsUpdate.fulfilled, FULFILLED)
             .addCase(detailsUpdate.rejected, REJECTED)
 
             .addCase(detailsCreate.pending, PENDING)
-            .addCase(detailsCreate.fulfilled, FILFILLED)
+            .addCase(detailsCreate.fulfilled, FULFILLED)
             .addCase(detailsCreate.rejected, REJECTED)
 
             .addCase(getDiaryInfo.pending, PENDING)
-            .addCase(getDiaryInfo.fulfilled, FILFILLED)
+            .addCase(getDiaryInfo.fulfilled, FULFILLED)
             .addCase(getDiaryInfo.rejected, REJECTED)
 
             .addCase(deleteProduct.pending, PENDING)
-            .addCase(deleteProduct.fulfilled, FILFILLED)
+            .addCase(deleteProduct.fulfilled, FULFILLED)
             .addCase(deleteProduct.rejected, REJECTED)
 
             .addCase(deleteExercise.pending, PENDING)
-            .addCase(deleteExercise.fulfilled, FILFILLED)
+            .addCase(deleteExercise.fulfilled, FULFILLED)
             .addCase(deleteExercise.rejected, REJECTED)
 
             .addCase(addProduct.pending, PENDING)
-            .addCase(addProduct.fulfilled, FILFILLED)
+            .addCase(addProduct.fulfilled, FULFILLED)
             .addCase(addProduct.rejected, REJECTED)
 
             .addCase(addExercise.pending, PENDING)
-            .addCase(addExercise.fulfilled, FILFILLED)
+            .addCase(addExercise.fulfilled, FULFILLED)
             .addCase(addExercise.rejected, REJECTED)
 
             .addCase(verifyByVerificationCode.pending, PENDING)
-            .addCase(verifyByVerificationCode.fulfilled, FILFILLED)
+            .addCase(verifyByVerificationCode.fulfilled, FULFILLED)
             .addCase(verifyByVerificationCode.rejected, REJECTED);
-
-        // .addCase(getParameters.pending, PENDING)
-        // .addCase(getParameters.fulfilled, FILFILLED)
-        // .addCase(getParameters.rejected, REJECTED)
     },
 });
 
