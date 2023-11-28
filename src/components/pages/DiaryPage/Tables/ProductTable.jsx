@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import styles from './ExercisesTable.module.scss';
+import styles from './Table.module.scss';
 import { Icon } from '../../../ui/Icon';
 import {
     deleteProduct,
