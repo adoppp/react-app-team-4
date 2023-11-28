@@ -11,7 +11,6 @@ import {
     detailsCreate,
     verifyOneMore,
     verifyByVerificationCode,
-    // getParameters,
 } from '../operations/authThunk';
 import {
     getProducts,
