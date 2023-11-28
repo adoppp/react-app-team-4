@@ -203,16 +203,24 @@ const Calendar = () => {
             </button>
 
             <button
+                role='button'
+                aria-label='Previous Day'
                 className={'icon-previous-btn-icon'}
                 onClick={handlePrevDay}
             >
                 <Icon iconId="calendar-arrow-left" w={16} h={16} />
             </button>
-            <button className={'icon-next-btn-icon'} onClick={handleNextDay}>
+            <button 
+            role='button'
+            aria-label='Next Day'
+            className={'icon-next-btn-icon'} 
+            onClick={handleNextDay}>
                 <Icon iconId="calendar-arrow-right" w={16} h={16} />
             </button>
         </div>
     ));
+
+    BtnInput.displayName = 'BtnInput';
 
     const handlePrevDay = () => {
         const previousDay = new Date(selectedDate);

@@ -27,7 +27,6 @@ const ExercisesTable = () => {
             },
         );
     };
-    console.log(exercises);
 
     const IconButtonStyles = {
         marginLeft: 6,
@@ -55,11 +54,6 @@ const ExercisesTable = () => {
                         const { burnedCalories, time } = exercise;
                         const { _id, bodyPart, equipment, name, target } =
                             exercise.exercise;
-                        console.log(
-                            '🚀 ~ file: ExercisesTable.jsx:43 ~ ExercisesTable ~ burnedCalories:',
-                            burnedCalories,
-                        );
-
                         return (
                             <li key={_id}>
                                 <div className={cn('big-gap')}>

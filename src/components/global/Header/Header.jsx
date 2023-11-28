@@ -8,7 +8,7 @@ import styles from './Header.module.scss';
 import { BurgerMenu } from '../../ui/BurgerMenu';
 import { Icon } from '../../ui/Icon';
 import {
-    autheticatedSelector,
+    authenticatedSelector,
     avatarSelector,
 } from '../../../storage/selectors/authSelectors';
 import { StyledLink } from './Header.styled';
@@ -20,7 +20,7 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const dispatch = useDispatch();
 
-    const autheticated = useSelector(autheticatedSelector);
+    const authenticated = useSelector(authenticatedSelector);
     const avatar = useSelector(avatarSelector);
 
     const isLargeScreen = useMediaQuery({ minWidth: 768 });
@@ -47,11 +47,11 @@ const Header = () => {
         dispatch(logout());
     };
 
-    const authHeaderStyles = autheticated
+    const authHeaderStyles = authenticated
         ? { borderBottom: `1px solid #efede833` }
         : {};
 
-    const routeLogoPath = autheticated ? '/diary' : '/welcome';
+    const routeLogoPath = authenticated ? '/diary' : '/welcome';
 
     const authHeader = (
         <div className={cn('header__routing-container')}>
@@ -69,7 +69,7 @@ const Header = () => {
             <div className={cn('header__user-links')}>
                 <ul className={cn('header__list')}>
                     <li className={cn('header__settings')}>
-                        <Link to="/profile">
+                        <Link to="/profile" aria-label="Settings your profile">
                             <Icon
                                 iconId="icon-settings"
                                 w={settingsStyles}
@@ -90,6 +90,7 @@ const Header = () => {
                     </li>
                     <li>
                         <button
+                        type='submit'
                             className={cn('logout__button')}
                             onClick={handleLogout}
                         >
@@ -104,7 +105,7 @@ const Header = () => {
                     </li>
                 </ul>
             </div>
-            <button className={cn('header__burgerMenu')} onClick={openMenu}>
+            <button type='button' className={cn('header__burgerMenu')} onClick={openMenu} role='Open menu'>
                 <Icon iconId="icon-menu-02" w={24} h={24} />
             </button>
         </div>
@@ -124,7 +125,7 @@ const Header = () => {
                         <span>PowerPulse</span>
                     </Link>
                 </div>
-                {autheticated ? authHeader : null}
+                {authenticated ? authHeader : null}
             </div>
             {isMenuOpen && <BurgerMenu onClose={closeMenu} />}
         </header>

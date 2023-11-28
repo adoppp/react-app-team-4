@@ -26,7 +26,7 @@ const DiaryPage = () => {
     const isMobileScreen = useMediaQuery({ maxWidth: 767 });
 
     const mobileScreen = (
-        <div className={cn('diary-container')}>
+        <div className={cn('diary__container')}>
             <div className={cn('calendar__container-mobile')}>
                 <Title title="Diary" />
                 <div className={cn('calendar__component_wrapper')}>
@@ -44,7 +44,7 @@ const DiaryPage = () => {
     );
 
     const tabletAndDekstopScreen = (
-        <div className={cn('diary-container')}>
+        <div className={cn('diary__container')}>
             <div className={cn('calendar__container')}>
                 <div className={cn('calendar__component_wrapper')}>
                     <Calendar />

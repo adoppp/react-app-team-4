@@ -14,7 +14,7 @@
     padding-top: 64px;
 
     & span {
-        color: #efede84d;
+        color: $snow-alpha-white;
     }
 
     @media screen and (min-width: 768px) {
@@ -28,20 +28,11 @@
     display: flex;
     flex-direction: column;
     width: 335px;
-    height: 141px;
-    border-radius: 12px;
+    min-height: 141px;
+    border-radius: $main-b-radius;
     border: 1px solid $lonely-modal-gray;
     padding: 16px;
     background-color: $darkness-modal-black;
-
-    @media screen and (min-width: 768px) {
-        margin-right: 16px;
-        margin-bottom: 32px;
-
-        &:nth-child(even) {
-            margin-right: 0;
-        }
-    }
 
     @media screen and (min-width: 1440px) {
         width: 405px;
@@ -72,7 +63,7 @@
 }
 
 .text {
-    color: #efede8;
+    color: $snow-white;
     font-weight: 400;
     font-size: 12px;
     line-height: 1.5;
@@ -101,7 +92,7 @@
 
 .button {
     display: flex;
-    color: #e6533c;
+    color: $christmas-main-orange;
     background-color: transparent;
     border: none;
     font-weight: 400;
@@ -139,7 +130,7 @@
         line-height: 1.5;
     }
     & span {
-        color: #efede8;
+        color: $snow-white;
         margin-left: 4px;
         text-transform: capitalize;
     }

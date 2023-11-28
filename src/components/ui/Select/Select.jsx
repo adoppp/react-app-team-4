@@ -17,7 +17,7 @@ const Select = ({
         return text.charAt(0).toUpperCase() + text.slice(1);
     };
 
-    const battonCapitalize = capitalizeFirstLetter(buttonText);
+    const buttonCapitalize = capitalizeFirstLetter(buttonText);
 
     const toggleClass = () => {
         setIsSelectOpen(!isSelectOpen);
@@ -52,7 +52,7 @@ const Select = ({
                     onClick={toggleClass}
                     className={cn('dropdown_button')}
                 >
-                    {battonCapitalize}
+                    {buttonCapitalize}
                 </button>
                 <ul
                     style={customListSelectStyle ? customListSelectStyle : {}}

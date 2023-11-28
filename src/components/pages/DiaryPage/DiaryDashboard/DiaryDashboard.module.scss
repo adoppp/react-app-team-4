@@ -10,14 +10,15 @@
     justify-content: center;
 
     @media screen and (min-width: 768px) {
+        display: flex;
         column-gap: 16px;
         row-gap: 16px;
         width: 600px;
-    }
+    };
 
-    @media screen and (min-width: 1140px) {
+    @media screen and (min-width: 1440px) {
         width: 390px;
-    }
+    };
 
     & li {
         display: flex;
@@ -35,24 +36,66 @@
             width: 187px;
             height: 116px;
             padding: 18px;
+
+            &:nth-child(2) {
+                order: 4;
+            };
+            
+            &:nth-child(3) {
+                order: 2;
+            };
+            
+            &:nth-child(4) {
+                order: 5;
+            };
+        
+            &:nth-child(5) {
+                order: 3;
+            };
+        
+            &:nth-child(6) {
+                order: 6;
+            };
+        };
+        @media screen and (min-width: 1440px) {
+            &:nth-child(2) {
+                order: initial;
+            };
+            
+            &:nth-child(3) {
+                order: initial;
+            };
+            
+            &:nth-child(4) {
+                order: initial;
+            };
+        
+            &:nth-child(5) {
+                order: initial;
+            };
+        
+            &:nth-child(6) {
+                order: initial;
+            };
         }
-    }
+    };
+
     .greenHighlight {
         border: 1px solid #3cbf61;
-    }
+    };
 
     .redHighlight {
         border: 1px solid #e9101d;
-    }
+    };
 
     .red {
         background: $christmas-main-orange;
 
         & p {
             color: rgba(239, 237, 232, 0.8);
-        }
-    }
-}
+        };
+    };
+};
 
 .dashboard__item__desc {
     display: flex;
@@ -64,11 +107,11 @@
     & svg use {
         stroke: $christmas-main-orange;
         fill: $christmas-main-orange;
-    }
+    };
 
     @media screen and (min-width: 768px) {
-    }
-}
+    };
+};
 
 .dashboard__item__number {
     color: $snow-white;
@@ -79,8 +122,8 @@
     @media screen and (min-width: 768px) {
         font-size: 24px;
         line-height: 32px;
-    }
-}
+    };
+};
 
 .dashboard__desc {
     display: flex;
@@ -95,12 +138,13 @@
         line-height: 24px;
         margin-top: 32px;
         width: 600px;
-    }
+    };
 
-    @media screen and (min-width: 1140px) {
+    @media screen and (min-width: 1440px) {
         width: 390px;
-    }
-}
+        margin-top: 48px;
+    };
+};
 
 .dashboard__icon {
     display: inline-block;
@@ -108,4 +152,4 @@
     background-color: $christmas-beige;
     width: 24px;
     height: 24px;
-}
+};

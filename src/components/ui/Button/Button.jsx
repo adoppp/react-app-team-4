@@ -12,9 +12,8 @@ const Button = ({
     type,
     isDisabled,
 }) => {
-    const disabletBtn = (
+    const disabledBtn = (
         <button
-            button
             className={cn('button', { [`${buttonStyles}`]: buttonStyles })}
             onClick={action}
             style={
@@ -31,7 +30,6 @@ const Button = ({
 
     const btn = (
         <button
-            button
             className={cn('button', { [`${buttonStyles}`]: buttonStyles })}
             onClick={action}
             style={customContainerStyles ? customContainerStyles : {}}
@@ -41,7 +39,7 @@ const Button = ({
         </button>
     );
 
-    return isDisabled ? disabletBtn : btn;
+    return isDisabled ? disabledBtn : btn;
 };
 
 export { Button };

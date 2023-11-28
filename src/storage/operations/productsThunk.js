@@ -3,39 +3,16 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const getProducts = createAsyncThunk(
     'products/getAll',
-    async ({ inputValue, category, isRecommended }, thunkAPI) => {
+    async ({ query='', category='', recommend=null, page }, thunkAPI) => {
         try {
             const response = await instance.get(
-                `/products?keyword=${inputValue}&category=${category}&recommend=${isRecommended}`,
-            );
+                `/products?keyword=${query}&category=${category}&recommend=${recommend}&page=${page}&limit=20`,
+                );
             return response.data;
         } catch (e) {
             return thunkAPI.rejectWithValue(
                 e.response.data.message ? e.response.data.message : e.message,
             );
-        }
-    },
-);
-
-export const getProductsOfBlood = createAsyncThunk(
-    'products/getBood',
-    async (query, thunkAPI) => {
-        try {
-            const response = await instance.get(`/products?blood=${query}`);
-            return response.data;
-        } catch (e) {
-            return thunkAPI.rejectWithValue(e.message);
-        }
-    },
-);
-export const getProductsOfBloodNotRecommended = createAsyncThunk(
-    'products/getBoodNot',
-    async (query, thunkAPI) => {
-        try {
-            const response = await instance.get(`/products?blood=${query}`);
-            return response.data;
-        } catch (e) {
-            return thunkAPI.rejectWithValue(e.message);
         }
     },
 );

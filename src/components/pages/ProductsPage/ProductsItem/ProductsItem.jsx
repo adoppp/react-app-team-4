@@ -3,20 +3,20 @@ import styles from './ProductsItem.module.scss';
 import classNames from 'classnames/bind';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { selectorProducts } from '../../../../storage/selectors/productsSelector.js';
 import { getProducts } from '../../../../storage/operations/productsThunk.js';
 import { useEffect } from 'react';
+import { userInfoSelector } from '../../../../storage/selectors/authSelectors.js';
 
 const cn = classNames.bind(styles);
 
-const ProductsItem = ({ open }) => {
+const ProductsItem = ({ open, items }) => {
     const dispatch = useDispatch();
-    const { items } = useSelector(selectorProducts);
-    const userBloodGroup = 2;
+
+    const { blood } = useSelector(userInfoSelector);
 
     useEffect(() => {
         dispatch(
-            getProducts({ inputValue: '', category: '', isRecommended: null }),
+            getProducts({ query:'', category:'', recommend:null, page:1 }),
         );
     }, [dispatch]);
 
@@ -26,9 +26,11 @@ const ProductsItem = ({ open }) => {
         height: 24,
         borderRadius: 50,
     };
+
     const IconButtonStyles = {
         marginLeft: 8,
     };
+    
     return (
         <>
             {!items || items.length === 0 ? (
@@ -50,9 +52,9 @@ const ProductsItem = ({ open }) => {
                 items.map((item) => {
                     const groupBloodNotAllowed = item.groupBloodNotAllowed;
                     const isRecommendedForUser =
-                        !groupBloodNotAllowed[userBloodGroup];
+                        !groupBloodNotAllowed[blood];
                     return (
-                        <li key={item.title} className={cn('item')}>
+                        <li key={item._id} className={cn('item')}>
                             <div className={cn('item_container')}>
                                 <p className={cn('diet')}>DIET</p>
                                 <div className={cn('button_container')}>

@@ -303,6 +303,7 @@ const SignUp = () => {
                             </p>
                             <p>Still can&#39;t find the email? No problem.</p>
                             <Button
+                            type={'submit'}
                                 label="Resend Verification Email"
                                 customContainerStyles={{
                                     fontSize: 18,

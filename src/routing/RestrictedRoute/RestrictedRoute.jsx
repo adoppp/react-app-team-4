@@ -3,12 +3,12 @@ import { Navigate } from 'react-router-dom';
 
 import { routes } from '../routes';
 import {
-    autheticatedSelector,
+    authenticatedSelector,
     userInfoSelector,
 } from '../../storage/selectors/authSelectors';
 
 const RestrictedRoute = ({ children, redirectTo = routes.PROFILE_ROUTE }) => {
-    const authentificated = useSelector(autheticatedSelector);
+    const authentificated = useSelector(authenticatedSelector);
     const userData = useSelector(userInfoSelector);
 
     const targetRoute = authentificated
